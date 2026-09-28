@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fate/Domination</title>
+    <title>Fate/Dominion</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Google Fonts for Genshin-like typography -->
@@ -16,7 +18,25 @@
             background: linear-gradient(135deg, #0e121e 0%, #171d2c 50%, #0a0d16 100%);
             background-attachment: fixed;
             color: #ece5d8;
+            position: relative;
+            min-height: 100vh;
         }
+
+        /* BACKGROUND GAMBAR TRANSPARAN */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            /* Ganti 'assets/images/bg.jpg' sesuai lokasi gambar background kamu */
+            background-image: url('assets/images/bg.png'); 
+            background-size: 50%; /* Ukuran background 50% dari layar */
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15; /* Atur tingkat transparansi (0.05 = samar, 0.5 = terang) */
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .font-genshin {
             font-family: 'Cinzel', serif;
         }
@@ -91,13 +111,13 @@
 </head>
 <body class="min-h-screen p-4 md:p-8">
 
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto relative z-10">
         <!-- Header -->
         <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3">
                     <span class="text-3xl text-[#cca566]">✦</span>
-                    <h1 class="text-3xl md:text-4xl font-black tracking-widest text-white font-genshin drop-shadow-md">FATE/Domination</h1>
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
                     <span class="text-3xl text-[#cca566]">✦</span>
                 </div>
                 <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Servant Database</p>
@@ -153,9 +173,9 @@
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
                 <div class="flex items-center justify-between px-1 text-xs text-gray-400">
                     <span id="servantCount">Showing Servants</span>
-                    <span class="text-[#cca566] font-genshin">SELECT TO SEE DETAILS</span>
+                    <span class="text-[#cca566] font-genshin">SELECT SERVANT</span>
                 </div>
-                <div id="characterGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <div id="characterGrid" class="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     <!-- Cards injected by JS -->
                 </div>
             </div>
@@ -676,11 +696,15 @@
             return [{ name: "Default", url: servant.image || "" }];
         }
 
-        // FUNGSI GANTI & EQUIP SKIN PERSISTEN
+        // FUNGSI GANTI & EQUIP SKIN PERSISTEN DENGAN PENAHAN SCROLL
         function changeServantSprite(index) {
             if (!selectedServant) return;
             const sprites = getServantSprites(selectedServant);
             if (!sprites[index]) return;
+
+            // Simpan posisi scroll horizontal tab skin sebelum re-render
+            const spriteContainer = document.getElementById('spriteTabsContainer');
+            const savedScrollLeft = spriteContainer ? spriteContainer.scrollLeft : 0;
 
             selectedSpriteIndex = index;
             selectedServant.activeSpriteIndex = index; // Simpan skin terpilih di Servant
@@ -698,6 +722,12 @@
             // Refresh UI detail & grid list agar thumbnail di kiri langsung terupdate
             renderDetailContent();
             applyFilters();
+
+            // Kembalikan posisi scroll horizontal tab skin
+            const newSpriteContainer = document.getElementById('spriteTabsContainer');
+            if (newSpriteContainer) {
+                newSpriteContainer.scrollLeft = savedScrollLeft;
+            }
         }
 
         function showDetails(servant) {
@@ -753,9 +783,9 @@
                 ${sprites.length > 1 ? `
                     <div class="border-t border-b border-gray-800 py-2 my-2">
                         <div class="flex items-center justify-between mb-1">
-                            <span class="text-[10px] text-[#cca566] font-bold block">🎭 SELECT / EQUIP SKIN:</span>
+                            <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP SKIN 
                         </div>
-                        <div class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                        <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
                             ${sprites.map((s, idx) => `
                                 <button onclick="changeServantSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
                                     <span>${s.name || `Stage ${idx + 1}`}</span>
@@ -802,7 +832,7 @@
 
                     ${voiceLines.length > 0 ? `
                         <!-- Voice Line Tabs -->
-                        <div class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
+                        <div id="voiceTabsContainer" class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
                             ${voiceLines.map((vl, idx) => `
                                 <button onclick="switchVoiceLine(${idx})" class="text-[10px] px-2.5 py-1 rounded whitespace-nowrap transition-all cursor-pointer ${idx === selectedVoiceIndex ? 'bg-[#cca566] text-[#0e121e] font-bold shadow' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}">
                                     ${vl.title || `Line ${idx + 1}`}
@@ -864,16 +894,24 @@
                 </div>
 
                 <button onclick="toggleLoreModal()" class="w-full bg-[#cca566] hover:bg-[#b59055] text-[#0e121e] font-genshin font-bold tracking-widest text-xs py-2.5 rounded transition-all shadow-md cursor-pointer mt-2">
-                    VIEW LORE & FULL VOICE ARCHIVE
+                    DETAILS
                 </button>
             `;
         }
 
         // Voice Over Audio Playback Logic
         function switchVoiceLine(index) {
+            const voiceContainer = document.getElementById('voiceTabsContainer');
+            const savedScrollLeft = voiceContainer ? voiceContainer.scrollLeft : 0;
+
             selectedVoiceIndex = index;
             stopAudio();
             renderDetailContent();
+
+            const newVoiceContainer = document.getElementById('voiceTabsContainer');
+            if (newVoiceContainer) {
+                newVoiceContainer.scrollLeft = savedScrollLeft;
+            }
         }
 
         function togglePlayVoice() {
@@ -1293,6 +1331,46 @@
         }
 
         searchBar.addEventListener('input', applyFilters);
+
+        // FITUR NAVIGASI TOMBOL PANAH KEYBOARD UNTUK GANTI SKIN
+        document.addEventListener('keydown', (e) => {
+            // Jika pengguna sedang mengetik di input/select/textarea, batalkan aksi tombol panah
+            const activeTag = document.activeElement ? document.activeElement.tagName : '';
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
+
+            // Jika modal sedang terbuka, batalkan
+            const isFormModalOpen = !formModal.classList.contains('hidden');
+            const isLoreModalOpen = !loreModal.classList.contains('hidden');
+            const isConfirmModalOpen = !document.getElementById('confirmModal').classList.contains('hidden');
+            if (isFormModalOpen || isLoreModalOpen || isConfirmModalOpen) return;
+
+            if (!selectedServant) return;
+
+            const sprites = getServantSprites(selectedServant);
+            if (sprites.length <= 1) return;
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const nextIndex = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
+                changeServantSprite(nextIndex);
+                scrollActiveSpriteIntoView(nextIndex);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (selectedSpriteIndex + 1) % sprites.length;
+                changeServantSprite(nextIndex);
+                scrollActiveSpriteIntoView(nextIndex);
+            }
+        });
+
+        // Helper untuk menggulirkan tombol skin yang aktif ke dalam pandangan saat ditekan via keyboard
+        function scrollActiveSpriteIntoView(index) {
+            const spriteContainer = document.getElementById('spriteTabsContainer');
+            if (!spriteContainer) return;
+            const buttons = spriteContainer.querySelectorAll('button');
+            if (buttons[index]) {
+                buttons[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            }
+        }
 
         function exportData() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(servantData, null, 2));
