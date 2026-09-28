@@ -27,12 +27,11 @@
             content: '';
             position: fixed;
             inset: 0;
-            /* Ganti 'assets/images/bg.jpg' sesuai lokasi gambar background kamu */
             background-image: url('assets/images/bg.png'); 
-            background-size: 50%; /* Ukuran background 50% dari layar */
+            background-size: 50%;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15; /* Atur tingkat transparansi (0.05 = samar, 0.5 = terang) */
+            opacity: 0.15;
             pointer-events: none;
             z-index: 0;
         }
@@ -97,6 +96,15 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #e2be7d;
+        }
+
+        /* Hide scrollbar untuk slider kartu di HP */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         /* Audio Pulse Effect */
@@ -166,23 +174,28 @@
             </div>
         </header>
 
-        <!-- Main Layout (Split Screen) -->
+        <!-- Main Layout (Atas-Bawah di HP, Split Screen di PC) -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <!-- Left Side: Character Grid List -->
+            <!-- Character Cards (Slider di Mobile / Grid 2 Kolom di PC) -->
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
                 <div class="flex items-center justify-between px-1 text-xs text-gray-400">
                     <span id="servantCount">Showing Servants</span>
-                    <span class="text-[#cca566] font-genshin">SELECT SERVANT</span>
+                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
+                        <span class="lg:hidden">SELECT SERVANT</span>
+                        <span class="hidden lg:inline">SELECT SERVANT</span>
+                    </span>
                 </div>
-                <div id="characterGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                
+                <!-- Container Kartu: Slider Horizontal di HP (< lg), Grid Normal di PC (>= lg) -->
+                <div id="characterGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 sm:lg:grid-cols-3 md:lg:grid-cols-4 lg:gap-4 lg:pb-0 lg:overflow-visible">
                     <!-- Cards injected by JS -->
                 </div>
             </div>
 
-            <!-- Right Side: Detailed Showcase View -->
+            <!-- Detail Showcase View (Berada di Bawah Slider saat di HP) -->
             <div class="lg:col-span-1">
-                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[640px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10">
+                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10">
                     <!-- Background Elements -->
                     <div id="bgJapanShadow" class="absolute -left-0 top-10 font-japan text-4xl text-white/20 select-none pointer-events-none z-0 leading-tight"></div>
                     <div id="bgCharTransparent" class="absolute right-0 top-0 w-full h-full bg-contain bg-no-repeat bg-top md:bg-right-top opacity-20 pointer-events-none z-0 transition-all duration-500"></div>
@@ -193,7 +206,7 @@
                     </div>
                 </div>
                 
-                <div id="emptyState" class="genshin-card p-12 text-center text-gray-500 flex flex-col items-center justify-center min-h-[640px] lg:max-h-[calc(100vh-170px)] gap-3">
+                <div id="emptyState" class="genshin-card p-12 text-center text-gray-500 flex flex-col items-center justify-center min-h-[600px] lg:max-h-[calc(100vh-170px)] gap-3">
                     <div class="w-16 h-16 rounded-full border border-[#cca566]/30 flex items-center justify-center text-[#cca566] text-2xl font-genshin">✦</div>
                     <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A SERVANT TO VIEW ARCHIVE & LISTEN TO VOICE LINES</p>
                 </div>
@@ -623,7 +636,7 @@
 
             if (data.length === 0) {
                 gridContainer.innerHTML = `
-                    <div class="col-span-full genshin-card p-8 text-center text-gray-400 text-xs font-genshin tracking-wider">
+                    <div class="col-span-full w-full genshin-card p-8 text-center text-gray-400 text-xs font-genshin tracking-wider">
                         NO SERVANTS FOUND MATCHING CRITERIA.
                     </div>`;
                 return;
@@ -632,7 +645,9 @@
             data.forEach(servant => {
                 const bgClass = servant.rarity >= 5 ? 'rarity-5' : (servant.rarity === 4 ? 'rarity-4' : servant.rarity === 3 ? 'rarity-3' : servant.rarity === 2 ? 'rarity-2' : 'rarity-1');
                 const card = document.createElement('div');
-                card.className = `genshin-card overflow-hidden cursor-pointer group ${selectedServant?.id === servant.id ? 'ring-2 ring-[#cca566]' : ''}`;
+                
+                // shrink-0 w-36 sm:w-40 di mobile agar menjadi slider horizontal, lg:w-auto di PC agar kembali ke layout Grid
+                card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-36 sm:w-40 lg:w-auto lg:shrink snap-start ${selectedServant?.id === servant.id ? 'ring-2 ring-[#cca566]' : ''}`;
                 card.onclick = () => showDetails(servant);
                 
                 const hasVoice = servant.voiceLines && servant.voiceLines.length > 0;
@@ -696,20 +711,18 @@
             return [{ name: "Default", url: servant.image || "" }];
         }
 
-        // FUNGSI GANTI & EQUIP SKIN PERSISTEN DENGAN PENAHAN SCROLL
         function changeServantSprite(index) {
             if (!selectedServant) return;
             const sprites = getServantSprites(selectedServant);
             if (!sprites[index]) return;
 
-            // Simpan posisi scroll horizontal tab skin sebelum re-render
             const spriteContainer = document.getElementById('spriteTabsContainer');
             const savedScrollLeft = spriteContainer ? spriteContainer.scrollLeft : 0;
 
             selectedSpriteIndex = index;
-            selectedServant.activeSpriteIndex = index; // Simpan skin terpilih di Servant
+            selectedServant.activeSpriteIndex = index;
 
-            saveServantData(); // Simpan ke LocalStorage agar tidak reset
+            saveServantData();
 
             const spriteUrl = sprites[index].url;
             const bgChar = document.getElementById('bgCharTransparent');
@@ -719,11 +732,9 @@
 
             showToast(`Skin "${sprites[index].name || 'Stage ' + (index + 1)}" Equipped!`);
 
-            // Refresh UI detail & grid list agar thumbnail di kiri langsung terupdate
             renderDetailContent();
             applyFilters();
 
-            // Kembalikan posisi scroll horizontal tab skin
             const newSpriteContainer = document.getElementById('spriteTabsContainer');
             if (newSpriteContainer) {
                 newSpriteContainer.scrollLeft = savedScrollLeft;
@@ -734,7 +745,6 @@
             selectedServant = servant;
             selectedVoiceIndex = 0;
             
-            // Mengambil skin yang sedang dipakai, bukan reset ke 0
             selectedSpriteIndex = servant.activeSpriteIndex || 0; 
             stopAudio();
 
@@ -749,7 +759,7 @@
             document.getElementById('bgCharTransparent').style.backgroundImage = activeSpriteUrl ? `url('${activeSpriteUrl}')` : 'none';
 
             renderDetailContent();
-            renderGrid(servantData);
+            applyFilters(); // Menggunakan applyFilters() agar kriteria filter tetap terjaga
         }
 
         function renderDetailContent() {
@@ -1334,11 +1344,9 @@
 
         // FITUR NAVIGASI TOMBOL PANAH KEYBOARD UNTUK GANTI SKIN
         document.addEventListener('keydown', (e) => {
-            // Jika pengguna sedang mengetik di input/select/textarea, batalkan aksi tombol panah
             const activeTag = document.activeElement ? document.activeElement.tagName : '';
             if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
 
-            // Jika modal sedang terbuka, batalkan
             const isFormModalOpen = !formModal.classList.contains('hidden');
             const isLoreModalOpen = !loreModal.classList.contains('hidden');
             const isConfirmModalOpen = !document.getElementById('confirmModal').classList.contains('hidden');
@@ -1362,7 +1370,6 @@
             }
         });
 
-        // Helper untuk menggulirkan tombol skin yang aktif ke dalam pandangan saat ditekan via keyboard
         function scrollActiveSpriteIntoView(index) {
             const spriteContainer = document.getElementById('spriteTabsContainer');
             if (!spriteContainer) return;
