@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fate/Dominion - Holy Grail War</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0e121e 0%, #171d2c 50%, #0a0d16 100%);
+            background-attachment: fixed;
+            color: #ece5d8;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND GAMBAR TRANSPARAN BODY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/images/bg.png'); 
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .font-genshin { font-family: 'Cinzel', serif; }
+        .font-japan { font-family: 'Noto Serif JP', serif; }
+
+        /* Genshin Glassmorphism & Gold Borders */
+        .genshin-card {
+            background: rgba(23, 29, 44, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(204, 165, 102, 0.2);
+            border-radius: 4px 20px 4px 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .genshin-card:hover {
+            border-color: #cca566;
+            box-shadow: 0 10px 30px rgba(204, 165, 102, 0.25), 0 0 15px rgba(204, 165, 102, 0.1);
+        }
+
+        .status-defeated {
+            filter: grayscale(80%);
+            opacity: 0.65;
+            border-color: rgba(239, 68, 68, 0.4) !important;
+        }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
+        ::-webkit-scrollbar-thumb { background: #cca566; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e2be7d; }
+
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header Navigasi & Kontrol -->
+        <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div class="text-center lg:text-left">
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <span class="text-3xl text-red-500">⚔️</span>
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <span class="text-3xl text-red-500">⚔️</span>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">War Factions & Tactical Command Center</p>
+            </div>
+            
+            <!-- Filter & Action Controls -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 w-full lg:w-auto">
+                <a href="index.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    ← SERVANTS
+                </a>
+                <a href="masters.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🧙‍♂️ MASTERS
+                </a>
+                <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🎲 GACHA
+                </a>
+
+                <button onclick="openPairingModal()" class="w-full sm:w-auto bg-gradient-to-r from-red-800 to-amber-700 hover:from-red-700 hover:to-amber-600 text-white font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
+                    <span>+</span> PASANGKAN FACTION
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Layout (Atas-Bawah di HP, Split Screen di PC) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Pairings Cards (Slider di Mobile / Grid 2 Kolom di PC) -->
+            <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
+                <div class="flex items-center justify-between px-1 text-xs text-gray-400">
+                    <span id="factionCount">Showing War Factions</span>
+                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
+                        <span>SELECT FACTION</span>
+                    </span>
+                </div>
+                
+                <!-- Container Kartu: Slider Horizontal di HP (< lg), Grid Normal di PC (>= lg) -->
+                <div id="warGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 lg:gap-4 lg:pb-0 lg:overflow-visible">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+
+            <!-- Detail Showcase View -->
+            <div class="lg:col-span-1">
+                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10 border border-red-500/30 overflow-hidden">
+                    <!-- Background Elements (DIBUAT PAS DI TENGAH) -->
+                    <div id="bgJapanShadow" class="absolute -left-0 top-10 font-japan text-4xl text-white/20 select-none pointer-events-none z-0 leading-tight"></div>
+                    <div id="bgCharTransparent" class="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-center opacity-20 pointer-events-none z-0 transition-all duration-500"></div>
+                    
+                    <!-- Content Wrapper -->
+                    <div id="detailContent" class="relative z-10 space-y-4">
+                        <!-- Details injected by JS -->
+                    </div>
+                </div>
+                
+                <div id="emptyState" class="genshin-card p-12 text-center text-gray-500 flex flex-col items-center justify-center min-h-[600px] lg:max-h-[calc(100vh-170px)] gap-3">
+                    <div class="w-16 h-16 rounded-full border border-red-500/30 flex items-center justify-center text-red-400 text-2xl font-genshin">⚔️</div>
+                    <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A WAR FACTION TO VIEW COMMAND LOGS & COMBAT DETAILS</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- POPUP MODAL FOR PAIRING MASTER & SERVANT -->
+    <div id="pairingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-[#121723] border-2 border-red-500/70 w-full max-w-lg rounded-lg p-6 relative shadow-2xl space-y-4">
+            <button onclick="closePairingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer">&times;</button>
+            <h3 class="text-xl font-genshin text-white font-bold border-b border-gray-800 pb-2 flex items-center gap-2">
+                <span class="text-red-500">⚔️</span> FACTION REGISTRATION
+            </h3>
+
+            <form id="pairingForm" onsubmit="handlePairingSubmit(event)" class="space-y-4 text-xs">
+                <input type="hidden" id="editPairingId">
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Pilih Master *</label>
+                    <select id="formSelectMaster" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Pilih Servant *</label>
+                    <select id="formSelectServant" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Command Seals (Mantra)</label>
+                        <select id="formCommandSeals" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                            <option value="3">3 Seals (Utuh)</option>
+                            <option value="2">2 Seals</option>
+                            <option value="1">1 Seal</option>
+                            <option value="0">0 Seals (Habis)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-400 mb-1">Status Faksi</label>
+                        <select id="formPairStatus" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                            <option value="Active">Active (Bertarung)</option>
+                            <option value="Defeated">Defeated (Tereliminasi)</option>
+                            <option value="Winner">Winner (Pemenang)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Catatan Taktis / Aliansi</label>
+                    <textarea id="formPairNotes" rows="2" placeholder="Catatan strategi perang..." class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none"></textarea>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3 border-t border-gray-800">
+                    <button type="button" onclick="closePairingModal()" class="px-4 py-2 rounded bg-gray-800 text-gray-300 font-genshin cursor-pointer">BATAL</button>
+                    <button type="submit" class="px-6 py-2 rounded bg-gradient-to-r from-red-800 to-amber-700 text-white font-genshin font-bold cursor-pointer">SIMPAN FACTION</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#161c28] border border-[#cca566] text-white px-4 py-2.5 rounded shadow-xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="text-red-500">⚔️️</span>
+        <span id="toastMsg">Message</span>
+    </div>
+
+    <script>
+        function getServants() {
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function getMasters() {
+            const stored = localStorage.getItem('fgo_masters_db_v2') || localStorage.getItem('fgo_masters_db_v1');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function getPairings() {
+            const stored = localStorage.getItem('fgo_war_pairings_v2');
+            if (stored) {
+                try { return JSON.parse(stored); } catch(e){}
+            }
+            return [
+                { id: 1, masterId: 101, servantId: 1, commandSeals: 3, status: "Active", notes: "Aliansi utama Chaldea Fuyuki." },
+                { id: 2, masterId: 102, servantId: 2, commandSeals: 2, status: "Active", notes: "Faksi Tohsaka dengan Archer Gilgamesh." }
+            ];
+        }
+
+        function savePairings() {
+            localStorage.setItem('fgo_war_pairings_v2', JSON.stringify(pairings));
+        }
+
+        let pairings = getPairings();
+        let selectedPairing = null;
+
+        const gridContainer = document.getElementById('warGrid');
+        const detailView = document.getElementById('detailView');
+        const emptyState = document.getElementById('emptyState');
+        const pairingModal = document.getElementById('pairingModal');
+        const factionCount = document.getElementById('factionCount');
+
+        function renderGrid() {
+            gridContainer.innerHTML = '';
+            const masters = getMasters();
+            const servants = getServants();
+
+            factionCount.innerText = `Showing ${pairings.length} Faction${pairings.length === 1 ? '' : 's'}`;
+
+            if (pairings.length === 0) {
+                gridContainer.innerHTML = `
+                    <div class="col-span-full w-full genshin-card p-8 text-center text-gray-400 text-xs font-genshin tracking-wider">
+                        NO FACTIONS REGISTERED IN THE HOLY GRAIL WAR.
+                    </div>`;
+                return;
+            }
+
+            pairings.forEach(p => {
+                const master = masters.find(m => m.id === p.masterId) || { name: "Unknown Master", image: "" };
+                const servant = servants.find(s => s.id === p.servantId) || { name: "Unknown Servant", class: "Unknown", image: "" };
+
+                const masterImg = (master.sprites && master.sprites[master.activeSpriteIndex || 0]?.url) || master.image;
+                const servantImg = (servant.sprites && servant.sprites[servant.activeSpriteIndex || 0]?.url) || servant.image;
+
+                const isDefeated = p.status === 'Defeated';
+                const card = document.createElement('div');
+                card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-64 sm:w-72 lg:w-auto lg:shrink snap-start ${selectedPairing?.id === p.id ? 'ring-2 ring-red-500' : ''} ${isDefeated ? 'status-defeated' : ''}`;
+                card.onclick = () => showDetails(p);
+
+                card.innerHTML = `
+                    <div class="p-2.5 bg-[#161c28]/90 border-b border-gray-800 flex justify-between items-center text-[10px]">
+                        <span class="text-[#cca566] font-bold uppercase tracking-wider">${servant.class || 'CLASS'} FACTION</span>
+                        <span class="font-genshin font-bold ${p.status === 'Active' ? 'text-green-400' : p.status === 'Winner' ? 'text-amber-300' : 'text-red-500'}">
+                            ● ${p.status.toUpperCase()}
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-2 h-36 bg-gradient-to-b from-[#1b2233] to-[#0e121e] relative">
+                        <div class="relative overflow-hidden border-r border-gray-800">
+                            <!-- FOKUS KEPALA (object-top) -->
+                            <img src="${masterImg}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
+                            <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1 rounded truncate max-w-[90%]">${master.name}</span>
+                        </div>
+                        <div class="relative overflow-hidden">
+                            <!-- FOKUS KEPALA (object-top) -->
+                            <img src="${servantImg}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
+                            <span class="absolute bottom-1 left-1 bg-black/60 text-amber-300 text-[9px] px-1 rounded truncate max-w-[90%]">${servant.name}</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-[#161c28]/90 flex justify-between items-center text-xs">
+                        <div class="text-[10px] text-gray-400">Seals: <span class="text-red-500">${'🛑'.repeat(p.commandSeals || 0)}</span></div>
+                        <span class="text-[10px] text-gray-400 italic truncate max-w-[120px]">${p.notes || '-'}</span>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function showDetails(pairing) {
+            selectedPairing = pairing;
+
+            emptyState.classList.add('hidden');
+            detailView.classList.remove('hidden');
+
+            const servants = getServants();
+            const servant = servants.find(s => s.id === pairing.servantId);
+            const activeSprite = servant?.sprites && servant.sprites[servant.activeSpriteIndex || 0]?.url;
+            document.getElementById('bgCharTransparent').style.backgroundImage = activeSprite ? `url('${activeSprite}')` : 'none';
+
+            renderDetailContent();
+            renderGrid();
+        }
+
+        function renderDetailContent() {
+            if (!selectedPairing) return;
+            const masters = getMasters();
+            const servants = getServants();
+
+            const master = masters.find(m => m.id === selectedPairing.masterId) || { name: "Unknown Master" };
+            const servant = servants.find(s => s.id === selectedPairing.servantId) || { name: "Unknown Servant", class: "Unknown" };
+
+            const masterImg = (master.sprites && master.sprites[master.activeSpriteIndex || 0]?.url) || master.image;
+            const servantImg = (servant.sprites && servant.sprites[servant.activeSpriteIndex || 0]?.url) || servant.image;
+
+            const contentArea = document.getElementById('detailContent');
+
+            contentArea.innerHTML = `
+                <!-- Faction Header -->
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="bg-red-900/60 text-red-200 text-xs px-2.5 py-0.5 rounded border border-red-500/40 font-bold font-genshin tracking-wide">
+                            ${(servant.class || 'FACTION').toUpperCase()} ALLIANCE
+                        </span>
+                        <h2 class="text-xl font-bold text-white mt-1 font-genshin">${master.name} & ${servant.name}</h2>
+                    </div>
+                    <div class="flex gap-1.5">
+                        <button onclick="deletePairing(${selectedPairing.id})" title="Delete Faction" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dual Card Showcase dengan Gambar Berfokus di Kepala (object-top) -->
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Master Card -->
+                    <div class="bg-black/40 p-3 rounded border border-gray-800 text-center space-y-2">
+                        <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-[#cca566] bg-gray-900">
+                            <img src="${masterImg}" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div>
+                            <span class="text-[9px] text-[#cca566] uppercase block font-bold">MASTER</span>
+                            <h4 class="font-bold text-white text-xs truncate">${master.name}</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">${master.circuits || 'Circuits ?'}</p>
+                        </div>
+                    </div>
+
+                    <!-- Servant Card -->
+                    <div class="bg-black/40 p-3 rounded border border-gray-800 text-center space-y-2">
+                        <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-amber-400 bg-gray-900">
+                            <img src="${servantImg}" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div>
+                            <span class="text-[9px] text-amber-300 uppercase block font-bold">SERVANT [${servant.class}]</span>
+                            <h4 class="font-bold text-white text-xs truncate">${servant.name}</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5 truncate">NP: ${servant.noblePhantasm?.name || '-'}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Command Seals Control Panel -->
+                <div class="border-t border-b border-gray-800 py-3 my-2 bg-black/30 p-3 rounded">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-[#cca566] font-bold font-genshin">COMMAND SEALS (MANTRA PERINTAH)</span>
+                        <button onclick="resetSeals()" class="text-[9px] bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-0.5 rounded cursor-pointer border border-gray-700">
+                            Reset (3)
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl text-red-500 tracking-widest">
+                            ${'🛑'.repeat(selectedPairing.commandSeals || 0)}${'⭕'.repeat(3 - (selectedPairing.commandSeals || 0))}
+                        </div>
+                        <button onclick="useCommandSeal()" class="bg-red-900/80 hover:bg-red-700 text-white text-xs px-3 py-1.5 rounded font-bold transition-colors cursor-pointer border border-red-500/50">
+                            Gunakan 1 Seal ⚡
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tactical Notes -->
+                <div class="space-y-1">
+                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Tactical Notes & Alliance</h4>
+                    <p class="text-xs text-gray-300 bg-black/30 p-3 rounded border border-gray-800/80 leading-relaxed italic">
+                        "${selectedPairing.notes || 'No tactical notes logged for this faction.'}"
+                    </p>
+                </div>
+
+                <!-- Status Toggle Actions -->
+                <div class="pt-2 flex gap-2">
+                    <button onclick="togglePairStatus('Active')" class="flex-1 py-2 rounded text-xs font-genshin font-bold transition-colors cursor-pointer border ${selectedPairing.status === 'Active' ? 'bg-green-600 text-white border-green-400' : 'bg-gray-800 text-gray-400 border-gray-700'}">
+                        SET ACTIVE
+                    </button>
+                    <button onclick="togglePairStatus('Defeated')" class="flex-1 py-2 rounded text-xs font-genshin font-bold transition-colors cursor-pointer border ${selectedPairing.status === 'Defeated' ? 'bg-red-600 text-white border-red-400' : 'bg-gray-800 text-gray-400 border-gray-700'}">
+                        SET DEFEATED
+                    </button>
+                    <button onclick="togglePairStatus('Winner')" class="flex-1 py-2 rounded text-xs font-genshin font-bold transition-colors cursor-pointer border ${selectedPairing.status === 'Winner' ? 'bg-amber-500 text-black border-amber-300' : 'bg-gray-800 text-gray-400 border-gray-700'}">
+                        WINNER 🏆
+                    </button>
+                </div>
+            `;
+        }
+
+        function useCommandSeal() {
+            if (!selectedPairing) return;
+            if (selectedPairing.commandSeals > 0) {
+                selectedPairing.commandSeals -= 1;
+                savePairings();
+                renderDetailContent();
+                renderGrid();
+                showToast(`1 Command Seal digunakan! Sisa: ${selectedPairing.commandSeals}`);
+            } else {
+                showToast("Command Seal sudah habis!");
+            }
+        }
+
+        function resetSeals() {
+            if (!selectedPairing) return;
+            selectedPairing.commandSeals = 3;
+            savePairings();
+            renderDetailContent();
+            renderGrid();
+            showToast("Command Seals dipulihkan ke 3!");
+        }
+
+        function togglePairStatus(status) {
+            if (!selectedPairing) return;
+            selectedPairing.status = status;
+            savePairings();
+            renderDetailContent();
+            renderGrid();
+            showToast(`Status Faksi diubah ke: ${status.toUpperCase()}`);
+        }
+
+        function openPairingModal() {
+            const masters = getMasters();
+            const servants = getServants();
+
+            const masterSelect = document.getElementById('formSelectMaster');
+            const servantSelect = document.getElementById('formSelectServant');
+
+            masterSelect.innerHTML = masters.map(m => `<option value="${m.id}">${m.name} (${m.affiliation || 'Master'})</option>`).join('');
+            servantSelect.innerHTML = servants.map(s => `<option value="${s.id}">${s.name} [${s.class}]</option>`).join('');
+
+            pairingModal.classList.remove('hidden');
+            setTimeout(() => pairingModal.classList.remove('opacity-0'), 10);
+        }
+
+        function closePairingModal() {
+            pairingModal.classList.add('opacity-0');
+            setTimeout(() => pairingModal.classList.add('hidden'), 300);
+        }
+
+        function handlePairingSubmit(e) {
+            e.preventDefault();
+
+            const newPairing = {
+                id: Date.now(),
+                masterId: parseInt(document.getElementById('formSelectMaster').value),
+                servantId: parseInt(document.getElementById('formSelectServant').value),
+                commandSeals: parseInt(document.getElementById('formCommandSeals').value),
+                status: document.getElementById('formPairStatus').value,
+                notes: document.getElementById('formPairNotes').value
+            };
+
+            pairings.unshift(newPairing);
+            savePairings();
+            renderGrid();
+            showDetails(newPairing);
+            closePairingModal();
+            showToast("Faksi Perang Baru Terdaftar!");
+        }
+
+        function deletePairing(id) {
+            if (confirm("Hapus faksi ini dari Holy Grail War?")) {
+                pairings = pairings.filter(p => p.id !== id);
+                savePairings();
+                renderGrid();
+                if (selectedPairing && selectedPairing.id === id) {
+                    selectedPairing = null;
+                    detailView.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                }
+                showToast("Faksi dihapus.");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+
+        window.onload = function() {
+            renderGrid();
+            if (pairings.length > 0) {
+                showDetails(pairings[0]);
+            }
+        };
+    </script>
+</body>
+</html>
