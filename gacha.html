@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fate/Dominion - Summoning Gate</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0e121e 0%, #171d2c 50%, #0a0d16 100%);
+            background-attachment: fixed;
+            color: #ece5d8;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/images/bg.png'); 
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .font-genshin { font-family: 'Cinzel', serif; }
+
+        .genshin-card {
+            background: rgba(23, 29, 44, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(204, 165, 102, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .star-rating {
+            color: #cca566;
+            text-shadow: 0 0 6px rgba(204, 165, 102, 0.8);
+        }
+
+        .rarity-5 { background: linear-gradient(180deg, #513e6b, #bfa054); }
+        .rarity-4 { background: linear-gradient(180deg, #64553b 0%, #bfa054 50%, #b8ac8c 100%); }
+        .rarity-3 { background: linear-gradient(180deg, #b5b5b5 0%, #64696f 100%); }
+        .rarity-2 { background: linear-gradient(180deg, #403125 0%, #765d5d  100%); }
+        .rarity-1 { background: linear-gradient(180deg, #261d0f 0%, #433529 100%); }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 25px rgba(204, 165, 102, 0.9)); }
+        }
+        .animate-summon-glow {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        @keyframes cardReveal {
+            0% { transform: scale(0.3) rotateY(180deg); opacity: 0; }
+            70% { transform: scale(1.05) rotateY(0deg); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-card-reveal {
+            animation: cardReveal 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col justify-between">
+
+    <div class="max-w-6xl mx-auto w-full relative z-10 flex-1 flex flex-col">
+        <!-- Header Nav -->
+        <header class="flex justify-between items-center pb-6 border-b border-[#cca566]/30 mb-8">
+            <a href="index.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 px-4 py-2 rounded-full font-genshin text-xs font-bold transition-all flex items-center gap-2">
+                <span>←</span> DATABASE SERVANT
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <!-- Quartz Currency Display -->
+                <div class="bg-black/60 border border-[#cca566]/40 rounded-full px-4 py-1.5 flex items-center gap-2 text-xs font-genshin">
+                    <span class="text-cyan-400 text-sm">💎</span>
+                    <span class="text-gray-400">Quartz:</span>
+                    <span id="quartzCount" class="text-amber-300 font-bold">300</span>
+                    <button onclick="addQuartz(100)" class="text-[10px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] px-2 py-0.5 rounded-full ml-1 border border-[#cca566]/40 cursor-pointer">+100</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Banner Content Area -->
+        <main id="bannerView" class="flex-1 flex flex-col items-center justify-center relative my-4">
+            <!-- Banner Card -->
+            <div class="genshin-card w-full max-w-4xl p-6 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border-2 border-[#cca566]/50">
+                
+                <div class="space-y-4 text-center md:text-left z-10 max-w-md">
+                    <span class="text-xs bg-[#cca566]/20 text-[#cca566] border border-[#cca566]/40 px-3 py-1 rounded-full font-genshin font-bold uppercase tracking-widest">
+                        Chaldea Summoning Gate
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-genshin font-bold text-white tracking-wide leading-tight">
+                        SINGULARITY <br><span class="text-[#cca566]">HEROIC SPIRITS</span>
+                    </h1>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Panggil Servant dari seluruh era! Rate Up Servant bintang 5 terpilih dan kumpulkan Servant favoritmu ke dalam Chaldea.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-2 justify-center md:justify-start text-[11px] text-amber-200/80">
+                        <span class="bg-black/40 px-2.5 py-1 rounded border border-gray-700">★5 Rate: 3%</span>
+                        <span class="bg-black/40 px-2.5 py-1 rounded border border-gray-700">★4 Rate: 15%</span>
+                        <span class="bg-black/40 px-2.5 py-1 rounded border border-gray-700">★3 Rate: 82%</span>
+                    </div>
+                </div>
+
+                <!-- Summoning Catalyst Center Circle -->
+                <div class="relative flex items-center justify-center my-4 md:my-0">
+                    <div class="w-48 h-48 md:w-60 md:h-60 rounded-full border-2 border-[#cca566]/60 flex items-center justify-center animate-summon-glow relative">
+                        <div class="w-36 h-36 md:w-44 md:h-44 rounded-full border border-dashed border-[#cca566]/80 flex items-center justify-center text-4xl text-[#cca566]">
+                            ✦
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mt-8 z-10">
+                <button onclick="performSummon(1)" class="bg-gradient-to-r from-gray-800 to-gray-900 hover:from-[#cca566] hover:to-[#b59055] text-white hover:text-[#0e121e] border border-[#cca566]/50 font-genshin font-bold px-8 py-3.5 rounded-full text-xs transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2">
+                    <span>1x SUMMON</span>
+                    <span class="text-[10px] opacity-80">(3 💎)</span>
+                </button>
+
+                <button onclick="performSummon(10)" class="bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-10 py-3.5 rounded-full text-sm transition-all shadow-2xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2 border border-amber-300">
+                    <span>10x SUMMON</span>
+                    <span class="text-[11px] opacity-90">(30 💎)</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Summon Results View -->
+        <main id="resultsView" class="hidden flex-1 flex-col items-center justify-center relative my-4 z-10">
+            <h2 class="text-2xl font-genshin text-[#cca566] font-bold tracking-widest mb-6 uppercase text-center">
+                ✦ Summoning Results ✦
+            </h2>
+
+            <div id="resultsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 w-full max-w-5xl mb-8">
+                <!-- Result Cards Injected by JS -->
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="closeResults()" class="bg-black/60 hover:bg-gray-800 text-gray-300 border border-gray-700 font-genshin font-bold px-6 py-2.5 rounded-full text-xs transition-all cursor-pointer">
+                    KEMBALI KE BANNER
+                </button>
+                <button onclick="performSummon(10)" class="bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] text-[#0e121e] font-genshin font-bold px-8 py-2.5 rounded-full text-xs transition-all cursor-pointer shadow-lg">
+                    SUMMON LAGI (30 💎)
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#161c28] border border-[#cca566] text-white px-4 py-2.5 rounded shadow-xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="text-[#cca566]">✦</span>
+        <span id="toastMsg">Notification</span>
+    </div>
+
+    <script>
+        const initialServants = [
+            { id: 1, name: "Artoria Pendragon", class: "Saber", rarity: 5, image: "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" },
+            { id: 2, name: "Gilgamesh", class: "Archer", rarity: 5, image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" }
+        ];
+
+        const classIcons = {
+            "Saber": "assets/icons/saber.svg",
+            "Archer": "assets/icons/archer.svg",
+            "Lancer": "assets/icons/lancer.svg",
+            "Rider": "assets/icons/rider.svg",
+            "Caster": "assets/icons/caster.svg",
+            "Assassin": "assets/icons/assassin.svg",
+            "Berserker": "assets/icons/berserker.svg",
+            "Ruler": "assets/icons/ruler.svg",
+            "Avenger": "assets/icons/avenger.svg",
+            "MoonCancer": "assets/icons/mooncancer.svg",
+            "Shielder": "assets/icons/shielder.svg",
+            "Foreigner": "assets/icons/foreigner.svg",
+            "AlterEgo": "assets/icons/alterego.svg",
+            "Pretender": "assets/icons/pretender.svg",
+            "Beast": "assets/icons/beast.svg",
+            "UnBeast": "assets/icons/unbeast.svg",
+            "Unknown": "assets/icons/unknown.svg"
+        };
+
+        function getServantPool() {
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                } catch(e) {}
+            }
+            return initialServants;
+        }
+
+        let userQuartz = parseInt(localStorage.getItem('fgo_user_quartz')) || 300;
+
+        function updateQuartzDisplay() {
+            document.getElementById('quartzCount').innerText = userQuartz;
+            localStorage.setItem('fgo_user_quartz', userQuartz);
+        }
+
+        function addQuartz(amount) {
+            userQuartz += amount;
+            updateQuartzDisplay();
+            showToast(`Dapat +${amount} Saint Quartz!`);
+        }
+
+        function getRandomRarity() {
+            const rand = Math.random() * 100;
+            if (rand < 3) return 5;       // 3% 5-Star
+            if (rand < 18) return 4;      // 15% 4-Star
+            return 3;                     // 82% 3-Star
+        }
+
+        function pullSingleServant(pool, forceMinRarity = null) {
+            let targetRarity = forceMinRarity || getRandomRarity();
+            let candidates = pool.filter(s => s.rarity === targetRarity);
+            
+            if (candidates.length === 0) {
+                candidates = pool.filter(s => s.rarity >= targetRarity);
+            }
+            if (candidates.length === 0) {
+                candidates = pool;
+            }
+
+            return candidates[Math.floor(Math.random() * candidates.length)];
+        }
+
+        function performSummon(count) {
+            const cost = count === 10 ? 30 : 3;
+            if (userQuartz < cost) {
+                showToast("Saint Quartz tidak cukup!");
+                return;
+            }
+
+            userQuartz -= cost;
+            updateQuartzDisplay();
+
+            const pool = getServantPool();
+            const results = [];
+
+            for (let i = 0; i < count; i++) {
+                if (count === 10 && i === 9) {
+                    const has4or5 = results.some(r => r.rarity >= 4);
+                    if (!has4or5) {
+                        results.push(pullSingleServant(pool, Math.random() < 0.2 ? 5 : 4));
+                        continue;
+                    }
+                }
+                results.push(pullSingleServant(pool));
+            }
+
+            displayResults(results);
+        }
+
+        function displayResults(results) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
+
+            results.forEach((servant, idx) => {
+                const bgClass = servant.rarity >= 5 ? 'rarity-5' : (servant.rarity === 4 ? 'rarity-4' : 'rarity-3');
+                const activeIndex = servant.activeSpriteIndex || 0;
+                const thumb = (servant.sprites && servant.sprites[activeIndex]?.url) || servant.image || 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500';
+
+                const card = document.createElement('div');
+                card.className = `genshin-card overflow-hidden animate-card-reveal`;
+                card.style.animationDelay = `${idx * 0.08}s`;
+
+                card.innerHTML = `
+                    <div class="relative h-40 ${bgClass} flex items-center justify-center overflow-hidden">
+                        <img src="${thumb}" class="absolute -right-8 top-0 w-44 h-72 object-contain object-right opacity-30 scale-125">
+                        <img src="${classIcons[servant.class] || `assets/icons/${servant.class?.toLowerCase()}.svg`}" 
+                             alt="${servant.class}" 
+                             class="w-16 h-16 object-contain opacity-40 filter drop-shadow-md">
+                    </div>
+                    <div class="p-3 bg-[#161c28]/90 text-center border-t border-[#cca566]/30">
+                        <div class="text-[9px] text-[#cca566] font-semibold uppercase tracking-wider">${servant.class}</div>
+                        <h3 class="font-bold text-white truncate text-xs mt-0.5">${servant.name}</h3>
+                        <div class="star-rating text-[10px] mt-1">${'★'.repeat(servant.rarity || 3)}</div>
+                    </div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+
+            document.getElementById('bannerView').classList.add('hidden');
+            document.getElementById('resultsView').classList.remove('hidden');
+            document.getElementById('resultsView').classList.add('flex');
+        }
+
+        function closeResults() {
+            document.getElementById('resultsView').classList.add('hidden');
+            document.getElementById('resultsView').classList.remove('flex');
+            document.getElementById('bannerView').classList.remove('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        window.onload = function() {
+            updateQuartzDisplay();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fate/Dominion - Master Registry</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0e121e 0%, #171d2c 50%, #0a0d16 100%);
+            background-attachment: fixed;
+            color: #ece5d8;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND GAMBAR TRANSPARAN BODY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/images/bg.png'); 
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .font-genshin { font-family: 'Cinzel', serif; }
+        .font-japan { font-family: 'Noto Serif JP', serif; }
+
+        /* Genshin Glassmorphism & Gold Borders */
+        .genshin-card {
+            background: rgba(23, 29, 44, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(204, 165, 102, 0.2);
+            border-radius: 4px 20px 4px 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .genshin-card:hover {
+            border-color: #cca566;
+            box-shadow: 0 10px 30px rgba(204, 165, 102, 0.25), 0 0 15px rgba(204, 165, 102, 0.1);
+        }
+
+        /* Custom Audio Slider & Scrollbars */
+        input[type=range] { accent-color: #cca566; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
+        ::-webkit-scrollbar-thumb { background: #cca566; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e2be7d; }
+
+        /* Hide scrollbar untuk slider kartu di HP */
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Audio Pulse Effect */
+        @keyframes audioGlow {
+            0%, 100% { box-shadow: 0 0 8px rgba(204, 165, 102, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(204, 165, 102, 0.9); }
+        }
+        .audio-playing { animation: audioGlow 1.8s infinite; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header Navigasi & Filter -->
+        <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div class="text-center lg:text-left">
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <span class="text-3xl text-[#cca566]">✦</span>
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <span class="text-3xl text-[#cca566]">✦</span>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Mage Archives & Voice Database</p>
+            </div>
+            
+            <!-- Filter & Action Controls -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 w-full lg:w-auto">
+                <a href="index.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    ← SERVANTS
+                </a>
+                <a href="war.html" class="bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
+                    ⚔️ GRAIL WAR
+                </a>
+                <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🎲 GACHA
+                </a>
+
+                <!-- FITUR EXPORT / IMPORT / RESET -->
+                <div class="flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-[#cca566]/40 shadow-lg">
+                    <button onclick="exportMasterData()" title="Export JSON" class="hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
+                        📤 Export JSON
+                    </button>
+                    <button onclick="document.getElementById('importJsonInput').click()" title="Import JSON" class="hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
+                        📥 Import JSON
+                    </button>
+                    <button onclick="confirmResetData()" title="Reset Data" class="hover:bg-red-600 hover:text-white text-red-400 px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
+                        🔄 Reset JSON
+                    </button>
+                    <input type="file" id="importJsonInput" accept=".json" class="hidden" onchange="importMasterData(event)">
+                </div>
+
+                <div class="relative w-full sm:w-48">
+                    <input type="text" id="searchBar" placeholder="Search master or origin..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-4 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
+                </div>
+
+                <button onclick="openMasterModal()" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
+                    <span>+</span> ADD MASTER
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Character Cards -->
+            <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
+                <div class="flex items-center justify-between px-1 text-xs text-gray-400">
+                    <span id="masterCount">Showing Masters</span>
+                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
+                        <span>SELECT MASTER</span>
+                    </span>
+                </div>
+                
+                <div id="masterGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 sm:lg:grid-cols-3 md:lg:grid-cols-4 lg:gap-4 lg:pb-0 lg:overflow-visible">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+
+            <!-- Detail Showcase View -->
+            <div class="lg:col-span-1">
+                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10 overflow-hidden">
+                    <div id="bgJapanShadow" class="absolute -left-0 top-10 font-japan text-4xl text-white/20 select-none pointer-events-none z-0 leading-tight"></div>
+                    <div id="bgCharTransparent" class="absolute right-0 top-0 w-full h-full bg-contain bg-no-repeat bg-top md:bg-right-top opacity-20 pointer-events-none z-0 transition-all duration-500"></div>
+                    
+                    <div id="detailContent" class="relative z-10 space-y-4">
+                        <!-- Details injected by JS -->
+                    </div>
+                </div>
+                
+                <div id="emptyState" class="genshin-card p-12 text-center text-gray-500 flex flex-col items-center justify-center min-h-[600px] lg:max-h-[calc(100vh-170px)] gap-3">
+                    <div class="w-16 h-16 rounded-full border border-[#cca566]/30 flex items-center justify-center text-[#cca566] text-2xl font-genshin">✦</div>
+                    <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A MASTER TO VIEW PROFILE & VOICE LINES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL FOR DEEP LORE & VOICE ARCHIVE -->
+    <div id="loreModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-3xl rounded-lg p-6 md:p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="toggleLoreModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/30">&times;</button>
+            
+            <div class="border-b border-gray-800 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <span class="text-[#cca566] text-xl">✦</span>
+                    <h3 id="modalName" class="text-2xl md:text-3xl font-genshin text-white font-bold tracking-wide">Name</h3>
+                </div>
+                <p id="modalAffiliationInfo" class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Master Profile & Audio Archive</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="grid grid-cols-2 gap-4 bg-black/30 p-4 rounded-md border border-gray-800 text-xs md:text-sm">
+                    <div><span class="text-gray-500 block text-[11px]">Magic Circuit</span><span id="modalCircuits" class="font-medium text-white">-</span></div>
+                    <div><span class="text-gray-500 block text-[11px]">Origin / Element</span><span id="modalOrigin" class="font-medium text-white">-</span></div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
+                        <span>🏷️</span> Master Traits & Tags
+                    </h4>
+                    <div id="modalTraits" class="flex flex-wrap gap-1.5"></div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
+                        <span>🎙️</span> Voice Lines Archive
+                    </h4>
+                    <div id="modalVoiceArchive" class="space-y-2 bg-black/20 p-3 rounded-md border border-gray-800/80"></div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
+                        <span>📖</span> Biography & Profile History
+                    </h4>
+                    <div id="modalLore" class="text-xs md:text-sm text-gray-300 space-y-3 leading-relaxed bg-black/20 p-4 rounded-md border border-gray-800/60"></div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-800 flex justify-end gap-3">
+                    <button id="modalEditBtn" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
+                        ✏️ Edit Master
+                    </button>
+                    <button id="modalDeleteBtn" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
+                        🗑️ Delete Master
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL FOR ADD / EDIT MASTER -->
+    <div id="masterModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-4xl rounded-lg p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeMasterModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/30">&times;</button>
+            
+            <div class="border-b border-gray-800 pb-3 mb-6">
+                <h3 id="formModalTitle" class="text-2xl font-genshin text-white font-bold tracking-wide">ADD NEW MASTER</h3>
+                <p class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Master Registry & Voice Editor</p>
+            </div>
+
+            <form id="masterForm" onsubmit="handleMasterSubmit(event)" class="space-y-5 text-xs">
+                <input type="hidden" id="editMasterId" value="">
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Master Name *</label>
+                        <input type="text" id="formName" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">JP Name (Kanji/Kana)</label>
+                        <input type="text" id="formJpName" placeholder="e.g. 衛宮 士郎" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Affiliation / Faction *</label>
+                        <input type="text" id="formAffiliation" placeholder="Mage's Association / Freelance" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Magic Circuit</label>
+                        <input type="text" id="formCircuits" placeholder="A+ (40 Circuits)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Origin / Element</label>
+                        <input type="text" id="formOrigin" placeholder="Sword / Five Elements" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Gender</label>
+                        <input type="text" id="formGender" placeholder="Male / Female" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Role / Race</label>
+                        <input type="text" id="formRace" placeholder="Human / Magus" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Default Image URL</label>
+                    <input type="url" id="formImage" placeholder="https://..." class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                </div>
+
+                <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
+                            <span>🖼️</span> MASTER SKINS / OUTFITS
+                        </label>
+                        <button type="button" onclick="addMasterSpriteInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
+                            + Add Skin / Outfit
+                        </button>
+                    </div>
+                    <div id="spritesContainer" class="space-y-2"></div>
+                </div>
+
+                <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
+                            <span>🎙</span> VOICE OVER AUDIO LINES
+                        </label>
+                        <button type="button" onclick="addVoiceLineInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
+                            + Add Voice Line
+                        </button>
+                    </div>
+                    <div id="voiceLinesContainer" class="space-y-3"></div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-3">
+                    <label class="block text-gray-400 mb-1">Traits (Comma separated)</label>
+                    <input type="text" id="formTraits" placeholder="Human, Magus, Projection, Tohsaka" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Biography / Paragraphs (Separated by new lines)</label>
+                    <textarea id="formLore" rows="3" placeholder="Paragraph 1&#10;Paragraph 2" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none"></textarea>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3 border-t border-gray-800">
+                    <button type="button" onclick="closeMasterModal()" class="px-5 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin cursor-pointer">CANCEL</button>
+                    <button type="submit" class="px-6 py-2 rounded bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold cursor-pointer">SAVE MASTER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL FOR CONFIRMATION DIALOG -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-md rounded-lg p-6 relative shadow-2xl space-y-4">
+            <h3 id="confirmTitle" class="text-lg font-genshin text-white font-bold tracking-wide border-b border-gray-800 pb-2">CONFIRM ACTION</h3>
+            <p id="confirmMessage" class="text-xs text-gray-300 leading-relaxed">Are you sure you want to proceed?</p>
+            <div class="pt-2 flex justify-end gap-3 border-t border-gray-800">
+                <button id="confirmCancelBtn" onclick="closeConfirmDialog()" class="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin text-xs cursor-pointer">CANCEL</button>
+                <button id="confirmOkBtn" class="px-5 py-2 rounded bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 text-white font-genshin font-bold text-xs cursor-pointer">CONFIRM</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#161c28] border border-[#cca566] text-white px-4 py-2.5 rounded shadow-xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="text-[#cca566]">✦</span>
+        <span id="toastMsg">Message</span>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        const initialMasters = [
+            {
+                "id": 101,
+                "name": "Shirou Emiya",
+                "jpName": "衛宮 士郎",
+                "affiliation": "Freelance / Fuyuki",
+                "circuits": "C (27 Circuits)",
+                "origin": "Sword",
+                "gender": "Male",
+                "race": "Human / Magus",
+                "activeSpriteIndex": 0,
+                "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500",
+                "sprites": [
+                    { "name": "Homurahara Uniform", "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" },
+                    { "name": "Chaldea Mystic Code", "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" }
+                ],
+                "traits": ["Human", "Magus", "Projection", "Emiya"],
+                "bio": "Seorang pemuda yang memegang teguh cita-cita menjadi pahlawan keadilan.",
+                "lore": [
+                    "Satu-satunya penyintas dari kebakaran besar Fuyuki 10 tahun lalu.",
+                    "Memiliki spesialisasi sihir Projection (Trace) dan Reinforcement."
+                ],
+                "voiceLines": [
+                    {
+                        "title": "Greeting",
+                        "text": "Trace, On! Are you my Servant? I'm Shirou Emiya, ready to fight alongside you.",
+                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Tchaikovsky_-_1812_Overture_%28Finale_excerpt%29.ogg"
+                    },
+                    {
+                        "title": "Command Seal",
+                        "text": "By the power of my Command Seal... Saber, lend me your sword!",
+                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Sound_Effect_-_Magic_Spell.ogg"
+                    }
+                ]
+            },
+            {
+                "id": 102,
+                "name": "Rin Tohsaka",
+                "jpName": "遠坂 凛",
+                "affiliation": "Tohsaka / Clock Tower",
+                "circuits": "A+ (40 Circuits)",
+                "origin": "Five Elements",
+                "gender": "Female",
+                "race": "Human / Magus",
+                "activeSpriteIndex": 0,
+                "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500",
+                "sprites": [
+                    { "name": "Casual Red Coat", "url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" },
+                    { "name": "Clock Tower Uniform", "url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500" }
+                ],
+                "traits": ["Human", "Magus", "Jewel Magic", "Tohsaka"],
+                "bio": "Penerus keluarga Tohsaka, ahli sihir Jewel Magic yang sangat berbakat.",
+                "lore": [
+                    "Magus genius generasi ke-6 dari keluarga Tohsaka.",
+                    "Menguasai sihir manipulasi kristal permata dan bertindak sebagai penerus resmi Fuyuki."
+                ],
+                "voiceLines": [
+                    {
+                        "title": "Summoning",
+                        "text": "I summoned the strongest class, Archer! Wait... why didn't the ritual go as planned?!",
+                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Ludwig_van_Beethoven_-_Symphony_No._5%2C_Op._67_-_I._Allegro_con_brio.ogg"
+                    }
+                ]
+            }
+        ];
+
+        function loadMasterData() {
+            const stored = localStorage.getItem('fgo_masters_db_v2');
+            if (stored) {
+                try { return JSON.parse(stored); } catch(e) {}
+            }
+            return initialMasters;
+        }
+
+        function saveMasterData() {
+            localStorage.setItem('fgo_masters_db_v2', JSON.stringify(masterData));
+        }
+
+        let masterData = loadMasterData();
+        let selectedMaster = null;
+        let selectedVoiceIndex = 0;
+        let selectedSpriteIndex = 0;
+
+        let activeAudio = new Audio();
+        let isAudioPlaying = false;
+        let audioProgressTimer = null;
+        let onConfirmCallback = null;
+
+        const gridContainer = document.getElementById('masterGrid');
+        const detailView = document.getElementById('detailView');
+        const emptyState = document.getElementById('emptyState');
+        const searchBar = document.getElementById('searchBar');
+        const loreModal = document.getElementById('loreModal');
+        const masterModal = document.getElementById('masterModal');
+        const confirmModal = document.getElementById('confirmModal');
+        const masterCount = document.getElementById('masterCount');
+
+        // CUSTOM CONFIRM DIALOG LOGIC
+        function showConfirmDialog(title, message, onConfirm) {
+            document.getElementById('confirmTitle').innerText = title;
+            document.getElementById('confirmMessage').innerText = message;
+            onConfirmCallback = onConfirm;
+
+            confirmModal.classList.remove('hidden');
+            setTimeout(() => confirmModal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeConfirmDialog() {
+            confirmModal.classList.add('opacity-0');
+            setTimeout(() => confirmModal.classList.add('hidden'), 300);
+        }
+
+        document.getElementById('confirmOkBtn').onclick = () => {
+            if (onConfirmCallback) onConfirmCallback();
+            closeConfirmDialog();
+        };
+
+        // EXPORT / IMPORT / RESET FUNCTIONS
+        function exportMasterData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `fgo_masters_db_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Master data exported as JSON!");
+        }
+
+        function importMasterData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (Array.isArray(parsed)) {
+                        masterData = parsed;
+                        saveMasterData();
+                        applyFilters();
+                        if (masterData.length > 0) showDetails(masterData[0]);
+                        else {
+                            selectedMaster = null;
+                            detailView.classList.add('hidden');
+                            emptyState.classList.remove('hidden');
+                        }
+                        showToast("Master data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format! Must be an array of Masters.");
+                    }
+                } catch(err) {
+                    alert("Error parsing JSON file!");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function confirmResetData() {
+            showConfirmDialog("RESET DATABASE", "Reset all master records to initial defaults? All custom changes will be lost.", () => {
+                localStorage.removeItem('fgo_masters_db_v2');
+                masterData = [...initialMasters];
+                selectedMaster = null;
+                stopAudio();
+                applyFilters();
+                emptyState.classList.remove('hidden');
+                detailView.classList.add('hidden');
+                showToast("Master database reset to defaults.");
+            });
+        }
+
+        function renderGrid(data) {
+            gridContainer.innerHTML = '';
+            masterCount.innerText = `Showing ${data.length} Master${data.length === 1 ? '' : 's'}`;
+
+            if (data.length === 0) {
+                gridContainer.innerHTML = `
+                    <div class="col-span-full w-full genshin-card p-8 text-center text-gray-400 text-xs font-genshin tracking-wider">
+                        NO MASTERS FOUND MATCHING CRITERIA.
+                    </div>`;
+                return;
+            }
+
+            data.forEach(master => {
+                const card = document.createElement('div');
+                card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-36 sm:w-40 lg:w-auto lg:shrink snap-start ${selectedMaster?.id === master.id ? 'ring-2 ring-[#cca566]' : ''}`;
+                card.onclick = () => showDetails(master);
+                
+                const hasVoice = master.voiceLines && master.voiceLines.length > 0;
+                const activeIndex = master.activeSpriteIndex || 0;
+                const cardThumb = (master.sprites && master.sprites[activeIndex]?.url) || master.image;
+
+                card.innerHTML = `
+                    <div class="relative h-36 bg-gradient-to-b from-[#1b2233] to-[#0e121e] flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <img src="${cardThumb}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-300">
+                        ${hasVoice ? `
+                            <span class="absolute top-2 right-2 bg-black/60 text-[#cca566] text-[10px] px-1.5 py-0.5 rounded border border-[#cca566]/40 flex items-center gap-1 backdrop-blur-sm">
+                                🎙️ ${master.voiceLines.length}
+                            </span>
+                        ` : ''}
+                    </div>
+                    <div class="p-3 bg-[#161c28]/90">
+                        <div class="text-[10px] text-[#cca566] font-semibold uppercase tracking-wider truncate">${master.affiliation || 'Master'}</div>
+                        <h3 class="font-bold text-white truncate text-xs mt-0.5">${master.name}</h3>
+                        <div class="text-[10px] text-gray-400 mt-1 truncate">🔮 ${master.circuits || 'Circuits ?'}</div>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function applyFilters() {
+            const query = searchBar.value.toLowerCase().trim();
+            const filtered = masterData.filter(m => {
+                return m.name.toLowerCase().includes(query) || 
+                       (m.affiliation && m.affiliation.toLowerCase().includes(query)) ||
+                       (m.origin && m.origin.toLowerCase().includes(query)) ||
+                       (m.traits && m.traits.some(t => t.toLowerCase().includes(query)));
+            });
+            renderGrid(filtered);
+        }
+
+        function getMasterSprites(master) {
+            if (master.sprites && master.sprites.length > 0) return master.sprites;
+            return [{ name: "Default", url: master.image || "" }];
+        }
+
+        function changeMasterSprite(index) {
+            if (!selectedMaster) return;
+            const sprites = getMasterSprites(selectedMaster);
+            if (!sprites[index]) return;
+
+            const spriteContainer = document.getElementById('spriteTabsContainer');
+            const savedScrollLeft = spriteContainer ? spriteContainer.scrollLeft : 0;
+
+            selectedSpriteIndex = index;
+            selectedMaster.activeSpriteIndex = index;
+            saveMasterData();
+
+            const spriteUrl = sprites[index].url;
+            const bgChar = document.getElementById('bgCharTransparent');
+            if (bgChar) bgChar.style.backgroundImage = spriteUrl ? `url('${spriteUrl}')` : 'none';
+
+            showToast(`Skin "${sprites[index].name || 'Stage ' + (index + 1)}" Equipped!`);
+            renderDetailContent();
+            applyFilters();
+
+            const newSpriteContainer = document.getElementById('spriteTabsContainer');
+            if (newSpriteContainer) newSpriteContainer.scrollLeft = savedScrollLeft;
+        }
+
+        function showDetails(master) {
+            selectedMaster = master;
+            selectedVoiceIndex = 0;
+            selectedSpriteIndex = master.activeSpriteIndex || 0; 
+            stopAudio();
+
+            emptyState.classList.add('hidden');
+            detailView.classList.remove('hidden');
+
+            const jpText = master.jpName || master.name;
+            document.getElementById('bgJapanShadow').innerHTML = jpText.replace('・', '<br>').replace(' ', '<br>');            
+            
+            const sprites = getMasterSprites(master);
+            const activeSpriteUrl = sprites[selectedSpriteIndex]?.url || master.image;
+            document.getElementById('bgCharTransparent').style.backgroundImage = activeSpriteUrl ? `url('${activeSpriteUrl}')` : 'none';
+
+            renderDetailContent();
+            applyFilters();
+        }
+
+        function renderDetailContent() {
+            if (!selectedMaster) return;
+            const master = selectedMaster;
+            const contentArea = document.getElementById('detailContent');
+            const voiceLines = master.voiceLines || [];
+            const currentVoice = voiceLines[selectedVoiceIndex] || null;
+            const sprites = getMasterSprites(master);
+
+            contentArea.innerHTML = `
+                <div class="flex justify-between items-start gap-2">
+                    <div>
+                        <span class="bg-[#cca566]/20 text-[#cca566] text-xs px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide">${(master.affiliation || 'MASTER').toUpperCase()}</span>
+                        <h2 class="text-xl md:text-2xl font-bold text-white mt-1 font-genshin">${master.name}</h2>
+                        <div class="text-xs text-gray-400 mt-0.5">Origin: <span class="text-amber-300 font-bold">${master.origin || '-'}</span></div>
+                    </div>
+                    <div class="flex gap-1.5">
+                        <button onclick="openMasterModal(${master.id})" title="Edit Master" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
+                            ✏️ Edit
+                        </button>
+                        <button onclick="deleteMaster(${master.id})" title="Delete Master" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+
+                ${sprites.length > 1 ? `
+                    <div class="border-t border-b border-gray-800 py-2 my-2">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] text-[#cca566] font-bold block">EQUIP OUTFIT / SKIN</span>
+                        </div>
+                        <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                            ${sprites.map((s, idx) => `
+                                <button onclick="changeMasterSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                                    <span>${s.name || `Skin ${idx + 1}`}</span>
+                                    ${idx === selectedSpriteIndex ? '<span class="text-[9px] bg-black/20 px-1 rounded">[USED]</span>' : ''}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <div class="grid grid-cols-2 gap-y-1 gap-x-3 text-[11px] text-gray-400 bg-black/30 p-2.5 rounded border border-gray-800">
+                    <div>Gender: <span class="text-white font-medium">${master.gender || 'Unknown'}</span></div>
+                    <div>Race/Role: <span class="text-white font-medium">${master.race || 'Magus'}</span></div>
+                    <div>Magic Circuit: <span class="text-amber-300 font-medium">${master.circuits || 'Unknown'}</span></div>
+                    <div>Origin: <span class="text-white font-medium">${master.origin || 'Unknown'}</span></div>
+                </div>
+
+                <div class="border-t border-[#cca566]/30 pt-3 bg-black/40 p-3.5 rounded-lg border border-[#cca566]/20 shadow-inner">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-xs font-bold font-genshin text-[#cca566] flex items-center gap-1.5 tracking-wider">
+                            <span>🎙️</span> VOICE OVER
+                        </h4>
+                        <span id="audioBadge" class="text-[9px] bg-[#cca566]/20 text-[#cca566] px-2 py-0.5 rounded border border-[#cca566]/30">
+                            ${voiceLines.length > 0 ? `${voiceLines.length} Voice Line(s)` : 'No Voice Recorded'}
+                        </span>
+                    </div>
+
+                    ${voiceLines.length > 0 ? `
+                        <div id="voiceTabsContainer" class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
+                            ${voiceLines.map((vl, idx) => `
+                                <button onclick="switchVoiceLine(${idx})" class="text-[10px] px-2.5 py-1 rounded whitespace-nowrap transition-all cursor-pointer ${idx === selectedVoiceIndex ? 'bg-[#cca566] text-[#0e121e] font-bold shadow' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}">
+                                    ${vl.title || `Line ${idx + 1}`}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <div class="bg-[#121723] p-3 rounded border border-gray-800 mb-3 relative">
+                            <p class="text-xs text-gray-200 italic leading-relaxed font-sans">
+                                "${currentVoice?.text || 'No dialogue transcript.'}"
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <button id="playBtn" onclick="togglePlayVoice()" class="w-10 h-10 rounded-full bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] flex items-center justify-center font-bold text-base shadow-md cursor-pointer transition-transform active:scale-95 flex-shrink-0">
+                                ▶
+                            </button>
+                            
+                            <div class="flex-1 space-y-1">
+                                <input type="range" id="audioSeek" min="0" max="100" value="0" oninput="seekAudio(this.value)" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                                <div class="flex justify-between text-[9px] text-gray-400">
+                                    <span id="audioCurrentTime">0:00</span>
+                                    <span id="audioDuration">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    ` : `
+                        <div class="text-center py-4 text-xs text-gray-500">
+                            No voice lines added yet. Click <b>Edit</b> to add voice URLs & transcripts!
+                        </div>
+                    `}
+                </div>
+
+                <div class="border-t border-gray-800/80 pt-2">
+                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Short Bio</h4>
+                    <p class="text-xs text-gray-300 bg-black/30 p-2.5 rounded border border-gray-800/80 leading-relaxed">
+                        ${master.bio || 'No short summary recorded.'}
+                    </p>
+                </div>
+
+                <button onclick="toggleLoreModal()" class="w-full bg-[#cca566] hover:bg-[#b59055] text-[#0e121e] font-genshin font-bold tracking-widest text-xs py-2.5 rounded transition-all shadow-md cursor-pointer mt-2">
+                    DETAILS & VOICE ARCHIVE
+                </button>
+            `;
+        }
+
+        function switchVoiceLine(index) {
+            const voiceContainer = document.getElementById('voiceTabsContainer');
+            const savedScrollLeft = voiceContainer ? voiceContainer.scrollLeft : 0;
+            selectedVoiceIndex = index;
+            stopAudio();
+            renderDetailContent();
+
+            const newVoiceContainer = document.getElementById('voiceTabsContainer');
+            if (newVoiceContainer) newVoiceContainer.scrollLeft = savedScrollLeft;
+        }
+
+        function togglePlayVoice() {
+            if (!selectedMaster || !selectedMaster.voiceLines || !selectedMaster.voiceLines[selectedVoiceIndex]) return;
+            const voice = selectedMaster.voiceLines[selectedVoiceIndex];
+            if (isAudioPlaying) pauseAudio();
+            else playAudioLine(voice.audioUrl, voice.text);
+        }
+
+        function playAudioLine(url, transcriptText) {
+            stopAudio();
+            const playBtn = document.getElementById('playBtn');
+            const seekSlider = document.getElementById('audioSeek');
+            const timeText = document.getElementById('audioCurrentTime');
+            const durationText = document.getElementById('audioDuration');
+
+            if (url && url.trim().length > 5) {
+                activeAudio = new Audio(url);
+                activeAudio.play().then(() => {
+                    isAudioPlaying = true;
+                    if (playBtn) playBtn.innerText = '⏸';
+                    audioProgressTimer = setInterval(() => {
+                        if (activeAudio.duration) {
+                            const pct = (activeAudio.currentTime / activeAudio.duration) * 100;
+                            if (seekSlider) seekSlider.value = pct;
+                            if (timeText) timeText.innerText = formatTime(activeAudio.currentTime);
+                            if (durationText) durationText.innerText = formatTime(activeAudio.duration);
+                        }
+                    }, 200);
+                }).catch(err => {
+                    playSpeechFallback(transcriptText);
+                });
+
+                activeAudio.onended = () => stopAudio();
+                activeAudio.onerror = () => playSpeechFallback(transcriptText);
+            } else {
+                playSpeechFallback(transcriptText);
+            }
+        }
+
+        function playSpeechFallback(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.95;
+                utterance.pitch = 1.0;
+                
+                utterance.onstart = () => {
+                    isAudioPlaying = true;
+                    const playBtn = document.getElementById('playBtn');
+                    if (playBtn) playBtn.innerText = '⏸';
+                    showToast("Playing via Speech Synthesis fallback");
+                };
+
+                utterance.onend = () => stopAudio();
+                utterance.onerror = () => stopAudio();
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showToast("Cannot play audio.");
+            }
+        }
+
+        function pauseAudio() {
+            if (activeAudio) activeAudio.pause();
+            if ('speechSynthesis' in window) window.speechSynthesis.pause();
+            isAudioPlaying = false;
+            const playBtn = document.getElementById('playBtn');
+            if (playBtn) playBtn.innerText = '▶';
+            if (audioProgressTimer) clearInterval(audioProgressTimer);
+        }
+
+        function stopAudio() {
+            if (activeAudio) {
+                activeAudio.pause();
+                activeAudio.currentTime = 0;
+            }
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            isAudioPlaying = false;
+            if (audioProgressTimer) clearInterval(audioProgressTimer);
+
+            const playBtn = document.getElementById('playBtn');
+            if (playBtn) playBtn.innerText = '▶';
+            const seekSlider = document.getElementById('audioSeek');
+            if (seekSlider) seekSlider.value = 0;
+            const timeText = document.getElementById('audioCurrentTime');
+            if (timeText) timeText.innerText = '0:00';
+        }
+
+        function seekAudio(val) {
+            if (activeAudio && activeAudio.duration) {
+                activeAudio.currentTime = (val / 100) * activeAudio.duration;
+            }
+        }
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60) || 0;
+            const s = Math.floor(secs % 60) || 0;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function toggleLoreModal() {
+            if (!selectedMaster) return;
+            if (loreModal.classList.contains('hidden')) {
+                document.getElementById('modalName').innerText = selectedMaster.name;
+                document.getElementById('modalAffiliationInfo').innerText = `${selectedMaster.affiliation || 'Master'} Profile`;
+                document.getElementById('modalCircuits').innerText = selectedMaster.circuits || '-';
+                document.getElementById('modalOrigin').innerText = selectedMaster.origin || '-';
+
+                const traitsBox = document.getElementById('modalTraits');
+                traitsBox.innerHTML = (selectedMaster.traits || []).map(t => `<span class="bg-gray-800 text-gray-300 text-[11px] px-2.5 py-0.5 rounded border border-gray-700">${t}</span>`).join('');
+
+                const loreBox = document.getElementById('modalLore');
+                loreBox.innerHTML = selectedMaster.lore && selectedMaster.lore.length > 0
+                    ? selectedMaster.lore.map(para => `<p>${para}</p>`).join('')
+                    : `<p>${selectedMaster.bio || 'No detailed biography archived.'}</p>`;
+
+                const voiceArchiveBox = document.getElementById('modalVoiceArchive');
+                const vLines = selectedMaster.voiceLines || [];
+
+                if (vLines.length > 0) {
+                    voiceArchiveBox.innerHTML = vLines.map((vl, idx) => `
+                        <div class="flex items-center justify-between gap-3 bg-black/40 p-2.5 rounded border border-gray-800 text-xs">
+                            <div class="flex-1">
+                                <span class="text-[#cca566] font-bold block text-[11px]">${vl.title || `Voice Line ${idx+1}`}</span>
+                                <p class="text-gray-300 italic text-[11px] mt-0.5">"${vl.text}"</p>
+                            </div>
+                            <button onclick="playAudioLine('${vl.audioUrl || ''}', '${vl.text.replace(/'/g, "\\'")}')" class="bg-[#cca566] text-[#0e121e] px-2.5 py-1 rounded text-[10px] font-bold hover:bg-[#e2be7d] cursor-pointer flex-shrink-0">
+                                🔊 Play
+                            </button>
+                        </div>
+                    `).join('');
+                } else {
+                    voiceArchiveBox.innerHTML = `<p class="text-gray-500 text-xs text-center py-2">No voice audio archives recorded.</p>`;
+                }
+
+                document.getElementById('modalEditBtn').onclick = () => {
+                    toggleLoreModal();
+                    openMasterModal(selectedMaster.id);
+                };
+
+                document.getElementById('modalDeleteBtn').onclick = () => {
+                    toggleLoreModal();
+                    deleteMaster(selectedMaster.id);
+                };
+
+                loreModal.classList.remove('hidden');
+                setTimeout(() => loreModal.classList.remove('opacity-0'), 10);
+            } else {
+                loreModal.classList.add('opacity-0');
+                setTimeout(() => loreModal.classList.add('hidden'), 300);
+            }
+        }
+
+        function openMasterModal(masterId = null) {
+            stopAudio();
+            const form = document.getElementById('masterForm');
+            form.reset();
+            document.getElementById('voiceLinesContainer').innerHTML = '';
+            document.getElementById('spritesContainer').innerHTML = '';
+
+            let target = masterId ? masterData.find(m => m.id === masterId) : null;
+
+            if (target) {
+                document.getElementById('formModalTitle').innerText = "EDIT MASTER & SKINS";
+                document.getElementById('editMasterId').value = target.id;
+                document.getElementById('formName').value = target.name || '';
+                document.getElementById('formJpName').value = target.jpName || '';
+                document.getElementById('formAffiliation').value = target.affiliation || '';
+                document.getElementById('formCircuits').value = target.circuits || '';
+                document.getElementById('formOrigin').value = target.origin || '';
+                document.getElementById('formGender').value = target.gender || '';
+                document.getElementById('formRace').value = target.race || '';
+                document.getElementById('formImage').value = target.image || '';
+
+                if (target.sprites && target.sprites.length > 0) {
+                    target.sprites.forEach(s => addMasterSpriteInputRow(s.name, s.url));
+                } else {
+                    addMasterSpriteInputRow("Default Outfit", target.image || "");
+                }
+
+                if (target.voiceLines && target.voiceLines.length > 0) {
+                    target.voiceLines.forEach(vl => addVoiceLineInputRow(vl.title, vl.audioUrl, vl.text));
+                } else {
+                    addVoiceLineInputRow();
+                }
+
+                document.getElementById('formTraits').value = (target.traits || []).join(', ');
+                document.getElementById('formLore').value = (target.lore || []).join('\n');
+            } else {
+                document.getElementById('formModalTitle').innerText = "ADD NEW MASTER";
+                document.getElementById('editMasterId').value = '';
+                document.getElementById('formImage').value = '';
+                addMasterSpriteInputRow("Default Outfit", "");
+                addVoiceLineInputRow("Greeting", "", "Trace, On! I'm ready for the Holy Grail War.");
+            }
+
+            masterModal.classList.remove('hidden');
+            setTimeout(() => masterModal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeMasterModal() {
+            masterModal.classList.add('opacity-0');
+            setTimeout(() => masterModal.classList.add('hidden'), 300);
+        }
+
+        function addMasterSpriteInputRow(name = '', url = '') {
+            const container = document.getElementById('spritesContainer');
+            const row = document.createElement('div');
+            row.className = "sprite-line-row flex gap-2 items-center bg-[#1b2233] p-2 rounded border border-gray-700";
+            row.innerHTML = `
+                <input type="text" placeholder="Skin / Outfit Name" value="${name}" class="sprite-name w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
+                <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-2/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
+                <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function addVoiceLineInputRow(title = '', audioUrl = '', text = '') {
+            const container = document.getElementById('voiceLinesContainer');
+            const row = document.createElement('div');
+            row.className = "voice-line-row bg-[#1b2233] p-2.5 rounded border border-gray-700 space-y-2 relative group";
+            row.innerHTML = `
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Line Title" value="${title}" class="vl-title w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                    <input type="url" placeholder="Audio URL (MP3/WAV)" value="${audioUrl}" class="vl-url w-2/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                    <button type="button" onclick="this.closest('.voice-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
+                </div>
+                <input type="text" placeholder="Dialogue Transcript..." value="${text}" class="vl-text w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+            `;
+            container.appendChild(row);
+        }
+
+        function handleMasterSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editMasterId').value;
+            const traitsArray = document.getElementById('formTraits').value.split(',').map(t => t.trim()).filter(t => t);
+            const loreArray = document.getElementById('formLore').value.split('\n').filter(l => l.trim());
+
+            const vlRows = document.querySelectorAll('.voice-line-row');
+            const voiceLines = [];
+            vlRows.forEach(row => {
+                const title = row.querySelector('.vl-title').value.trim();
+                const audioUrl = row.querySelector('.vl-url').value.trim();
+                const text = row.querySelector('.vl-text').value.trim();
+                if (title || text || audioUrl) {
+                    voiceLines.push({ title: title || 'Dialogue', audioUrl, text: text || '...' });
+                }
+            });
+
+            const spriteRows = document.querySelectorAll('.sprite-line-row');
+            const spritesArray = [];
+            spriteRows.forEach(row => {
+                const name = row.querySelector('.sprite-name').value.trim();
+                const url = row.querySelector('.sprite-url').value.trim();
+                if (url) spritesArray.push({ name: name || 'Outfit', url: url });
+            });
+
+            const existingMaster = editId ? masterData.find(m => m.id === parseInt(editId)) : null;
+            const defaultImg = document.getElementById('formImage').value.trim() || spritesArray[0]?.url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500';
+
+            const newMasterObj = {
+                id: editId ? parseInt(editId) : Date.now(),
+                name: document.getElementById('formName').value,
+                jpName: document.getElementById('formJpName').value,
+                affiliation: document.getElementById('formAffiliation').value,
+                circuits: document.getElementById('formCircuits').value,
+                origin: document.getElementById('formOrigin').value,
+                gender: document.getElementById('formGender').value,
+                race: document.getElementById('formRace').value,
+                image: defaultImg,
+                activeSpriteIndex: existingMaster?.activeSpriteIndex ?? 0,
+                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Default Outfit", url: defaultImg }],
+                voiceLines: voiceLines,
+                traits: traitsArray,
+                bio: loreArray[0] || "Master record archived.",
+                lore: loreArray.length > 0 ? loreArray : [document.getElementById('formName').value + " record archived."]
+            };
+
+            if (editId) {
+                const idx = masterData.findIndex(m => m.id === parseInt(editId));
+                if (idx !== -1) masterData[idx] = newMasterObj;
+                showToast("Master updated successfully!");
+            } else {
+                masterData.unshift(newMasterObj);
+                showToast("New Master registered!");
+            }
+
+            saveMasterData();
+            applyFilters();
+            showDetails(newMasterObj);
+            closeMasterModal();
+        }
+
+        function deleteMaster(id) {
+            showConfirmDialog("DELETE MASTER", "Are you sure you want to delete this Master?", () => {
+                masterData = masterData.filter(m => m.id !== id);
+                saveMasterData();
+                applyFilters();
+                if (selectedMaster && selectedMaster.id === id) {
+                    selectedMaster = null;
+                    stopAudio();
+                    detailView.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                }
+                showToast("Master deleted.");
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+
+        searchBar.addEventListener('input', applyFilters);
+
+        // FITUR NAVIGASI KEYBOARD PANAH
+        document.addEventListener('keydown', (e) => {
+            const activeTag = document.activeElement ? document.activeElement.tagName : '';
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
+
+            const isMasterModalOpen = !masterModal.classList.contains('hidden');
+            const isLoreModalOpen = !loreModal.classList.contains('hidden');
+            const isConfirmModalOpen = !confirmModal.classList.contains('hidden');
+            if (isMasterModalOpen || isLoreModalOpen || isConfirmModalOpen) return;
+
+            if (!selectedMaster) return;
+
+            const sprites = getMasterSprites(selectedMaster);
+            if (sprites.length <= 1) return;
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const nextIndex = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
+                changeMasterSprite(nextIndex);
+                scrollActiveSpriteIntoView(nextIndex);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (selectedSpriteIndex + 1) % sprites.length;
+                changeMasterSprite(nextIndex);
+                scrollActiveSpriteIntoView(nextIndex);
+            }
+        });
+
+        function scrollActiveSpriteIntoView(index) {
+            const spriteContainer = document.getElementById('spriteTabsContainer');
+            if (!spriteContainer) return;
+            const buttons = spriteContainer.querySelectorAll('button');
+            if (buttons[index]) {
+                buttons[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            }
+        }
+
+        window.onload = function() {
+            applyFilters();
+            if (masterData.length > 0) showDetails(masterData[0]);
+        }
+    </script>
+</body>
+</html>
