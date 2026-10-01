@@ -121,11 +121,33 @@
             
             <!-- Pairings Cards -->
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
-                <div class="flex items-center justify-between px-1 text-xs text-gray-400">
-                    <span id="factionCount">Showing War Factions</span>
-                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
-                        <span>SELECT FACTION</span>
-                    </span>
+                <!-- BAR SEARCH, FILTER & SORTING -->
+                <div class="bg-black/30 p-3 rounded-lg border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+                    <div class="flex items-center gap-2 w-full md:w-auto">
+                        <span id="factionCount" class="text-gray-400 whitespace-nowrap font-medium">Showing Factions</span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-end">
+                        <!-- Search Input -->
+                        <input type="text" id="filterSearch" oninput="renderGrid()" placeholder="Cari Master / Servant..." class="bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-[#cca566] outline-none w-full sm:w-36">
+                        
+                        <!-- Filter Status -->
+                        <select id="filterStatus" onchange="renderGrid()" class="bg-[#1b2233] text-white border border-gray-700 rounded px-2 py-1 text-xs focus:border-[#cca566] outline-none">
+                            <option value="ALL">Semua Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Defeated">Defeated</option>
+                            <option value="Winner">Winner</option>
+                        </select>
+
+                        <!-- Sort Options -->
+                        <select id="sortBy" onchange="renderGrid()" class="bg-[#1b2233] text-amber-300 border border-gray-700 rounded px-2 py-1 text-xs focus:border-[#cca566] outline-none font-bold">
+                            <option value="CUSTOM">Urutan Custom (Manual)</option>
+                            <option value="DEFAULT">Urutan Terbaru</option>
+                            <option value="SUMMON_ASC">Hari Summon (Awal-Akhir)</option>
+                            <option value="MASTER_NAME">Nama Master (A-Z)</option>
+                            <option value="SERVANT_NAME">Nama Servant (A-Z)</option>
+                        </select>
+                    </div>
                 </div>
                 
                 <div id="warGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 lg:gap-4 lg:pb-0 lg:overflow-visible">
@@ -163,7 +185,10 @@
                     <span class="text-red-500 text-xl">⚔️</span>
                     <h3 id="modalName" class="text-2xl md:text-3xl font-genshin text-white font-bold tracking-wide">Faction Alliance</h3>
                 </div>
-                <p id="modalFactionClass" class="text-xs text-amber-400 tracking-widest uppercase mt-1">Holy Grail War Alliance Record</p>
+                <div class="flex items-center gap-3 mt-1">
+                    <p id="modalFactionClass" class="text-xs text-amber-400 tracking-widest uppercase">Holy Grail War Alliance Record</p>
+                    <span id="modalSummonedDay" class="text-[10px] bg-red-900/60 text-red-200 px-2 py-0.5 rounded border border-red-500/40 font-bold">Summoned: Day 1</span>
+                </div>
             </div>
 
             <div class="space-y-6">
@@ -208,7 +233,7 @@
 
                 <div class="pt-4 border-t border-gray-800 flex justify-end gap-3">
                     <button id="modalEditBtn" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
-                        ✏️ Edit Faction
+                        ✏ Edit Faction
                     </button>
                     <button id="modalDeleteBtn" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
                         🗑️ Delete Faction
@@ -243,9 +268,14 @@
                     </select>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-3 gap-3">
                     <div>
-                        <label class="block text-gray-400 mb-1">Command Seals (Mantra)</label>
+                        <label class="block text-gray-400 mb-1">Hari Pemanggilan *</label>
+                        <input type="text" id="formSummonedDay" placeholder="e.g. Day 1, Pre-War" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-400 mb-1">Command Seals</label>
                         <select id="formCommandSeals" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                             <option value="3">3 Seals (Utuh)</option>
                             <option value="2">2 Seals</option>
@@ -304,9 +334,10 @@
                 servantId: 1, 
                 commandSeals: 3, 
                 status: "Active", 
+                summonedDay: "Day 1",
                 notes: "Aliansi utama Chaldea Fuyuki.",
                 battleLogs: [
-                    { id: 1001, time: "Day 1 - 22:00", text: "Faksi Saber resmi terbentuk dalam Holy Grail War Fuyuki." },
+                    { id: 1001, time: "Day 1 - Night", text: "Faksi Saber resmi terbentuk dalam Holy Grail War Fuyuki." },
                     { id: 1002, time: "Day 2 - 01:15", text: "Bentrokan pertama dengan Faksi Archer di pelabuhan." }
                 ]
             },
@@ -316,9 +347,10 @@
                 servantId: 2, 
                 commandSeals: 2, 
                 status: "Active", 
+                summonedDay: "Pre-War",
                 notes: "Faksi Tohsaka dengan Archer Gilgamesh.",
                 battleLogs: [
-                    { id: 1003, time: "Day 1 - 23:45", text: "Pemanggilan King of Heroes berhasil dilakukan di kediaman Tohsaka." }
+                    { id: 1003, time: "Day 1 - Evening", text: "Pemanggilan King of Heroes berhasil dilakukan di kediaman Tohsaka." }
                 ]
             }
         ];
@@ -347,6 +379,8 @@
 
         let pairings = getPairings();
         let selectedPairing = null;
+        let editingLogId = null;
+        let draggedPairingId = null;
         let onConfirmCallback = null;
 
         const gridContainer = document.getElementById('warGrid');
@@ -423,6 +457,7 @@
                 localStorage.removeItem('fgo_war_pairings_v2');
                 pairings = JSON.parse(JSON.stringify(initialPairings));
                 selectedPairing = null;
+                editingLogId = null;
                 renderGrid();
                 emptyState.classList.remove('hidden');
                 detailView.classList.add('hidden');
@@ -430,22 +465,136 @@
             });
         }
 
+        // CUSTOM REORDER FUNCTIONS (MOVE UP / DOWN)
+        function moveFactionUp(id) {
+            const idx = pairings.findIndex(p => p.id === id);
+            if (idx > 0) {
+                const temp = pairings[idx];
+                pairings[idx] = pairings[idx - 1];
+                pairings[idx - 1] = temp;
+
+                document.getElementById('sortBy').value = 'CUSTOM';
+                savePairings();
+                renderGrid();
+                showToast("Faksi digeser ke atas!");
+            }
+        }
+
+        function moveFactionDown(id) {
+            const idx = pairings.findIndex(p => p.id === id);
+            if (idx !== -1 && idx < pairings.length - 1) {
+                const temp = pairings[idx];
+                pairings[idx] = pairings[idx + 1];
+                pairings[idx + 1] = temp;
+
+                document.getElementById('sortBy').value = 'CUSTOM';
+                savePairings();
+                renderGrid();
+                showToast("Faksi digeser ke bawah!");
+            }
+        }
+
+        // DRAG AND DROP HANDLERS
+        function handleDragStart(e, id) {
+            draggedPairingId = id;
+            e.dataTransfer.effectAllowed = 'move';
+            e.target.classList.add('opacity-40');
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('opacity-40');
+            draggedPairingId = null;
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handleDrop(e, targetId) {
+            e.preventDefault();
+            if (!draggedPairingId || draggedPairingId === targetId) return;
+
+            const fromIdx = pairings.findIndex(p => p.id === draggedPairingId);
+            const toIdx = pairings.findIndex(p => p.id === targetId);
+
+            if (fromIdx !== -1 && toIdx !== -1) {
+                const [movedItem] = pairings.splice(fromIdx, 1);
+                pairings.splice(toIdx, 0, movedItem);
+
+                const sortSelect = document.getElementById('sortBy');
+                if (sortSelect) sortSelect.value = 'CUSTOM';
+
+                savePairings();
+                renderGrid();
+                showToast("Urutan faksi diperbarui!");
+            }
+            draggedPairingId = null;
+        }
+
+        // FILTER & SORT LOGIC
+        function getFilteredAndSortedPairings() {
+            const search = (document.getElementById('filterSearch')?.value || '').toLowerCase().trim();
+            const statusFilter = document.getElementById('filterStatus')?.value || 'ALL';
+            const sortVal = document.getElementById('sortBy')?.value || 'CUSTOM';
+
+            const masters = getMasters();
+            const servants = getServants();
+
+            let list = pairings.filter(p => {
+                const master = masters.find(m => m.id === p.masterId) || { name: "" };
+                const servant = servants.find(s => s.id === p.servantId) || { name: "", class: "" };
+
+                const matchSearch = master.name.toLowerCase().includes(search) ||
+                                    servant.name.toLowerCase().includes(search) ||
+                                    (servant.class && servant.class.toLowerCase().includes(search)) ||
+                                    (p.summonedDay && p.summonedDay.toLowerCase().includes(search));
+
+                const matchStatus = statusFilter === 'ALL' || p.status === statusFilter;
+
+                return matchSearch && matchStatus;
+            });
+
+            // Sorting
+            if (sortVal === 'DEFAULT') {
+                list.sort((a, b) => b.id - a.id);
+            } else if (sortVal === 'MASTER_NAME') {
+                list.sort((a, b) => {
+                    const masterA = masters.find(m => m.id === a.masterId)?.name || '';
+                    const masterB = masters.find(m => m.id === b.masterId)?.name || '';
+                    return masterA.localeCompare(masterB);
+                });
+            } else if (sortVal === 'SERVANT_NAME') {
+                list.sort((a, b) => {
+                    const servantA = servants.find(s => s.id === a.servantId)?.name || '';
+                    const servantB = servants.find(s => s.id === b.servantId)?.name || '';
+                    return servantA.localeCompare(servantB);
+                });
+            } else if (sortVal === 'SUMMON_ASC') {
+                list.sort((a, b) => (a.summonedDay || '').localeCompare(b.summonedDay || '', undefined, { numeric: true }));
+            }
+            // If sortVal === 'CUSTOM', keep array index order directly
+
+            return list;
+        }
+
         function renderGrid() {
             gridContainer.innerHTML = '';
             const masters = getMasters();
             const servants = getServants();
+            const filteredPairings = getFilteredAndSortedPairings();
 
-            factionCount.innerText = `Showing ${pairings.length} Faction${pairings.length === 1 ? '' : 's'}`;
+            factionCount.innerText = `Showing ${filteredPairings.length} of ${pairings.length} Faction${pairings.length === 1 ? '' : 's'}`;
 
-            if (pairings.length === 0) {
+            if (filteredPairings.length === 0) {
                 gridContainer.innerHTML = `
                     <div class="col-span-full w-full genshin-card p-8 text-center text-gray-400 text-xs font-genshin tracking-wider">
-                        NO FACTIONS REGISTERED IN THE HOLY GRAIL WAR.
+                        NO FACTIONS MATCHING FILTER CRITERIA.
                     </div>`;
                 return;
             }
 
-            pairings.forEach(p => {
+            filteredPairings.forEach(p => {
                 const master = masters.find(m => m.id === p.masterId) || { name: "Unknown Master", image: "" };
                 const servant = servants.find(s => s.id === p.servantId) || { name: "Unknown Servant", class: "Unknown", image: "" };
 
@@ -455,14 +604,27 @@
                 const isDefeated = p.status === 'Defeated';
                 const card = document.createElement('div');
                 card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-64 sm:w-72 lg:w-auto lg:shrink snap-start ${selectedPairing?.id === p.id ? 'ring-2 ring-red-500' : ''} ${isDefeated ? 'status-defeated' : ''}`;
+                card.draggable = true;
+                card.ondragstart = (e) => handleDragStart(e, p.id);
+                card.ondragend = handleDragEnd;
+                card.ondragover = handleDragOver;
+                card.ondrop = (e) => handleDrop(e, p.id);
                 card.onclick = () => showDetails(p);
 
                 card.innerHTML = `
-                    <div class="p-2.5 bg-[#161c28]/90 border-b border-gray-800 flex justify-between items-center text-[10px]">
-                        <span class="text-[#cca566] font-bold uppercase tracking-wider">${servant.class || 'CLASS'} FACTION</span>
-                        <span class="font-genshin font-bold ${p.status === 'Active' ? 'text-green-400' : p.status === 'Winner' ? 'text-amber-300' : 'text-red-500'}">
-                            ● ${p.status.toUpperCase()}
-                        </span>
+                    <div class="p-2 bg-[#161c28]/90 border-b border-gray-800 flex justify-between items-center text-[10px]">
+                        <div class="flex items-center gap-1.5">
+                            <!-- Quick Move Up & Down Buttons -->
+                            <button onclick="event.stopPropagation(); moveFactionUp(${p.id})" title="Geser Ke Atas/Kiri" class="hover:bg-gray-800 text-gray-400 hover:text-amber-300 px-1 py-0.5 rounded cursor-pointer transition-colors">▲</button>
+                            <button onclick="event.stopPropagation(); moveFactionDown(${p.id})" title="Geser Ke Bawah/Kanan" class="hover:bg-gray-800 text-gray-400 hover:text-amber-300 px-1 py-0.5 rounded cursor-pointer transition-colors">▼</button>
+                            <span class="text-[#cca566] font-bold uppercase tracking-wider">${servant.class || 'CLASS'}</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="bg-red-950/80 text-red-300 text-[9px] px-1.5 py-0.5 rounded border border-red-500/30">Summoned: ${p.summonedDay || 'Day 1'}</span>
+                            <span class="font-genshin font-bold ${p.status === 'Active' ? 'text-green-400' : p.status === 'Winner' ? 'text-amber-300' : 'text-red-500'}">
+                                ● ${p.status.toUpperCase()}
+                            </span>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 h-36 bg-gradient-to-b from-[#1b2233] to-[#0e121e] relative">
@@ -479,7 +641,7 @@
                     <div class="p-3 bg-[#161c28]/90 flex justify-between items-center text-xs">
                         <div class="text-[10px] text-gray-400">Seals: <span class="text-red-500">${'🛑'.repeat(p.commandSeals || 0)}</span></div>
                         <span class="text-[10px] text-gray-400 italic truncate max-w-[120px]">
-                            ⚔️ ${p.battleLogs?.length || 0} Battle Logs
+                            ⚔ ${p.battleLogs?.length || 0} Battle Logs
                         </span>
                     </div>
                 `;
@@ -489,6 +651,7 @@
 
         function showDetails(pairing) {
             selectedPairing = pairing;
+            editingLogId = null;
 
             emptyState.classList.add('hidden');
             detailView.classList.remove('hidden');
@@ -520,14 +683,19 @@
                 <!-- Faction Header & Actions -->
                 <div class="flex justify-between items-start">
                     <div>
-                        <span class="bg-red-900/60 text-red-200 text-xs px-2.5 py-0.5 rounded border border-red-500/40 font-bold font-genshin tracking-wide">
-                            ${(servant.class || 'FACTION').toUpperCase()} ALLIANCE
-                        </span>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-900/60 text-red-200 text-xs px-2.5 py-0.5 rounded border border-red-500/40 font-bold font-genshin tracking-wide">
+                                ${(servant.class || 'FACTION').toUpperCase()} ALLIANCE
+                            </span>
+                            <span class="bg-amber-900/50 text-amber-300 text-[10px] px-2 py-0.5 rounded border border-amber-500/30 font-bold">
+                                ${selectedPairing.summonedDay || 'Day 1'}
+                            </span>
+                        </div>
                         <h2 class="text-xl font-bold text-white mt-1 font-genshin">${master.name} & ${servant.name}</h2>
                     </div>
                     <div class="flex gap-1.5">
                         <button onclick="openPairingModal(${selectedPairing.id})" title="Edit Faction" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
-                            ✏️ Edit
+                            ✏ Edit
                         </button>
                         <button onclick="deletePairing(${selectedPairing.id})" title="Delete Faction" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
                             🗑️
@@ -586,23 +754,41 @@
                         </h4>
                     </div>
 
-                    <!-- List Battle Logs -->
-                    <div class="max-h-36 overflow-y-auto space-y-1.5 mb-2.5 pr-1 text-xs">
-                        ${logs.length > 0 ? logs.map(log => `
-                            <div class="bg-black/50 p-2 rounded border border-gray-800 flex justify-between items-start gap-2">
-                                <div class="flex-1">
-                                    <span class="text-[9px] text-[#cca566] font-bold block">${log.time}</span>
-                                    <p class="text-gray-300 text-[11px] leading-snug">${log.text}</p>
+                    <!-- List Battle Logs dengan Fitur Inline Edit -->
+                    <div class="max-h-44 overflow-y-auto space-y-2 mb-2.5 pr-1 text-xs">
+                        ${logs.length > 0 ? logs.map(log => {
+                            if (editingLogId === log.id) {
+                                return `
+                                    <form onsubmit="saveEditBattleLog(event, ${selectedPairing.id},${log.id})" class="bg-black/70 p-2 rounded border border-[#cca566] space-y-1.5">
+                                        <input type="text" id="editLogTime_${log.id}" value="${log.time || ''}" placeholder="Timeline (misal: Day 1 - Night)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded px-2 py-1 text-[11px] focus:border-[#cca566] outline-none">
+                                        <textarea id="editLogText_${log.id}" rows="2" required placeholder="Catatan pertarungan..." class="w-full bg-[#1b2233] text-white border border-gray-700 rounded px-2 py-1 text-[11px] focus:border-[#cca566] outline-none">${log.text || ''}</textarea>
+                                        <div class="flex justify-end gap-1.5">
+                                            <button type="button" onclick="cancelEditBattleLog()" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-0.5 rounded cursor-pointer">Batal</button>
+                                            <button type="submit" class="text-[10px] bg-[#cca566] hover:bg-[#e2be7d] text-[#0e121e] font-bold px-2 py-0.5 rounded cursor-pointer">Simpan</button>
+                                        </div>
+                                    </form>
+                                `;
+                            }
+                            return `
+                                <div class="bg-black/50 p-2 rounded border border-gray-800 flex justify-between items-start gap-2 group">
+                                    <div class="flex-1">
+                                        <span class="text-[9px] text-[#cca566] font-bold block">${log.time || 'Timeline'}</span>
+                                        <p class="text-gray-300 text-[11px] leading-snug">${log.text}</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+                                        <button onclick="startEditBattleLog(${log.id})" class="text-gray-400 hover:text-[#cca566] text-[11px] px-1 cursor-pointer" title="Edit Log">✏️</button>
+                                        <button onclick="deleteBattleLog(${selectedPairing.id},${log.id})" class="text-gray-400 hover:text-red-400 text-xs px-1 cursor-pointer" title="Hapus Log">✕</button>
+                                    </div>
                                 </div>
-                                <button onclick="deleteBattleLog(${selectedPairing.id},${log.id})" class="text-gray-500 hover:text-red-400 text-xs px-1 cursor-pointer" title="Hapus Log">✕</button>
-                            </div>
-                        `).join('') : '<p class="text-gray-500 text-[11px] italic text-center py-2">Belum ada catatan pertempuran.</p>'}
+                            `;
+                        }).join('') : '<p class="text-gray-500 text-[11px] italic text-center py-2">Belum ada catatan pertempuran.</p>'}
                     </div>
 
-                    <!-- Input Tambah Log -->
-                    <form onsubmit="handleAddBattleLog(event, ${selectedPairing.id})" class="flex gap-1.5">
-                        <input type="text" id="newLogText" required placeholder="Tambah catatan pertarungan..." class="flex-1 bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-red-500 outline-none">
-                        <button type="submit" class="bg-red-900/80 hover:bg-red-700 text-white font-genshin font-bold px-3 py-1 rounded text-xs transition-colors cursor-pointer border border-red-500/40">
+                    <!-- Input Tambah Log (Timeline Kustom) -->
+                    <form onsubmit="handleAddBattleLog(event, ${selectedPairing.id})" class="flex flex-col sm:flex-row gap-1.5">
+                        <input type="text" id="newLogTime" placeholder="Timeline (misal: Day 1 - Night)" class="w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-red-500 outline-none">
+                        <input type="text" id="newLogText" required placeholder="Catatan pertarungan..." class="w-full sm:w-2/3 bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-red-500 outline-none">
+                        <button type="submit" class="bg-red-900/80 hover:bg-red-700 text-white font-genshin font-bold px-3 py-1 rounded text-xs transition-colors cursor-pointer border border-red-500/40 shrink-0">
                             + Log
                         </button>
                     </form>
@@ -635,28 +821,59 @@
             `;
         }
 
-        // BATTLE LOG FUNCTIONS
+        // BATTLE LOG FUNCTIONS (EDITABLE & CUSTOM TIMELINE)
         function handleAddBattleLog(e, pairingId) {
             e.preventDefault();
-            const input = document.getElementById('newLogText');
-            const text = input.value.trim();
-            if (!text) return;
+            const timeInput = document.getElementById('newLogTime');
+            const textInput = document.getElementById('newLogText');
+            
+            const timeVal = timeInput.value.trim() || 'Timeline';
+            const textVal = textInput.value.trim();
+            if (!textVal) return;
 
             const target = pairings.find(p => p.id === pairingId);
             if (target) {
                 if (!target.battleLogs) target.battleLogs = [];
-                const now = new Date();
-                const timeStr = `Jam ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
                 target.battleLogs.unshift({
                     id: Date.now(),
-                    time: timeStr,
-                    text: text
+                    time: timeVal,
+                    text: textVal
                 });
                 savePairings();
                 renderDetailContent();
                 showToast("Battle log ditambahkan!");
             }
-            input.value = '';
+            timeInput.value = '';
+            textInput.value = '';
+        }
+
+        function startEditBattleLog(logId) {
+            editingLogId = logId;
+            renderDetailContent();
+        }
+
+        function cancelEditBattleLog() {
+            editingLogId = null;
+            renderDetailContent();
+        }
+
+        function saveEditBattleLog(e, pairingId, logId) {
+            e.preventDefault();
+            const timeInput = document.getElementById(`editLogTime_${logId}`);
+            const textInput = document.getElementById(`editLogText_${logId}`);
+
+            const target = pairings.find(p => p.id === pairingId);
+            if (target && target.battleLogs) {
+                const log = target.battleLogs.find(l => l.id === logId);
+                if (log) {
+                    log.time = timeInput.value.trim() || 'Timeline';
+                    log.text = textInput.value.trim();
+                    savePairings();
+                    showToast("Battle log diperbarui!");
+                }
+            }
+            editingLogId = null;
+            renderDetailContent();
         }
 
         function deleteBattleLog(pairingId, logId) {
@@ -674,13 +891,10 @@
             if (selectedPairing.commandSeals > 0) {
                 selectedPairing.commandSeals -= 1;
                 
-                // Automatis catat ke Battle Log
                 if (!selectedPairing.battleLogs) selectedPairing.battleLogs = [];
-                const now = new Date();
-                const timeStr = `Command Seal - ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
                 selectedPairing.battleLogs.unshift({
                     id: Date.now(),
-                    time: timeStr,
+                    time: "Command Seal",
                     text: `Master menggunakan 1 Command Seal! (Sisa: ${selectedPairing.commandSeals})`
                 });
 
@@ -723,6 +937,7 @@
 
                 document.getElementById('modalName').innerText = `${master.name} & ${servant.name}`;
                 document.getElementById('modalFactionClass').innerText = `${(servant.class || 'WAR').toUpperCase()} FACTION ALLIANCE`;
+                document.getElementById('modalSummonedDay').innerText = `Summoned: ${selectedPairing.summonedDay || 'Day 1'}`;
                 
                 document.getElementById('modalMasterName').innerText = master.name;
                 document.getElementById('modalMasterAffiliation').innerText = master.affiliation || '-';
@@ -739,7 +954,7 @@
                 if (logs.length > 0) {
                     logsHistoryBox.innerHTML = logs.map(l => `
                         <div class="bg-black/40 p-2.5 rounded border border-gray-800 text-xs">
-                            <span class="text-[#cca566] font-bold text-[10px] block">${l.time}</span>
+                            <span class="text-[#cca566] font-bold text-[10px] block">${l.time || 'Timeline'}</span>
                             <p class="text-gray-200 text-xs mt-0.5">${l.text}</p>
                         </div>
                     `).join('');
@@ -787,12 +1002,14 @@
                 document.getElementById('editPairingId').value = target.id;
                 document.getElementById('formSelectMaster').value = target.masterId;
                 document.getElementById('formSelectServant').value = target.servantId;
+                document.getElementById('formSummonedDay').value = target.summonedDay || 'Day 1';
                 document.getElementById('formCommandSeals').value = target.commandSeals ?? 3;
                 document.getElementById('formPairStatus').value = target.status || 'Active';
                 document.getElementById('formPairNotes').value = target.notes || '';
             } else {
                 document.getElementById('modalFormTitle').innerText = "FACTION REGISTRATION";
                 document.getElementById('editPairingId').value = '';
+                document.getElementById('formSummonedDay').value = "Day 1";
                 document.getElementById('formCommandSeals').value = "3";
                 document.getElementById('formPairStatus').value = "Active";
                 document.getElementById('formPairNotes').value = "";
@@ -817,6 +1034,7 @@
                 id: editId ? parseInt(editId) : Date.now(),
                 masterId: parseInt(document.getElementById('formSelectMaster').value),
                 servantId: parseInt(document.getElementById('formSelectServant').value),
+                summonedDay: document.getElementById('formSummonedDay').value.trim() || 'Day 1',
                 commandSeals: parseInt(document.getElementById('formCommandSeals').value),
                 status: document.getElementById('formPairStatus').value,
                 notes: document.getElementById('formPairNotes').value,
