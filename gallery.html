@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fate/Dominion - Skin & Outfit Gallery</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0e121e 0%, #171d2c 50%, #0a0d16 100%);
+            background-attachment: fixed;
+            color: #ece5d8;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND GAMBAR TRANSPARAN BODY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/images/bg.png'); 
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .font-genshin { font-family: 'Cinzel', serif; }
+        .font-japan { font-family: 'Noto Serif JP', serif; }
+
+        /* Genshin Glassmorphism & Gold Borders */
+        .genshin-card {
+            background: rgba(23, 29, 44, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(204, 165, 102, 0.2);
+            border-radius: 4px 20px 4px 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .genshin-card:hover {
+            border-color: #cca566;
+            box-shadow: 0 10px 30px rgba(204, 165, 102, 0.25), 0 0 15px rgba(204, 165, 102, 0.1);
+        }
+
+        /* Rarities Background Gradient */
+        .rarity-5 { background: linear-gradient(180deg, #513e6b 0%, #bfa054 100%); }
+        .rarity-4 { background: linear-gradient(180deg, #64553b 0%, #bfa054 50%, #b8ac8c 100%); }
+        .rarity-3 { background: linear-gradient(180deg, #b5b5b5 0%, #64696f 100%); }
+        .rarity-master { background: linear-gradient(180deg, #1b263b 0%, #415a77 100%); }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
+        ::-webkit-scrollbar-thumb { background: #cca566; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e2be7d; }
+
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes activePulse {
+            0%, 100% { border-color: rgba(204, 165, 102, 1); box-shadow: 0 0 15px rgba(204, 165, 102, 0.6); }
+            50% { border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 0 25px rgba(255, 215, 0, 0.9); }
+        }
+        .equipped-card {
+            animation: activePulse 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header Navigasi & Filter Controls -->
+        <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div class="text-center lg:text-left">
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <span class="text-3xl text-[#cca566]">👗</span>
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <span class="text-3xl text-[#cca566]">✨</span>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Wardrobe & Costume Showcase Gallery</p>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 w-full lg:w-auto">
+                <a href="index.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    ← SERVANTS
+                </a>
+                <a href="masters.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🧙‍♂️ MASTERS
+                </a>
+                <a href="war.html" class="bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
+                    ⚔️ GRAIL WAR
+                </a>
+                <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🎲 GACHA
+                </a>
+            </div>
+        </header>
+
+        <!-- Bar Filter & Pencarian Gallery -->
+        <div class="bg-black/30 p-4 rounded-lg border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 mb-6 text-xs">
+            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                <button onclick="setCategoryFilter('ALL')" id="catBtnALL" class="cat-filter-btn bg-[#cca566] text-[#0e121e] font-bold px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
+                    Semua Skin
+                </button>
+                <button onclick="setCategoryFilter('SERVANT')" id="catBtnSERVANT" class="cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
+                    🛡️ Servant Skins
+                </button>
+                <button onclick="setCategoryFilter('MASTER')" id="catBtnMASTER" class="cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
+                    🧙‍♂️ Master Outfits
+                </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto justify-end">
+                <select id="seriesFilter" onchange="renderGallery()" class="bg-[#1b2233] text-[#cca566] border border-[#cca566]/40 rounded-full px-3 py-1.5 text-xs outline-none font-bold cursor-pointer">
+                    <option value="ALL">✨ Semua Set / Series</option>
+                </select>
+
+                <input type="text" id="skinSearch" oninput="renderGallery()" placeholder="Cari nama skin / series / karakter..." class="bg-[#1b2233] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-1.5 text-xs outline-none w-full sm:w-48">
+                
+                <select id="equipFilter" onchange="renderGallery()" class="bg-[#1b2233] text-amber-300 border border-gray-700 rounded-full px-3 py-1.5 text-xs outline-none font-bold">
+                    <option value="ALL">Semua Status</option>
+                    <option value="EQUIPPED">Sedang Dipakai (Used)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mb-4 px-1 text-xs text-gray-400 font-genshin">
+            <span id="skinCountInfo">Menampilkan Skin</span>
+            <span class="text-[#cca566]">KLIK KARTU UNTUK PRATINJAU FULLSCREEN</span>
+        </div>
+
+        <div id="skinGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
+            <!-- Cards Injected by JavaScript -->
+        </div>
+    </div>
+
+    <!-- MODAL FULLSCREEN PREVIEW SKIN -->
+    <div id="skinModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-2xl rounded-lg p-6 relative shadow-2xl flex flex-col md:flex-row gap-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeSkinModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/50 z-20">&times;</button>
+            
+            <div id="modalImageBg" class="w-full md:w-1/2 h-72 md:h-96 rounded-lg relative overflow-hidden flex items-center justify-center border border-gray-800 shrink-0">
+                <img id="modalSkinImage" src="" class="w-full h-full object-cover object-top drop-shadow-2xl transition-all duration-300">
+                <span id="modalEquippedBadge" class="absolute top-2 left-2 bg-[#cca566] text-[#0e121e] text-[10px] font-bold px-2 py-0.5 rounded shadow hidden">
+                    EQUIPPED
+                </span>
+            </div>
+
+            <div class="w-full md:w-1/2 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span id="modalTypeBadge" class="bg-[#cca566]/20 text-[#cca566] text-[10px] px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide uppercase">
+                            SABER SKIN
+                        </span>
+                        <span id="modalSeriesBadge" class="text-[10px] px-2.5 py-0.5 rounded font-bold font-genshin border">
+                            Uniform Series
+                        </span>
+                    </div>
+
+                    <h3 id="modalSkinName" class="text-2xl font-bold font-genshin text-white mt-2 leading-tight">
+                        Stage 1 Costume
+                    </h3>
+                    <p id="modalCharOwner" class="text-xs text-amber-300 font-bold mt-1">
+                        Artoria Pendragon
+                    </p>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-300 space-y-2">
+                        <p>Kategori: <span id="modalCategory" class="text-white font-medium">-</span></p>
+                        <p>Set / Series: <span id="modalSeriesText" class="text-amber-300 font-semibold">-</span></p>
+                        <p>Index Slot: <span id="modalSlotIndex" class="text-amber-400 font-medium">-</span></p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 pt-4 border-t border-gray-800">
+                    <button id="modalEquipBtn" onclick="equipCurrentModalSkin()" class="w-full bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold text-xs py-3 rounded transition-all cursor-pointer shadow-lg tracking-wider">
+                        EQUIP SKIN INI 👗
+                    </button>
+                    <button onclick="closeSkinModal()" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin text-xs py-2 rounded transition-colors cursor-pointer border border-gray-700">
+                        TUTUP PRATINJAU
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#161c28] border border-[#cca566] text-white px-4 py-2.5 rounded shadow-xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="text-[#cca566]">✨</span>
+        <span id="toastMsg">Message</span>
+    </div>
+
+    <script>
+        function getSeriesColorClass(series) {
+            if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
+            const s = series.trim().toLowerCase();
+
+            if (s.includes('original ascension') || s.includes('mystic code')) {
+                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
+            }
+            if (s.includes('elite')) {
+                return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
+            }
+            if (s.includes('epic')) {
+                return 'bg-purple-950/80 text-purple-300 border-purple-500/50';
+            }
+            if (s.includes('legend')) {
+                return 'bg-amber-950/80 text-amber-300 border-amber-500/60';
+            }
+            if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
+                s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
+                s.includes('halloween') || s.includes('valentine') || s.includes('academy')) {
+                return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
+            }
+            if (s.includes('grand')) {
+                return 'bg-red-950/80 text-red-300 border-red-500/50';
+            }
+
+            return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
+        }
+
+        function getServants() {
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function saveServants(data) {
+            localStorage.setItem('fgo_genshin_servants_db_v2', JSON.stringify(data));
+        }
+
+        function getMasters() {
+            const stored = localStorage.getItem('fgo_masters_db_v2') || localStorage.getItem('fgo_masters_db_v1');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function saveMasters(data) {
+            localStorage.setItem('fgo_masters_db_v2', JSON.stringify(data));
+        }
+
+        let currentCategoryFilter = 'ALL';
+        let activeModalSkin = null;
+
+        const skinGrid = document.getElementById('skinGrid');
+        const skinModal = document.getElementById('skinModal');
+        const skinCountInfo = document.getElementById('skinCountInfo');
+        const seriesFilterSelect = document.getElementById('seriesFilter');
+
+        function setCategoryFilter(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                btn.className = "cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer";
+            });
+            const activeBtn = document.getElementById(`catBtn${cat}`);
+            if (activeBtn) {
+                activeBtn.className = "cat-filter-btn bg-[#cca566] text-[#0e121e] font-bold px-3.5 py-1.5 rounded-full transition-all cursor-pointer";
+            }
+            renderGallery();
+        }
+
+        function getAllSkinsList() {
+            const servants = getServants();
+            const masters = getMasters();
+            const skinList = [];
+
+            servants.forEach(servant => {
+                const sprites = (servant.sprites && servant.sprites.length > 0) 
+                    ? servant.sprites 
+                    : [{ name: "Default Stage", url: servant.image || "" }];
+
+                sprites.forEach((sprite, spriteIdx) => {
+                    const isEquipped = (servant.activeSpriteIndex || 0) === spriteIdx;
+                    
+                    let seriesName = sprite.series;
+                    if (!seriesName) {
+                        const sNameLower = (sprite.name || '').toLowerCase();
+                        if (sNameLower.includes('uniform') || sNameLower.includes('school') || sNameLower.includes('seifuku') || sNameLower.includes('seragam')) {
+                            seriesName = 'Uniform Series';
+                        } else if (sNameLower.includes('summer') || sNameLower.includes('swimsuit') || sNameLower.includes('pantai')) {
+                            seriesName = 'Summer Series';
+                        } else if (sNameLower.includes('dress') || sNameLower.includes('formal') || sNameLower.includes('suit')) {
+                            seriesName = 'Special Series';
+                        } else {
+                            seriesName = spriteIdx === 0 ? 'Original Ascension' : 'Special Series';
+                        }
+                    }
+
+                    skinList.push({
+                        id: `servant_${servant.id}_${spriteIdx}`,
+                        ownerId: servant.id,
+                        ownerType: 'SERVANT',
+                        ownerName: servant.name,
+                        ownerClass: servant.class || 'Servant',
+                        rarity: servant.rarity || 5,
+                        skinName: sprite.name || `Stage ${spriteIdx + 1}`,
+                        imageUrl: sprite.url || servant.image,
+                        spriteIndex: spriteIdx,
+                        isEquipped: isEquipped,
+                        series: seriesName
+                    });
+                });
+            });
+
+            masters.forEach(master => {
+                const sprites = (master.sprites && master.sprites.length > 0) 
+                    ? master.sprites 
+                    : [{ name: "Default Outfit", url: master.image || "" }];
+
+                sprites.forEach((sprite, spriteIdx) => {
+                    const isEquipped = (master.activeSpriteIndex || 0) === spriteIdx;
+
+                    let seriesName = sprite.series;
+                    if (!seriesName) {
+                        const sNameLower = (sprite.name || '').toLowerCase();
+                        if (sNameLower.includes('uniform') || sNameLower.includes('school') || sNameLower.includes('seifuku') || sNameLower.includes('seragam')) {
+                            seriesName = 'Uniform Series';
+                        } else if (sNameLower.includes('summer') || sNameLower.includes('swimsuit')) {
+                            seriesName = 'Summer Series';
+                        } else {
+                            seriesName = spriteIdx === 0 ? 'Mystic Code' : 'Special Series';
+                        }
+                    }
+
+                    skinList.push({
+                        id: `master_${master.id}_${spriteIdx}`,
+                        ownerId: master.id,
+                        ownerType: 'MASTER',
+                        ownerName: master.name,
+                        ownerClass: master.affiliation || 'Master',
+                        rarity: 'MASTER',
+                        skinName: sprite.name || `Outfit ${spriteIdx + 1}`,
+                        imageUrl: sprite.url || master.image,
+                        spriteIndex: spriteIdx,
+                        isEquipped: isEquipped,
+                        series: seriesName
+                    });
+                });
+            });
+
+            return skinList;
+        }
+
+        function updateSeriesDropdownOptions(allSkins) {
+            const currentSelected = seriesFilterSelect.value;
+            const uniqueSeries = Array.from(new Set(allSkins.map(s => s.series))).filter(Boolean);
+
+            seriesFilterSelect.innerHTML = `<option value="ALL">✨ Semua Set / Series</option>`;
+            uniqueSeries.forEach(series => {
+                const option = document.createElement('option');
+                option.value = series;
+                option.innerText = `🏷️️ ${series}`;
+                seriesFilterSelect.appendChild(option);
+            });
+
+            seriesFilterSelect.value = currentSelected;
+        }
+
+        function renderGallery() {
+            const search = (document.getElementById('skinSearch')?.value || '').toLowerCase().trim();
+            const equipFilter = document.getElementById('equipFilter')?.value || 'ALL';
+            const selectedSeries = seriesFilterSelect?.value || 'ALL';
+
+            const allSkins = getAllSkinsList();
+            updateSeriesDropdownOptions(allSkins);
+
+            const filteredSkins = allSkins.filter(skin => {
+                const matchCategory = currentCategoryFilter === 'ALL' || skin.ownerType === currentCategoryFilter;
+                const matchSearch = skin.skinName.toLowerCase().includes(search) || 
+                                    skin.ownerName.toLowerCase().includes(search) ||
+                                    skin.ownerClass.toLowerCase().includes(search) ||
+                                    skin.series.toLowerCase().includes(search);
+                const matchEquip = equipFilter === 'ALL' || (equipFilter === 'EQUIPPED' && skin.isEquipped);
+                const matchSeries = selectedSeries === 'ALL' || skin.series === selectedSeries;
+
+                return matchCategory && matchSearch && matchEquip && matchSeries;
+            });
+
+            skinCountInfo.innerText = `Menampilkan ${filteredSkins.length} Skin/Outfit dari Total ${allSkins.length}`;
+
+            skinGrid.innerHTML = '';
+
+            if (filteredSkins.length === 0) {
+                skinGrid.innerHTML = `
+                    <div class="col-span-full w-full genshin-card p-12 text-center text-gray-400 text-xs font-genshin tracking-wider">
+                        TIDAK ADA SKIN ATAU OUTFIT YANG COCOK DENGAN FILTER ATAU SERIES INI.
+                    </div>`;
+                return;
+            }
+
+            filteredSkins.forEach(skin => {
+                let bgClass = 'rarity-master';
+                if (skin.ownerType === 'SERVANT') {
+                    bgClass = skin.rarity >= 5 ? 'rarity-5' : (skin.rarity === 4 ? 'rarity-4' : 'rarity-3');
+                }
+
+                const card = document.createElement('div');
+                card.className = `genshin-card overflow-hidden cursor-pointer group relative flex flex-col justify-between ${skin.isEquipped ? 'equipped-card ring-2 ring-[#cca566]' : ''}`;
+                card.onclick = () => openSkinModal(skin);
+
+                card.innerHTML = `
+                    <div class="relative h-56 ${bgClass} flex items-center justify-center overflow-hidden">
+                        <img src="${skin.imageUrl}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161c28] via-transparent to-black/30"></div>
+                        
+                        <div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
+                            <span class="bg-black/60 text-[#cca566] text-[9px] px-2 py-0.5 rounded border border-[#cca566]/40 font-bold uppercase backdrop-blur-sm">
+                                ${skin.ownerClass}
+                            </span>
+                            <span class="${getSeriesColorClass(skin.series)} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate max-w-[110px]">
+                                ${skin.series}
+                            </span>
+                        </div>
+
+                        ${skin.isEquipped ? `
+                            <span class="absolute top-2 right-2 bg-[#cca566] text-[#0e121e] text-[9px] px-2 py-0.5 rounded font-bold shadow-md tracking-wider">
+                                USED
+                            </span>
+                        ` : ''}
+
+                        <div class="absolute bottom-2 left-2 right-2 text-left">
+                            <span class="text-[9px] text-gray-300 block font-medium truncate">${skin.ownerName}</span>
+                            <h4 class="text-xs font-bold text-white truncate font-genshin">${skin.skinName}</h4>
+                        </div>
+                    </div>
+
+                    <div class="p-2.5 bg-[#161c28]/95 border-t border-gray-800 flex items-center justify-between gap-2">
+                        <span class="text-[10px] text-gray-400 truncate">Slot #${skin.spriteIndex + 1}</span>
+                        <button onclick="event.stopPropagation(); equipSkinDirect('${skin.ownerType}', ${skin.ownerId}, ${skin.spriteIndex})" 
+                                class="text-[10px] font-bold px-3 py-1 rounded transition-colors cursor-pointer ${skin.isEquipped ? 'bg-green-800 text-green-200 cursor-default' : 'bg-[#cca566] hover:bg-[#e2be7d] text-[#0e121e]'}">
+                            ${skin.isEquipped ? '✓ Dipakai' : 'Equip Skin'}
+                        </button>
+                    </div>
+                `;
+                skinGrid.appendChild(card);
+            });
+        }
+
+        function equipSkinDirect(ownerType, ownerId, spriteIndex) {
+            if (ownerType === 'SERVANT') {
+                const servants = getServants();
+                const target = servants.find(s => s.id === ownerId);
+                if (target) {
+                    target.activeSpriteIndex = spriteIndex;
+                    saveServants(servants);
+                    showToast(`Skin "${target.sprites[spriteIndex]?.name || 'Stage ' + (spriteIndex+1)}" dipakai untuk ${target.name}!`);
+                }
+            } else if (ownerType === 'MASTER') {
+                const masters = getMasters();
+                const target = masters.find(m => m.id === ownerId);
+                if (target) {
+                    target.activeSpriteIndex = spriteIndex;
+                    saveMasters(masters);
+                    showToast(`Outfit "${target.sprites[spriteIndex]?.name || 'Outfit ' + (spriteIndex+1)}" dipakai untuk ${target.name}!`);
+                }
+            }
+            renderGallery();
+            if (activeModalSkin && activeModalSkin.ownerId === ownerId && activeModalSkin.ownerType === ownerType) {
+                activeModalSkin.isEquipped = (activeModalSkin.spriteIndex === spriteIndex);
+                updateModalEquipButton();
+            }
+        }
+
+        function openSkinModal(skin) {
+            activeModalSkin = skin;
+            document.getElementById('modalSkinImage').src = skin.imageUrl;
+            document.getElementById('modalSkinName').innerText = skin.skinName;
+            document.getElementById('modalCharOwner').innerText = `${skin.ownerName} (${skin.ownerClass})`;
+            document.getElementById('modalTypeBadge').innerText = `${skin.ownerType} COSTUME`;
+            
+            const modalSeriesBadge = document.getElementById('modalSeriesBadge');
+            modalSeriesBadge.innerText = skin.series;
+            modalSeriesBadge.className = `${getSeriesColorClass(skin.series)} text-[10px] px-2.5 py-0.5 rounded font-bold font-genshin border`;
+
+            document.getElementById('modalSeriesText').innerText = skin.series;
+            document.getElementById('modalCategory').innerText = skin.ownerType === 'SERVANT' ? 'Servant Ascension / Skin' : 'Master Outfit';
+            document.getElementById('modalSlotIndex').innerText = `Slot Sprite #${skin.spriteIndex + 1}`;
+
+            const imgBg = document.getElementById('modalImageBg');
+            imgBg.className = `w-full md:w-1/2 h-72 md:h-96 rounded-lg relative overflow-hidden flex items-center justify-center border border-gray-800 shrink-0 ${skin.ownerType === 'SERVANT' ? (skin.rarity >= 5 ? 'rarity-5' : 'rarity-4') : 'rarity-master'}`;
+
+            updateModalEquipButton();
+
+            skinModal.classList.remove('hidden');
+            setTimeout(() => skinModal.classList.remove('opacity-0'), 10);
+        }
+
+        function updateModalEquipButton() {
+            if (!activeModalSkin) return;
+            const equipBtn = document.getElementById('modalEquipBtn');
+            const equippedBadge = document.getElementById('modalEquippedBadge');
+
+            if (activeModalSkin.isEquipped) {
+                equippedBadge.classList.remove('hidden');
+                equipBtn.innerText = "SKIN SEDANG DIPAKAI ✓";
+                equipBtn.disabled = true;
+                equipBtn.className = "w-full bg-green-800 text-green-200 font-genshin font-bold text-xs py-3 rounded cursor-default tracking-wider opacity-90";
+            } else {
+                equippedBadge.classList.add('hidden');
+                equipBtn.innerText = "EQUIP SKIN INI 👗";
+                equipBtn.disabled = false;
+                equipBtn.className = "w-full bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold text-xs py-3 rounded transition-all cursor-pointer shadow-lg tracking-wider";
+            }
+        }
+
+        function equipCurrentModalSkin() {
+            if (!activeModalSkin) return;
+            equipSkinDirect(activeModalSkin.ownerType, activeModalSkin.ownerId, activeModalSkin.spriteIndex);
+            closeSkinModal();
+        }
+
+        function closeSkinModal() {
+            skinModal.classList.add('opacity-0');
+            setTimeout(() => skinModal.classList.add('hidden'), 300);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+
+        window.onload = function() {
+            renderGallery();
+        };
+    </script>
+</body>
+</html>
