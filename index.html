@@ -156,16 +156,19 @@
                     </select>
                 </div>
                 <div class="relative w-full sm:w-60">
-                    <input type="text" id="searchBar" placeholder="Search servant or trait..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-5 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
+                    <input type="text" id="searchBar" placeholder="Search servant, skin series, or trait..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-5 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
                 </div>
                 <button onclick="openFormModal()" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
                     <span>+</span> ADD SERVANT
                 </button>
+                <a href="gallery.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    👗 GALLERY
+                </a>
                 <a href="gacha.html" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
-               <span>🎲</span> SUMMON (GACHA)
+                    <span>🎲</span> SUMMON (GACHA)
                 </a>
                 <a href="masters.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
-                🧙‍♂️ MASTERS
+                    🧙‍♂️ MASTERS
                 </a>
                 <a href="war.html" class="w-full sm:w-auto bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 hover:to-amber-600 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
                     ⚔️ GRAIL WAR
@@ -174,42 +177,36 @@
                     Reset Data
                 </button>
                 <button onclick="exportData()" class="text-xs text-[#cca566] hover:underline px-2 py-1 cursor-pointer">
-                 📥 Export JSON
+                    📥 Export JSON
                 </button>
-                 <label class="text-xs text-[#cca566] hover:underline px-2 py-1 cursor-pointer">
-                   📤 Import JSON
-                   <input type="file" id="importFileInput" onchange="importData(event)" accept=".json" class="hidden">
-            </label>
+                <label class="text-xs text-[#cca566] hover:underline px-2 py-1 cursor-pointer">
+                    📤 Import JSON
+                    <input type="file" id="importFileInput" onchange="importData(event)" accept=".json" class="hidden">
+                </label>
             </div>
         </header>
 
-        <!-- Main Layout (Atas-Bawah di HP, Split Screen di PC) -->
+        <!-- Main Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <!-- Character Cards (Slider di Mobile / Grid 2 Kolom di PC) -->
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
                 <div class="flex items-center justify-between px-1 text-xs text-gray-400">
                     <span id="servantCount">Showing Servants</span>
                     <span class="text-[#cca566] font-genshin flex items-center gap-1">
-                        <span class="lg:hidden">SELECT SERVANT</span>
-                        <span class="hidden lg:inline">SELECT SERVANT</span>
+                        <span>SELECT SERVANT</span>
                     </span>
                 </div>
                 
-                <!-- Container Kartu: Slider Horizontal di HP (< lg), Grid Normal di PC (>= lg) -->
                 <div id="characterGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 sm:lg:grid-cols-3 md:lg:grid-cols-4 lg:gap-4 lg:pb-0 lg:overflow-visible">
                     <!-- Cards injected by JS -->
                 </div>
             </div>
 
-            <!-- Detail Showcase View (Berada di Bawah Slider saat di HP) -->
+            <!-- Detail Showcase View -->
             <div class="lg:col-span-1">
                 <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10">
-                    <!-- Background Elements -->
                     <div id="bgJapanShadow" class="absolute -left-0 top-10 font-japan text-4xl text-white/20 select-none pointer-events-none z-0 leading-tight"></div>
                     <div id="bgCharTransparent" class="absolute right-0 top-0 w-full h-full bg-contain bg-no-repeat bg-top md:bg-right-top opacity-20 pointer-events-none z-0 transition-all duration-500"></div>
                     
-                    <!-- Content Wrapper -->
                     <div id="detailContent" class="relative z-10 space-y-4">
                         <!-- Details injected by JS -->
                     </div>
@@ -220,7 +217,6 @@
                     <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A SERVANT TO VIEW ARCHIVE & LISTEN TO VOICE LINES</p>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -250,14 +246,11 @@
                     <div id="modalTraits" class="flex flex-wrap gap-1.5"></div>
                 </div>
 
-                <!-- Voice Archive Section inside Lore Modal -->
                 <div>
                     <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
                         <span>🎙️</span> Voice Lines Archive
                     </h4>
-                    <div id="modalVoiceArchive" class="space-y-2 bg-black/20 p-3 rounded-md border border-gray-800/80">
-                        <!-- Populated by JS -->
-                    </div>
+                    <div id="modalVoiceArchive" class="space-y-2 bg-black/20 p-3 rounded-md border border-gray-800/80"></div>
                 </div>
 
                 <div>
@@ -272,7 +265,7 @@
                         ✏️ Edit Servant
                     </button>
                     <button id="modalDeleteBtn" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
-                        🗑️ Delete Servant
+                        🗑️️ Delete Servant
                     </button>
                 </div>
             </div>
@@ -292,7 +285,6 @@
             <form id="servantForm" onsubmit="handleFormSubmit(event)" class="space-y-5 text-xs">
                 <input type="hidden" id="editServantId" value="">
 
-                <!-- Basic Info -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                         <label class="block text-gray-400 mb-1">Servant Name *</label>
@@ -386,17 +378,15 @@
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
                     <div class="flex items-center justify-between mb-2">
                         <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
-                            <span>🖼️</span> SERVANT SPRITES / ASCENSIONS
+                            <span>🖼️</span> SERVANT SPRITES / SKINS & SERIES
                         </label>
                         <button type="button" onclick="addSpriteInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
                             + Add Sprite / Skin
                         </button>
                     </div>
-                    <p class="text-[10px] text-gray-400 mb-3">Tambahkan URL gambar sprite/skin (Sprite pertama akan dipakai sebagai thumbnail default jika belum ada skin aktif).</p>
+                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, nama Seri/Set (contoh: <i>Original Ascension</i>, <i>Epic Series</i>, <i>Legend Series</i>), dan URL gambar sprite.</p>
         
-                    <div id="spritesContainer" class="space-y-2">
-                        <!-- Dynamic Sprite Inputs Injected Here -->
-                    </div>
+                    <div id="spritesContainer" class="space-y-2"></div>
                 </div>
 
                 <!-- Voice Over Audio Lines Input Section -->
@@ -409,11 +399,7 @@
                             + Add Voice Line
                         </button>
                     </div>
-                    <p class="text-[10px] text-gray-400 mb-3">Provide MP3/WAV links and dialogue text. If audio link fails or is blank, the browser will use AI Speech Synthesis to read the text!</p>
-                    
-                    <div id="voiceLinesContainer" class="space-y-3">
-                        <!-- Dynamic Voice Line Inputs Injected Here -->
-                    </div>
+                    <div id="voiceLinesContainer" class="space-y-3"></div>
                 </div>
 
                 <!-- Skills Fields -->
@@ -468,7 +454,7 @@
         </div>
     </div>
 
-    <!-- CUSTOM CONFIRMATION & TOAST NOTIFICATION MODAL -->
+    <!-- CUSTOM CONFIRMATION & TOAST -->
     <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 hidden opacity-0 transition-opacity duration-200">
         <div class="bg-[#121723] border border-[#cca566] p-6 rounded-lg max-w-sm w-full text-center space-y-4 shadow-2xl">
             <h4 id="confirmTitle" class="text-lg font-genshin text-white font-bold">CONFIRMATION</h4>
@@ -487,6 +473,38 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
+        // FUNSI KUSTOM UNTUK MENDAPATKAN WARNA SKENARIO KATEGORI SERI SKIN
+        function getSeriesColorClass(series) {
+            if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
+            const s = series.trim().toLowerCase();
+
+            // Putih (Original Ascension / Mystic Code)
+            if (s.includes('original ascension') || s.includes('mystic code')) {
+                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
+            }
+            // Hijau (Elite Series)
+            if (s.includes('elite')) {
+                return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
+            }
+            // Ungu (Epic Series)
+            if (s.includes('epic')) {
+                return 'bg-purple-950/80 text-purple-300 border-purple-500/50';
+            }
+            // Emas / Yellow (Legend Series)
+            if (s.includes('legend')) {
+                return 'bg-amber-950/80 text-amber-300 border-amber-500/60';
+            }
+            // Biru Muda (Special, Casual, Summer, Japan, Uniform, Christmas, Halloween, Valentine, Academy)
+            if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
+                s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
+                s.includes('halloween') || s.includes('valentine') || s.includes('academy')) {
+                return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
+            }
+
+            // Fallback Default: Biru Muda
+            return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
+        }
+
         const initialServants = [
             {
                 "id": 1,
@@ -521,7 +539,8 @@
                 ],
                 "image": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png",
                 "sprites": [
-                    { "name": "Stage 1", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" }
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" },
+                    { "name": "School Uniform", "series": "Uniform Series", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" }
                 ],
                 "voiceLines": [
                     {
@@ -569,7 +588,7 @@
                 ],
                 "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500",
                 "sprites": [
-                    { "name": "Stage 1", "url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" }
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" }
                 ],
                 "voiceLines": [
                     {
@@ -586,7 +605,6 @@
             }
         ];
 
-        // Map nama Class ke path file SVG
         const classIcons = {
             "Saber": "assets/icons/saber.svg",
             "Archer": "assets/icons/archer.svg",
@@ -624,12 +642,10 @@
         let selectedVoiceIndex = 0;
         let selectedSpriteIndex = 0;
 
-        // Global Audio Controller Instance
         let activeAudio = new Audio();
         let isAudioPlaying = false;
         let audioProgressTimer = null;
 
-        // DOM References
         const gridContainer = document.getElementById('characterGrid');
         const detailView = document.getElementById('detailView');
         const emptyState = document.getElementById('emptyState');
@@ -655,15 +671,14 @@
                 const bgClass = servant.rarity >= 5 ? 'rarity-5' : (servant.rarity === 4 ? 'rarity-4' : servant.rarity === 3 ? 'rarity-3' : servant.rarity === 2 ? 'rarity-2' : 'rarity-1');
                 const card = document.createElement('div');
                 
-                // shrink-0 w-36 sm:w-40 di mobile agar menjadi slider horizontal, lg:w-auto di PC agar kembali ke layout Grid
                 card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-36 sm:w-40 lg:w-auto lg:shrink snap-start ${selectedServant?.id === servant.id ? 'ring-2 ring-[#cca566]' : ''}`;
                 card.onclick = () => showDetails(servant);
                 
                 const hasVoice = servant.voiceLines && servant.voiceLines.length > 0;
                 
-                // Gunakan gambar skin yang aktif/equipped
                 const activeIndex = servant.activeSpriteIndex || 0;
-                const cardThumb = (servant.sprites && servant.sprites[activeIndex]?.url) || servant.image;
+                const activeSprite = (servant.sprites && servant.sprites[activeIndex]) ? servant.sprites[activeIndex] : null;
+                const cardThumb = activeSprite?.url || servant.image;
 
                 card.innerHTML = `
                     <div class="relative h-36 ${bgClass} flex items-center justify-center overflow-hidden">
@@ -675,7 +690,13 @@
                         
                         ${hasVoice ? `
                             <span class="absolute top-2 right-2 bg-black/50 text-[#cca566] text-[10px] px-1.5 py-0.5 rounded border border-[#cca566]/40 flex items-center gap-1 backdrop-blur-sm">
-                                🎙️ ${servant.voiceLines.length}
+                                🎙️️ ${servant.voiceLines.length}
+                            </span>
+                        ` : ''}
+
+                        ${activeSprite?.series ? `
+                            <span class="absolute bottom-1 left-2 ${getSeriesColorClass(activeSprite.series)} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate max-w-[110px]">
+                                ${activeSprite.series}
                             </span>
                         ` : ''}
                     </div>
@@ -696,7 +717,8 @@
             const filtered = servantData.filter(s => {
                 const matchesSearch = s.name.toLowerCase().includes(query) || 
                                       (s.traits && s.traits.some(t => t.toLowerCase().includes(query))) ||
-                                      s.class.toLowerCase().includes(query);
+                                      s.class.toLowerCase().includes(query) ||
+                                      (s.sprites && s.sprites.some(sp => (sp.series || '').toLowerCase().includes(query) || (sp.name || '').toLowerCase().includes(query)));
                 
                 let matchesClass = true;
                 if (cls !== 'ALL') {
@@ -717,7 +739,7 @@
             if (servant.sprites && servant.sprites.length > 0) {
                 return servant.sprites;
             }
-            return [{ name: "Default", url: servant.image || "" }];
+            return [{ name: "Default Stage", series: "Original Ascension", url: servant.image || "" }];
         }
 
         function changeServantSprite(index) {
@@ -739,7 +761,8 @@
                 bgChar.style.backgroundImage = spriteUrl ? `url('${spriteUrl}')` : 'none';
             }
 
-            showToast(`Skin "${sprites[index].name || 'Stage ' + (index + 1)}" Equipped!`);
+            const seriesText = sprites[index].series ? ` [Series: ${sprites[index].series}]` : '';
+            showToast(`Skin "${sprites[index].name || 'Stage ' + (index + 1)}"${seriesText} Equipped!`);
 
             renderDetailContent();
             applyFilters();
@@ -768,7 +791,7 @@
             document.getElementById('bgCharTransparent').style.backgroundImage = activeSpriteUrl ? `url('${activeSpriteUrl}')` : 'none';
 
             renderDetailContent();
-            applyFilters(); // Menggunakan applyFilters() agar kriteria filter tetap terjaga
+            applyFilters();
         }
 
         function renderDetailContent() {
@@ -779,6 +802,7 @@
             const voiceLines = servant.voiceLines || [];
             const currentVoice = voiceLines[selectedVoiceIndex] || null;
             const sprites = getServantSprites(servant);
+            const activeSprite = sprites[selectedSpriteIndex] || {};
 
             contentArea.innerHTML = `
                 <!-- Header Info -->
@@ -798,22 +822,25 @@
                     </div>
                 </div>
 
-                <!-- SPRITE / SKIN SWITCHER TABS -->
-                ${sprites.length > 1 ? `
-                    <div class="border-t border-b border-gray-800 py-2 my-2">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP SKIN 
-                        </div>
-                        <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-                            ${sprites.map((s, idx) => `
-                                <button onclick="changeServantSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
-                                    <span>${s.name || `Stage ${idx + 1}`}</span>
-                                    ${idx === selectedSpriteIndex ? '<span class="text-[9px] bg-black/20 px-1 rounded">[USED]</span>' : ''}
-                                </button>
-                            `).join('')}
-                        </div>
+                <!-- SPRITE / SKIN SWITCHER TABS WITH COLOR-CODED SERIES -->
+                <div class="border-t border-b border-gray-800 py-2 my-2">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP SKIN</span>
+                        ${activeSprite.series ? `
+                            <span class="text-[10px] ${getSeriesColorClass(activeSprite.series)} px-2 py-0.5 rounded font-bold font-genshin border">
+                                🏷️ ${activeSprite.series}
+                            </span>
+                        ` : ''}
                     </div>
-                ` : ''}
+                    <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                        ${sprites.map((s, idx) => `
+                            <button onclick="changeServantSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                                <span>${s.name || `Stage ${idx + 1}`}</span>
+                                ${idx === selectedSpriteIndex ? '<span class="text-[9px] bg-black/20 px-1 rounded">[USED]</span>' : ''}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
 
                 <!-- Attributes Grid -->
                 <div class="grid grid-cols-2 gap-y-1 gap-x-3 text-[11px] text-gray-400 bg-black/30 p-2.5 rounded border border-gray-800">
@@ -850,7 +877,6 @@
                     </div>
 
                     ${voiceLines.length > 0 ? `
-                        <!-- Voice Line Tabs -->
                         <div id="voiceTabsContainer" class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
                             ${voiceLines.map((vl, idx) => `
                                 <button onclick="switchVoiceLine(${idx})" class="text-[10px] px-2.5 py-1 rounded whitespace-nowrap transition-all cursor-pointer ${idx === selectedVoiceIndex ? 'bg-[#cca566] text-[#0e121e] font-bold shadow' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}">
@@ -859,14 +885,12 @@
                             `).join('')}
                         </div>
 
-                        <!-- Dialogue Text Box -->
                         <div class="bg-[#121723] p-3 rounded border border-gray-800 mb-3 relative">
                             <p class="text-xs text-gray-200 italic leading-relaxed font-sans">
                                 "${currentVoice?.text || 'No dialogue transcript.'}"
                             </p>
                         </div>
 
-                        <!-- Interactive Audio Controls -->
                         <div class="flex items-center gap-3">
                             <button id="playBtn" onclick="togglePlayVoice()" class="w-10 h-10 rounded-full bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] flex items-center justify-center font-bold text-base shadow-md cursor-pointer transition-transform active:scale-95 flex-shrink-0">
                                 ▶
@@ -918,7 +942,6 @@
             `;
         }
 
-        // Voice Over Audio Playback Logic
         function switchVoiceLine(index) {
             const voiceContainer = document.getElementById('voiceTabsContainer');
             const savedScrollLeft = voiceContainer ? voiceContainer.scrollLeft : 0;
@@ -968,7 +991,6 @@
                     }, 200);
 
                 }).catch(err => {
-                    console.warn("Audio file failed to play, using Text-To-Speech fallback.", err);
                     playSpeechFallback(transcriptText);
                 });
 
@@ -1124,21 +1146,18 @@
                 document.getElementById('formRace').value = target.race || '';
                 document.getElementById('formImage').value = target.image || '';
 
-                // Load Sprites
                 if (target.sprites && target.sprites.length > 0) {
-                    target.sprites.forEach(s => addSpriteInputRow(s.name, s.url));
+                    target.sprites.forEach(s => addSpriteInputRow(s.name, s.url, s.series));
                 } else {
-                    addSpriteInputRow("Stage 1", target.image || "");
+                    addSpriteInputRow("Stage 1", target.image || "", "Original Ascension");
                 }
 
-                // Load Voice Lines
                 if (target.voiceLines && target.voiceLines.length > 0) {
                     target.voiceLines.forEach(vl => addVoiceLineInputRow(vl.title, vl.audioUrl, vl.text));
                 } else {
                     addVoiceLineInputRow();
                 }
 
-                // Skills
                 if (target.skills && target.skills[0]) {
                     document.getElementById('formSkill1Name').value = target.skills[0].name || '';
                     document.getElementById('formSkill1Effect').value = target.skills[0].effect || '';
@@ -1152,7 +1171,6 @@
                     document.getElementById('formSkill3Effect').value = target.skills[2].effect || '';
                 }
 
-                // NP
                 document.getElementById('formNpName').value = target.noblePhantasm?.name || '';
                 document.getElementById('formNpType').value = target.noblePhantasm?.type || 'Buster';
                 document.getElementById('formNpDamage').value = target.noblePhantasm?.damageStat || '';
@@ -1163,7 +1181,7 @@
                 document.getElementById('formModalTitle').innerText = "ADD NEW SERVANT";
                 document.getElementById('editServantId').value = '';
                 document.getElementById('formImage').value = '';
-                addSpriteInputRow("Stage 1", "");
+                addSpriteInputRow("Stage 1", "", "Original Ascension");
                 addVoiceLineInputRow("Summoning", "", "Servant Saber, answering your summons.");
             }
 
@@ -1176,15 +1194,16 @@
             setTimeout(() => formModal.classList.add('hidden'), 300);
         }
 
-        function addSpriteInputRow(name = '', url = '') {
+        function addSpriteInputRow(name = '', url = '', series = '') {
             const container = document.getElementById('spritesContainer');
             const row = document.createElement('div');
-            row.className = "sprite-line-row flex gap-2 items-center bg-[#1b2233] p-2 rounded border border-gray-700";
+            row.className = "sprite-line-row flex flex-col sm:flex-row gap-2 items-center bg-[#1b2233] p-2 rounded border border-gray-700";
 
             row.innerHTML = `
-                <input type="text" placeholder="Skin Name (e.g. Stage 1 / Costume)" value="${name}" class="sprite-name w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
-                <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-2/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
-                <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
+                <input type="text" placeholder="Skin Name (e.g. Stage 1)" value="${name}" class="sprite-name w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
+                <input type="text" placeholder="Series / Set (e.g. Uniform Series)" value="${series}" class="sprite-series w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
+                <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
+                <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer self-end sm:self-center">✕</button>
             `;
 
             container.appendChild(row);
@@ -1214,7 +1233,6 @@
             const traitsArray = document.getElementById('formTraits').value.split(',').map(t => t.trim()).filter(t => t);
             const loreArray = document.getElementById('formLore').value.split('\n').filter(l => l.trim());
 
-            // Collect voice lines
             const vlRows = document.querySelectorAll('.voice-line-row');
             const voiceLines = [];
             vlRows.forEach(row => {
@@ -1226,14 +1244,14 @@
                 }
             });
 
-            // Collect sprites
             const spriteRows = document.querySelectorAll('.sprite-line-row');
             const spritesArray = [];
             spriteRows.forEach(row => {
                 const name = row.querySelector('.sprite-name').value.trim();
+                const series = row.querySelector('.sprite-series').value.trim();
                 const url = row.querySelector('.sprite-url').value.trim();
                 if (url) {
-                    spritesArray.push({ name: name || 'Skin', url: url });
+                    spritesArray.push({ name: name || 'Skin', series: series || 'Original Ascension', url: url });
                 }
             });
 
@@ -1258,7 +1276,7 @@
                 attribute: document.getElementById('formAttribute').value,
                 image: defaultImg,
                 activeSpriteIndex: existingServant?.activeSpriteIndex ?? 0,
-                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Stage 1", url: defaultImg }],
+                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Stage 1", series: "Original Ascension", url: defaultImg }],
                 voiceLines: voiceLines,
                 skills: [
                     { name: document.getElementById('formSkill1Name').value || 'Skill 1', effect: document.getElementById('formSkill1Effect').value || '-' },
@@ -1351,7 +1369,6 @@
 
         searchBar.addEventListener('input', applyFilters);
 
-        // FITUR NAVIGASI TOMBOL PANAH KEYBOARD UNTUK GANTI SKIN
         document.addEventListener('keydown', (e) => {
             const activeTag = document.activeElement ? document.activeElement.tagName : '';
             if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
@@ -1423,7 +1440,6 @@
             reader.readAsText(file);
         }
 
-        // App Initialization
         window.onload = function() {
             applyFilters();
             if (servantData.length > 0) {
