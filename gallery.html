@@ -76,6 +76,165 @@
         .equipped-card {
             animation: activePulse 2.5s infinite ease-in-out;
         }
+
+        @keyframes epicGlow {
+            0%, 100% {
+                box-shadow: 0 0 4px rgba(168, 85, 247, 0.4);
+                border-color: rgba(168, 85, 247, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+                border-color: rgba(216, 180, 254, 0.9);
+            }
+        }
+        .skin-badge-epic {
+            background: linear-gradient(135deg, rgba(58, 12, 89, 0.9), rgba(88, 28, 135, 0.9));
+            color: #e9d5ff;
+            border: 1px solid #a855f7;
+            animation: epicGlow 2s ease-in-out infinite;
+            will-change: box-shadow;
+        }
+
+        @keyframes legendShiny {
+            0% {
+                background-position: 200% 0;
+                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
+            }
+            100% {
+                background-position: -100% 0;
+                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
+            }
+        }
+        .skin-badge-legend {
+            background: linear-gradient(
+                115deg,
+                rgba(69, 26, 3, 0.9) 0%,
+                rgba(146, 64, 14, 0.9) 35%,
+                rgba(254, 240, 138, 0.95) 50%,
+                rgba(146, 64, 14, 0.9) 65%,
+                rgba(69, 26, 3, 0.9) 100%
+            );
+            background-size: 250% 100%;
+            color: #fef08a;
+            border: 1px solid #f59e0b;
+            font-weight: 700;
+            animation: legendShiny 2.5s ease-in-out infinite;
+            will-change: background-position;
+        }
+
+        @keyframes grandGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes grandPulseAura {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5), inset 0 0 6px rgba(254, 240, 138, 0.6);
+                border-color: #fef08a;
+            }
+            50% {
+                box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9), 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 12px rgba(255, 255, 255, 0.9);
+                border-color: #ffffff;
+            }
+        }
+
+        @keyframes grandLightSweep {
+            0% { left: -120%; }
+            35%, 100% { left: 220%; }
+        }
+
+        .skin-badge-grand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(
+                115deg,
+                #581c87 0%,
+                #991b1b 20%,
+                #b45309 40%,
+                #fef08a 50%,
+                #b45309 60%,
+                #991b1b 80%,
+                #581c87 100%
+            );
+            background-size: 280% 280%;
+            color: #ffffff;
+            border: 1px solid #fef08a;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-shadow: 0 0 6px rgba(254, 240, 138, 0.9), 0 0 12px rgba(239, 68, 68, 0.8);
+            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite;
+            will-change: background-position, box-shadow;
+        }
+
+        .skin-badge-grand:not(.absolute) {
+            position: relative;
+        }
+
+        .skin-badge-grand::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 20%,
+                rgba(255, 255, 255, 0.95) 50%,
+                rgba(255, 255, 255, 0.2) 80%,
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            animation: grandLightSweep 2.8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes collabPrism {
+            0%, 100% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 8px rgba(34, 211, 238, 0.6), 0 0 16px rgba(236, 72, 153, 0.4);
+                border-color: #38bdf8;
+            }
+            50% {
+                background-position: 100% 50%;
+                box-shadow: 0 0 16px rgba(236, 72, 153, 0.8), 0 0 22px rgba(168, 85, 247, 0.6);
+                border-color: #f472b6;
+            }
+        }
+
+        .skin-badge-collab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(
+                115deg,
+                #0c4a6e 0%,
+                #0284c7 25%,
+                #be185d 50%,
+                #6b21a8 75%,
+                #0c4a6e 100%
+            );
+            background-size: 250% 250%;
+            color: #f0fdf4;
+            border: 1px solid #38bdf8;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 6px rgba(34, 211, 238, 0.8), 0 0 10px rgba(236, 72, 153, 0.6);
+            animation: collabPrism 3s ease-in-out infinite;
+            will-change: background-position, box-shadow;
+        }
+
+        .skin-badge-collab:not(.absolute) {
+            position: relative;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
@@ -206,37 +365,103 @@
             if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
             const s = series.trim().toLowerCase();
 
-            if (s.includes('original ascension') || s.includes('mystic code')) {
-                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
+            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) {
+                return 'skin-badge-epic';
+            }
+            if (s.includes('legend')) {
+                return 'skin-badge-legend';
+            }
+            if (s.includes('grand')) {
+                return 'skin-badge-grand';
+            }
+            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) {
+                return 'skin-badge-collab';
             }
             if (s.includes('elite')) {
                 return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
             }
-            if (s.includes('epic')) {
-                return 'bg-purple-950/80 text-purple-300 border-purple-500/50';
-            }
-            if (s.includes('legend')) {
-                return 'bg-amber-950/80 text-amber-300 border-amber-500/60';
+            if (s.includes('original ascension') || s.includes('mystic code')) {
+                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
             }
             if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
                 s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
                 s.includes('halloween') || s.includes('valentine') || s.includes('academy')) {
                 return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
             }
-            if (s.includes('grand')) {
-                return 'bg-red-950/80 text-red-300 border-red-500/50';
-            }
 
             return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
         }
 
+        const COLLAB_LOGOS = {
+            '#1': { name: 'Genshin Impact', icon: 'assets/icons/genshin.svg' },
+            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/wuwa.svg' },
+            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/hsr.svg' },
+            '#4': { name: 'Mobile Legends', icon: 'assets/icons/mlbb.svg' },
+            '#5': { name: 'Fate/Grand Order', icon: 'assets/icons/fgo.svg' }
+        };
+
+        function formatSeriesName(seriesText) {
+            if (!seriesText) return '';
+            let text = seriesText;
+            
+            Object.keys(COLLAB_LOGOS).forEach(code => {
+                if (text.includes(code)) {
+                    text = text.replace(code, COLLAB_LOGOS[code].name).trim();
+                }
+            });
+            
+            return text;
+        }
+
+        function renderSeriesBadge(seriesText, extraClasses = '') {
+            if (!seriesText) return '';
+
+            const colorClass = getSeriesColorClass(seriesText);
+            let displayText = seriesText;
+            let iconHtml = '';
+
+            Object.keys(COLLAB_LOGOS).forEach(code => {
+                if (seriesText.includes(code)) {
+                    const logo = COLLAB_LOGOS[code];
+                    displayText = displayText.replace(code, '').trim();
+                    const marginClass = displayText ? 'mr-1' : '';
+                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+                }
+            });
+
+            return `
+                <span class="${colorClass} ${extraClasses} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate inline-flex items-center justify-center">
+                    ${iconHtml}
+                    ${displayText ? `<span>${displayText}</span>` : ''}
+                </span>
+            `;
+        }
+
+        function getBadgeInnerContent(seriesText) {
+            if (!seriesText) return '';
+            
+            let displayText = seriesText;
+            let iconHtml = '';
+
+            Object.keys(COLLAB_LOGOS).forEach(code => {
+                if (seriesText.includes(code)) {
+                    const logo = COLLAB_LOGOS[code];
+                    displayText = displayText.replace(code, '').trim();
+                    const marginClass = displayText ? 'mr-1' : '';
+                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+                }
+            });
+
+            return `${iconHtml}${displayText ? `<span>${displayText}</span>` : ''}`;
+        }
+
         function getServants() {
-            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v4') || localStorage.getItem('fgo_genshin_servants_db_v2');
             return stored ? JSON.parse(stored) : [];
         }
 
         function saveServants(data) {
-            localStorage.setItem('fgo_genshin_servants_db_v2', JSON.stringify(data));
+            localStorage.setItem('fgo_genshin_servants_db_v4', JSON.stringify(data));
         }
 
         function getMasters() {
@@ -358,7 +583,7 @@
             uniqueSeries.forEach(series => {
                 const option = document.createElement('option');
                 option.value = series;
-                option.innerText = `🏷️️ ${series}`;
+                option.innerText = ` ${formatSeriesName(series)}`;
                 seriesFilterSelect.appendChild(option);
             });
 
@@ -409,16 +634,14 @@
 
                 card.innerHTML = `
                     <div class="relative h-56 ${bgClass} flex items-center justify-center overflow-hidden">
-                        <img src="${skin.imageUrl}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="${skin.imageUrl}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#161c28] via-transparent to-black/30"></div>
                         
                         <div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
                             <span class="bg-black/60 text-[#cca566] text-[9px] px-2 py-0.5 rounded border border-[#cca566]/40 font-bold uppercase backdrop-blur-sm">
                                 ${skin.ownerClass}
                             </span>
-                            <span class="${getSeriesColorClass(skin.series)} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate max-w-[110px]">
-                                ${skin.series}
-                            </span>
+                            ${renderSeriesBadge(skin.series, 'max-w-[110px]')}
                         </div>
 
                         ${skin.isEquipped ? `
@@ -478,10 +701,12 @@
             document.getElementById('modalTypeBadge').innerText = `${skin.ownerType} COSTUME`;
             
             const modalSeriesBadge = document.getElementById('modalSeriesBadge');
-            modalSeriesBadge.innerText = skin.series;
-            modalSeriesBadge.className = `${getSeriesColorClass(skin.series)} text-[10px] px-2.5 py-0.5 rounded font-bold font-genshin border`;
+            if (modalSeriesBadge) {
+                modalSeriesBadge.className = `${getSeriesColorClass(skin.series)} text-[10px] px-2.5 py-0.5 rounded font-bold font-genshin border inline-flex items-center justify-center`;
+                modalSeriesBadge.innerHTML = getBadgeInnerContent(skin.series);
+            }
 
-            document.getElementById('modalSeriesText').innerText = skin.series;
+            document.getElementById('modalSeriesText').innerText = formatSeriesName(skin.series);
             document.getElementById('modalCategory').innerText = skin.ownerType === 'SERVANT' ? 'Servant Ascension / Skin' : 'Master Outfit';
             document.getElementById('modalSlotIndex').innerText = `Slot Sprite #${skin.spriteIndex + 1}`;
 
@@ -533,6 +758,15 @@
         window.onload = function() {
             renderGallery();
         };
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
+                    .catch((err) => console.error('Service Worker Registration Failed:', err));
+            });
+        }
     </script>
 </body>
 </html>
