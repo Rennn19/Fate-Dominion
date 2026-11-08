@@ -115,6 +115,171 @@
         .audio-playing {
             animation: audioGlow 1.8s infinite;
         }
+
+        /* --- ANIMASI BADGE SKIN (PURE CSS & HARDWARE ACCELERATED) --- */
+
+        /* 1. Epic Series: Soft Glowing Pulse */
+        @keyframes epicGlow {
+            0%, 100% {
+                box-shadow: 0 0 4px rgba(168, 85, 247, 0.4);
+                border-color: rgba(168, 85, 247, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+                border-color: rgba(216, 180, 254, 0.9);
+            }
+        }
+        .skin-badge-epic {
+            background: linear-gradient(135deg, rgba(58, 12, 89, 0.9), rgba(88, 28, 135, 0.9));
+            color: #e9d5ff;
+            border: 1px solid #a855f7;
+            animation: epicGlow 2s ease-in-out infinite;
+            will-change: box-shadow;
+        }
+
+        /* 2. Legend Series: Glow + Shiny Shimmer dari Kanan ke Kiri */
+        @keyframes legendShiny {
+            0% {
+                background-position: 200% 0;
+                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
+            }
+            100% {
+                background-position: -100% 0;
+                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
+            }
+        }
+        .skin-badge-legend {
+            background: linear-gradient(
+                115deg,
+                rgba(69, 26, 3, 0.9) 0%,
+                rgba(146, 64, 14, 0.9) 35%,
+                rgba(254, 240, 138, 0.95) 50%,
+                rgba(146, 64, 14, 0.9) 65%,
+                rgba(69, 26, 3, 0.9) 100%
+            );
+            background-size: 250% 100%;
+            color: #fef08a;
+            border: 1px solid #f59e0b;
+            font-weight: 700;
+            animation: legendShiny 2.5s ease-in-out infinite;
+            will-change: background-position;
+        }
+
+        /* 3. Grand Series: Fiery Gold & Crimson Dynamic Aura */
+        @keyframes grandGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes grandPulseAura {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5), inset 0 0 6px rgba(254, 240, 138, 0.6);
+                border-color: #fef08a;
+            }
+            50% {
+                box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9), 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 12px rgba(255, 255, 255, 0.9);
+                border-color: #ffffff;
+            }
+        }
+
+        @keyframes grandLightSweep {
+            0% { left: -120%; }
+            35%, 100% { left: 220%; }
+        }
+
+        .skin-badge-grand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(
+                115deg,
+                #581c87 0%,
+                #991b1b 20%,
+                #b45309 40%,
+                #fef08a 50%,
+                #b45309 60%,
+                #991b1b 80%,
+                #581c87 100%
+            );
+            background-size: 280% 280%;
+            color: #ffffff;
+            border: 1px solid #fef08a;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-shadow: 0 0 6px rgba(254, 240, 138, 0.9), 0 0 12px rgba(239, 68, 68, 0.8);
+            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite;
+            will-change: background-position, box-shadow;
+        }
+
+        .skin-badge-grand:not(.absolute) {
+            position: relative;
+        }
+
+        .skin-badge-grand::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 20%,
+                rgba(255, 255, 255, 0.95) 50%,
+                rgba(255, 255, 255, 0.2) 80%,
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            animation: grandLightSweep 2.8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* 4. Collab Series */
+        @keyframes collabPrism {
+            0%, 100% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 8px rgba(34, 211, 238, 0.6), 0 0 16px rgba(236, 72, 153, 0.4);
+                border-color: #38bdf8;
+            }
+            50% {
+                background-position: 100% 50%;
+                box-shadow: 0 0 16px rgba(236, 72, 153, 0.8), 0 0 22px rgba(168, 85, 247, 0.6);
+                border-color: #f472b6;
+            }
+        }
+
+        .skin-badge-collab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(
+                115deg,
+                #0c4a6e 0%,
+                #0284c7 25%,
+                #be185d 50%,
+                #6b21a8 75%,
+                #0c4a6e 100%
+            );
+            background-size: 250% 250%;
+            color: #f0fdf4;
+            border: 1px solid #38bdf8;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 6px rgba(34, 211, 238, 0.8), 0 0 10px rgba(236, 72, 153, 0.6);
+            animation: collabPrism 3s ease-in-out infinite;
+            will-change: background-position, box-shadow;
+        }
+
+        .skin-badge-collab:not(.absolute) {
+            position: relative;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
@@ -133,7 +298,20 @@
             
             <!-- Filter Controls -->
             <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 w-full lg:w-auto">
-                <div class="relative w-full sm:w-48">
+                <div class="relative w-full sm:w-36">
+                    <select id="elementFilter" onchange="applyFilters()" class="w-full bg-[#161c28] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-2 text-xs outline-none transition-colors">
+                        <option value="ALL">All Elements</option>
+                        <option value="Pyro">Pyro</option>
+                        <option value="Hydro">Hydro</option>
+                        <option value="Anemo">Anemo</option>
+                        <option value="Electro">Electro</option>
+                        <option value="Dendro">Dendro</option>
+                        <option value="Cryo">Cryo</option>
+                        <option value="Geo">Geo</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="relative w-full sm:w-40">
                     <select id="classFilter" onchange="applyFilters()" class="w-full bg-[#161c28] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-2 text-xs outline-none transition-colors">
                         <option value="ALL">All Classes</option>
                         <option value="Saber">Saber</option>
@@ -155,8 +333,8 @@
                         <option value="Unknown">Unknown</option>
                     </select>
                 </div>
-                <div class="relative w-full sm:w-60">
-                    <input type="text" id="searchBar" placeholder="Search servant, skin series, or trait..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-5 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
+                <div class="relative w-full sm:w-52">
+                    <input type="text" id="searchBar" placeholder="Search servant, element, skin..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-5 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
                 </div>
                 <button onclick="openFormModal()" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
                     <span>+</span> ADD SERVANT
@@ -234,9 +412,10 @@
             </div>
 
             <div class="space-y-6">
-                <div class="grid grid-cols-2 gap-4 bg-black/30 p-4 rounded-md border border-gray-800 text-xs md:text-sm">
+                <div class="grid grid-cols-3 gap-4 bg-black/30 p-4 rounded-md border border-gray-800 text-xs md:text-sm">
                     <div><span class="text-gray-500 block text-[11px]">Alignment</span><span id="modalAlignment" class="font-medium text-white">-</span></div>
                     <div><span class="text-gray-500 block text-[11px]">Attribute</span><span id="modalAttribute" class="font-medium text-white">-</span></div>
+                    <div><span class="text-gray-500 block text-[11px]">Element</span><span id="modalElement" class="font-genshin font-bold">-</span></div>
                 </div>
 
                 <div>
@@ -265,7 +444,7 @@
                         ✏️ Edit Servant
                     </button>
                     <button id="modalDeleteBtn" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
-                        🗑️️ Delete Servant
+                        🗑 Delete Servant
                     </button>
                 </div>
             </div>
@@ -285,7 +464,7 @@
             <form id="servantForm" onsubmit="handleFormSubmit(event)" class="space-y-5 text-xs">
                 <input type="hidden" id="editServantId" value="">
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
                     <div>
                         <label class="block text-gray-400 mb-1">Servant Name *</label>
                         <input type="text" id="formName" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
@@ -314,6 +493,19 @@
                             <option value="Beast">Beast</option>
                             <option value="UnBeast">UnBeast</option> 
                             <option value="Unknown">Unknown</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-genshin">Default Element</label>
+                        <select id="formElement" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                            <option value="Anemo">Anemo</option>
+                            <option value="Geo">Geo</option>
+                            <option value="Electro">Electro</option>
+                            <option value="Dendro">Dendro</option>
+                            <option value="Hydro">Hydro</option>
+                            <option value="Pyro">Pyro</option>
+                            <option value="Cryo">Cryo</option>
+                            <option value="None">None</option>
                         </select>
                     </div>
                 </div>
@@ -384,7 +576,7 @@
                             + Add Sprite / Skin
                         </button>
                     </div>
-                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, nama Seri/Set (contoh: <i>Original Ascension</i>, <i>Epic Series</i>, <i>Legend Series</i>), dan URL gambar sprite.</p>
+                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, Seri/Set, URL gambar, serta elemen/stats khusus skin jika berbeda dari wujud utama.</p>
         
                     <div id="spritesContainer" class="space-y-2"></div>
                 </div>
@@ -473,39 +665,101 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
-        // FUNSI KUSTOM UNTUK MENDAPATKAN WARNA SKENARIO KATEGORI SERI SKIN
+        // HELPER BADGE WARNA & FONT ELEMEN GENSHIN
+        function getElementBadgeClass(element) {
+            if (!element) return 'bg-gray-800 text-gray-300 border-gray-600 font-genshin';
+            const el = element.trim().toLowerCase();
+            switch (el) {
+                case 'pyro': return 'bg-red-950/80 text-red-400 border-red-500/50 font-genshin tracking-wide';
+                case 'hydro': return 'bg-blue-950/80 text-blue-400 border-blue-500/50 font-genshin tracking-wide';
+                case 'anemo': return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50 font-genshin tracking-wide';
+                case 'electro': return 'bg-purple-950/80 text-purple-300 border-purple-500/50 font-genshin tracking-wide';
+                case 'dendro': return 'bg-green-950/80 text-green-400 border-green-500/50 font-genshin tracking-wide';
+                case 'cryo': return 'bg-cyan-950/80 text-cyan-300 border-cyan-500/50 font-genshin tracking-wide';
+                case 'geo': return 'bg-amber-950/80 text-amber-400 border-amber-500/50 font-genshin tracking-wide';
+                default: return 'bg-gray-800/80 text-gray-300 border-gray-600/50 font-genshin';
+            }
+        }
+
+        function getElementIcon(element) {
+            if (!element) return '';
+            const el = element.trim().toLowerCase();
+            switch (el) {
+                case 'pyro': return '';
+                case 'hydro': return '';
+                case 'anemo': return '';
+                case 'electro': return '';
+                case 'dendro': return '';
+                case 'cryo': return '';
+                case 'geo': return '';
+                default: return '';
+            }
+        }
+
+        // FUNGSI KUSTOM UNTUK MENDAPATKAN WARNA SKENARIO KATEGORI SERI SKIN
         function getSeriesColorClass(series) {
             if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
             const s = series.trim().toLowerCase();
 
-            // Putih (Original Ascension / Mystic Code)
-            if (s.includes('original ascension') || s.includes('mystic code')) {
-                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
+            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) {
+                return 'skin-badge-epic';
             }
-            // Hijau (Elite Series)
+            if (s.includes('legend')) {
+                return 'skin-badge-legend';
+            }
+            if (s.includes('grand')) {
+                return 'skin-badge-grand';
+            } 
+            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) {
+                return 'skin-badge-collab';
+            }
             if (s.includes('elite')) {
                 return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
             }
-            // Ungu (Epic Series)
-            if (s.includes('epic')) {
-                return 'bg-purple-950/80 text-purple-300 border-purple-500/50';
+            if (s.includes('original ascension') || s.includes('mystic code')) {
+                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
             }
-            // Emas / Yellow (Legend Series)
-            if (s.includes('legend')) {
-                return 'bg-amber-950/80 text-amber-300 border-amber-500/60';
-            }
-            // Biru Muda (Special, Casual, Summer, Japan, Uniform, Christmas, Halloween, Valentine, Academy)
             if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
                 s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
-                s.includes('halloween') || s.includes('valentine') || s.includes('academy')) {
+                s.includes('halloween') || s.includes('valentine') || s.includes('academy') || s.includes('maid')) {
                 return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
             }
-            if (s.includes('grand')) {
-                return 'bg-red-950/80 text-red-300 border-red-500/60';
-            }
 
-            // Fallback Default: Biru Muda
             return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
+        }
+
+        // 1. Pemetaan Kode # ke Logo Game
+        const COLLAB_LOGOS = {
+            '#1': { name: 'Genshin Impact', icon: 'assets/icons/genshin.svg' },
+            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/wuwa.svg' },
+            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/hsr.svg' },
+            '#4': { name: 'Mobile Legends', icon: 'assets/icons/mlbb.svg' },
+            '#5': { name: 'Fate/Grand Order', icon: 'assets/icons/fgo.svg' }
+        };
+
+        // 2. Fungsi Helper Renderer Badge
+        function renderSeriesBadge(seriesText, extraClasses = '') {
+            if (!seriesText) return '';
+
+            const colorClass = getSeriesColorClass(seriesText);
+            let displayText = seriesText;
+            let iconHtml = '';
+
+            Object.keys(COLLAB_LOGOS).forEach(code => {
+                if (seriesText.includes(code)) {
+                    const logo = COLLAB_LOGOS[code];
+                    displayText = displayText.replace(code, '').trim();
+                    const marginClass = displayText ? 'mr-1' : '';
+                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+                }
+            });
+
+            return `
+                <span class="${colorClass} ${extraClasses} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate inline-flex items-center justify-center">
+                    ${iconHtml}
+                    ${displayText ? `<span>${displayText}</span>` : ''}
+                </span>
+            `;
         }
 
         const initialServants = [
@@ -514,6 +768,7 @@
                 "name": "Artoria Pendragon",
                 "jpName": "アルトリア・ペンドラゴン",
                 "class": "Saber",
+                "element": "Anemo",
                 "rarity": 5,
                 "gender": "Female",
                 "race": "Human / Dragon",
@@ -542,8 +797,8 @@
                 ],
                 "image": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png",
                 "sprites": [
-                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" },
-                    { "name": "School Uniform", "series": "Uniform Series", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png" }
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png", "element": "Anemo" },
+                    { "name": "School Uniform", "series": "Uniform Series", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png", "element": "Anemo" }
                 ],
                 "voiceLines": [
                     {
@@ -563,6 +818,7 @@
                 "name": "Gilgamesh",
                 "jpName": "ギルガメッシュ",
                 "class": "Archer",
+                "element": "Geo",
                 "rarity": 5,
                 "gender": "Male",
                 "race": "Demigod",
@@ -591,7 +847,7 @@
                 ],
                 "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500",
                 "sprites": [
-                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" }
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500", "element": "Geo" }
                 ],
                 "voiceLines": [
                     {
@@ -629,7 +885,7 @@
         };
 
         function loadServantData() {
-            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v4');
             if (stored) {
                 try { return JSON.parse(stored); } catch(e) {}
             }
@@ -637,7 +893,7 @@
         }
 
         function saveServantData() {
-            localStorage.setItem('fgo_genshin_servants_db_v2', JSON.stringify(servantData));
+            localStorage.setItem('fgo_genshin_servants_db_v4', JSON.stringify(servantData));
         }
 
         let servantData = loadServantData();
@@ -654,6 +910,7 @@
         const emptyState = document.getElementById('emptyState');
         const searchBar = document.getElementById('searchBar');
         const classFilter = document.getElementById('classFilter');
+        const elementFilter = document.getElementById('elementFilter');
         const loreModal = document.getElementById('loreModal');
         const formModal = document.getElementById('formModal');
         const servantCount = document.getElementById('servantCount');
@@ -682,26 +939,38 @@
                 const activeIndex = servant.activeSpriteIndex || 0;
                 const activeSprite = (servant.sprites && servant.sprites[activeIndex]) ? servant.sprites[activeIndex] : null;
                 const cardThumb = activeSprite?.url || servant.image;
+                
+                // Gunakan elemen khusus skin jika ada, jika tidak pakai elemen dasar servant
+                const displayElement = activeSprite?.element || servant.element;
+                const elBadgeClass = getElementBadgeClass(displayElement);
+                const elIcon = getElementIcon(displayElement);
 
                 card.innerHTML = `
                     <div class="relative h-36 ${bgClass} flex items-center justify-center overflow-hidden">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <img src="${cardThumb}" class="absolute -right-10 top-0 w-50 h-80 object-contain object-right opacity-20 scale-150 transition-all duration-300">
+                        <img src="${cardThumb}" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.onerror=null; this.src='assets/images/favicon.png';" 
+                             alt="${servant.name}"
+                             class="absolute -right-10 top-0 w-50 h-80 object-contain object-right opacity-20 scale-150 transition-all duration-300">
                         <img src="${classIcons[servant.class] || `assets/icons/${servant.class.toLowerCase()}.svg`}" 
                              alt="${servant.class}" 
+                             loading="lazy"
+                             decoding="async"
                              class="w-20 h-20 object-contain opacity-30 filter drop-shadow-md pointer-events-none select-none">
                         
+                        <span class="absolute top-2 left-2 ${elBadgeClass} text-[9px] px-1.5 py-0.5 rounded border font-bold backdrop-blur-sm shadow">
+                            ${elIcon} ${displayElement || 'None'}
+                        </span>
+
                         ${hasVoice ? `
                             <span class="absolute top-2 right-2 bg-black/50 text-[#cca566] text-[10px] px-1.5 py-0.5 rounded border border-[#cca566]/40 flex items-center gap-1 backdrop-blur-sm">
-                                🎙️️ ${servant.voiceLines.length}
+                                🎙 ${servant.voiceLines.length}
                             </span>
                         ` : ''}
 
-                        ${activeSprite?.series ? `
-                            <span class="absolute bottom-1 left-2 ${getSeriesColorClass(activeSprite.series)} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate max-w-[110px]">
-                                ${activeSprite.series}
-                            </span>
-                        ` : ''}
+                        ${activeSprite?.series ? renderSeriesBadge(activeSprite.series, 'absolute bottom-1 left-2 max-w-[110px]') : ''}
                     </div>
                     <div class="p-3 bg-[#161c28]/90">
                         <div class="text-[10px] text-[#cca566] font-semibold uppercase tracking-wider">${servant.class}</div>
@@ -716,23 +985,28 @@
         function applyFilters() {
             const query = searchBar.value.toLowerCase().trim();
             const cls = classFilter.value;
+            const elem = elementFilter.value;
 
             const filtered = servantData.filter(s => {
                 const matchesSearch = s.name.toLowerCase().includes(query) || 
+                                      (s.element && s.element.toLowerCase().includes(query)) ||
                                       (s.traits && s.traits.some(t => t.toLowerCase().includes(query))) ||
                                       s.class.toLowerCase().includes(query) ||
-                                      (s.sprites && s.sprites.some(sp => (sp.series || '').toLowerCase().includes(query) || (sp.name || '').toLowerCase().includes(query)));
+                                      (s.sprites && s.sprites.some(sp => (sp.series || '').toLowerCase().includes(query) || (sp.name || '').toLowerCase().includes(query) || (sp.element || '').toLowerCase().includes(query)));
                 
                 let matchesClass = true;
                 if (cls !== 'ALL') {
-                    if (cls === 'Extra') {
-                        matchesClass = !['Saber', 'Archer', 'Lancer', 'Rider', 'Caster', 'Assassin', 'Berserker', 'Ruler', 'Avenger', 'MoonCancer', 'Shielder', 'Foreigner', 'AlterEgo', 'Pretender', 'Beast', 'UnBeast', 'Unknown'].includes(s.class);
-                    } else {
-                        matchesClass = s.class === cls;
-                    }
+                    matchesClass = s.class === cls;
                 }
 
-                return matchesSearch && matchesClass;
+                let matchesElement = true;
+                if (elem !== 'ALL') {
+                    const activeSprite = s.sprites ? s.sprites[s.activeSpriteIndex || 0] : null;
+                    const currentEl = activeSprite?.element || s.element || 'None';
+                    matchesElement = currentEl === elem;
+                }
+
+                return matchesSearch && matchesClass && matchesElement;
             });
 
             renderGrid(filtered);
@@ -742,7 +1016,7 @@
             if (servant.sprites && servant.sprites.length > 0) {
                 return servant.sprites;
             }
-            return [{ name: "Default Stage", series: "Original Ascension", url: servant.image || "" }];
+            return [{ name: "Default Stage", series: "Original Ascension", url: servant.image || "", element: servant.element }];
         }
 
         function changeServantSprite(index) {
@@ -755,7 +1029,9 @@
 
             selectedSpriteIndex = index;
             selectedServant.activeSpriteIndex = index;
+            selectedVoiceIndex = 0;
 
+            stopAudio();
             saveServantData();
 
             const spriteUrl = sprites[index].url;
@@ -802,16 +1078,40 @@
             const servant = selectedServant;
             const contentArea = document.getElementById('detailContent');
 
-            const voiceLines = servant.voiceLines || [];
-            const currentVoice = voiceLines[selectedVoiceIndex] || null;
             const sprites = getServantSprites(servant);
             const activeSprite = sprites[selectedSpriteIndex] || {};
+
+            // Dynamic Attributes per Skin
+            const currentElement = activeSprite.element || servant.element || 'None';
+            const elBadgeClass = getElementBadgeClass(currentElement);
+            const elIcon = getElementIcon(currentElement);
+
+            const currentGender = activeSprite.gender || servant.gender || 'Unknown';
+            const currentRace = activeSprite.race || servant.race || 'Unknown';
+            const currentIllustrator = activeSprite.illustrator || servant.illustrator || 'Unknown';
+            const currentCv = activeSprite.cv || servant.cv || 'Unknown';
+
+            const currentAtk = activeSprite.maxAtk !== undefined && activeSprite.maxAtk !== '' ? activeSprite.maxAtk : (servant.stats?.maxAtk || 0);
+            const currentHp = activeSprite.maxHp !== undefined && activeSprite.maxHp !== '' ? activeSprite.maxHp : (servant.stats?.maxHp || 0);
+
+            const defaultVoiceLines = servant.voiceLines || [];
+            const skinVoiceLines = activeSprite.voiceLines || [];
+            const activeVoiceLines = (skinVoiceLines.length > 0) ? skinVoiceLines : defaultVoiceLines;
+
+            if (selectedVoiceIndex >= activeVoiceLines.length) {
+                selectedVoiceIndex = 0;
+            }
+
+            const currentVoice = activeVoiceLines[selectedVoiceIndex] || null;
 
             contentArea.innerHTML = `
                 <!-- Header Info -->
                 <div class="flex justify-between items-start gap-2">
                     <div>
-                        <span class="bg-[#cca566]/20 text-[#cca566] text-xs px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide">${servant.class.toUpperCase()}</span>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="bg-[#cca566]/20 text-[#cca566] text-xs px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide">${servant.class.toUpperCase()}</span>
+                            <span class="${elBadgeClass} text-xs px-2.5 py-0.5 rounded border font-bold shadow">${elIcon} ${currentElement}</span>
+                        </div>
                         <h2 class="text-xl md:text-2xl font-bold text-white mt-1 font-genshin">${servant.name}</h2>
                         <div class="star-rating text-xs">${'★'.repeat(servant.rarity || 5)}</div>
                     </div>
@@ -825,15 +1125,11 @@
                     </div>
                 </div>
 
-                <!-- SPRITE / SKIN SWITCHER TABS WITH COLOR-CODED SERIES -->
+                <!-- SPRITE / SKIN SWITCHER TABS -->
                 <div class="border-t border-b border-gray-800 py-2 my-2">
                     <div class="flex items-center justify-between mb-1.5">
                         <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP SKIN</span>
-                        ${activeSprite.series ? `
-                            <span class="text-[10px] ${getSeriesColorClass(activeSprite.series)} px-2 py-0.5 rounded font-bold font-genshin border">
-                                🏷️ ${activeSprite.series}
-                            </span>
-                        ` : ''}
+                        ${activeSprite.series ? renderSeriesBadge(activeSprite.series, 'text-[10px] px-2 py-0.5 border') : ''}
                     </div>
                     <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
                         ${sprites.map((s, idx) => `
@@ -847,10 +1143,12 @@
 
                 <!-- Attributes Grid -->
                 <div class="grid grid-cols-2 gap-y-1 gap-x-3 text-[11px] text-gray-400 bg-black/30 p-2.5 rounded border border-gray-800">
-                    <div>Gender: <span class="text-white font-medium">${servant.gender || 'Unknown'}</span></div>
-                    <div>Race: <span class="text-white font-medium">${servant.race || 'Unknown'}</span></div>
-                    <div>Artist: <span class="text-white font-medium">${servant.illustrator || 'Unknown'}</span></div>
-                    <div>CV: <span class="text-white font-medium">${servant.cv || 'Unknown'}</span></div>
+                    <div>Gender: <span class="text-white font-medium">${currentGender}</span></div>
+                    <div>Race: <span class="text-white font-medium">${currentRace}</span></div>
+                    <div>Element: <span class="text-amber-300 font-genshin font-bold">${elIcon} ${currentElement}</span></div>
+                    <div>CV: <span class="text-[#cca566] font-bold">${currentCv}</span></div>
+                    <div>Artist: <span class="text-white font-medium">${currentIllustrator}</span></div>
+                    <div>Attr: <span class="text-white font-medium">${servant.attribute || '-'}</span></div>
                 </div>
 
                 <!-- Combat Stats -->
@@ -859,11 +1157,11 @@
                     <div class="grid grid-cols-2 gap-2 text-xs">
                         <div class="bg-black/30 p-2 rounded border border-gray-800">
                             <span class="text-gray-500 text-[9px] block">MAX ATK</span>
-                            <span class="text-[#e66a6a] font-bold font-genshin">${(servant.stats?.maxAtk || 0).toLocaleString()}</span>
+                            <span class="text-[#e66a6a] font-bold font-genshin">${parseInt(currentAtk).toLocaleString()}</span>
                         </div>
                         <div class="bg-black/30 p-2 rounded border border-gray-800">
                             <span class="text-gray-500 text-[9px] block">MAX HP</span>
-                            <span class="text-[#6ae68e] font-bold font-genshin">${(servant.stats?.maxHp || 0).toLocaleString()}</span>
+                            <span class="text-[#6ae68e] font-bold font-genshin">${parseInt(currentHp).toLocaleString()}</span>
                         </div>
                     </div>
                 </div>
@@ -872,16 +1170,16 @@
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/40 p-3.5 rounded-lg border border-[#cca566]/20 shadow-inner">
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-xs font-bold font-genshin text-[#cca566] flex items-center gap-1.5 tracking-wider">
-                            <span>🎙️</span> VOICE OVER
+                            <span>🎙️</span> VOICE OVER ${skinVoiceLines.length > 0 ? '<span class="text-[10px] text-amber-300">☆</span>' : ''}
                         </h4>
                         <span id="audioBadge" class="text-[9px] bg-[#cca566]/20 text-[#cca566] px-2 py-0.5 rounded border border-[#cca566]/30">
-                            ${voiceLines.length > 0 ? `${voiceLines.length} Voice Line(s)` : 'No Voice Recorded'}
+                            ${activeVoiceLines.length > 0 ? `${activeVoiceLines.length} Voice Line(s)` : 'No Voice Recorded'}
                         </span>
                     </div>
 
-                    ${voiceLines.length > 0 ? `
+                    ${activeVoiceLines.length > 0 ? `
                         <div id="voiceTabsContainer" class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
-                            ${voiceLines.map((vl, idx) => `
+                            ${activeVoiceLines.map((vl, idx) => `
                                 <button onclick="switchVoiceLine(${idx})" class="text-[10px] px-2.5 py-1 rounded whitespace-nowrap transition-all cursor-pointer ${idx === selectedVoiceIndex ? 'bg-[#cca566] text-[#0e121e] font-bold shadow' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}">
                                     ${vl.title || `Line ${idx + 1}`}
                                 </button>
@@ -960,9 +1258,18 @@
         }
 
         function togglePlayVoice() {
-            if (!selectedServant || !selectedServant.voiceLines || !selectedServant.voiceLines[selectedVoiceIndex]) return;
+            if (!selectedServant) return;
 
-            const voice = selectedServant.voiceLines[selectedVoiceIndex];
+            const sprites = getServantSprites(selectedServant);
+            const activeSprite = sprites[selectedSpriteIndex] || {};
+
+            const defaultVoiceLines = selectedServant.voiceLines || [];
+            const skinVoiceLines = activeSprite.voiceLines || [];
+            const activeVoiceLines = (skinVoiceLines.length > 0) ? skinVoiceLines : defaultVoiceLines;
+
+            if (!activeVoiceLines || !activeVoiceLines[selectedVoiceIndex]) return;
+
+            const voice = activeVoiceLines[selectedVoiceIndex];
             if (isAudioPlaying) {
                 pauseAudio();
             } else {
@@ -1069,10 +1376,18 @@
             if (!selectedServant) return;
             
             if (loreModal.classList.contains('hidden')) {
+                const sprites = getServantSprites(selectedServant);
+                const activeSprite = sprites[selectedSpriteIndex] || {};
+                const currentElement = activeSprite.element || selectedServant.element || 'None';
+
                 document.getElementById('modalName').innerText = selectedServant.name;
                 document.getElementById('modalTitleInfo').innerText = `${selectedServant.class} Details`;
                 document.getElementById('modalAlignment').innerText = selectedServant.alignment || '-';
                 document.getElementById('modalAttribute').innerText = selectedServant.attribute || '-';
+                
+                const modalElem = document.getElementById('modalElement');
+                modalElem.innerText = `${getElementIcon(currentElement)} ${currentElement}`;
+                modalElem.className = `font-genshin font-bold tracking-wider ${getElementBadgeClass(currentElement).split(' ')[1]}`;
 
                 const traitsBox = document.getElementById('modalTraits');
                 traitsBox.innerHTML = (selectedServant.traits || []).map(t => `<span class="bg-gray-800 text-gray-300 text-[11px] px-2.5 py-0.5 rounded border border-gray-700">${t}</span>`).join('');
@@ -1138,6 +1453,7 @@
                 document.getElementById('formName').value = target.name || '';
                 document.getElementById('formJpName').value = target.jpName || '';
                 document.getElementById('formClass').value = target.class || 'Saber';
+                document.getElementById('formElement').value = target.element || 'None';
                 document.getElementById('formRarity').value = target.rarity || 5;
                 document.getElementById('formGender').value = target.gender || '';
                 document.getElementById('formMaxAtk').value = target.stats?.maxAtk || '';
@@ -1150,9 +1466,9 @@
                 document.getElementById('formImage').value = target.image || '';
 
                 if (target.sprites && target.sprites.length > 0) {
-                    target.sprites.forEach(s => addSpriteInputRow(s.name, s.url, s.series));
+                    target.sprites.forEach(s => addSpriteInputRow(s));
                 } else {
-                    addSpriteInputRow("Stage 1", target.image || "", "Original Ascension");
+                    addSpriteInputRow({ name: "Stage 1", url: target.image || "", series: "Original Ascension", element: target.element || "" });
                 }
 
                 if (target.voiceLines && target.voiceLines.length > 0) {
@@ -1183,8 +1499,9 @@
             } else {
                 document.getElementById('formModalTitle').innerText = "ADD NEW SERVANT";
                 document.getElementById('editServantId').value = '';
+                document.getElementById('formElement').value = 'Anemo';
                 document.getElementById('formImage').value = '';
-                addSpriteInputRow("Stage 1", "", "Original Ascension");
+                addSpriteInputRow({ name: "Stage 1", url: "", series: "Original Ascension", element: "" });
                 addVoiceLineInputRow("Summoning", "", "Servant Saber, answering your summons.");
             }
 
@@ -1197,19 +1514,75 @@
             setTimeout(() => formModal.classList.add('hidden'), 300);
         }
 
-        function addSpriteInputRow(name = '', url = '', series = '') {
+        function addSpriteInputRow(spriteData = {}) {
             const container = document.getElementById('spritesContainer');
             const row = document.createElement('div');
-            row.className = "sprite-line-row flex flex-col sm:flex-row gap-2 items-center bg-[#1b2233] p-2 rounded border border-gray-700";
+            row.className = "sprite-line-row flex flex-col gap-2 bg-[#1b2233] p-3 rounded border border-gray-700 my-2";
+
+            const { name = '', url = '', series = '', element = '', gender = '', race = '', cv = '', illustrator = '', maxAtk = '', maxHp = '', voiceLines = [] } = spriteData;
 
             row.innerHTML = `
-                <input type="text" placeholder="Skin Name (e.g. Stage 1)" value="${name}" class="sprite-name w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
-                <input type="text" placeholder="Series / Set (e.g. Uniform Series)" value="${series}" class="sprite-series w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
-                <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none text-xs">
-                <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer self-end sm:self-center">✕</button>
+                <div class="flex flex-col sm:flex-row gap-2 items-center">
+                    <input type="text" placeholder="Skin Name (e.g. Raiden Shogun)" value="${name}" class="sprite-name w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Series (e.g. #1 Genshin Collab)" value="${series}" class="sprite-series w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
+                </div>
+                
+                <!-- Input Atribut Khusus Skin (Termasuk Element Skin) -->
+                <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 border-t border-gray-800/80 pt-2">
+                    <select class="sprite-element bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                        <option value="" ${!element ? 'selected' : ''}>-- Element Skin --</option>
+                        <option value="Anemo" ${element === 'Anemo' ? 'selected' : ''}>Anemo</option>
+                        <option value="Geo" ${element === 'Geo' ? 'selected' : ''}>Geo</option>
+                        <option value="Electro" ${element === 'Electro' ? 'selected' : ''}>Electro</option>
+                        <option value="Dendro" ${element === 'Dendro' ? 'selected' : ''}>Dendro</option>
+                        <option value="Hydro" ${element === 'Hydro' ? 'selected' : ''}>Hydro</option>
+                        <option value="Pyro" ${element === 'Pyro' ? 'selected' : ''}>Pyro</option>
+                        <option value="Cryo" ${element === 'Cryo' ? 'selected' : ''}>Cryo</option>
+                        <option value="None" ${element === 'None' ? 'selected' : ''}>None</option>
+                    </select>
+                    <input type="text" placeholder="Gender" value="${gender}" class="sprite-gender bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Race" value="${race}" class="sprite-race bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Voice Actor (CV)" value="${cv}" class="sprite-cv bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Illustrator" value="${illustrator}" class="sprite-illustrator bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="number" placeholder="Max ATK" value="${maxAtk}" class="sprite-atk bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="number" placeholder="Max HP" value="${maxHp}" class="sprite-hp bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                </div>
+
+                <div class="border-t border-gray-800/80 pt-2 bg-black/30 p-2 rounded">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[10px] text-[#cca566] font-bold">🎙️ VOICE LINES KHUSUS SKIN INI</span>
+                        <button type="button" onclick="addSkinVoiceLineRow(this)" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-0.5 rounded border border-gray-700 cursor-pointer">+ Add Skin Voice</button>
+                    </div>
+                    <div class="skin-voicelines-container space-y-1.5"></div>
+                </div>
             `;
 
             container.appendChild(row);
+
+            const voicelinesContainer = row.querySelector('.skin-voicelines-container');
+            if (voiceLines && voiceLines.length > 0) {
+                voiceLines.forEach(vl => addSkinVoiceLineRow(voicelinesContainer, vl.title, vl.audioUrl, vl.text));
+            }
+        }
+
+        function addSkinVoiceLineRow(targetElement, title = '', audioUrl = '', text = '') {
+            let container = targetElement;
+            if (targetElement.tagName === 'BUTTON') {
+                container = targetElement.closest('.sprite-line-row').querySelector('.skin-voicelines-container');
+            }
+
+            const vlRow = document.createElement('div');
+            vlRow.className = "skin-vl-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800";
+            vlRow.innerHTML = `
+                <input type="text" placeholder="Judul Line (e.g. Collab Line)" value="${title}" class="skin-vl-title w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <input type="url" placeholder="Audio URL" value="${audioUrl}" class="skin-vl-url w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <input type="text" placeholder="Transkrip / Dialog" value="${text}" class="skin-vl-text w-full sm:w-5/12 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <button type="button" onclick="this.closest('.skin-vl-row').remove()" class="text-red-400 font-bold px-1.5 cursor-pointer">✕</button>
+            `;
+
+            container.appendChild(vlRow);
         }
 
         function addVoiceLineInputRow(title = '', audioUrl = '', text = '') {
@@ -1253,8 +1626,40 @@
                 const name = row.querySelector('.sprite-name').value.trim();
                 const series = row.querySelector('.sprite-series').value.trim();
                 const url = row.querySelector('.sprite-url').value.trim();
+
+                const element = row.querySelector('.sprite-element').value.trim();
+                const gender = row.querySelector('.sprite-gender').value.trim();
+                const race = row.querySelector('.sprite-race').value.trim();
+                const cv = row.querySelector('.sprite-cv').value.trim();
+                const illustrator = row.querySelector('.sprite-illustrator').value.trim();
+                const maxAtk = row.querySelector('.sprite-atk').value.trim();
+                const maxHp = row.querySelector('.sprite-hp').value.trim();
+
+                const skinVlRows = row.querySelectorAll('.skin-vl-row');
+                const skinVoiceLines = [];
+                skinVlRows.forEach(vlRow => {
+                    const vlTitle = vlRow.querySelector('.skin-vl-title').value.trim();
+                    const vlUrl = vlRow.querySelector('.skin-vl-url').value.trim();
+                    const vlText = vlRow.querySelector('.skin-vl-text').value.trim();
+                    if (vlTitle || vlText || vlUrl) {
+                        skinVoiceLines.push({ title: vlTitle || 'Skin Line', audioUrl: vlUrl, text: vlText || '...' });
+                    }
+                });
+
                 if (url) {
-                    spritesArray.push({ name: name || 'Skin', series: series || 'Original Ascension', url: url });
+                    spritesArray.push({
+                        name: name || 'Skin',
+                        series: series || 'Original Ascension',
+                        url: url,
+                        element: element || undefined,
+                        gender: gender,
+                        race: race,
+                        cv: cv,
+                        illustrator: illustrator,
+                        maxAtk: maxAtk ? parseInt(maxAtk) : undefined,
+                        maxHp: maxHp ? parseInt(maxHp) : undefined,
+                        voiceLines: skinVoiceLines
+                    });
                 }
             });
 
@@ -1266,6 +1671,7 @@
                 name: document.getElementById('formName').value,
                 jpName: document.getElementById('formJpName').value,
                 class: document.getElementById('formClass').value,
+                element: document.getElementById('formElement').value,
                 rarity: parseInt(document.getElementById('formRarity').value),
                 gender: document.getElementById('formGender').value,
                 race: document.getElementById('formRace').value,
@@ -1327,7 +1733,7 @@
 
         function confirmResetData() {
             showConfirmDialog("RESET DATABASE", "Reset all servant records to initial defaults? All custom changes will be lost.", () => {
-                localStorage.removeItem('fgo_genshin_servants_db_v2');
+                localStorage.removeItem('fgo_genshin_servants_db_v4');
                 servantData = [...initialServants];
                 selectedServant = null;
                 stopAudio();
@@ -1448,6 +1854,15 @@
             if (servantData.length > 0) {
                 showDetails(servantData[0]);
             }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
+                    .catch((err) => console.error('Service Worker Registration Failed:', err));
+            });
         }
     </script>
 </body>
