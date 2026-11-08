@@ -92,6 +92,9 @@
                 <a href="masters.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
                     🧙‍♂️ MASTERS
                 </a>
+                <a href="gallery.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    👗 GALLERY
+                </a>
                 <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
                     🎲 GACHA
                 </a>
@@ -356,7 +359,7 @@
         ];
 
         function getServants() {
-            const stored = localStorage.getItem('fgo_genshin_servants_db_v2');
+            const stored = localStorage.getItem('fgo_genshin_servants_db_v4') || localStorage.getItem('fgo_genshin_servants_db_v2');
             return stored ? JSON.parse(stored) : [];
         }
 
@@ -391,7 +394,6 @@
         const confirmModal = document.getElementById('confirmModal');
         const factionCount = document.getElementById('factionCount');
 
-        // CUSTOM CONFIRM DIALOG LOGIC
         function showConfirmDialog(title, message, onConfirm) {
             document.getElementById('confirmTitle').innerText = title;
             document.getElementById('confirmMessage').innerText = message;
@@ -411,7 +413,6 @@
             closeConfirmDialog();
         };
 
-        // EXPORT / IMPORT / RESET JSON
         function exportWarData() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(pairings, null, 2));
             const downloadAnchor = document.createElement('a');
@@ -465,7 +466,6 @@
             });
         }
 
-        // CUSTOM REORDER FUNCTIONS (MOVE UP / DOWN)
         function moveFactionUp(id) {
             const idx = pairings.findIndex(p => p.id === id);
             if (idx > 0) {
@@ -494,7 +494,6 @@
             }
         }
 
-        // DRAG AND DROP HANDLERS
         function handleDragStart(e, id) {
             draggedPairingId = id;
             e.dataTransfer.effectAllowed = 'move';
@@ -532,7 +531,6 @@
             draggedPairingId = null;
         }
 
-        // FILTER & SORT LOGIC
         function getFilteredAndSortedPairings() {
             const search = (document.getElementById('filterSearch')?.value || '').toLowerCase().trim();
             const statusFilter = document.getElementById('filterStatus')?.value || 'ALL';
@@ -555,7 +553,6 @@
                 return matchSearch && matchStatus;
             });
 
-            // Sorting
             if (sortVal === 'DEFAULT') {
                 list.sort((a, b) => b.id - a.id);
             } else if (sortVal === 'MASTER_NAME') {
@@ -573,7 +570,6 @@
             } else if (sortVal === 'SUMMON_ASC') {
                 list.sort((a, b) => (a.summonedDay || '').localeCompare(b.summonedDay || '', undefined, { numeric: true }));
             }
-            // If sortVal === 'CUSTOM', keep array index order directly
 
             return list;
         }
@@ -614,7 +610,6 @@
                 card.innerHTML = `
                     <div class="p-2 bg-[#161c28]/90 border-b border-gray-800 flex justify-between items-center text-[10px]">
                         <div class="flex items-center gap-1.5">
-                            <!-- Quick Move Up & Down Buttons -->
                             <button onclick="event.stopPropagation(); moveFactionUp(${p.id})" title="Geser Ke Atas/Kiri" class="hover:bg-gray-800 text-gray-400 hover:text-amber-300 px-1 py-0.5 rounded cursor-pointer transition-colors">▲</button>
                             <button onclick="event.stopPropagation(); moveFactionDown(${p.id})" title="Geser Ke Bawah/Kanan" class="hover:bg-gray-800 text-gray-400 hover:text-amber-300 px-1 py-0.5 rounded cursor-pointer transition-colors">▼</button>
                             <span class="text-[#cca566] font-bold uppercase tracking-wider">${servant.class || 'CLASS'}</span>
@@ -629,11 +624,11 @@
 
                     <div class="grid grid-cols-2 h-36 bg-gradient-to-b from-[#1b2233] to-[#0e121e] relative">
                         <div class="relative overflow-hidden border-r border-gray-800">
-                            <img src="${masterImg}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
+                            <img src="${masterImg}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
                             <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1 rounded truncate max-w-[90%]">${master.name}</span>
                         </div>
                         <div class="relative overflow-hidden">
-                            <img src="${servantImg}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
+                            <img src="${servantImg}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform">
                             <span class="absolute bottom-1 left-1 bg-black/60 text-amber-300 text-[9px] px-1 rounded truncate max-w-[90%]">${servant.name}</span>
                         </div>
                     </div>
@@ -680,7 +675,6 @@
             const logs = selectedPairing.battleLogs || [];
 
             contentArea.innerHTML = `
-                <!-- Faction Header & Actions -->
                 <div class="flex justify-between items-start">
                     <div>
                         <div class="flex items-center gap-2">
@@ -703,11 +697,10 @@
                     </div>
                 </div>
 
-                <!-- Dual Card Showcase -->
                 <div class="grid grid-cols-2 gap-3">
                     <div class="bg-black/40 p-3 rounded border border-gray-800 text-center space-y-2">
                         <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-[#cca566] bg-gray-900">
-                            <img src="${masterImg}" class="w-full h-full object-cover object-top">
+                            <img src="${masterImg}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top">
                         </div>
                         <div>
                             <span class="text-[9px] text-[#cca566] uppercase block font-bold">MASTER</span>
@@ -718,7 +711,7 @@
 
                     <div class="bg-black/40 p-3 rounded border border-gray-800 text-center space-y-2">
                         <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-amber-400 bg-gray-900">
-                            <img src="${servantImg}" class="w-full h-full object-cover object-top">
+                            <img src="${servantImg}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top">
                         </div>
                         <div>
                             <span class="text-[9px] text-amber-300 uppercase block font-bold">SERVANT [${servant.class}]</span>
@@ -728,7 +721,6 @@
                     </div>
                 </div>
 
-                <!-- Command Seals Control Panel -->
                 <div class="border-t border-b border-gray-800 py-3 my-2 bg-black/30 p-3 rounded">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs text-[#cca566] font-bold font-genshin">COMMAND SEALS (MANTRA PERINTAH)</span>
@@ -746,7 +738,6 @@
                     </div>
                 </div>
 
-                <!-- BATTLE LOGS SECTION -->
                 <div class="border-t border-gray-800 pt-3 bg-black/20 p-3 rounded-lg border border-red-500/20">
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-xs font-bold font-genshin text-red-400 flex items-center gap-1.5 tracking-wider">
@@ -754,7 +745,6 @@
                         </h4>
                     </div>
 
-                    <!-- List Battle Logs dengan Fitur Inline Edit -->
                     <div class="max-h-44 overflow-y-auto space-y-2 mb-2.5 pr-1 text-xs">
                         ${logs.length > 0 ? logs.map(log => {
                             if (editingLogId === log.id) {
@@ -784,7 +774,6 @@
                         }).join('') : '<p class="text-gray-500 text-[11px] italic text-center py-2">Belum ada catatan pertempuran.</p>'}
                     </div>
 
-                    <!-- Input Tambah Log (Timeline Kustom) -->
                     <form onsubmit="handleAddBattleLog(event, ${selectedPairing.id})" class="flex flex-col sm:flex-row gap-1.5">
                         <input type="text" id="newLogTime" placeholder="Timeline (misal: Day 1 - Night)" class="w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-red-500 outline-none">
                         <input type="text" id="newLogText" required placeholder="Catatan pertarungan..." class="w-full sm:w-2/3 bg-[#1b2233] text-white border border-gray-700 rounded px-2.5 py-1 text-xs focus:border-red-500 outline-none">
@@ -794,7 +783,6 @@
                     </form>
                 </div>
 
-                <!-- Tactical Notes -->
                 <div class="space-y-1">
                     <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Tactical Notes & Alliance</h4>
                     <p class="text-xs text-gray-300 bg-black/30 p-2.5 rounded border border-gray-800/80 leading-relaxed italic">
@@ -802,7 +790,6 @@
                     </p>
                 </div>
 
-                <!-- Status Toggle Actions -->
                 <div class="pt-2 flex gap-2">
                     <button onclick="togglePairStatus('Active')" class="flex-1 py-2 rounded text-xs font-genshin font-bold transition-colors cursor-pointer border ${selectedPairing.status === 'Active' ? 'bg-green-600 text-white border-green-400' : 'bg-gray-800 text-gray-400 border-gray-700'}">
                         SET ACTIVE
@@ -821,7 +808,6 @@
             `;
         }
 
-        // BATTLE LOG FUNCTIONS (EDITABLE & CUSTOM TIMELINE)
         function handleAddBattleLog(e, pairingId) {
             e.preventDefault();
             const timeInput = document.getElementById('newLogTime');
@@ -1083,6 +1069,15 @@
                 showDetails(pairings[0]);
             }
         };
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
+                    .catch((err) => console.error('Service Worker Registration Failed:', err));
+            });
+        }
     </script>
 </body>
 </html>
