@@ -63,222 +63,98 @@
             color: #cca566;
             text-shadow: 0 0 5px rgba(204, 165, 102, 0.5);
         }
-        .rarity-5 { 
-            background: linear-gradient(180deg, #513e6b, #bfa054); 
-        }
-        .rarity-4 { 
-            background: linear-gradient(180deg, #64553b 0%, #bfa054 50%, #b8ac8c 100%); 
-        }
-        .rarity-3 { 
-            background: linear-gradient(180deg, #b5b5b5 0%, #64696f 100%); 
-        }
-        .rarity-2 { 
-            background: linear-gradient(180deg, #403125 0%, #765d5d  100%); 
-        }
-        .rarity-1 { 
-            background: linear-gradient(180deg, #261d0f 0%, #433529 100%); 
-        }
+        .rarity-5 { background: linear-gradient(180deg, #513e6b, #bfa054); }
+        .rarity-4 { background: linear-gradient(180deg, #64553b 0%, #bfa054 50%, #b8ac8c 100%); }
+        .rarity-3 { background: linear-gradient(180deg, #b5b5b5 0%, #64696f 100%); }
+        .rarity-2 { background: linear-gradient(180deg, #403125 0%, #765d5d  100%); }
+        .rarity-1 { background: linear-gradient(180deg, #261d0f 0%, #433529 100%); }
 
         /* Custom Audio Slider & Scrollbars */
-        input[type=range] {
-            accent-color: #cca566;
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(14, 18, 30, 0.8);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cca566;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e2be7d;
-        }
+        input[type=range] { accent-color: #cca566; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
+        ::-webkit-scrollbar-thumb { background: #cca566; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e2be7d; }
 
-        /* Hide scrollbar untuk slider kartu di HP */
-        .scrollbar-none::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-none {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* Audio Pulse Effect */
         @keyframes audioGlow {
             0%, 100% { box-shadow: 0 0 8px rgba(204, 165, 102, 0.4); }
             50% { box-shadow: 0 0 20px rgba(204, 165, 102, 0.9); }
         }
-        .audio-playing {
-            animation: audioGlow 1.8s infinite;
-        }
+        .audio-playing { animation: audioGlow 1.8s infinite; }
 
-        /* --- ANIMASI BADGE SKIN (PURE CSS & HARDWARE ACCELERATED) --- */
-
-        /* 1. Epic Series: Soft Glowing Pulse */
+        /* BADGE ANIMATIONS */
         @keyframes epicGlow {
-            0%, 100% {
-                box-shadow: 0 0 4px rgba(168, 85, 247, 0.4);
-                border-color: rgba(168, 85, 247, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
-                border-color: rgba(216, 180, 254, 0.9);
-            }
+            0%, 100% { box-shadow: 0 0 4px rgba(168, 85, 247, 0.4); border-color: rgba(168, 85, 247, 0.5); }
+            50% { box-shadow: 0 0 12px rgba(192, 132, 252, 0.8); border-color: rgba(216, 180, 254, 0.9); }
         }
         .skin-badge-epic {
             background: linear-gradient(135deg, rgba(58, 12, 89, 0.9), rgba(88, 28, 135, 0.9));
-            color: #e9d5ff;
-            border: 1px solid #a855f7;
-            animation: epicGlow 2s ease-in-out infinite;
-            will-change: box-shadow;
+            color: #e9d5ff; border: 1px solid #a855f7;
+            animation: epicGlow 2s ease-in-out infinite; will-change: box-shadow;
         }
 
-        /* 2. Legend Series: Glow + Shiny Shimmer dari Kanan ke Kiri */
         @keyframes legendShiny {
-            0% {
-                background-position: 200% 0;
-                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
-            }
-            100% {
-                background-position: -100% 0;
-                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
-            }
+            0% { background-position: 200% 0; box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 12px rgba(251, 191, 36, 0.8); }
+            100% { background-position: -100% 0; box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); }
         }
         .skin-badge-legend {
-            background: linear-gradient(
-                115deg,
-                rgba(69, 26, 3, 0.9) 0%,
-                rgba(146, 64, 14, 0.9) 35%,
-                rgba(254, 240, 138, 0.95) 50%,
-                rgba(146, 64, 14, 0.9) 65%,
-                rgba(69, 26, 3, 0.9) 100%
-            );
-            background-size: 250% 100%;
-            color: #fef08a;
-            border: 1px solid #f59e0b;
-            font-weight: 700;
-            animation: legendShiny 2.5s ease-in-out infinite;
-            will-change: background-position;
+            background: linear-gradient(115deg, rgba(69, 26, 3, 0.9) 0%, rgba(146, 64, 14, 0.9) 35%, rgba(254, 240, 138, 0.95) 50%, rgba(146, 64, 14, 0.9) 65%, rgba(69, 26, 3, 0.9) 100%);
+            background-size: 250% 100%; color: #fef08a; border: 1px solid #f59e0b; font-weight: 700;
+            animation: legendShiny 2.5s ease-in-out infinite; will-change: background-position;
         }
 
-        /* 3. Grand Series: Fiery Gold & Crimson Dynamic Aura */
-        @keyframes grandGradient {
+        @keyframes grandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes grandPulseAura {
+            0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5); border-color: #fef08a; }
+            50% { box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9); border-color: #ffffff; }
+        }
+        @keyframes grandLightSweep { 0% { left: -120%; } 35%, 100% { left: 220%; } }
+
+        .skin-badge-grand {
+            display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+            background: linear-gradient(115deg, #581c87 0%, #991b1b 20%, #b45309 40%, #fef08a 50%, #b45309 60%, #991b1b 80%, #581c87 100%);
+            background-size: 280% 280%; color: #ffffff; border: 1px solid #fef08a; font-weight: 900;
+            letter-spacing: 0.06em; text-shadow: 0 0 6px rgba(254, 240, 138, 0.9);
+            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite; will-change: background-position, box-shadow;
+        }
+        .skin-badge-grand:not(.absolute) { position: relative; }
+        .skin-badge-grand::before {
+            content: ''; position: absolute; top: 0; left: -120%; width: 70%; height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.2) 80%, transparent 100%);
+            transform: skewX(-25deg); animation: grandLightSweep 2.8s ease-in-out infinite; pointer-events: none;
+        }
+
+        @keyframes collabPrism {
+            0%, 100% { background-position: 0% 50%; box-shadow: 0 0 8px rgba(34, 211, 238, 0.6); border-color: #38bdf8; }
+            50% { background-position: 100% 50%; box-shadow: 0 0 16px rgba(236, 72, 153, 0.8); border-color: #f472b6; }
+        }
+        .skin-badge-collab {
+            display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+            background: linear-gradient(115deg, #0c4a6e 0%, #0284c7 25%, #be185d 50%, #6b21a8 75%, #0c4a6e 100%);
+            background-size: 250% 250%; color: #f0fdf4; border: 1px solid #38bdf8; font-weight: 800;
+            animation: collabPrism 3s ease-in-out infinite; will-change: background-position, box-shadow;
+        }
+        .skin-badge-collab:not(.absolute) { position: relative; }
+
+        /* PAINTED SKIN BADGE */
+        @keyframes paintedShimmer {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        @keyframes grandPulseAura {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5), inset 0 0 6px rgba(254, 240, 138, 0.6);
-                border-color: #fef08a;
-            }
-            50% {
-                box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9), 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 12px rgba(255, 255, 255, 0.9);
-                border-color: #ffffff;
-            }
-        }
-
-        @keyframes grandLightSweep {
-            0% { left: -120%; }
-            35%, 100% { left: 220%; }
-        }
-
-        .skin-badge-grand {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(
-                115deg,
-                #581c87 0%,
-                #991b1b 20%,
-                #b45309 40%,
-                #fef08a 50%,
-                #b45309 60%,
-                #991b1b 80%,
-                #581c87 100%
-            );
-            background-size: 280% 280%;
-            color: #ffffff;
-            border: 1px solid #fef08a;
-            font-weight: 900;
-            letter-spacing: 0.06em;
-            text-shadow: 0 0 6px rgba(254, 240, 138, 0.9), 0 0 12px rgba(239, 68, 68, 0.8);
-            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite;
-            will-change: background-position, box-shadow;
-        }
-
-        .skin-badge-grand:not(.absolute) {
-            position: relative;
-        }
-
-        .skin-badge-grand::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.2) 20%,
-                rgba(255, 255, 255, 0.95) 50%,
-                rgba(255, 255, 255, 0.2) 80%,
-                transparent 100%
-            );
-            transform: skewX(-25deg);
-            animation: grandLightSweep 2.8s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        /* 4. Collab Series */
-        @keyframes collabPrism {
-            0%, 100% {
-                background-position: 0% 50%;
-                box-shadow: 0 0 8px rgba(34, 211, 238, 0.6), 0 0 16px rgba(236, 72, 153, 0.4);
-                border-color: #38bdf8;
-            }
-            50% {
-                background-position: 100% 50%;
-                box-shadow: 0 0 16px rgba(236, 72, 153, 0.8), 0 0 22px rgba(168, 85, 247, 0.6);
-                border-color: #f472b6;
-            }
-        }
-
-        .skin-badge-collab {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(
-                115deg,
-                #0c4a6e 0%,
-                #0284c7 25%,
-                #be185d 50%,
-                #6b21a8 75%,
-                #0c4a6e 100%
-            );
-            background-size: 250% 250%;
-            color: #f0fdf4;
-            border: 1px solid #38bdf8;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 6px rgba(34, 211, 238, 0.8), 0 0 10px rgba(236, 72, 153, 0.6);
-            animation: collabPrism 3s ease-in-out infinite;
-            will-change: background-position, box-shadow;
-        }
-
-        .skin-badge-collab:not(.absolute) {
-            position: relative;
+        .skin-badge-painted {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: linear-gradient(115deg, #4c1d95 0%, #be185d 35%, #d97706 70%, #4c1d95 100%);
+            background-size: 220% 220%;
+            color: #fdf2f8;
+            border: 1px solid #f472b6;
+            font-weight: 700;
+            animation: paintedShimmer 3s ease infinite;
         }
     </style>
 </head>
@@ -290,7 +166,7 @@
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3">
                     <span class="text-3xl text-[#cca566]">✦</span>
-                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md" onerror="this.onerror=null; this.src='assets/images/favicon.png';">
                     <span class="text-3xl text-[#cca566]">✦</span>
                 </div>
                 <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Servant Database</p>
@@ -308,6 +184,7 @@
                         <option value="Dendro">Dendro</option>
                         <option value="Cryo">Cryo</option>
                         <option value="Geo">Geo</option>
+                        <option value="Unknown">Unknown</option>
                         <option value="None">None</option>
                     </select>
                 </div>
@@ -348,6 +225,9 @@
                 <a href="masters.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
                     🧙‍♂️ MASTERS
                 </a>
+                <a href="npcs.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🧙‍♂️ NPC
+                </a>
                 <a href="war.html" class="w-full sm:w-auto bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 hover:to-amber-600 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
                     ⚔️ GRAIL WAR
                 </a>
@@ -369,8 +249,11 @@
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
                 <div class="flex items-center justify-between px-1 text-xs text-gray-400">
                     <span id="servantCount">Showing Servants</span>
-                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
-                        <span>SELECT SERVANT</span>
+                    <span class="text-[#cca566] font-genshin hidden sm:flex items-center gap-1.5 text-[10px]">
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">↑/↓ Servant</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">←/→ Skin</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">Shift+←/→ Painted</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">Space Voice</span>
                     </span>
                 </div>
                 
@@ -458,7 +341,7 @@
             
             <div class="border-b border-gray-800 pb-3 mb-6">
                 <h3 id="formModalTitle" class="text-2xl font-genshin text-white font-bold tracking-wide">ADD NEW SERVANT</h3>
-                <p class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Chaldea Database & Voice Registry Editor</p>
+                <p class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Chaldea Database & Local File Editor</p>
             </div>
 
             <form id="servantForm" onsubmit="handleFormSubmit(event)" class="space-y-5 text-xs">
@@ -505,6 +388,7 @@
                             <option value="Hydro">Hydro</option>
                             <option value="Pyro">Pyro</option>
                             <option value="Cryo">Cryo</option>
+                            <option value="Unknown">Unknown</option>
                             <option value="None">None</option>
                         </select>
                     </div>
@@ -561,22 +445,30 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-400 mb-1">Default Thumbnail Image URL</label>
-                    <input type="url" id="formImage" placeholder="https://..." class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                <!-- Input Gambar Utama (Local Path & Base64 Reader) -->
+                <div class="bg-black/20 p-3 rounded border border-gray-800">
+                    <label class="block text-gray-400 mb-1">Default Image Path / File Gambar Lokal</label>
+                    <div class="flex gap-2 items-center">
+                        <input type="text" id="formImage" placeholder="assets/images/servants/artoria.png" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <label class="bg-[#cca566] hover:bg-[#e2be7d] text-[#0e121e] px-3 py-2 rounded font-bold cursor-pointer shrink-0 text-center">
+                            📁 Pilih File
+                            <input type="file" accept="image/*" onchange="convertFileToBase64(this, 'formImage')" class="hidden">
+                        </label>
+                    </div>
+                    <span class="text-[10px] text-gray-500 mt-1 block">Tulis path relatif folder (misal: assets/images/servants/artoria.png) atau pilih file dari perangkat.</span>
                 </div>
 
                 <!-- SPRITES & ASCENSIONS SECTION -->
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
                     <div class="flex items-center justify-between mb-2">
                         <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
-                            <span>🖼️</span> SERVANT SPRITES / SKINS & SERIES
+                            <span>🖼️</span> SERVANT SPRITES / SKINS & PAINTED VARIANTS
                         </label>
                         <button type="button" onclick="addSpriteInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
                             + Add Sprite / Skin
                         </button>
                     </div>
-                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, Seri/Set, URL gambar, serta elemen/stats khusus skin jika berbeda dari wujud utama.</p>
+                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, Seri/Set, Path/File Gambar lokal, Painted Skin (otomatis mengikuti tag seri skin utamanya jika dikosongkan), serta elemen/stats/voice khusus skin.</p>
         
                     <div id="spritesContainer" class="space-y-2"></div>
                 </div>
@@ -585,7 +477,7 @@
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
                     <div class="flex items-center justify-between mb-2">
                         <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
-                            <span>🎙️</span> VOICE OVER AUDIO LINES
+                            <span>🎙️</span> VOICE OVER AUDIO LINES (LOCAL AUDIO FILES)
                         </label>
                         <button type="button" onclick="addVoiceLineInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
                             + Add Voice Line
@@ -594,7 +486,7 @@
                     <div id="voiceLinesContainer" class="space-y-3"></div>
                 </div>
 
-                <!-- Skills Fields -->
+                <!-- Active Skills Fields -->
                 <div class="border-t border-gray-800 pt-3">
                     <label class="block text-[#cca566] font-genshin mb-2">ACTIVE SKILLS</label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -665,7 +557,9 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
-        // HELPER BADGE WARNA & FONT ELEMEN GENSHIN
+        const SERVANTS_STORAGE_KEY = 'fgo_genshin_servants_db_v4';
+        const DEFAULT_SERVANTS_JSON_PATH = './data/servants_default.json';
+
         function getElementBadgeClass(element) {
             if (!element) return 'bg-gray-800 text-gray-300 border-gray-600 font-genshin';
             const el = element.trim().toLowerCase();
@@ -677,82 +571,73 @@
                 case 'dendro': return 'bg-green-950/80 text-green-400 border-green-500/50 font-genshin tracking-wide';
                 case 'cryo': return 'bg-cyan-950/80 text-cyan-300 border-cyan-500/50 font-genshin tracking-wide';
                 case 'geo': return 'bg-amber-950/80 text-amber-400 border-amber-500/50 font-genshin tracking-wide';
+                case 'unknown': return 'bg-gradient-to-r from-red-950/80 via-purple-950/80 to-blue-950/80 text-amber-200 border-amber-400/60 font-genshin tracking-wide';
                 default: return 'bg-gray-800/80 text-gray-300 border-gray-600/50 font-genshin';
             }
         }
 
-        function getElementIcon(element) {
-            if (!element) return '';
-            const el = element.trim().toLowerCase();
-            switch (el) {
-                case 'pyro': return '';
-                case 'hydro': return '';
-                case 'anemo': return '';
-                case 'electro': return '';
-                case 'dendro': return '';
-                case 'cryo': return '';
-                case 'geo': return '';
-                default: return '';
-            }
-        }
+        function getElementIcon(element) { return ''; }
 
-        // FUNGSI KUSTOM UNTUK MENDAPATKAN WARNA SKENARIO KATEGORI SERI SKIN
         function getSeriesColorClass(series) {
             if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
             const s = series.trim().toLowerCase();
-
-            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) {
-                return 'skin-badge-epic';
-            }
-            if (s.includes('legend')) {
-                return 'skin-badge-legend';
-            }
-            if (s.includes('grand')) {
-                return 'skin-badge-grand';
-            } 
-            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) {
-                return 'skin-badge-collab';
-            }
-            if (s.includes('elite')) {
-                return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
-            }
-            if (s.includes('original ascension') || s.includes('mystic code')) {
-                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
-            }
-            if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
-                s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
-                s.includes('halloween') || s.includes('valentine') || s.includes('academy') || s.includes('maid')) {
-                return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
-            }
-
+            if (s.includes('painted')) return 'skin-badge-painted';
+            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) return 'skin-badge-epic';
+            if (s.includes('legend')) return 'skin-badge-legend';
+            if (s.includes('grand')) return 'skin-badge-grand';
+            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) return 'skin-badge-collab';
+            if (s.includes('elite')) return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
+            if (s.includes('original ascension') || s.includes('mystic code')) return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
             return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
         }
 
-        // 1. Pemetaan Kode # ke Logo Game
         const COLLAB_LOGOS = {
-            '#1': { name: 'Genshin Impact', icon: 'assets/icons/genshin.svg' },
-            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/wuwa.svg' },
-            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/hsr.svg' },
-            '#4': { name: 'Mobile Legends', icon: 'assets/icons/mlbb.svg' },
-            '#5': { name: 'Fate/Grand Order', icon: 'assets/icons/fgo.svg' }
+            '#1': { name: 'Genshin Impact', icon: 'assets/icons/collab/genshin.svg' },
+            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/collab/wuwa.svg' },
+            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/collab/hsr.svg' },
+            '#4': { name: 'Mobile Legends', icon: 'assets/icons/collab/mlbb.svg' },
+            '#5': { name: 'Naruto', icon: 'assets/icons/collab/naruto.svg' },
+            '#6': { name: 'Bleach', icon: 'assets/icons/collab/bleach.svg' },
+            '#7': { name: 'Zenless Zone Zero', icon: 'assets/icons/collab/zzz.svg' },
+            '#8': { name: 'Honkai Impact 3rd', icon: 'assets/icons/collab/hi3.svg' },
+            '#9': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr1.png' },
+            '#9a': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr.png' },
+            '#10': { name: 'Re:Zero Kara Hajimeru Seikatsu', icon: 'assets/icons/collab/rezero.svg' },
+            '#11': { name: 'Overlord', icon: 'assets/icons/collab/overlord.svg' },
+            '#11a': { name: 'Overlord', icon: 'assets/icons/collab/overlord1.svg' },
+            '#12': { name: 'Sword Art Online', icon: 'assets/icons/collab/sao.svg' },
+            '#13': { name: 'King of Fighters', icon: 'assets/icons/collab/kof.svg' },
+            '#14': { name: 'Kimetsu no Yaiba', icon: 'assets/icons/collab/kny.svg' },
+            '#15': { name: 'Jujutsu Kaisen', icon: 'assets/icons/collab/jjk.svg' },
+            '#16': { name: 'Attack on Titan', icon: 'assets/icons/collab/aot.svg' },
         };
 
-        // 2. Fungsi Helper Renderer Badge
+        function convertFileToBase64(fileInput, targetInputId) {
+            const file = fileInput.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(targetInputId).value = e.target.result;
+                showToast(`File "${file.name}" berhasil di-load secara lokal!`);
+            };
+            reader.readAsDataURL(file);
+        }
+
         function renderSeriesBadge(seriesText, extraClasses = '') {
             if (!seriesText) return '';
-
             const colorClass = getSeriesColorClass(seriesText);
             let displayText = seriesText;
             let iconHtml = '';
 
-            Object.keys(COLLAB_LOGOS).forEach(code => {
-                if (seriesText.includes(code)) {
-                    const logo = COLLAB_LOGOS[code];
-                    displayText = displayText.replace(code, '').trim();
-                    const marginClass = displayText ? 'mr-1' : '';
-                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
-                }
-            });
+            const sortedCodes = Object.keys(COLLAB_LOGOS).sort((a, b) => b.length - a.length);
+            const matchedCode = sortedCodes.find(code => seriesText.includes(code));
+
+            if (matchedCode) {
+                const logo = COLLAB_LOGOS[matchedCode];
+                displayText = displayText.replace(matchedCode, '').trim();
+                const marginClass = displayText ? 'mr-1' : '';
+                iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+            }
 
             return `
                 <span class="${colorClass} ${extraClasses} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate inline-flex items-center justify-center">
@@ -762,6 +647,7 @@
             `;
         }
 
+        // DATA AWAL MURNI PATH LOKAL
         const initialServants = [
             {
                 "id": 1,
@@ -775,6 +661,7 @@
                 "illustrator": "Takashi Takeuchi",
                 "cv": "Ayako Kawasumi",
                 "activeSpriteIndex": 0,
+                "activePaintedIndex": -1,
                 "skills": [
                     { "name": "Charisma A", "effect": "Increases ATK for all allies (3 turns)." },
                     { "name": "Mana Burst A", "effect": "Increases Buster Performance for yourself (1 turn)." },
@@ -795,21 +682,28 @@
                     "The legendary King of Knights who pulled the stone from the sword and united ancient Britain.",
                     "Holder of the Holy Sword Excalibur, she wields the light of hope to protect mankind."
                 ],
-                "image": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png",
+                "image": "assets/images/servants/artoria.png",
                 "sprites": [
-                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png", "element": "Anemo" },
-                    { "name": "School Uniform", "series": "Uniform Series", "url": "https://upload.wikimedia.org/wikipedia/en/f/fa/SaberFateGrandOrder.png", "element": "Anemo" }
+                    {
+                        "name": "Stage 1",
+                        "series": "Original Ascension",
+                        "url": "assets/images/servants/artoria.png",
+                        "element": "Anemo",
+                        "paintedSkins": []
+                    },
+                    {
+                        "name": "School Uniform",
+                        "series": "Uniform Series",
+                        "url": "assets/images/servants/artoria_uniform.png",
+                        "element": "Anemo",
+                        "paintedSkins": []
+                    }
                 ],
                 "voiceLines": [
                     {
                         "title": "Summoning",
                         "text": "Servant Saber. I have answered your summons. I ask of you, are you my Master?",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Tchaikovsky_-_1812_Overture_%28Finale_excerpt%29.ogg"
-                    },
-                    {
-                        "title": "Noble Phantasm",
-                        "text": "Sword of Promised Victory! Ex... CALIBUR!",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Sound_Effect_-_Magic_Spell.ogg"
+                        "audioUrl": "assets/audio/servants/artoria_summon.mp3"
                     }
                 ]
             },
@@ -825,6 +719,7 @@
                 "illustrator": "Takashi Takeuchi",
                 "cv": "Tomokazu Seki",
                 "activeSpriteIndex": 0,
+                "activePaintedIndex": -1,
                 "skills": [
                     { "name": "Charisma A+", "effect": "Greatly increases ATK for all allies (3 turns)." },
                     { "name": "Golden Rule A", "effect": "Increases own NP Generation Rate (3 turns)." },
@@ -845,61 +740,80 @@
                     "The oldest King in human history, who ruled Uruk in ancient Mesopotamia.",
                     "Possesses the originals of all Noble Phantasms stored inside the Gate of Babylon."
                 ],
-                "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500",
+                "image": "assets/images/servants/gilgamesh.png",
                 "sprites": [
-                    { "name": "Stage 1", "series": "Original Ascension", "url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500", "element": "Geo" }
+                    {
+                        "name": "Stage 1",
+                        "series": "Original Ascension",
+                        "url": "assets/images/servants/gilgamesh.png",
+                        "element": "Geo",
+                        "paintedSkins": []
+                    }
                 ],
                 "voiceLines": [
                     {
                         "title": "Summoning",
                         "text": "Fuhahaha! You have summoned the King of Heroes! Rejoice, mongrel!",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Ludwig_van_Beethoven_-_Symphony_No._5%2C_Op._67_-_I._Allegro_con_brio.ogg"
-                    },
-                    {
-                        "title": "Enuma Elish",
-                        "text": "I shall show you the origin of creation. Open, Gate of Babylon!",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Thunder_sound_fx.ogg"
+                        "audioUrl": "assets/audio/servants/gilgamesh_summon.mp3"
                     }
                 ]
             }
         ];
 
         const classIcons = {
-            "Saber": "assets/icons/saber.svg",
-            "Archer": "assets/icons/archer.svg",
-            "Lancer": "assets/icons/lancer.svg",
-            "Rider": "assets/icons/rider.svg",
-            "Caster": "assets/icons/caster.svg",
-            "Assassin": "assets/icons/assassin.svg",
-            "Berserker": "assets/icons/berserker.svg",
-            "Ruler": "assets/icons/ruler.svg",
-            "Avenger": "assets/icons/avenger.svg",
-            "MoonCancer": "assets/icons/mooncancer.svg",
-            "Shielder": "assets/icons/shielder.svg",
-            "Foreigner": "assets/icons/foreigner.svg",
-            "AlterEgo": "assets/icons/alterego.svg",
-            "Pretender": "assets/icons/pretender.svg",
-            "Beast": "assets/icons/beast.svg",
-            "UnBeast": "assets/icons/unbeast.svg",
-            "Unknown": "assets/icons/unknown.svg"
+            "Saber": "assets/icons/saber.svg", "Archer": "assets/icons/archer.svg", "Lancer": "assets/icons/lancer.svg",
+            "Rider": "assets/icons/rider.svg", "Caster": "assets/icons/caster.svg", "Assassin": "assets/icons/assassin.svg",
+            "Berserker": "assets/icons/berserker.svg", "Ruler": "assets/icons/ruler.svg", "Avenger": "assets/icons/avenger.svg",
+            "MoonCancer": "assets/icons/mooncancer.svg", "Shielder": "assets/icons/shielder.svg", "Foreigner": "assets/icons/foreigner.svg",
+            "AlterEgo": "assets/icons/alterego.svg", "Pretender": "assets/icons/pretender.svg", "Beast": "assets/icons/beast.svg",
+            "UnBeast": "assets/icons/unbeast.svg", "Unknown": "assets/icons/unknown.svg"
         };
 
+        function hasStoredServantData() {
+            return localStorage.getItem(SERVANTS_STORAGE_KEY) !== null;
+        }
+
         function loadServantData() {
-            const stored = localStorage.getItem('fgo_genshin_servants_db_v4');
+            const stored = localStorage.getItem(SERVANTS_STORAGE_KEY);
             if (stored) {
-                try { return JSON.parse(stored); } catch(e) {}
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed)) return parsed;
+                } catch (e) {}
             }
-            return initialServants;
+            return [...initialServants];
         }
 
         function saveServantData() {
-            localStorage.setItem('fgo_genshin_servants_db_v4', JSON.stringify(servantData));
+            localStorage.setItem(SERVANTS_STORAGE_KEY, JSON.stringify(servantData));
+        }
+
+        async function loadDefaultServantsFromRepoIfEmpty() {
+            if (hasStoredServantData()) return;
+
+            try {
+                const res = await fetch(DEFAULT_SERVANTS_JSON_PATH, { cache: 'no-store' });
+                if (!res.ok) return;
+
+                const jsonData = await res.json();
+                const list = Array.isArray(jsonData)
+                    ? jsonData
+                    : (Array.isArray(jsonData?.servants) ? jsonData.servants : null);
+
+                if (list && list.length > 0) {
+                    servantData = list;
+                    saveServantData();
+                }
+            } catch (err) {
+                // Aman diabaikan jika dibuka via file:// atau file JSON bawaan belum dibuat
+            }
         }
 
         let servantData = loadServantData();
         let selectedServant = null;
         let selectedVoiceIndex = 0;
         let selectedSpriteIndex = 0;
+        let selectedPaintedIndex = -1;
 
         let activeAudio = new Audio();
         let isAudioPlaying = false;
@@ -914,6 +828,28 @@
         const loreModal = document.getElementById('loreModal');
         const formModal = document.getElementById('formModal');
         const servantCount = document.getElementById('servantCount');
+
+        function getServantSprites(servant) {
+            if (servant.sprites && servant.sprites.length > 0) {
+                return servant.sprites;
+            }
+            return [{ name: "Default Stage", series: "Original Ascension", url: servant.image || "assets/images/favicon.png", element: servant.element, paintedSkins: [] }];
+        }
+
+        function getActiveSkinMedia(servant, spriteIdx = selectedSpriteIndex, paintedIdx = selectedPaintedIndex) {
+            const sprites = getServantSprites(servant);
+            const activeSprite = sprites[spriteIdx] || {};
+            const paintedList = activeSprite.paintedSkins || [];
+            const activePainted = (paintedIdx >= 0 && paintedList[paintedIdx]) ? paintedList[paintedIdx] : null;
+
+            return {
+                sprite: activeSprite,
+                painted: activePainted,
+                url: activePainted?.url || activeSprite.url || servant.image || 'assets/images/favicon.png',
+                displayName: activePainted ? `${activeSprite.name} (${activePainted.name})` : (activeSprite.name || `Stage ${spriteIdx + 1}`),
+                series: (activePainted && activePainted.series) ? activePainted.series : (activeSprite.series || '')
+            };
+        }
 
         function renderGrid(data) {
             gridContainer.innerHTML = '';
@@ -937,10 +873,11 @@
                 const hasVoice = servant.voiceLines && servant.voiceLines.length > 0;
                 
                 const activeIndex = servant.activeSpriteIndex || 0;
-                const activeSprite = (servant.sprites && servant.sprites[activeIndex]) ? servant.sprites[activeIndex] : null;
-                const cardThumb = activeSprite?.url || servant.image;
+                const activePaintedIdx = servant.activePaintedIndex !== undefined ? servant.activePaintedIndex : -1;
+                const activeMedia = getActiveSkinMedia(servant, activeIndex, activePaintedIdx);
+                const activeSprite = activeMedia.sprite;
+                const cardThumb = activeMedia.url;
                 
-                // Gunakan elemen khusus skin jika ada, jika tidak pakai elemen dasar servant
                 const displayElement = activeSprite?.element || servant.element;
                 const elBadgeClass = getElementBadgeClass(displayElement);
                 const elIcon = getElementIcon(displayElement);
@@ -970,7 +907,14 @@
                             </span>
                         ` : ''}
 
-                        ${activeSprite?.series ? renderSeriesBadge(activeSprite.series, 'absolute bottom-1 left-2 max-w-[110px]') : ''}
+                        <div class="absolute bottom-1 left-2 right-2 flex items-center gap-1 pointer-events-none">
+                            ${activeMedia.series ? renderSeriesBadge(activeMedia.series, 'max-w-[95px]') : ''}
+                            ${activeMedia.painted ? `
+                                <span class="skin-badge-painted max-w-[75px] text-[7px] px-1 py-0.5 rounded truncate">
+                                    🎨 ${activeMedia.painted.name}
+                                </span>
+                            ` : ''}
+                        </div>
                     </div>
                     <div class="p-3 bg-[#161c28]/90">
                         <div class="text-[10px] text-[#cca566] font-semibold uppercase tracking-wider">${servant.class}</div>
@@ -992,13 +936,17 @@
                                       (s.element && s.element.toLowerCase().includes(query)) ||
                                       (s.traits && s.traits.some(t => t.toLowerCase().includes(query))) ||
                                       s.class.toLowerCase().includes(query) ||
-                                      (s.sprites && s.sprites.some(sp => (sp.series || '').toLowerCase().includes(query) || (sp.name || '').toLowerCase().includes(query) || (sp.element || '').toLowerCase().includes(query)));
+                                      (s.sprites && s.sprites.some(sp => 
+                                          (sp.series || '').toLowerCase().includes(query) || 
+                                          (sp.name || '').toLowerCase().includes(query) || 
+                                          (sp.element || '').toLowerCase().includes(query) ||
+                                          (sp.paintedSkins && sp.paintedSkins.some(ps => 
+                                              (ps.name || '').toLowerCase().includes(query) ||
+                                              (ps.series || '').toLowerCase().includes(query)
+                                          ))
+                                      ));
                 
-                let matchesClass = true;
-                if (cls !== 'ALL') {
-                    matchesClass = s.class === cls;
-                }
-
+                let matchesClass = cls === 'ALL' || s.class === cls;
                 let matchesElement = true;
                 if (elem !== 'ALL') {
                     const activeSprite = s.sprites ? s.sprites[s.activeSpriteIndex || 0] : null;
@@ -1012,13 +960,6 @@
             renderGrid(filtered);
         }
 
-        function getServantSprites(servant) {
-            if (servant.sprites && servant.sprites.length > 0) {
-                return servant.sprites;
-            }
-            return [{ name: "Default Stage", series: "Original Ascension", url: servant.image || "", element: servant.element }];
-        }
-
         function changeServantSprite(index) {
             if (!selectedServant) return;
             const sprites = getServantSprites(selectedServant);
@@ -1028,16 +969,18 @@
             const savedScrollLeft = spriteContainer ? spriteContainer.scrollLeft : 0;
 
             selectedSpriteIndex = index;
+            selectedPaintedIndex = -1;
             selectedServant.activeSpriteIndex = index;
+            selectedServant.activePaintedIndex = -1;
             selectedVoiceIndex = 0;
 
             stopAudio();
             saveServantData();
 
-            const spriteUrl = sprites[index].url;
+            const spriteUrl = sprites[index].url || 'assets/images/favicon.png';
             const bgChar = document.getElementById('bgCharTransparent');
             if (bgChar) {
-                bgChar.style.backgroundImage = spriteUrl ? `url('${spriteUrl}')` : 'none';
+                bgChar.style.backgroundImage = `url('${spriteUrl}')`;
             }
 
             const seriesText = sprites[index].series ? ` [Series: ${sprites[index].series}]` : '';
@@ -1052,11 +995,34 @@
             }
         }
 
+        function changePaintedSkin(paintedIdx) {
+            if (!selectedServant) return;
+            const sprites = getServantSprites(selectedServant);
+            const activeSprite = sprites[selectedSpriteIndex] || {};
+            const paintedList = activeSprite.paintedSkins || [];
+
+            selectedPaintedIndex = paintedIdx;
+            selectedServant.activePaintedIndex = paintedIdx;
+            saveServantData();
+
+            const media = getActiveSkinMedia(selectedServant, selectedSpriteIndex, paintedIdx);
+            const bgChar = document.getElementById('bgCharTransparent');
+            if (bgChar) {
+                bgChar.style.backgroundImage = `url('${media.url}')`;
+            }
+
+            const label = paintedIdx === -1 ? 'Original Color' : (paintedList[paintedIdx]?.name || `Painted #${paintedIdx + 1}`);
+            showToast(`🎨 Painted Variant "${label}" Equipped!`);
+
+            renderDetailContent();
+            applyFilters();
+        }
+
         function showDetails(servant) {
             selectedServant = servant;
             selectedVoiceIndex = 0;
-            
-            selectedSpriteIndex = servant.activeSpriteIndex || 0; 
+            selectedSpriteIndex = servant.activeSpriteIndex || 0;
+            selectedPaintedIndex = servant.activePaintedIndex !== undefined ? servant.activePaintedIndex : -1;
             stopAudio();
 
             emptyState.classList.add('hidden');
@@ -1065,9 +1031,8 @@
             const jpText = servant.jpName || servant.name;
             document.getElementById('bgJapanShadow').innerHTML = jpText.replace('・', '<br>').replace(' ', '<br>');            
             
-            const sprites = getServantSprites(servant);
-            const activeSpriteUrl = sprites[selectedSpriteIndex]?.url || servant.image;
-            document.getElementById('bgCharTransparent').style.backgroundImage = activeSpriteUrl ? `url('${activeSpriteUrl}')` : 'none';
+            const media = getActiveSkinMedia(servant, selectedSpriteIndex, selectedPaintedIndex);
+            document.getElementById('bgCharTransparent').style.backgroundImage = `url('${media.url}')`;
 
             renderDetailContent();
             applyFilters();
@@ -1079,9 +1044,10 @@
             const contentArea = document.getElementById('detailContent');
 
             const sprites = getServantSprites(servant);
-            const activeSprite = sprites[selectedSpriteIndex] || {};
+            const activeMedia = getActiveSkinMedia(servant, selectedSpriteIndex, selectedPaintedIndex);
+            const activeSprite = activeMedia.sprite;
+            const paintedList = activeSprite.paintedSkins || [];
 
-            // Dynamic Attributes per Skin
             const currentElement = activeSprite.element || servant.element || 'None';
             const elBadgeClass = getElementBadgeClass(currentElement);
             const elIcon = getElementIcon(currentElement);
@@ -1127,18 +1093,38 @@
 
                 <!-- SPRITE / SKIN SWITCHER TABS -->
                 <div class="border-t border-b border-gray-800 py-2 my-2">
-                    <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
                         <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP SKIN</span>
-                        ${activeSprite.series ? renderSeriesBadge(activeSprite.series, 'text-[10px] px-2 py-0.5 border') : ''}
+                        <div class="flex items-center gap-1">
+                            ${activeMedia.series ? renderSeriesBadge(activeMedia.series, 'text-[10px] px-2 py-0.5 border') : ''}
+                            ${activeMedia.painted ? `<span class="skin-badge-painted text-[9px] px-1.5 py-0.5 rounded">🎨 ${activeMedia.painted.name}</span>` : ''}
+                        </div>
                     </div>
                     <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
                         ${sprites.map((s, idx) => `
-                            <button onclick="changeServantSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                            <button onclick="changeServantSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 whitespace-nowrap ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
                                 <span>${s.name || `Stage ${idx + 1}`}</span>
+                                ${(s.paintedSkins && s.paintedSkins.length > 0) ? '<span class="text-[9px] opacity-80">🎨</span>' : ''}
                                 ${idx === selectedSpriteIndex ? '<span class="text-[9px] bg-black/20 px-1 rounded">[USED]</span>' : ''}
                             </button>
                         `).join('')}
                     </div>
+
+                    ${paintedList.length > 0 ? `
+                        <div class="mt-2 pt-2 border-t border-gray-800/70">
+                            <span class="text-[9px] text-pink-300 font-bold tracking-wider uppercase block mb-1">🎨 PAINTED SKIN VARIANTS</span>
+                            <div class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                                <button onclick="changePaintedSkin(-1)" class="text-[9px] px-2 py-0.5 rounded transition-all cursor-pointer border whitespace-nowrap ${selectedPaintedIndex === -1 ? 'bg-amber-400 text-[#0e121e] font-bold border-amber-300 shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                                    Original Color
+                                </button>
+                                ${paintedList.map((ps, pIdx) => `
+                                    <button onclick="changePaintedSkin(${pIdx})" class="text-[9px] px-2 py-0.5 rounded transition-all cursor-pointer border flex items-center gap-1 whitespace-nowrap ${selectedPaintedIndex === pIdx ? 'bg-gradient-to-r from-pink-500 to-amber-400 text-[#0e121e] font-bold border-white shadow' : 'bg-black/40 text-pink-200 border-pink-500/40 hover:bg-gray-800'}">
+                                        <span>🎨 ${ps.name || `Variant ${pIdx + 1}`}</span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
 
                 <!-- Attributes Grid -->
@@ -1207,7 +1193,7 @@
                         </div>
                     ` : `
                         <div class="text-center py-4 text-xs text-gray-500">
-                            No voice lines added yet. Click <b>Edit</b> to add voice URLs & transcripts!
+                            No voice lines added yet. Click <b>Edit</b> to add voice audio files & transcripts!
                         </div>
                     `}
                 </div>
@@ -1285,7 +1271,7 @@
             const timeText = document.getElementById('audioCurrentTime');
             const durationText = document.getElementById('audioDuration');
 
-            if (url && url.trim().length > 5) {
+            if (url && url.trim().length > 3) {
                 activeAudio = new Audio(url);
                 activeAudio.play().then(() => {
                     isAudioPlaying = true;
@@ -1468,7 +1454,7 @@
                 if (target.sprites && target.sprites.length > 0) {
                     target.sprites.forEach(s => addSpriteInputRow(s));
                 } else {
-                    addSpriteInputRow({ name: "Stage 1", url: target.image || "", series: "Original Ascension", element: target.element || "" });
+                    addSpriteInputRow({ name: "Stage 1", url: target.image || "", series: "Original Ascension", element: target.element || "", paintedSkins: [] });
                 }
 
                 if (target.voiceLines && target.voiceLines.length > 0) {
@@ -1501,7 +1487,7 @@
                 document.getElementById('editServantId').value = '';
                 document.getElementById('formElement').value = 'Anemo';
                 document.getElementById('formImage').value = '';
-                addSpriteInputRow({ name: "Stage 1", url: "", series: "Original Ascension", element: "" });
+                addSpriteInputRow({ name: "Stage 1", url: "", series: "Original Ascension", element: "", paintedSkins: [] });
                 addVoiceLineInputRow("Summoning", "", "Servant Saber, answering your summons.");
             }
 
@@ -1519,17 +1505,23 @@
             const row = document.createElement('div');
             row.className = "sprite-line-row flex flex-col gap-2 bg-[#1b2233] p-3 rounded border border-gray-700 my-2";
 
-            const { name = '', url = '', series = '', element = '', gender = '', race = '', cv = '', illustrator = '', maxAtk = '', maxHp = '', voiceLines = [] } = spriteData;
+            const { name = '', url = '', series = '', element = '', gender = '', race = '', cv = '', illustrator = '', maxAtk = '', maxHp = '', voiceLines = [], paintedSkins = [] } = spriteData;
+            const rowId = 'sprite_url_' + Date.now() + '_' + Math.floor(Math.random()*1000);
 
             row.innerHTML = `
                 <div class="flex flex-col sm:flex-row gap-2 items-center">
-                    <input type="text" placeholder="Skin Name (e.g. Raiden Shogun)" value="${name}" class="sprite-name w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="Series (e.g. #1 Genshin Collab)" value="${series}" class="sprite-series w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Skin Name (e.g. Raiden Shogun)" value="${name}" class="sprite-name w-full sm:w-1/4 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Series (e.g. #1 Genshin Collab)" value="${series}" class="sprite-series w-full sm:w-1/4 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <div class="w-full sm:w-1/2 flex gap-1 items-center">
+                        <input type="text" id="${rowId}" placeholder="assets/images/servants/skin.png" value="${url}" class="sprite-url w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                        <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-1.5 rounded cursor-pointer shrink-0 text-[10px] font-bold border border-gray-700">
+                            📁 File
+                            <input type="file" accept="image/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                        </label>
+                    </div>
                     <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
                 </div>
                 
-                <!-- Input Atribut Khusus Skin (Termasuk Element Skin) -->
                 <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 border-t border-gray-800/80 pt-2">
                     <select class="sprite-element bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
                         <option value="" ${!element ? 'selected' : ''}>-- Element Skin --</option>
@@ -1540,6 +1532,7 @@
                         <option value="Hydro" ${element === 'Hydro' ? 'selected' : ''}>Hydro</option>
                         <option value="Pyro" ${element === 'Pyro' ? 'selected' : ''}>Pyro</option>
                         <option value="Cryo" ${element === 'Cryo' ? 'selected' : ''}>Cryo</option>
+                        <option value="Unknown" ${element === 'Unknown' ? 'selected' : ''}>Unknown</option>
                         <option value="None" ${element === 'None' ? 'selected' : ''}>None</option>
                     </select>
                     <input type="text" placeholder="Gender" value="${gender}" class="sprite-gender bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
@@ -1550,6 +1543,16 @@
                     <input type="number" placeholder="Max HP" value="${maxHp}" class="sprite-hp bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
                 </div>
 
+                <!-- PAINTED SKINS SUB-SECTION -->
+                <div class="border-t border-gray-800/80 pt-2 bg-black/30 p-2 rounded">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[10px] text-pink-300 font-bold">🎨 PAINTED SKINS (CHROMA / VARIAN WARNA)</span>
+                        <button type="button" onclick="addPaintedSkinRow(this)" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-pink-300 px-2 py-0.5 rounded border border-gray-700 cursor-pointer">+ Add Painted Skin</button>
+                    </div>
+                    <div class="painted-skins-container space-y-1.5"></div>
+                </div>
+
+                <!-- SKIN VOICE LINES SUB-SECTION -->
                 <div class="border-t border-gray-800/80 pt-2 bg-black/30 p-2 rounded">
                     <div class="flex items-center justify-between mb-1.5">
                         <span class="text-[10px] text-[#cca566] font-bold">🎙️ VOICE LINES KHUSUS SKIN INI</span>
@@ -1561,10 +1564,39 @@
 
             container.appendChild(row);
 
+            const paintedContainer = row.querySelector('.painted-skins-container');
+            if (paintedSkins && paintedSkins.length > 0) {
+                paintedSkins.forEach(ps => addPaintedSkinRow(paintedContainer, ps.name, ps.url, ps.series));
+            }
+
             const voicelinesContainer = row.querySelector('.skin-voicelines-container');
             if (voiceLines && voiceLines.length > 0) {
                 voiceLines.forEach(vl => addSkinVoiceLineRow(voicelinesContainer, vl.title, vl.audioUrl, vl.text));
             }
+        }
+
+        function addPaintedSkinRow(targetElement, name = '', url = '', series = '') {
+            let container = targetElement;
+            if (targetElement.tagName === 'BUTTON') {
+                container = targetElement.closest('.sprite-line-row').querySelector('.painted-skins-container');
+            }
+
+            const rowId = 'painted_url_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+            const pRow = document.createElement('div');
+            pRow.className = "painted-skin-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800";
+            pRow.innerHTML = `
+                <input type="text" placeholder="Nama Painted (e.g. Crimson Saber)" value="${name}" class="painted-name w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <input type="text" placeholder="Tag/Series (kosong = ikut skin ori)" value="${series}" class="painted-series w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <div class="w-full sm:w-5/12 flex gap-1 items-center">
+                    <input type="text" id="${rowId}" placeholder="assets/images/servants/painted.png" value="${url}" class="painted-url w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                    <label class="bg-gray-800 hover:bg-gray-700 text-pink-300 px-1.5 py-1 rounded cursor-pointer shrink-0 text-[9px] font-bold border border-gray-700">
+                        📁 File
+                        <input type="file" accept="image/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                    </label>
+                </div>
+                <button type="button" onclick="this.closest('.painted-skin-row').remove()" class="text-red-400 font-bold px-1.5 cursor-pointer">✕</button>
+            `;
+            container.appendChild(pRow);
         }
 
         function addSkinVoiceLineRow(targetElement, title = '', audioUrl = '', text = '') {
@@ -1573,11 +1605,18 @@
                 container = targetElement.closest('.sprite-line-row').querySelector('.skin-voicelines-container');
             }
 
+            const rowId = 'skin_audio_url_' + Date.now() + '_' + Math.floor(Math.random()*1000);
             const vlRow = document.createElement('div');
             vlRow.className = "skin-vl-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800";
             vlRow.innerHTML = `
                 <input type="text" placeholder="Judul Line (e.g. Collab Line)" value="${title}" class="skin-vl-title w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
-                <input type="url" placeholder="Audio URL" value="${audioUrl}" class="skin-vl-url w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <div class="w-full sm:w-1/3 flex gap-1 items-center">
+                    <input type="text" id="${rowId}" placeholder="assets/audio/servants/voice.mp3" value="${audioUrl}" class="skin-vl-url w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                    <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-1.5 py-1 rounded cursor-pointer shrink-0 text-[9px] font-bold border border-gray-700">
+                        📁 Audio
+                        <input type="file" accept="audio/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                    </label>
+                </div>
                 <input type="text" placeholder="Transkrip / Dialog" value="${text}" class="skin-vl-text w-full sm:w-5/12 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
                 <button type="button" onclick="this.closest('.skin-vl-row').remove()" class="text-red-400 font-bold px-1.5 cursor-pointer">✕</button>
             `;
@@ -1589,11 +1628,18 @@
             const container = document.getElementById('voiceLinesContainer');
             const row = document.createElement('div');
             row.className = "voice-line-row bg-[#1b2233] p-2.5 rounded border border-gray-700 space-y-2 relative group";
+            const rowId = 'audio_url_' + Date.now() + '_' + Math.floor(Math.random()*1000);
 
             row.innerHTML = `
                 <div class="flex gap-2">
                     <input type="text" placeholder="Line Title (e.g. Summoning / NP)" value="${title}" class="vl-title w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
-                    <input type="url" placeholder="Audio URL (MP3/WAV)" value="${audioUrl}" class="vl-url w-2/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                    <div class="w-2/3 flex gap-1 items-center">
+                        <input type="text" id="${rowId}" placeholder="assets/audio/servants/voice.mp3" value="${audioUrl}" class="vl-url w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                        <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-1.5 rounded cursor-pointer shrink-0 text-[10px] font-bold border border-gray-700">
+                            📁 Audio File
+                            <input type="file" accept="audio/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                        </label>
+                    </div>
                     <button type="button" onclick="this.closest('.voice-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
                 </div>
                 <input type="text" placeholder="Dialogue Transcript / Text..." value="${text}" class="vl-text w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
@@ -1635,6 +1681,21 @@
                 const maxAtk = row.querySelector('.sprite-atk').value.trim();
                 const maxHp = row.querySelector('.sprite-hp').value.trim();
 
+                const paintedRows = row.querySelectorAll('.painted-skin-row');
+                const paintedSkins = [];
+                paintedRows.forEach(pRow => {
+                    const pName = pRow.querySelector('.painted-name').value.trim();
+                    const pSeries = pRow.querySelector('.painted-series').value.trim();
+                    const pUrl = pRow.querySelector('.painted-url').value.trim();
+                    if (pUrl) {
+                        paintedSkins.push({
+                            name: pName || 'Painted Variant',
+                            series: pSeries || '',
+                            url: pUrl
+                        });
+                    }
+                });
+
                 const skinVlRows = row.querySelectorAll('.skin-vl-row');
                 const skinVoiceLines = [];
                 skinVlRows.forEach(vlRow => {
@@ -1658,13 +1719,14 @@
                         illustrator: illustrator,
                         maxAtk: maxAtk ? parseInt(maxAtk) : undefined,
                         maxHp: maxHp ? parseInt(maxHp) : undefined,
+                        paintedSkins: paintedSkins,
                         voiceLines: skinVoiceLines
                     });
                 }
             });
 
             const existingServant = editId ? servantData.find(s => s.id === parseInt(editId)) : null;
-            const defaultImg = document.getElementById('formImage').value.trim() || spritesArray[0]?.url || 'https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500';
+            const defaultImg = document.getElementById('formImage').value.trim() || spritesArray[0]?.url || 'assets/images/favicon.png';
 
             const newServantObj = {
                 id: editId ? parseInt(editId) : Date.now(),
@@ -1685,7 +1747,8 @@
                 attribute: document.getElementById('formAttribute').value,
                 image: defaultImg,
                 activeSpriteIndex: existingServant?.activeSpriteIndex ?? 0,
-                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Stage 1", series: "Original Ascension", url: defaultImg }],
+                activePaintedIndex: existingServant?.activePaintedIndex ?? -1,
+                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Stage 1", series: "Original Ascension", url: defaultImg, paintedSkins: [] }],
                 voiceLines: voiceLines,
                 skills: [
                     { name: document.getElementById('formSkill1Name').value || 'Skill 1', effect: document.getElementById('formSkill1Effect').value || '-' },
@@ -1732,9 +1795,10 @@
         }
 
         function confirmResetData() {
-            showConfirmDialog("RESET DATABASE", "Reset all servant records to initial defaults? All custom changes will be lost.", () => {
-                localStorage.removeItem('fgo_genshin_servants_db_v4');
+            showConfirmDialog("RESET DATABASE", "Reset all servant records to initial defaults? All custom changes will be lost.", async () => {
+                localStorage.removeItem(SERVANTS_STORAGE_KEY);
                 servantData = [...initialServants];
+                await loadDefaultServantsFromRepoIfEmpty();
                 selectedServant = null;
                 stopAudio();
                 applyFilters();
@@ -1778,30 +1842,134 @@
 
         searchBar.addEventListener('input', applyFilters);
 
-        document.addEventListener('keydown', (e) => {
-            const activeTag = document.activeElement ? document.activeElement.tagName : '';
-            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
+        let currentFilteredServants = [];
 
-            const isFormModalOpen = !formModal.classList.contains('hidden');
-            const isLoreModalOpen = !loreModal.classList.contains('hidden');
-            const isConfirmModalOpen = !document.getElementById('confirmModal').classList.contains('hidden');
-            if (isFormModalOpen || isLoreModalOpen || isConfirmModalOpen) return;
+        const _originalRenderGrid = renderGrid;
+        renderGrid = function(data) {
+            currentFilteredServants = data;
+            _originalRenderGrid(data);
+        };
 
-            if (!selectedServant) return;
+        document.addEventListener('keydown', function(e) {
+            const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+            const isTyping = ['input', 'textarea', 'select'].includes(activeTag);
+            const confirmModalEl = document.getElementById('confirmModal');
 
-            const sprites = getServantSprites(selectedServant);
-            if (sprites.length <= 1) return;
+            if (e.key === 'Escape') {
+                if (confirmModalEl && !confirmModalEl.classList.contains('hidden')) {
+                    confirmModalEl.classList.add('opacity-0');
+                    setTimeout(() => confirmModalEl.classList.add('hidden'), 200);
+                    return;
+                }
+                if (!formModal.classList.contains('hidden')) {
+                    closeFormModal();
+                    return;
+                }
+                if (!loreModal.classList.contains('hidden')) {
+                    toggleLoreModal();
+                    return;
+                }
+                if (isTyping) {
+                    document.activeElement.blur();
+                }
+                return;
+            }
 
-            if (e.key === 'ArrowLeft') {
+            if (isTyping) return;
+
+            const isModalOpen = !loreModal.classList.contains('hidden') || 
+                                !formModal.classList.contains('hidden') || 
+                                (confirmModalEl && !confirmModalEl.classList.contains('hidden'));
+            if (isModalOpen) return;
+
+            if (e.key === '/') {
                 e.preventDefault();
-                const nextIndex = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
-                changeServantSprite(nextIndex);
-                scrollActiveSpriteIntoView(nextIndex);
-            } else if (e.key === 'ArrowRight') {
+                searchBar.focus();
+                return;
+            }
+
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (currentFilteredServants.length === 0) return;
                 e.preventDefault();
-                const nextIndex = (selectedSpriteIndex + 1) % sprites.length;
-                changeServantSprite(nextIndex);
-                scrollActiveSpriteIntoView(nextIndex);
+
+                let currentIndex = selectedServant 
+                    ? currentFilteredServants.findIndex(s => s.id === selectedServant.id) 
+                    : -1;
+
+                if (e.key === 'ArrowDown') {
+                    currentIndex = (currentIndex + 1) % currentFilteredServants.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + currentFilteredServants.length) % currentFilteredServants.length;
+                }
+
+                const nextServant = currentFilteredServants[currentIndex];
+                showDetails(nextServant);
+
+                const cards = gridContainer.children;
+                if (cards[currentIndex]) {
+                    cards[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+                return;
+            }
+
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                if (!selectedServant) return;
+                const sprites = getServantSprites(selectedServant);
+
+                if (e.shiftKey) {
+                    const activeSprite = sprites[selectedSpriteIndex] || {};
+                    const paintedList = activeSprite.paintedSkins || [];
+                    if (paintedList.length === 0) return;
+                    e.preventDefault();
+
+                    const totalOptions = paintedList.length + 1;
+                    const normalized = selectedPaintedIndex + 1;
+                    const nextNormalized = e.key === 'ArrowRight'
+                        ? (normalized + 1) % totalOptions
+                        : (normalized - 1 + totalOptions) % totalOptions;
+                    changePaintedSkin(nextNormalized - 1);
+                    return;
+                }
+
+                if (sprites.length <= 1) return;
+                e.preventDefault();
+
+                let nextSpriteIdx = selectedSpriteIndex;
+                if (e.key === 'ArrowRight') {
+                    nextSpriteIdx = (selectedSpriteIndex + 1) % sprites.length;
+                } else {
+                    nextSpriteIdx = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
+                }
+                changeServantSprite(nextSpriteIdx);
+                scrollActiveSpriteIntoView(nextSpriteIdx);
+                return;
+            }
+
+            if (e.code === 'Space') {
+                if (!selectedServant) return;
+                e.preventDefault();
+                togglePlayVoice();
+                return;
+            }
+
+            if (e.key === '[' || e.key === ']') {
+                if (!selectedServant) return;
+                const sprites = getServantSprites(selectedServant);
+                const activeSprite = sprites[selectedSpriteIndex] || {};
+                const voiceLines = (activeSprite.voiceLines && activeSprite.voiceLines.length > 0) 
+                    ? activeSprite.voiceLines 
+                    : (selectedServant.voiceLines || []);
+                
+                if (voiceLines.length <= 1) return;
+                e.preventDefault();
+
+                let nextVoiceIdx = selectedVoiceIndex;
+                if (e.key === ']') {
+                    nextVoiceIdx = (selectedVoiceIndex + 1) % voiceLines.length;
+                } else {
+                    nextVoiceIdx = (selectedVoiceIndex - 1 + voiceLines.length) % voiceLines.length;
+                }
+                switchVoiceLine(nextVoiceIdx);
             }
         });
 
@@ -1818,11 +1986,11 @@
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(servantData, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", "fgo_servants_backup.json");
+            downloadAnchor.setAttribute("download", "servants_default.json");
             document.body.appendChild(downloadAnchor);
             downloadAnchor.click();
             downloadAnchor.remove();
-            showToast("Data berhasil di-export!");
+            showToast("Data berhasil di-export (servants_default.json)! Pindahkan ke folder data/ sebelum push ke GitHub.");
         }
 
         function importData(event) {
@@ -1833,8 +2001,12 @@
             reader.onload = function(e) {
                 try {
                     const importedData = JSON.parse(e.target.result);
-                    if (Array.isArray(importedData)) {
-                        servantData = importedData;
+                    const list = Array.isArray(importedData)
+                        ? importedData
+                        : (Array.isArray(importedData?.servants) ? importedData.servants : null);
+
+                    if (list) {
+                        servantData = list;
                         saveServantData();
                         applyFilters();
                         if (servantData.length > 0) showDetails(servantData[0]);
@@ -1849,21 +2021,13 @@
             reader.readAsText(file);
         }
 
-        window.onload = function() {
+        window.onload = async function() {
+            await loadDefaultServantsFromRepoIfEmpty();
             applyFilters();
             if (servantData.length > 0) {
                 showDetails(servantData[0]);
             }
-        }
-    </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
-                    .catch((err) => console.error('Service Worker Registration Failed:', err));
-            });
-        }
+        };
     </script>
 </body>
 </html>
