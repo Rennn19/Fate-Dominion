@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fate/Dominion - Master Registry</title>
+    <title>Fate/Dominion - Masters</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <!-- Tailwind CSS -->
@@ -26,7 +26,7 @@
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url('assets/images/bg.png'); 
+            background-image: url('assets/images/bg.png');
             background-size: 50%;
             background-position: center;
             background-repeat: no-repeat;
@@ -52,6 +52,16 @@
             box-shadow: 0 10px 30px rgba(204, 165, 102, 0.25), 0 0 15px rgba(204, 165, 102, 0.1);
         }
 
+        .star-rating {
+            color: #cca566;
+            text-shadow: 0 0 5px rgba(204, 165, 102, 0.5);
+        }
+        .rarity-5 { background: linear-gradient(180deg, #525252 50%, #000000 100%); }
+        .rarity-4 { background: linear-gradient(180deg, #525252 50%, #000000 100%); }
+        .rarity-3 { background: linear-gradient(180deg, #525252 50%, #000000 100%); }
+        .rarity-2 { background: linear-gradient(180deg, #525252 50%, #000000 100%); }
+        .rarity-1 { background: linear-gradient(180deg, #525252 50%, #000000 100%); }
+
         input[type=range] { accent-color: #cca566; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
@@ -61,214 +71,139 @@
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* BADGE ANIMATIONS */
         @keyframes epicGlow {
-            0%, 100% {
-                box-shadow: 0 0 4px rgba(168, 85, 247, 0.4);
-                border-color: rgba(168, 85, 247, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
-                border-color: rgba(216, 180, 254, 0.9);
-            }
+            0%, 100% { box-shadow: 0 0 4px rgba(168, 85, 247, 0.4); border-color: rgba(168, 85, 247, 0.5); }
+            50% { box-shadow: 0 0 12px rgba(192, 132, 252, 0.8); border-color: rgba(216, 180, 254, 0.9); }
         }
         .skin-badge-epic {
             background: linear-gradient(135deg, rgba(58, 12, 89, 0.9), rgba(88, 28, 135, 0.9));
-            color: #e9d5ff;
-            border: 1px solid #a855f7;
+            color: #e9d5ff; border: 1px solid #a855f7;
             animation: epicGlow 2s ease-in-out infinite;
-            will-change: box-shadow;
         }
 
         @keyframes legendShiny {
-            0% {
-                background-position: 200% 0;
-                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
-            }
-            100% {
-                background-position: -100% 0;
-                box-shadow: 0 0 5px rgba(245, 158, 11, 0.4);
-            }
+            0% { background-position: 200% 0; box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 12px rgba(251, 191, 36, 0.8); }
+            100% { background-position: -100% 0; box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); }
         }
         .skin-badge-legend {
-            background: linear-gradient(
-                115deg,
-                rgba(69, 26, 3, 0.9) 0%,
-                rgba(146, 64, 14, 0.9) 35%,
-                rgba(254, 240, 138, 0.95) 50%,
-                rgba(146, 64, 14, 0.9) 65%,
-                rgba(69, 26, 3, 0.9) 100%
-            );
-            background-size: 250% 100%;
-            color: #fef08a;
-            border: 1px solid #f59e0b;
-            font-weight: 700;
+            background: linear-gradient(115deg, rgba(69, 26, 3, 0.9) 0%, rgba(146, 64, 14, 0.9) 35%, rgba(254, 240, 138, 0.95) 50%, rgba(146, 64, 14, 0.9) 65%, rgba(69, 26, 3, 0.9) 100%);
+            background-size: 250% 100%; color: #fef08a; border: 1px solid #f59e0b; font-weight: 700;
             animation: legendShiny 2.5s ease-in-out infinite;
-            will-change: background-position;
         }
 
-        @keyframes grandGradient {
+        @keyframes grandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes grandPulseAura {
+            0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5); border-color: #fef08a; }
+            50% { box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9); border-color: #ffffff; }
+        }
+        .skin-badge-grand {
+            display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+            background: linear-gradient(115deg, #581c87 0%, #991b1b 20%, #b45309 40%, #fef08a 50%, #b45309 60%, #991b1b 80%, #581c87 100%);
+            background-size: 280% 280%; color: #ffffff; border: 1px solid #fef08a; font-weight: 900;
+            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite;
+        }
+
+        @keyframes collabPrism {
+            0%, 100% { background-position: 0% 50%; box-shadow: 0 0 8px rgba(34, 211, 238, 0.6); border-color: #38bdf8; }
+            50% { background-position: 100% 50%; box-shadow: 0 0 16px rgba(236, 72, 153, 0.8); border-color: #f472b6; }
+        }
+        .skin-badge-collab {
+            display: inline-flex; align-items: center; justify-content: center; overflow: hidden;
+            background: linear-gradient(115deg, #0c4a6e 0%, #0284c7 25%, #be185d 50%, #6b21a8 75%, #0c4a6e 100%);
+            background-size: 250% 250%; color: #f0fdf4; border: 1px solid #38bdf8; font-weight: 800;
+            animation: collabPrism 3s ease-in-out infinite;
+        }
+
+        /* PAINTED OUTFIT BADGE */
+        @keyframes paintedShimmer {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        @keyframes grandPulseAura {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 18px rgba(245, 158, 11, 0.5), inset 0 0 6px rgba(254, 240, 138, 0.6);
-                border-color: #fef08a;
-            }
-            50% {
-                box-shadow: 0 0 22px rgba(239, 68, 68, 1), 0 0 30px rgba(245, 158, 11, 0.9), 0 0 10px rgba(255, 255, 255, 0.9), inset 0 0 12px rgba(255, 255, 255, 0.9);
-                border-color: #ffffff;
-            }
-        }
-
-        @keyframes grandLightSweep {
-            0% { left: -120%; }
-            35%, 100% { left: 220%; }
-        }
-
-        .skin-badge-grand {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(
-                115deg,
-                #581c87 0%,
-                #991b1b 20%,
-                #b45309 40%,
-                #fef08a 50%,
-                #b45309 60%,
-                #991b1b 80%,
-                #581c87 100%
-            );
-            background-size: 280% 280%;
-            color: #ffffff;
-            border: 1px solid #fef08a;
-            font-weight: 900;
-            letter-spacing: 0.06em;
-            text-shadow: 0 0 6px rgba(254, 240, 138, 0.9), 0 0 12px rgba(239, 68, 68, 0.8);
-            animation: grandGradient 3.5s ease infinite, grandPulseAura 1.8s ease-in-out infinite;
-            will-change: background-position, box-shadow;
-        }
-
-        .skin-badge-grand:not(.absolute) {
-            position: relative;
-        }
-
-        .skin-badge-grand::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.2) 20%,
-                rgba(255, 255, 255, 0.95) 50%,
-                rgba(255, 255, 255, 0.2) 80%,
-                transparent 100%
-            );
-            transform: skewX(-25deg);
-            animation: grandLightSweep 2.8s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes collabPrism {
-            0%, 100% {
-                background-position: 0% 50%;
-                box-shadow: 0 0 8px rgba(34, 211, 238, 0.6), 0 0 16px rgba(236, 72, 153, 0.4);
-                border-color: #38bdf8;
-            }
-            50% {
-                background-position: 100% 50%;
-                box-shadow: 0 0 16px rgba(236, 72, 153, 0.8), 0 0 22px rgba(168, 85, 247, 0.6);
-                border-color: #f472b6;
-            }
-        }
-
-        .skin-badge-collab {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(
-                115deg,
-                #0c4a6e 0%,
-                #0284c7 25%,
-                #be185d 50%,
-                #6b21a8 75%,
-                #0c4a6e 100%
-            );
-            background-size: 250% 250%;
-            color: #f0fdf4;
-            border: 1px solid #38bdf8;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 6px rgba(34, 211, 238, 0.8), 0 0 10px rgba(236, 72, 153, 0.6);
-            animation: collabPrism 3s ease-in-out infinite;
-            will-change: background-position, box-shadow;
-        }
-
-        .skin-badge-collab:not(.absolute) {
-            position: relative;
+        .skin-badge-painted {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: linear-gradient(115deg, #4c1d95 0%, #be185d 35%, #d97706 70%, #4c1d95 100%);
+            background-size: 220% 220%;
+            color: #fdf2f8;
+            border: 1px solid #f472b6;
+            font-weight: 700;
+            animation: paintedShimmer 3s ease infinite;
         }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto relative z-10">
-        <!-- Header Navigasi & Filter -->
+        <!-- Header -->
         <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3">
                     <span class="text-3xl text-[#cca566]">✦</span>
-                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md" onerror="this.onerror=null; this.src='assets/images/favicon.png';">
                     <span class="text-3xl text-[#cca566]">✦</span>
                 </div>
-                <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Mage Archives & Voice Database</p>
+                <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Master & Magus Registry</p>
             </div>
             
+            <!-- Filter Controls -->
             <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 w-full lg:w-auto">
-                <a href="index.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
-                    ← SERVANTS
-                </a>
-                <a href="gallery.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
-                    👗 GALLERY
-                </a>
-                <a href="war.html" class="bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
-                    ⚔️ GRAIL WAR
-                </a>
-                <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
-                    🎲 GACHA
-                </a>
-
-                <div class="flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-[#cca566]/40 shadow-lg">
-                    <button onclick="exportMasterData()" title="Export JSON" class="hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
-                        📤 Export JSON
-                    </button>
-                    <button onclick="document.getElementById('importJsonInput').click()" title="Import JSON" class="hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
-                        📥 Import JSON
-                    </button>
-                    <button onclick="confirmResetData()" title="Reset Data" class="hover:bg-red-600 hover:text-white text-red-400 px-2 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
-                        🔄 Reset JSON
-                    </button>
-                    <input type="file" id="importJsonInput" accept=".json" class="hidden" onchange="importMasterData(event)">
+                <div class="relative w-full sm:w-40">
+                    <select id="elementFilter" onchange="applyFilters()" class="w-full bg-[#161c28] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-2 text-xs outline-none transition-colors">
+                        <option value="ALL">All Elements</option>
+                        <option value="Pyro">Pyro</option>
+                        <option value="Hydro">Hydro</option>
+                        <option value="Anemo">Anemo</option>
+                        <option value="Electro">Electro</option>
+                        <option value="Dendro">Dendro</option>
+                        <option value="Cryo">Cryo</option>
+                        <option value="Geo">Geo</option>
+                        <option value="Average One">Average One</option>
+                        <option value="Unknown">Unknown</option>
+                        <option value="None">None</option>
+                    </select>
                 </div>
-
-                <div class="relative w-full sm:w-48">
-                    <input type="text" id="searchBar" placeholder="Search master, series, or origin..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-4 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
+                <div class="relative w-full sm:w-44">
+                    <select id="affiliationFilter" onchange="applyFilters()" class="w-full bg-[#161c28] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-2 text-xs outline-none transition-colors">
+                        <option value="ALL">All Affiliations</option>
+                        <option value="Chaldea">Chaldea</option>
+                        <option value="Clock Tower">Clock Tower</option>
+                        <option value="Holy Church">Holy Church</option>
+                        <option value="Atlas Institute">Atlas Institute</option>
+                        <option value="Wandering Sea">Wandering Sea</option>
+                        <option value="Crypters">Crypters</option>
+                        <option value="Independent">Independent</option>
+                    </select>
                 </div>
-
-                <button onclick="openMasterModal()" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
+                <div class="relative w-full sm:w-52">
+                    <input type="text" id="searchBar" placeholder="Search master, origin, mystic code..." class="w-full bg-[#161c28] text-white border border-gray-700 rounded-full px-5 py-2 focus:outline-none focus:border-[#cca566] transition-colors text-xs">
+                </div>
+                <button onclick="openFormModal()" class="w-full sm:w-auto bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold px-5 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap tracking-wider">
                     <span>+</span> ADD MASTER
                 </button>
+                <a href="index.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    ⚔️ SERVANTS
+                </a>
+                <a href="gallery.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    👗 GALLERY
+                </a>
+                <a href="npcs.html" class="w-full sm:w-auto bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🧙‍♂️ NPC
+                </a>
+                <a href="war.html" class="w-full sm:w-auto bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 hover:to-amber-600 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
+                    🏆 GRAIL WAR
+                </a>
+                <button onclick="confirmResetData()" title="Reset data from data/masters.json" class="text-xs text-gray-400 hover:text-red-400 underline transition-colors cursor-pointer px-2 py-1">
+                    Reset Data
+                </button>
+                <button onclick="exportData()" class="text-xs text-[#cca566] hover:underline px-2 py-1 cursor-pointer">
+                    📥 Export JSON
+                </button>
+                <label class="text-xs text-[#cca566] hover:underline px-2 py-1 cursor-pointer">
+                    📤 Import JSON
+                    <input type="file" id="importFileInput" onchange="importData(event)" accept=".json" class="hidden">
+                </label>
             </div>
         </header>
 
@@ -277,33 +212,39 @@
             <div class="lg:col-span-2 space-y-4 lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto lg:pr-2">
                 <div class="flex items-center justify-between px-1 text-xs text-gray-400">
                     <span id="masterCount">Showing Masters</span>
-                    <span class="text-[#cca566] font-genshin flex items-center gap-1">
-                        <span>SELECT MASTER</span>
+                    <span class="text-[#cca566] font-genshin hidden sm:flex items-center gap-1.5 text-[10px]">
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">↑/↓ Master</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">←/→ Outfit</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">Shift+←/→ Painted</span>
+                        <span class="bg-black/40 border border-gray-700 px-1.5 py-0.5 rounded text-gray-300">Space Voice</span>
                     </span>
                 </div>
                 
-                <div id="masterGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 sm:lg:grid-cols-3 md:lg:grid-cols-4 lg:gap-4 lg:pb-0 lg:overflow-visible">
+                <div id="characterGrid" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none lg:grid lg:grid-cols-2 sm:lg:grid-cols-3 md:lg:grid-cols-4 lg:gap-4 lg:pb-0 lg:overflow-visible">
+                    <!-- Cards injected by JS -->
                 </div>
             </div>
 
+            <!-- Detail Showcase View -->
             <div class="lg:col-span-1">
-                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10 overflow-hidden">
+                <div id="detailView" class="genshin-card p-6 hidden flex flex-col justify-between min-h-[600px] lg:max-h-[calc(100vh-170px)] lg:overflow-y-auto relative z-10">
                     <div id="bgJapanShadow" class="absolute -left-0 top-10 font-japan text-4xl text-white/20 select-none pointer-events-none z-0 leading-tight"></div>
                     <div id="bgCharTransparent" class="absolute right-0 top-0 w-full h-full bg-contain bg-no-repeat bg-top md:bg-right-top opacity-20 pointer-events-none z-0 transition-all duration-500"></div>
                     
                     <div id="detailContent" class="relative z-10 space-y-4">
+                        <!-- Details injected by JS -->
                     </div>
                 </div>
                 
                 <div id="emptyState" class="genshin-card p-12 text-center text-gray-500 flex flex-col items-center justify-center min-h-[600px] lg:max-h-[calc(100vh-170px)] gap-3">
                     <div class="w-16 h-16 rounded-full border border-[#cca566]/30 flex items-center justify-center text-[#cca566] text-2xl font-genshin">✦</div>
-                    <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A MASTER TO VIEW PROFILE & VOICE LINES</p>
+                    <p class="font-genshin tracking-widest text-sm text-gray-400">SELECT A MASTER TO VIEW DOSSIER & COMMAND SPELLS</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- POPUP MODAL LORE -->
+    <!-- POPUP MODAL FOR DEEP LORE & TRAITS & VOICE ARCHIVE -->
     <div id="loreModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
         <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-3xl rounded-lg p-6 md:p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
             <button onclick="toggleLoreModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/30">&times;</button>
@@ -313,18 +254,19 @@
                     <span class="text-[#cca566] text-xl">✦</span>
                     <h3 id="modalName" class="text-2xl md:text-3xl font-genshin text-white font-bold tracking-wide">Name</h3>
                 </div>
-                <p id="modalAffiliationInfo" class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Master Profile & Audio Archive</p>
+                <p id="modalTitleInfo" class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Magus Dossier & Audio Logs</p>
             </div>
 
             <div class="space-y-6">
-                <div class="grid grid-cols-2 gap-4 bg-black/30 p-4 rounded-md border border-gray-800 text-xs md:text-sm">
-                    <div><span class="text-gray-500 block text-[11px]">Magic Circuit</span><span id="modalCircuits" class="font-medium text-white">-</span></div>
-                    <div><span class="text-gray-500 block text-[11px]">Origin / Element</span><span id="modalOrigin" class="font-medium text-white">-</span></div>
+                <div class="grid grid-cols-3 gap-4 bg-black/30 p-4 rounded-md border border-gray-800 text-xs md:text-sm">
+                    <div><span class="text-gray-500 block text-[11px]">Affiliation</span><span id="modalAffiliation" class="font-medium text-white">-</span></div>
+                    <div><span class="text-gray-500 block text-[11px]">Origin</span><span id="modalOrigin" class="font-medium text-white">-</span></div>
+                    <div><span class="text-gray-500 block text-[11px]">Elemental Affinity</span><span id="modalElement" class="font-genshin font-bold">-</span></div>
                 </div>
 
                 <div>
                     <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
-                        <span>🏷️</span> Master Traits & Tags
+                        <span>🏷️</span> Magus Traits & Attributes
                     </h4>
                     <div id="modalTraits" class="flex flex-wrap gap-1.5"></div>
                 </div>
@@ -338,7 +280,7 @@
 
                 <div>
                     <h4 class="text-xs font-genshin text-[#cca566] tracking-widest uppercase mb-2 flex items-center gap-2">
-                        <span>📖</span> Biography & Profile History
+                        <span>📖</span> Biography & Magecraft History
                     </h4>
                     <div id="modalLore" class="text-xs md:text-sm text-gray-300 space-y-3 leading-relaxed bg-black/20 p-4 rounded-md border border-gray-800/60"></div>
                 </div>
@@ -348,86 +290,147 @@
                         ✏️ Edit Master
                     </button>
                     <button id="modalDeleteBtn" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-4 py-2 rounded transition-colors cursor-pointer border border-gray-700 font-genshin font-bold flex items-center gap-1.5">
-                        🗑️ Delete Master
+                        🗑 Delete Master
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- POPUP MODAL ADD / EDIT MASTER -->
-    <div id="masterModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
+    <!-- POPUP MODAL FOR EDIT / ADD MASTER -->
+    <div id="formModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
         <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-4xl rounded-lg p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
-            <button onclick="closeMasterModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/30">&times;</button>
+            <button onclick="closeFormModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/30">&times;</button>
             
             <div class="border-b border-gray-800 pb-3 mb-6">
                 <h3 id="formModalTitle" class="text-2xl font-genshin text-white font-bold tracking-wide">ADD NEW MASTER</h3>
-                <p class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Master Registry & Voice Editor</p>
+                <p class="text-xs text-[#cca566] tracking-widest uppercase mt-1">Chaldea Personnel & Magus Registry</p>
             </div>
 
-            <form id="masterForm" onsubmit="handleMasterSubmit(event)" class="space-y-5 text-xs">
+            <form id="masterForm" onsubmit="handleFormSubmit(event)" class="space-y-5 text-xs">
                 <input type="hidden" id="editMasterId" value="">
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
                     <div>
                         <label class="block text-gray-400 mb-1">Master Name *</label>
                         <input type="text" id="formName" required class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                     </div>
                     <div>
                         <label class="block text-gray-400 mb-1">JP Name (Kanji/Kana)</label>
-                        <input type="text" id="formJpName" placeholder="e.g. 衛宮 士郎" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <input type="text" id="formJpName" placeholder="e.g. 藤丸立香" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                     </div>
                     <div>
                         <label class="block text-gray-400 mb-1">Affiliation / Faction *</label>
-                        <input type="text" id="formAffiliation" placeholder="Mage's Association / Freelance" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <input type="text" id="formAffiliation" list="affiliationList" required placeholder="Chaldea / Clock Tower" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <datalist id="affiliationList">
+                            <option value="Chaldea">
+                            <option value="Clock Tower">
+                            <option value="Holy Church">
+                            <option value="Atlas Institute">
+                            <option value="Wandering Sea">
+                            <option value="Crypters">
+                            <option value="Independent">
+                        </datalist>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1 font-genshin">Elemental Affinity</label>
+                        <select id="formElement" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                            <option value="Pyro">Pyro</option>
+                            <option value="Hydro">Hydro</option>
+                            <option value="Anemo">Anemo</option>
+                            <option value="Electro">Electro</option>
+                            <option value="Dendro">Dendro</option>
+                            <option value="Cryo">Cryo</option>
+                            <option value="Geo">Geo</option>
+                            <option value="Average One">Average One</option>
+                            <option value="Unknown">Unknown</option>
+                            <option value="None">None</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div>
-                        <label class="block text-gray-400 mb-1">Magic Circuit</label>
-                        <input type="text" id="formCircuits" placeholder="A+ (40 Circuits)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 mb-1">Origin / Element</label>
-                        <input type="text" id="formOrigin" placeholder="Sword / Five Elements" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 mb-1">Voice Actor (CV)</label>
-                        <input type="text" id="formCv" placeholder="e.g. Noriaki Sugiyama" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <label class="block text-gray-400 mb-1">Magus Rank / Tier</label>
+                        <select id="formRarity" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                            <option value="5">Rank 5 ★★★★★ (Grand/Crown)</option>
+                            <option value="4">Rank 4 ★★★★ (Brand/Pride)</option>
+                            <option value="3">Rank 3 ★★★ (Fes/Cause)</option>
+                            <option value="2">Rank 2 ★★ (Count/Frame)</option>
+                            <option value="1">Rank 1 ★ (Novice)</option>
+                        </select>
                     </div>
                     <div>
                         <label class="block text-gray-400 mb-1">Gender</label>
-                        <input type="text" id="formGender" placeholder="Male / Female" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <input type="text" id="formGender" placeholder="Female / Male" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                     </div>
                     <div>
-                        <label class="block text-gray-400 mb-1">Role / Race</label>
-                        <input type="text" id="formRace" placeholder="Human / Magus" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <label class="block text-gray-400 mb-1">Mana Capacity (MP)</label>
+                        <input type="number" id="formManaCapacity" placeholder="1000" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Magic Circuits</label>
+                        <input type="text" id="formMagicCircuits" placeholder="Rank A (40 Circuits)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-400 mb-1">Default Image URL</label>
-                    <input type="url" id="formImage" placeholder="https://..." class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Origin (起源)</label>
+                        <input type="text" id="formOrigin" placeholder="e.g. Sword / Severing / Void" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Voice Actor (CV)</label>
+                        <input type="text" id="formCv" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Illustrator</label>
+                        <input type="text" id="formIllustrator" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
                 </div>
 
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Contracted Servant(s)</label>
+                        <input type="text" id="formServants" placeholder="e.g. Artoria Pendragon (Saber), Mash Kyrielight" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Command Spell Design</label>
+                        <input type="text" id="formCommandSpellName" placeholder="e.g. Chaldea Standard Seal / Crimson Cross" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    </div>
+                </div>
+
+                <!-- Default Image Input -->
+                <div class="bg-black/20 p-3 rounded border border-gray-800">
+                    <label class="block text-gray-400 mb-1">Default Portrait / Image Path</label>
+                    <div class="flex gap-2 items-center">
+                        <input type="text" id="formImage" placeholder="assets/images/masters/ritsuka.png" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                        <label class="bg-[#cca566] hover:bg-[#e2be7d] text-[#0e121e] px-3 py-2 rounded font-bold cursor-pointer shrink-0 text-center">
+                            📁 Pilih File
+                            <input type="file" accept="image/*" onchange="convertFileToBase64(this, 'formImage')" class="hidden">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- MYSTIC CODES / OUTFITS & PAINTED VARIANTS SECTION -->
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
                     <div class="flex items-center justify-between mb-2">
                         <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
-                            <span>🖼️</span> MASTER SKINS / OUTFITS & SERIES
+                            <span>🧥</span> MYSTIC CODES / OUTFITS & PAINTED VARIANTS
                         </label>
-                        <button type="button" onclick="addMasterSpriteInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
-                            + Add Skin / Outfit
+                        <button type="button" onclick="addSpriteInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
+                            + Add Mystic Code / Outfit
                         </button>
                     </div>
-                    <p class="text-[10px] text-gray-400 mb-3">Isi nama skin, Seri/Set, serta kustomisasi stats/voice lines khusus outfit.</p>
+                    <p class="text-[10px] text-gray-400 mb-3">Tambahkan Mystic Code, pakaian kasual, atau Painted Outfit (varian warna otomatis mewarisi tag seri outfit utamanya jika dikosongkan).</p>
                     <div id="spritesContainer" class="space-y-2"></div>
                 </div>
 
+                <!-- Voice Over Audio Lines Input Section -->
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/20 p-3 rounded-md">
                     <div class="flex items-center justify-between mb-2">
                         <label class="block text-[#cca566] font-genshin font-bold text-xs flex items-center gap-1.5">
-                            <span>🎙️</span> MAIN VOICE OVER AUDIO LINES
+                            <span>🎙️</span> VOICE OVER AUDIO LINES
                         </label>
                         <button type="button" onclick="addVoiceLineInputRow()" class="text-[11px] bg-[#cca566]/20 hover:bg-[#cca566]/40 text-[#cca566] border border-[#cca566]/40 px-2.5 py-1 rounded transition-colors cursor-pointer">
                             + Add Voice Line
@@ -436,54 +439,107 @@
                     <div id="voiceLinesContainer" class="space-y-3"></div>
                 </div>
 
+                <!-- Mystic Code Skills / Magecraft Fields -->
+                <div class="border-t border-gray-800 pt-3">
+                    <label class="block text-[#cca566] font-genshin mb-2">MAGECRAFT / MYSTIC CODE SKILLS</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <div class="space-y-1">
+                            <input type="text" id="formSkill1Name" placeholder="Skill 1 Name (e.g. First Aid)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                            <input type="text" id="formSkill1Effect" placeholder="Skill 1 Effect" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <input type="text" id="formSkill2Name" placeholder="Skill 2 Name (e.g. Gandr)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                            <input type="text" id="formSkill2Effect" placeholder="Skill 2 Effect" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <input type="text" id="formSkill3Name" placeholder="Skill 3 Name (e.g. Emergency Evade)" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                            <input type="text" id="formSkill3Effect" placeholder="Skill 3 Effect" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traits & Lore -->
                 <div class="border-t border-gray-800 pt-3">
                     <label class="block text-gray-400 mb-1">Traits (Comma separated)</label>
-                    <input type="text" id="formTraits" placeholder="Human, Magus, Projection, Tohsaka" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
+                    <input type="text" id="formTraits" placeholder="Human, Master, Magus, Chaldea" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-400 mb-1">Biography / Paragraphs (Separated by new lines)</label>
+                    <label class="block text-gray-400 mb-1">Biography / Background Paragraphs (Separated by new lines)</label>
                     <textarea id="formLore" rows="3" placeholder="Paragraph 1&#10;Paragraph 2" class="w-full bg-[#1b2233] text-white border border-gray-700 rounded p-2 focus:border-[#cca566] outline-none"></textarea>
                 </div>
 
                 <div class="pt-4 flex justify-end gap-3 border-t border-gray-800">
-                    <button type="button" onclick="closeMasterModal()" class="px-5 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin cursor-pointer">CANCEL</button>
+                    <button type="button" onclick="closeFormModal()" class="px-5 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin cursor-pointer">CANCEL</button>
                     <button type="submit" class="px-6 py-2 rounded bg-gradient-to-r from-[#cca566] to-[#b59055] hover:from-[#e2be7d] hover:to-[#cca566] text-[#0e121e] font-genshin font-bold cursor-pointer">SAVE MASTER</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- CONFIRMATION DIALOG -->
-    <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md">
-        <div class="bg-[#121723] border-2 border-[#cca566] w-full max-w-md rounded-lg p-6 relative shadow-2xl space-y-4">
-            <h3 id="confirmTitle" class="text-lg font-genshin text-white font-bold tracking-wide border-b border-gray-800 pb-2">CONFIRM ACTION</h3>
-            <p id="confirmMessage" class="text-xs text-gray-300 leading-relaxed">Are you sure you want to proceed?</p>
-            <div class="pt-2 flex justify-end gap-3 border-t border-gray-800">
-                <button id="confirmCancelBtn" onclick="closeConfirmDialog()" class="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin text-xs cursor-pointer">CANCEL</button>
-                <button id="confirmOkBtn" class="px-5 py-2 rounded bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 text-white font-genshin font-bold text-xs cursor-pointer">CONFIRM</button>
+    <!-- CUSTOM CONFIRMATION & TOAST -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 hidden opacity-0 transition-opacity duration-200">
+        <div class="bg-[#121723] border border-[#cca566] p-6 rounded-lg max-w-sm w-full text-center space-y-4 shadow-2xl">
+            <h4 id="confirmTitle" class="text-lg font-genshin text-white font-bold">CONFIRMATION</h4>
+            <p id="confirmMessage" class="text-xs text-gray-300 leading-relaxed"></p>
+            <div class="flex justify-center gap-3 pt-2">
+                <button id="confirmCancelBtn" class="px-4 py-1.5 text-xs rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-genshin cursor-pointer">CANCEL</button>
+                <button id="confirmOkBtn" class="px-4 py-1.5 text-xs rounded bg-[#cca566] hover:bg-[#b59055] text-[#0e121e] font-genshin font-bold cursor-pointer">PROCEED</button>
             </div>
         </div>
     </div>
 
-    <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#161c28] border border-[#cca566] text-white px-4 py-2.5 rounded shadow-xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
         <span class="text-[#cca566]">✦</span>
         <span id="toastMsg">Message</span>
     </div>
 
+    <!-- JavaScript Data & Logic -->
     <script>
+        const MASTERS_JSON_PATH = 'data/masters.json';
+        const MASTERS_STORAGE_KEY = 'fgo_genshin_masters_db_v1';
+
+        function escapeAttr(val) {
+            return String(val ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function getElementBadgeClass(element) {
+            if (!element) return 'bg-gray-800 text-gray-300 border-gray-600 font-genshin';
+            const el = element.trim().toLowerCase();
+            switch (el) {
+                case 'fire':
+                case 'pyro': return 'bg-red-950/80 text-red-400 border-red-500/50 font-genshin tracking-wide';
+                case 'water':
+                case 'hydro': return 'bg-blue-950/80 text-blue-400 border-blue-500/50 font-genshin tracking-wide';
+                case 'wind':
+                case 'anemo': return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50 font-genshin tracking-wide';
+                case 'ether':
+                case 'electro': return 'bg-purple-950/80 text-purple-300 border-purple-500/50 font-genshin tracking-wide';
+                case 'earth':
+                case 'geo': return 'bg-amber-950/80 text-amber-400 border-amber-500/50 font-genshin tracking-wide';
+                case 'void':
+                case 'cryo': return 'bg-cyan-950/80 text-cyan-300 border-cyan-500/50 font-genshin tracking-wide';
+                case 'dendro': return 'bg-green-950/80 text-green-400 border-green-500/50 font-genshin tracking-wide';
+                case 'average one': return 'bg-gradient-to-r from-amber-950/90 via-rose-950/80 to-indigo-950/90 text-amber-200 border-amber-400/60 font-genshin tracking-wide';
+                case 'unknown': return 'bg-gradient-to-r from-red-950/80 via-purple-950/80 to-blue-950/80 text-amber-200 border-amber-400/60 font-genshin tracking-wide';
+                default: return 'bg-gray-800/80 text-gray-300 border-gray-600/50 font-genshin';
+            }
+        }
+
         function getSeriesColorClass(series) {
             if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
             const s = series.trim().toLowerCase();
-
-            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) return 'skin-badge-epic';
+            if (s.includes('painted')) return 'skin-badge-painted';
+            if (s.includes('epic') || s.includes('formal') || s.includes('lunar')) return 'skin-badge-epic';
             if (s.includes('legend')) return 'skin-badge-legend';
             if (s.includes('grand')) return 'skin-badge-grand';
             if (s.includes('collab') || s.includes('crossover') || s.includes('#')) return 'skin-badge-collab';
             if (s.includes('elite')) return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
-            if (s.includes('original ascension') || s.includes('mystic code')) return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
-
+            if (s.includes('mystic code') || s.includes('default')) return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
             return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
         }
 
@@ -492,12 +548,35 @@
             '#2': { name: 'Wuthering Waves', icon: 'assets/icons/wuwa.svg' },
             '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/hsr.svg' },
             '#4': { name: 'Mobile Legends', icon: 'assets/icons/mlbb.svg' },
-            '#5': { name: 'Fate/Grand Order', icon: 'assets/icons/fgo.svg' }
+            '#5': { name: 'Naruto', icon: 'assets/icons/collab/naruto.svg' },
+            '#6': { name: 'Bleach', icon: 'assets/icons/collab/bleach.svg' },
+            '#7': { name: 'Zenless Zone Zero', icon: 'assets/icons/collab/zzz.svg' },
+            '#8': { name: 'Honkai Impact 3rd', icon: 'assets/icons/collab/hi3.svg' },
+            '#9': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr1.png' },
+            '#9a': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr.png' },
+            '#10': { name: 'Re:Zero Kara Hajimeru Seikatsu', icon: 'assets/icons/collab/rezero.svg' },
+            '#11': { name: 'Overlord', icon: 'assets/icons/collab/overlord.svg' },
+            '#11a': { name: 'Overlord', icon: 'assets/icons/collab/overlord1.svg' },
+            '#12': { name: 'Sword Art Online', icon: 'assets/icons/collab/sao.svg' },
+            '#13': { name: 'King of Fighters', icon: 'assets/icons/collab/kof.svg' },
+            '#14': { name: 'Kimetsu no Yaiba', icon: 'assets/icons/collab/kny.svg' },
+            '#15': { name: 'Jujutsu Kaisen', icon: 'assets/icons/collab/jjk.svg' },
+            '#16': { name: 'Attack on Titan', icon: 'assets/icons/collab/aot.svg' },
         };
+
+        function convertFileToBase64(fileInput, targetInputId) {
+            const file = fileInput.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(targetInputId).value = e.target.result;
+                showToast(`File "${file.name}" berhasil di-load secara lokal!`);
+            };
+            reader.readAsDataURL(file);
+        }
 
         function renderSeriesBadge(seriesText, extraClasses = '') {
             if (!seriesText) return '';
-
             const colorClass = getSeriesColorClass(seriesText);
             let displayText = seriesText;
             let iconHtml = '';
@@ -522,166 +601,241 @@
         const initialMasters = [
             {
                 "id": 101,
-                "name": "Shirou Emiya",
-                "jpName": "衛宮 士郎",
-                "affiliation": "Freelance / Fuyuki",
-                "circuits": "C (27 Circuits)",
-                "origin": "Sword",
-                "cv": "Noriaki Sugiyama",
-                "gender": "Male",
-                "race": "Human / Magus",
+                "name": "Ritsuka Fujimaru",
+                "jpName": "藤丸立香",
+                "affiliation": "Chaldea",
+                "element": "None",
+                "rarity": 5,
+                "gender": "Male / Female",
+                "origin": "Humanity / Bonds",
+                "magicCircuits": "Rank E (20 Circuits)",
+                "manaCapacity": 650,
+                "contractedServants": "Mash Kyrielight, Artoria Pendragon, Chaldea Roster",
+                "commandSpellName": "Chaldea Tri-Command Seal",
+                "illustrator": "Takashi Takeuchi",
+                "cv": "Nobunaga Shimazaki / Rie Takahashi",
                 "activeSpriteIndex": 0,
-                "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500",
-                "sprites": [
-                    { "name": "Homurahara Uniform", "series": "Academy Series", "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" },
-                    { "name": "Chaldea Mystic Code", "series": "Mystic Code", "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" }
+                "activePaintedIndex": -1,
+                "skills": [
+                    { "name": "First Aid", "effect": "Restores HP for one Servant and removes debuffs." },
+                    { "name": "Gandr", "effect": "Fires a curse shot with a high chance to Stun an enemy." },
+                    { "name": "Emergency Evade", "effect": "Applies Evade to one Servant for 1 turn." }
                 ],
-                "traits": ["Human", "Magus", "Projection", "Emiya"],
-                "bio": "Seorang pemuda yang memegang teguh cita-cita menjadi pahlawan keadilan.",
+                "traits": ["Human", "Master", "Chaldea", "Last Master"],
                 "lore": [
-                    "Satu-satunya penyintas dari kebakaran besar Fuyuki 10 tahun lalu.",
-                    "Memiliki spesialisasi sihir Projection (Trace) dan Reinforcement."
+                    "The Last Master of Humanity who survived the incineration of human history at Chaldea Security Organization.",
+                    "Though lacking exceptional innate talent as a magus, their extraordinary compatibility and empathy allow them to form contracts with countless Heroic Spirits."
+                ],
+                "image": "assets/images/masters/ritsuka.png",
+                "sprites": [
+                    {
+                        "name": "Chaldea Uniform",
+                        "series": "Mystic Code",
+                        "url": "assets/images/masters/ritsuka.png",
+                        "element": "None",
+                        "paintedSkins": []
+                    },
+                    {
+                        "name": "Arctic Region",
+                        "series": "Mystic Code",
+                        "url": "assets/images/masters/ritsuka_arctic.png",
+                        "element": "Void",
+                        "paintedSkins": []
+                    }
                 ],
                 "voiceLines": [
                     {
-                        "title": "Greeting",
-                        "text": "Trace, On! Are you my Servant? I'm Shirou Emiya, ready to fight alongside you.",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Tchaikovsky_-_1812_Overture_%28Finale_excerpt%29.ogg"
+                        "title": "Command Spell",
+                        "text": "By my Command Spell, I order you—unleash your Noble Phantasm!",
+                        "audioUrl": "assets/audio/masters/ritsuka_cs.mp3"
                     }
                 ]
             },
             {
                 "id": 102,
                 "name": "Rin Tohsaka",
-                "jpName": "遠坂 凛",
-                "affiliation": "Tohsaka / Clock Tower",
-                "circuits": "A+ (40 Circuits)",
-                "origin": "Five Elements",
-                "cv": "Kana Ueda",
+                "jpName": "遠坂凛",
+                "affiliation": "Clock Tower",
+                "element": "Average One",
+                "rarity": 5,
                 "gender": "Female",
-                "race": "Human / Magus",
+                "origin": "Imaginary Element / Jewel",
+                "magicCircuits": "Rank A+ (40 Main + 30 Sub)",
+                "manaCapacity": 2500,
+                "contractedServants": "EMIYA (Archer), Artoria Pendragon (Saber)",
+                "commandSpellName": "Crimson Crest Seal",
+                "illustrator": "Takashi Takeuchi",
+                "cv": "Kana Ueda",
                 "activeSpriteIndex": 0,
-                "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500",
-                "sprites": [
-                    { "name": "Casual Red Coat", "series": "Casual Series", "url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" },
-                    { "name": "Clock Tower Uniform", "series": "Academy Series", "url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500" }
+                "activePaintedIndex": -1,
+                "skills": [
+                    { "name": "Jewel Magecraft (Gandr)", "effect": "Unleashes stored magical energy from high-grade gems." },
+                    { "name": "Reinforcement", "effect": "Enhances physical agility and strikes for close-quarters combat." },
+                    { "name": "Azoth Dagger Strike", "effect": "Delivers a decisive mana-infused thrust." }
                 ],
-                "traits": ["Human", "Magus", "Jewel Magic", "Tohsaka"],
-                "bio": "Penerus keluarga Tohsaka, ahli sihir Jewel Magic yang sangat berbakat.",
+                "traits": ["Human", "Master", "Magus", "Clock Tower", "Average One"],
                 "lore": [
-                    "Magus genius generasi ke-6 dari keluarga Tohsaka.",
-                    "Menguasai sihir manipulasi kristal permata."
+                    "The formal successor to the prestigious Tohsaka magus lineage of Fuyuki and a distinguished prodigy at the Clock Tower.",
+                    "Possesses the exceedingly rare 'Average One' alignment, granting mastery over all five great classical elements."
+                ],
+                "image": "assets/images/masters/rin.png",
+                "sprites": [
+                    {
+                        "name": "Red Sweater",
+                        "series": "Default Outfit",
+                        "url": "assets/images/masters/rin.png",
+                        "element": "Average One",
+                        "paintedSkins": []
+                    }
                 ],
                 "voiceLines": [
                     {
-                        "title": "Summoning",
-                        "text": "I summoned the strongest class, Archer! Wait... why didn't the ritual go as planned?!",
-                        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Ludwig_van_Beethoven_-_Symphony_No._5%2C_Op._67_-_I._Allegro_con_brio.ogg"
+                        "title": "Battle Start",
+                        "text": "Don't underestimate a Tohsaka magus. Let's finish this cleanly, Archer!",
+                        "audioUrl": "assets/audio/masters/rin_battle.mp3"
                     }
                 ]
             }
         ];
 
-        function loadMasterData() {
-            const stored = localStorage.getItem('fgo_masters_db_v2');
-            if (stored) {
-                try { return JSON.parse(stored); } catch(e) {}
+        function normalizeMasterRecord(m) {
+            const baseSprites = Array.isArray(m.sprites) && m.sprites.length > 0
+                ? m.sprites.map(sp => {
+                    const inheritedSeries = sp.series || 'Mystic Code';
+                    const paintedSkins = Array.isArray(sp.paintedSkins)
+                        ? sp.paintedSkins.map(ps => ({
+                            ...ps,
+                            name: ps.name || 'Painted Variant',
+                            series: ps.series || inheritedSeries,
+                            url: ps.url || sp.url || m.image || 'assets/images/favicon.png'
+                        }))
+                        : [];
+                    return {
+                        ...sp,
+                        name: sp.name || 'Default Outfit',
+                        series: inheritedSeries,
+                        url: sp.url || m.image || 'assets/images/favicon.png',
+                        paintedSkins,
+                        voiceLines: Array.isArray(sp.voiceLines) ? sp.voiceLines : []
+                    };
+                })
+                : [{
+                    name: 'Default Outfit',
+                    series: 'Mystic Code',
+                    url: m.image || 'assets/images/favicon.png',
+                    element: m.element || 'None',
+                    paintedSkins: [],
+                    voiceLines: []
+                }];
+
+            const maxSpriteIdx = Math.max(0, baseSprites.length - 1);
+            const activeSpriteIndex = Math.min(Math.max(0, m.activeSpriteIndex ?? 0), maxSpriteIdx);
+            const activePaintedList = baseSprites[activeSpriteIndex]?.paintedSkins || [];
+            const rawPaintedIdx = m.activePaintedIndex ?? -1;
+            const activePaintedIndex = (rawPaintedIdx >= 0 && rawPaintedIdx < activePaintedList.length) ? rawPaintedIdx : -1;
+
+            return {
+                ...m,
+                image: m.image || baseSprites[0]?.url || 'assets/images/favicon.png',
+                sprites: baseSprites,
+                activeSpriteIndex,
+                activePaintedIndex,
+                voiceLines: Array.isArray(m.voiceLines) ? m.voiceLines : [],
+                traits: Array.isArray(m.traits) ? m.traits : []
+            };
+        }
+
+        async function fetchInitialMastersFromJson() {
+            try {
+                const res = await fetch(`${MASTERS_JSON_PATH}?v=${Date.now()}`, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const jsonData = await res.json();
+                if (Array.isArray(jsonData) && jsonData.length > 0) {
+                    return jsonData.map(normalizeMasterRecord);
+                }
+            } catch (err) {
+                console.warn('Fallback ke initialMasters (gagal baca data/masters.json):', err);
             }
-            return initialMasters;
+            return initialMasters.map(normalizeMasterRecord);
+        }
+
+        function loadMasterDataFromStorageOnly() {
+            const stored = localStorage.getItem(MASTERS_STORAGE_KEY);
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed)) {
+                        return parsed.map(normalizeMasterRecord);
+                    }
+                } catch (e) {}
+            }
+            return initialMasters.map(normalizeMasterRecord);
+        }
+
+        async function loadMasterData(forceFromJson = false) {
+            if (!forceFromJson) {
+                const stored = localStorage.getItem(MASTERS_STORAGE_KEY);
+                if (stored) {
+                    try {
+                        const parsed = JSON.parse(stored);
+                        if (Array.isArray(parsed)) {
+                            return parsed.map(normalizeMasterRecord);
+                        }
+                    } catch (e) {
+                        console.warn('Gagal parse localStorage masters, ambil dari data/masters.json:', e);
+                    }
+                }
+            }
+
+            const seeded = await fetchInitialMastersFromJson();
+            localStorage.setItem(MASTERS_STORAGE_KEY, JSON.stringify(seeded));
+            return seeded;
         }
 
         function saveMasterData() {
-            localStorage.setItem('fgo_masters_db_v2', JSON.stringify(masterData));
+            localStorage.setItem(MASTERS_STORAGE_KEY, JSON.stringify(masterData));
         }
 
-        let masterData = loadMasterData();
+        let masterData = initialMasters.map(normalizeMasterRecord);
         let selectedMaster = null;
         let selectedVoiceIndex = 0;
         let selectedSpriteIndex = 0;
+        let selectedPaintedIndex = -1;
 
         let activeAudio = new Audio();
         let isAudioPlaying = false;
         let audioProgressTimer = null;
-        let onConfirmCallback = null;
 
-        const gridContainer = document.getElementById('masterGrid');
+        const gridContainer = document.getElementById('characterGrid');
         const detailView = document.getElementById('detailView');
         const emptyState = document.getElementById('emptyState');
         const searchBar = document.getElementById('searchBar');
+        const affiliationFilter = document.getElementById('affiliationFilter');
+        const elementFilter = document.getElementById('elementFilter');
         const loreModal = document.getElementById('loreModal');
-        const masterModal = document.getElementById('masterModal');
-        const confirmModal = document.getElementById('confirmModal');
+        const formModal = document.getElementById('formModal');
         const masterCount = document.getElementById('masterCount');
 
-        function showConfirmDialog(title, message, onConfirm) {
-            document.getElementById('confirmTitle').innerText = title;
-            document.getElementById('confirmMessage').innerText = message;
-            onConfirmCallback = onConfirm;
-            confirmModal.classList.remove('hidden');
-            setTimeout(() => confirmModal.classList.remove('opacity-0'), 10);
+        function getMasterSprites(master) {
+            if (master.sprites && master.sprites.length > 0) {
+                return master.sprites;
+            }
+            return [{ name: "Default Outfit", series: "Mystic Code", url: master.image || "assets/images/favicon.png", element: master.element, paintedSkins: [] }];
         }
 
-        function closeConfirmDialog() {
-            confirmModal.classList.add('opacity-0');
-            setTimeout(() => confirmModal.classList.add('hidden'), 300);
-        }
+        function getActiveMasterMedia(master, spriteIdx = selectedSpriteIndex, paintedIdx = selectedPaintedIndex) {
+            const sprites = getMasterSprites(master);
+            const activeSprite = sprites[spriteIdx] || {};
+            const paintedList = activeSprite.paintedSkins || [];
+            const activePainted = (paintedIdx >= 0 && paintedList[paintedIdx]) ? paintedList[paintedIdx] : null;
 
-        document.getElementById('confirmOkBtn').onclick = () => {
-            if (onConfirmCallback) onConfirmCallback();
-            closeConfirmDialog();
-        };
-
-        function exportMasterData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `fgo_masters_db_${Date.now()}.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-            showToast("Master data exported as JSON!");
-        }
-
-        function importMasterData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const parsed = JSON.parse(e.target.result);
-                    if (Array.isArray(parsed)) {
-                        masterData = parsed;
-                        saveMasterData();
-                        applyFilters();
-                        if (masterData.length > 0) showDetails(masterData[0]);
-                        else {
-                            selectedMaster = null;
-                            detailView.classList.add('hidden');
-                            emptyState.classList.remove('hidden');
-                        }
-                        showToast("Master data imported successfully!");
-                    } else {
-                        alert("Invalid JSON format!");
-                    }
-                } catch(err) {
-                    alert("Error parsing JSON file!");
-                }
+            return {
+                sprite: activeSprite,
+                painted: activePainted,
+                url: activePainted?.url || activeSprite.url || master.image || 'assets/images/favicon.png',
+                displayName: activePainted ? `${activeSprite.name} (${activePainted.name})` : (activeSprite.name || `Outfit ${spriteIdx + 1}`),
+                series: (activePainted && activePainted.series) ? activePainted.series : (activeSprite.series || '')
             };
-            reader.readAsText(file);
-            event.target.value = '';
-        }
-
-        function confirmResetData() {
-            showConfirmDialog("RESET DATABASE", "Reset all master records to initial defaults?", () => {
-                localStorage.removeItem('fgo_masters_db_v2');
-                masterData = [...initialMasters];
-                selectedMaster = null;
-                stopAudio();
-                applyFilters();
-                emptyState.classList.remove('hidden');
-                detailView.classList.add('hidden');
-                showToast("Master database reset.");
-            });
         }
 
         function renderGrid(data) {
@@ -697,30 +851,56 @@
             }
 
             data.forEach(master => {
+                const bgClass = master.rarity >= 5 ? 'rarity-5' : (master.rarity === 4 ? 'rarity-4' : (master.rarity === 3 ? 'rarity-3' : (master.rarity === 2 ? 'rarity-2' : 'rarity-1')));
                 const card = document.createElement('div');
+                
                 card.className = `genshin-card overflow-hidden cursor-pointer group shrink-0 w-36 sm:w-40 lg:w-auto lg:shrink snap-start ${selectedMaster?.id === master.id ? 'ring-2 ring-[#cca566]' : ''}`;
                 card.onclick = () => showDetails(master);
                 
                 const hasVoice = master.voiceLines && master.voiceLines.length > 0;
+                
                 const activeIndex = master.activeSpriteIndex || 0;
-                const activeSprite = (master.sprites && master.sprites[activeIndex]) ? master.sprites[activeIndex] : null;
-                const cardThumb = activeSprite?.url || master.image;
+                const activePaintedIdx = master.activePaintedIndex !== undefined ? master.activePaintedIndex : -1;
+                const activeMedia = getActiveMasterMedia(master, activeIndex, activePaintedIdx);
+                const activeSprite = activeMedia.sprite;
+                const cardThumb = activeMedia.url;
+                
+                const displayElement = activeSprite?.element || master.element;
+                const elBadgeClass = getElementBadgeClass(displayElement);
 
                 card.innerHTML = `
-                    <div class="relative h-36 bg-gradient-to-b from-[#1b2233] to-[#0e121e] flex items-center justify-center overflow-hidden">
+                    <div class="relative h-36 ${bgClass} flex items-center justify-center overflow-hidden">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <img src="${cardThumb}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-300">
+                        <img src="${cardThumb}" 
+                             loading="lazy" 
+                             decoding="async"
+                             onerror="this.onerror=null; this.src='assets/images/favicon.png';" 
+                             alt="${escapeAttr(master.name)}"
+                             class="absolute -right-8 top-0 w-48 h-72 object-contain object-right opacity-30 scale-125 group-hover:opacity-45 transition-all duration-300">
+                        
+                        <span class="absolute top-2 left-2 ${elBadgeClass} text-[9px] px-1.5 py-0.5 rounded border font-bold backdrop-blur-sm shadow">
+                            ${displayElement || 'None'}
+                        </span>
+
                         ${hasVoice ? `
-                            <span class="absolute top-2 right-2 bg-black/60 text-[#cca566] text-[10px] px-1.5 py-0.5 rounded border border-[#cca566]/40 flex items-center gap-1 backdrop-blur-sm">
-                                🎙️ ${master.voiceLines.length}
+                            <span class="absolute top-2 right-2 bg-black/50 text-[#cca566] text-[10px] px-1.5 py-0.5 rounded border border-[#cca566]/40 flex items-center gap-1 backdrop-blur-sm">
+                                🎙 ${master.voiceLines.length}
                             </span>
                         ` : ''}
-                        ${activeSprite?.series ? renderSeriesBadge(activeSprite.series, 'absolute bottom-1 left-2 max-w-[110px]') : ''}
+
+                        <div class="absolute bottom-1 left-2 right-2 flex items-center gap-1 pointer-events-none">
+                            ${activeMedia.series ? renderSeriesBadge(activeMedia.series, 'max-w-[95px]') : ''}
+                            ${activeMedia.painted ? `
+                                <span class="skin-badge-painted max-w-[75px] text-[7px] px-1 py-0.5 rounded truncate">
+                                    🎨 ${activeMedia.painted.name}
+                                </span>
+                            ` : ''}
+                        </div>
                     </div>
                     <div class="p-3 bg-[#161c28]/90">
-                        <div class="text-[10px] text-[#cca566] font-semibold uppercase tracking-wider truncate">${master.affiliation || 'Master'}</div>
+                        <div class="text-[10px] text-[#cca566] font-semibold uppercase tracking-wider truncate">${master.affiliation || 'Independent'}</div>
                         <h3 class="font-bold text-white truncate text-xs mt-0.5">${master.name}</h3>
-                        <div class="text-[10px] text-gray-400 mt-1 truncate">🔮 ${master.circuits || 'Circuits ?'}</div>
+                        <div class="star-rating text-[10px] mt-1">${'★'.repeat(master.rarity || 5)}</div>
                     </div>
                 `;
                 gridContainer.appendChild(card);
@@ -729,20 +909,42 @@
 
         function applyFilters() {
             const query = searchBar.value.toLowerCase().trim();
-            const filtered = masterData.filter(m => {
-                return m.name.toLowerCase().includes(query) || 
-                       (m.affiliation && m.affiliation.toLowerCase().includes(query)) ||
-                       (m.origin && m.origin.toLowerCase().includes(query)) ||
-                       (m.cv && m.cv.toLowerCase().includes(query)) ||
-                       (m.traits && m.traits.some(t => t.toLowerCase().includes(query))) ||
-                       (m.sprites && m.sprites.some(sp => (sp.series || '').toLowerCase().includes(query) || (sp.name || '').toLowerCase().includes(query)));
-            });
-            renderGrid(filtered);
-        }
+            const aff = affiliationFilter.value;
+            const elem = elementFilter.value;
 
-        function getMasterSprites(master) {
-            if (master.sprites && master.sprites.length > 0) return master.sprites;
-            return [{ name: "Default Outfit", series: "Mystic Code", url: master.image || "" }];
+            const filtered = masterData.filter(m => {
+                const matchesSearch = !query ||
+                    m.name.toLowerCase().includes(query) || 
+                    (m.jpName && m.jpName.toLowerCase().includes(query)) ||
+                    (m.element && m.element.toLowerCase().includes(query)) ||
+                    (m.origin && m.origin.toLowerCase().includes(query)) ||
+                    (m.affiliation && m.affiliation.toLowerCase().includes(query)) ||
+                    (m.contractedServants && m.contractedServants.toLowerCase().includes(query)) ||
+                    (m.commandSpellName && m.commandSpellName.toLowerCase().includes(query)) ||
+                    (m.traits && m.traits.some(t => t.toLowerCase().includes(query))) ||
+                    (m.sprites && m.sprites.some(sp => 
+                        (sp.series || '').toLowerCase().includes(query) || 
+                        (sp.name || '').toLowerCase().includes(query) || 
+                        (sp.element || '').toLowerCase().includes(query) ||
+                        (sp.paintedSkins && sp.paintedSkins.some(ps => 
+                            (ps.name || '').toLowerCase().includes(query) ||
+                            ((ps.series || sp.series || '').toLowerCase().includes(query))
+                        ))
+                    ));
+                
+                const matchesAff = aff === 'ALL' || (m.affiliation && m.affiliation.toLowerCase() === aff.toLowerCase());
+                let matchesElement = true;
+                if (elem !== 'ALL') {
+                    const activeIdx = m.activeSpriteIndex || 0;
+                    const activeSprite = (m.sprites && m.sprites[activeIdx]) ? m.sprites[activeIdx] : null;
+                    const currentEl = (activeSprite && activeSprite.element) ? activeSprite.element : (m.element || 'None');
+                    matchesElement = currentEl.toLowerCase() === elem.toLowerCase();
+                }
+
+                return matchesSearch && matchesAff && matchesElement;
+            });
+
+            renderGrid(filtered);
         }
 
         function changeMasterSprite(index) {
@@ -754,25 +956,60 @@
             const savedScrollLeft = spriteContainer ? spriteContainer.scrollLeft : 0;
 
             selectedSpriteIndex = index;
+            selectedPaintedIndex = -1;
             selectedMaster.activeSpriteIndex = index;
+            selectedMaster.activePaintedIndex = -1;
+            selectedVoiceIndex = 0;
+
+            stopAudio();
             saveMasterData();
 
-            const spriteUrl = sprites[index].url;
+            const spriteUrl = sprites[index].url || 'assets/images/favicon.png';
             const bgChar = document.getElementById('bgCharTransparent');
-            if (bgChar) bgChar.style.backgroundImage = spriteUrl ? `url('${spriteUrl}')` : 'none';
+            if (bgChar) {
+                bgChar.style.backgroundImage = `url('${spriteUrl}')`;
+            }
 
-            showToast(`Outfit "${sprites[index].name || 'Outfit ' + (index + 1)}" Equipped!`);
+            const seriesText = sprites[index].series ? ` [${sprites[index].series}]` : '';
+            showToast(`Outfit "${sprites[index].name || 'Outfit ' + (index + 1)}"${seriesText} Equipped!`);
+
             renderDetailContent();
             applyFilters();
 
             const newSpriteContainer = document.getElementById('spriteTabsContainer');
-            if (newSpriteContainer) newSpriteContainer.scrollLeft = savedScrollLeft;
+            if (newSpriteContainer) {
+                newSpriteContainer.scrollLeft = savedScrollLeft;
+            }
+        }
+
+        function changeMasterPaintedSkin(paintedIdx) {
+            if (!selectedMaster) return;
+            const sprites = getMasterSprites(selectedMaster);
+            const activeSprite = sprites[selectedSpriteIndex] || {};
+            const paintedList = activeSprite.paintedSkins || [];
+
+            selectedPaintedIndex = paintedIdx;
+            selectedMaster.activePaintedIndex = paintedIdx;
+            saveMasterData();
+
+            const media = getActiveMasterMedia(selectedMaster, selectedSpriteIndex, paintedIdx);
+            const bgChar = document.getElementById('bgCharTransparent');
+            if (bgChar) {
+                bgChar.style.backgroundImage = `url('${media.url}')`;
+            }
+
+            const label = paintedIdx === -1 ? 'Original Color' : (paintedList[paintedIdx]?.name || `Painted #${paintedIdx + 1}`);
+            showToast(`🎨 Painted Outfit "${label}" Equipped!`);
+
+            renderDetailContent();
+            applyFilters();
         }
 
         function showDetails(master) {
             selectedMaster = master;
             selectedVoiceIndex = 0;
-            selectedSpriteIndex = master.activeSpriteIndex || 0; 
+            selectedSpriteIndex = master.activeSpriteIndex || 0;
+            selectedPaintedIndex = master.activePaintedIndex !== undefined ? master.activePaintedIndex : -1;
             stopAudio();
 
             emptyState.classList.add('hidden');
@@ -781,9 +1018,8 @@
             const jpText = master.jpName || master.name;
             document.getElementById('bgJapanShadow').innerHTML = jpText.replace('・', '<br>').replace(' ', '<br>');            
             
-            const sprites = getMasterSprites(master);
-            const activeSpriteUrl = sprites[selectedSpriteIndex]?.url || master.image;
-            document.getElementById('bgCharTransparent').style.backgroundImage = activeSpriteUrl ? `url('${activeSpriteUrl}')` : 'none';
+            const media = getActiveMasterMedia(master, selectedSpriteIndex, selectedPaintedIndex);
+            document.getElementById('bgCharTransparent').style.backgroundImage = `url('${media.url}')`;
 
             renderDetailContent();
             applyFilters();
@@ -793,68 +1029,140 @@
             if (!selectedMaster) return;
             const master = selectedMaster;
             const contentArea = document.getElementById('detailContent');
+
             const sprites = getMasterSprites(master);
-            const activeSprite = sprites[selectedSpriteIndex] || {};
+            const activeMedia = getActiveMasterMedia(master, selectedSpriteIndex, selectedPaintedIndex);
+            const activeSprite = activeMedia.sprite;
+            const paintedList = activeSprite.paintedSkins || [];
 
-            const voiceLines = (activeSprite.voiceLines && activeSprite.voiceLines.length > 0) 
-                ? activeSprite.voiceLines 
-                : (master.voiceLines || []);
+            const currentElement = activeSprite.element || master.element || 'None';
+            const elBadgeClass = getElementBadgeClass(currentElement);
 
-            const currentVoice = voiceLines[selectedVoiceIndex] || null;
-            const activeCv = activeSprite.cv || master.cv || 'Unknown';
+            const currentGender = activeSprite.gender || master.gender || 'Unknown';
+            const currentOrigin = activeSprite.origin || master.origin || 'Unknown';
+            const currentIllustrator = activeSprite.illustrator || master.illustrator || 'Unknown';
+            const currentCv = activeSprite.cv || master.cv || 'Unknown';
+
+            const currentMana = activeSprite.manaCapacity !== undefined && activeSprite.manaCapacity !== '' ? activeSprite.manaCapacity : (master.manaCapacity || 0);
+            const currentCircuits = activeSprite.magicCircuits || master.magicCircuits || '-';
+
+            const defaultVoiceLines = master.voiceLines || [];
+            const skinVoiceLines = activeSprite.voiceLines || [];
+            const activeVoiceLines = (skinVoiceLines.length > 0) ? skinVoiceLines : defaultVoiceLines;
+
+            if (selectedVoiceIndex >= activeVoiceLines.length) {
+                selectedVoiceIndex = 0;
+            }
+
+            const currentVoice = activeVoiceLines[selectedVoiceIndex] || null;
 
             contentArea.innerHTML = `
+                <!-- Header Info -->
                 <div class="flex justify-between items-start gap-2">
                     <div>
-                        <span class="bg-[#cca566]/20 text-[#cca566] text-xs px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide">${(master.affiliation || 'MASTER').toUpperCase()}</span>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="bg-[#cca566]/20 text-[#cca566] text-xs px-2.5 py-0.5 rounded border border-[#cca566]/40 font-bold font-genshin tracking-wide">${(master.affiliation || 'INDEPENDENT').toUpperCase()}</span>
+                            <span class="${elBadgeClass} text-xs px-2.5 py-0.5 rounded border font-bold shadow">${currentElement}</span>
+                        </div>
                         <h2 class="text-xl md:text-2xl font-bold text-white mt-1 font-genshin">${master.name}</h2>
-                        <div class="text-xs text-gray-400 mt-0.5">Origin: <span class="text-amber-300 font-bold">${activeSprite.origin || master.origin || '-'}</span></div>
+                        <div class="star-rating text-xs">${'★'.repeat(master.rarity || 5)}</div>
                     </div>
                     <div class="flex gap-1.5">
-                        <button onclick="openMasterModal(${master.id})" title="Edit Master" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
+                        <button onclick="openFormModal(${master.id})" title="Edit Master" class="bg-gray-800 hover:bg-[#cca566] hover:text-[#0e121e] text-gray-300 text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
                             ✏️ Edit
                         </button>
-                        <button onclick="deleteMaster(${master.id})" title="Delete Master" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
+                        <button onclick="confirmDeleteMaster(${master.id})" title="Delete Master" class="bg-gray-800 hover:bg-red-600 text-gray-300 hover:text-white text-xs px-2 py-1 rounded transition-colors cursor-pointer border border-gray-700">
                             🗑️
                         </button>
                     </div>
                 </div>
 
+                <!-- MYSTIC CODE / OUTFIT SWITCHER TABS -->
                 <div class="border-t border-b border-gray-800 py-2 my-2">
-                    <div class="flex items-center justify-between mb-1.5">
-                        <span class="text-[10px] text-[#cca566] font-bold block">SELECT / EQUIP OUTFIT</span>
-                        ${activeSprite.series ? renderSeriesBadge(activeSprite.series, 'text-[10px] px-2 py-0.5 border') : ''}
+                    <div class="flex items-center justify-between mb-1.5 gap-1">
+                        <span class="text-[10px] text-[#cca566] font-bold block">MYSTIC CODE / OUTFIT</span>
+                        <div class="flex items-center gap-1">
+                            ${activeMedia.series ? renderSeriesBadge(activeMedia.series, 'text-[10px] px-2 py-0.5 border') : ''}
+                            ${activeMedia.painted ? `<span class="skin-badge-painted text-[9px] px-1.5 py-0.5 rounded">🎨 ${activeMedia.painted.name}</span>` : ''}
+                        </div>
                     </div>
                     <div id="spriteTabsContainer" class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
                         ${sprites.map((s, idx) => `
-                            <button onclick="changeMasterSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                            <button onclick="changeMasterSprite(${idx})" class="text-[10px] px-2.5 py-1 rounded transition-all cursor-pointer border flex items-center gap-1 whitespace-nowrap ${idx === selectedSpriteIndex ? 'bg-[#cca566] text-[#0e121e] font-bold border-[#cca566] shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
                                 <span>${s.name || `Outfit ${idx + 1}`}</span>
+                                ${(s.paintedSkins && s.paintedSkins.length > 0) ? '<span class="text-[9px] opacity-80">🎨</span>' : ''}
                                 ${idx === selectedSpriteIndex ? '<span class="text-[9px] bg-black/20 px-1 rounded">[USED]</span>' : ''}
                             </button>
                         `).join('')}
                     </div>
+
+                    ${paintedList.length > 0 ? `
+                        <div class="mt-2 pt-2 border-t border-gray-800/70">
+                            <span class="text-[9px] text-pink-300 font-bold tracking-wider uppercase block mb-1">🎨 PAINTED OUTFIT VARIANTS</span>
+                            <div class="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                                <button onclick="changeMasterPaintedSkin(-1)" class="text-[9px] px-2 py-0.5 rounded transition-all cursor-pointer border whitespace-nowrap ${selectedPaintedIndex === -1 ? 'bg-amber-400 text-[#0e121e] font-bold border-amber-300 shadow' : 'bg-black/40 text-gray-300 border-gray-700 hover:bg-gray-800'}">
+                                    Original Color
+                                </button>
+                                ${paintedList.map((ps, pIdx) => `
+                                    <button onclick="changeMasterPaintedSkin(${pIdx})" class="text-[9px] px-2 py-0.5 rounded transition-all cursor-pointer border flex items-center gap-1 whitespace-nowrap ${selectedPaintedIndex === pIdx ? 'bg-gradient-to-r from-pink-500 to-amber-400 text-[#0e121e] font-bold border-white shadow' : 'bg-black/40 text-pink-200 border-pink-500/40 hover:bg-gray-800'}">
+                                        <span>🎨 ${ps.name || `Variant ${pIdx + 1}`}</span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
 
+                <!-- Magus Attributes Grid -->
                 <div class="grid grid-cols-2 gap-y-1 gap-x-3 text-[11px] text-gray-400 bg-black/30 p-2.5 rounded border border-gray-800">
-                    <div>Gender: <span class="text-white font-medium">${activeSprite.gender || master.gender || 'Unknown'}</span></div>
-                    <div>Race/Role: <span class="text-white font-medium">${activeSprite.race || master.race || 'Magus'}</span></div>
-                    <div>Magic Circuit: <span class="text-amber-300 font-medium">${activeSprite.circuits || master.circuits || 'Unknown'}</span></div>
-                    <div>CV (Voice Actor): <span class="text-amber-300 font-medium">${activeCv}</span></div>
+                    <div>Gender: <span class="text-white font-medium">${currentGender}</span></div>
+                    <div>Origin: <span class="text-amber-300 font-medium">${currentOrigin}</span></div>
+                    <div>Affinity: <span class="text-sky-300 font-genshin font-bold">${currentElement}</span></div>
+                    <div>CV: <span class="text-[#cca566] font-bold">${currentCv}</span></div>
+                    <div class="col-span-2">Artist: <span class="text-white font-medium">${currentIllustrator}</span></div>
                 </div>
 
+                <!-- Magical Capacity Stats -->
+                <div class="border-t border-gray-800/80 pt-2">
+                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Magus Parameters</h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-black/30 p-2 rounded border border-gray-800">
+                            <span class="text-gray-500 text-[9px] block">MANA CAPACITY</span>
+                            <span class="text-sky-400 font-bold font-genshin">${parseInt(currentMana || 0).toLocaleString()} MP</span>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded border border-gray-800">
+                            <span class="text-gray-500 text-[9px] block">MAGIC CIRCUITS</span>
+                            <span class="text-amber-300 font-bold text-[11px] truncate block">${currentCircuits}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contract & Command Spells -->
+                <div class="border-t border-gray-800/80 pt-2">
+                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Servant Contract & Command Seals</h4>
+                    <div class="bg-black/30 p-2.5 rounded border-l-2 border-[#cca566] text-xs space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400 text-[10px]">Command Spell:</span>
+                            <span class="text-red-400 font-bold text-[11px]">❖ ${master.commandSpellName || 'Standard Command Seal'}</span>
+                        </div>
+                        <div class="text-[10px] text-gray-400">Contracted: <span class="text-white font-medium">${master.contractedServants || 'None'}</span></div>
+                    </div>
+                </div>
+
+                <!-- VOICE OVER AUDIO PLAYER SECTION -->
                 <div class="border-t border-[#cca566]/30 pt-3 bg-black/40 p-3.5 rounded-lg border border-[#cca566]/20 shadow-inner">
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-xs font-bold font-genshin text-[#cca566] flex items-center gap-1.5 tracking-wider">
-                            <span>🎙️</span> VOICE OVER
+                            <span>🎙️</span> VOICE OVER ${skinVoiceLines.length > 0 ? '<span class="text-[10px] text-amber-300">☆</span>' : ''}
                         </h4>
                         <span id="audioBadge" class="text-[9px] bg-[#cca566]/20 text-[#cca566] px-2 py-0.5 rounded border border-[#cca566]/30">
-                            ${voiceLines.length > 0 ? `${voiceLines.length} Voice Line(s)` : 'No Voice Recorded'}
+                            ${activeVoiceLines.length > 0 ? `${activeVoiceLines.length} Voice Line(s)` : 'No Voice Recorded'}
                         </span>
                     </div>
 
-                    ${voiceLines.length > 0 ? `
+                    ${activeVoiceLines.length > 0 ? `
                         <div id="voiceTabsContainer" class="flex gap-1 overflow-x-auto pb-2 mb-2 scrollbar-none">
-                            ${voiceLines.map((vl, idx) => `
+                            ${activeVoiceLines.map((vl, idx) => `
                                 <button onclick="switchVoiceLine(${idx})" class="text-[10px] px-2.5 py-1 rounded whitespace-nowrap transition-all cursor-pointer ${idx === selectedVoiceIndex ? 'bg-[#cca566] text-[#0e121e] font-bold shadow' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}">
                                     ${vl.title || `Line ${idx + 1}`}
                                 </button>
@@ -882,20 +1190,26 @@
                         </div>
                     ` : `
                         <div class="text-center py-4 text-xs text-gray-500">
-                            No voice lines added yet. Click <b>Edit</b> to add voice URLs & transcripts!
+                            No voice lines added yet. Click <b>Edit</b> to add voice audio files!
                         </div>
                     `}
                 </div>
 
+                <!-- Mystic Code Skills Section -->
                 <div class="border-t border-gray-800/80 pt-2">
-                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Short Bio</h4>
-                    <p class="text-xs text-gray-300 bg-black/30 p-2.5 rounded border border-gray-800/80 leading-relaxed">
-                        ${master.bio || 'No short summary recorded.'}
-                    </p>
+                    <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Mystic Code & Magecraft Skills</h4>
+                    <div class="space-y-1">
+                        ${(master.skills || []).map(sk => `
+                            <div class="bg-black/30 p-2 rounded text-xs border border-gray-800/60">
+                                <span class="text-[#cca566] font-bold block text-[11px]">${sk.name || 'Magecraft'}</span>
+                                <p class="text-gray-400 text-[10px] mt-0.5">${sk.effect || '-'}</p>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
 
                 <button onclick="toggleLoreModal()" class="w-full bg-[#cca566] hover:bg-[#b59055] text-[#0e121e] font-genshin font-bold tracking-widest text-xs py-2.5 rounded transition-all shadow-md cursor-pointer mt-2">
-                    DETAILS & VOICE ARCHIVE
+                    DOSSIER DETAILS
                 </button>
             `;
         }
@@ -903,40 +1217,51 @@
         function switchVoiceLine(index) {
             const voiceContainer = document.getElementById('voiceTabsContainer');
             const savedScrollLeft = voiceContainer ? voiceContainer.scrollLeft : 0;
+
             selectedVoiceIndex = index;
             stopAudio();
             renderDetailContent();
 
             const newVoiceContainer = document.getElementById('voiceTabsContainer');
-            if (newVoiceContainer) newVoiceContainer.scrollLeft = savedScrollLeft;
+            if (newVoiceContainer) {
+                newVoiceContainer.scrollLeft = savedScrollLeft;
+            }
         }
 
         function togglePlayVoice() {
             if (!selectedMaster) return;
+
             const sprites = getMasterSprites(selectedMaster);
             const activeSprite = sprites[selectedSpriteIndex] || {};
-            const voiceLines = (activeSprite.voiceLines && activeSprite.voiceLines.length > 0) 
-                ? activeSprite.voiceLines 
-                : (selectedMaster.voiceLines || []);
 
-            if (!voiceLines[selectedVoiceIndex]) return;
-            const voice = voiceLines[selectedVoiceIndex];
-            if (isAudioPlaying) pauseAudio();
-            else playAudioLine(voice.audioUrl, voice.text);
+            const defaultVoiceLines = selectedMaster.voiceLines || [];
+            const skinVoiceLines = activeSprite.voiceLines || [];
+            const activeVoiceLines = (skinVoiceLines.length > 0) ? skinVoiceLines : defaultVoiceLines;
+
+            if (!activeVoiceLines || !activeVoiceLines[selectedVoiceIndex]) return;
+
+            const voice = activeVoiceLines[selectedVoiceIndex];
+            if (isAudioPlaying) {
+                pauseAudio();
+            } else {
+                playAudioLine(voice.audioUrl, voice.text);
+            }
         }
 
         function playAudioLine(url, transcriptText) {
             stopAudio();
+
             const playBtn = document.getElementById('playBtn');
             const seekSlider = document.getElementById('audioSeek');
             const timeText = document.getElementById('audioCurrentTime');
             const durationText = document.getElementById('audioDuration');
 
-            if (url && url.trim().length > 5) {
+            if (url && url.trim().length > 3) {
                 activeAudio = new Audio(url);
                 activeAudio.play().then(() => {
                     isAudioPlaying = true;
                     if (playBtn) playBtn.innerText = '⏸';
+                    
                     audioProgressTimer = setInterval(() => {
                         if (activeAudio.duration) {
                             const pct = (activeAudio.currentTime / activeAudio.duration) * 100;
@@ -945,12 +1270,13 @@
                             if (durationText) durationText.innerText = formatTime(activeAudio.duration);
                         }
                     }, 200);
+
                 }).catch(() => {
                     playSpeechFallback(transcriptText);
                 });
 
-                activeAudio.onended = () => stopAudio();
-                activeAudio.onerror = () => playSpeechFallback(transcriptText);
+                activeAudio.onended = () => { stopAudio(); };
+                activeAudio.onerror = () => { playSpeechFallback(transcriptText); };
             } else {
                 playSpeechFallback(transcriptText);
             }
@@ -970,11 +1296,12 @@
                     showToast("Playing via Speech Synthesis fallback");
                 };
 
-                utterance.onend = () => stopAudio();
-                utterance.onerror = () => stopAudio();
+                utterance.onend = () => { stopAudio(); };
+                utterance.onerror = () => { stopAudio(); };
+
                 window.speechSynthesis.speak(utterance);
             } else {
-                showToast("Cannot play audio.");
+                showToast("Cannot play audio or speech synthesis.");
             }
         }
 
@@ -1018,11 +1345,20 @@
 
         function toggleLoreModal() {
             if (!selectedMaster) return;
+            
             if (loreModal.classList.contains('hidden')) {
+                const sprites = getMasterSprites(selectedMaster);
+                const activeSprite = sprites[selectedSpriteIndex] || {};
+                const currentElement = activeSprite.element || selectedMaster.element || 'None';
+
                 document.getElementById('modalName').innerText = selectedMaster.name;
-                document.getElementById('modalAffiliationInfo').innerText = `${selectedMaster.affiliation || 'Master'} Profile`;
-                document.getElementById('modalCircuits').innerText = selectedMaster.circuits || '-';
-                document.getElementById('modalOrigin').innerText = selectedMaster.origin || '-';
+                document.getElementById('modalTitleInfo').innerText = `${selectedMaster.affiliation || 'Magus'} Dossier`;
+                document.getElementById('modalAffiliation').innerText = selectedMaster.affiliation || '-';
+                document.getElementById('modalOrigin').innerText = activeSprite.origin || selectedMaster.origin || '-';
+                
+                const modalElem = document.getElementById('modalElement');
+                modalElem.innerText = currentElement;
+                modalElem.className = `font-genshin font-bold tracking-wider ${getElementBadgeClass(currentElement).split(' ')[1]}`;
 
                 const traitsBox = document.getElementById('modalTraits');
                 traitsBox.innerHTML = (selectedMaster.traits || []).map(t => `<span class="bg-gray-800 text-gray-300 text-[11px] px-2.5 py-0.5 rounded border border-gray-700">${t}</span>`).join('');
@@ -1030,7 +1366,7 @@
                 const loreBox = document.getElementById('modalLore');
                 loreBox.innerHTML = selectedMaster.lore && selectedMaster.lore.length > 0
                     ? selectedMaster.lore.map(para => `<p>${para}</p>`).join('')
-                    : `<p>${selectedMaster.bio || 'No detailed biography archived.'}</p>`;
+                    : `<p>No biography available.</p>`;
 
                 const voiceArchiveBox = document.getElementById('modalVoiceArchive');
                 const vLines = selectedMaster.voiceLines || [];
@@ -1042,7 +1378,7 @@
                                 <span class="text-[#cca566] font-bold block text-[11px]">${vl.title || `Voice Line ${idx+1}`}</span>
                                 <p class="text-gray-300 italic text-[11px] mt-0.5">"${vl.text}"</p>
                             </div>
-                            <button onclick="playAudioLine('${vl.audioUrl || ''}', '${vl.text.replace(/'/g, "\\'")}')" class="bg-[#cca566] text-[#0e121e] px-2.5 py-1 rounded text-[10px] font-bold hover:bg-[#e2be7d] cursor-pointer flex-shrink-0">
+                            <button onclick="playAudioLine('${escapeAttr(vl.audioUrl || '')}', '${escapeAttr(vl.text)}')" class="bg-[#cca566] text-[#0e121e] px-2.5 py-1 rounded text-[10px] font-bold hover:bg-[#e2be7d] cursor-pointer flex-shrink-0">
                                 🔊 Play
                             </button>
                         </div>
@@ -1053,12 +1389,12 @@
 
                 document.getElementById('modalEditBtn').onclick = () => {
                     toggleLoreModal();
-                    openMasterModal(selectedMaster.id);
+                    openFormModal(selectedMaster.id);
                 };
 
                 document.getElementById('modalDeleteBtn').onclick = () => {
                     toggleLoreModal();
-                    deleteMaster(selectedMaster.id);
+                    confirmDeleteMaster(selectedMaster.id);
                 };
 
                 loreModal.classList.remove('hidden');
@@ -1069,34 +1405,41 @@
             }
         }
 
-        // BUKA MODAL MASTER (ADD / EDIT)
-        function openMasterModal(masterId = null) {
+        // CRUD Form Logic
+        function openFormModal(masterId = null) {
             stopAudio();
             const form = document.getElementById('masterForm');
-            if (form) form.reset();
-
+            form.reset();
             document.getElementById('voiceLinesContainer').innerHTML = '';
             document.getElementById('spritesContainer').innerHTML = '';
 
-            let target = masterId ? masterData.find(m => m.id === masterId) : null;
+            let target = null;
+            if (masterId) {
+                target = masterData.find(m => m.id === masterId);
+            }
 
             if (target) {
-                document.getElementById('formModalTitle').innerText = "EDIT MASTER & SKINS";
+                document.getElementById('formModalTitle').innerText = "EDIT MASTER DOSSIER";
                 document.getElementById('editMasterId').value = target.id;
                 document.getElementById('formName').value = target.name || '';
                 document.getElementById('formJpName').value = target.jpName || '';
-                document.getElementById('formAffiliation').value = target.affiliation || '';
-                document.getElementById('formCircuits').value = target.circuits || '';
+                document.getElementById('formAffiliation').value = target.affiliation || 'Chaldea';
+                document.getElementById('formElement').value = target.element || 'None';
+                document.getElementById('formRarity').value = target.rarity || 5;
+                document.getElementById('formGender').value = target.gender || '';
+                document.getElementById('formManaCapacity').value = target.manaCapacity || '';
+                document.getElementById('formMagicCircuits').value = target.magicCircuits || '';
                 document.getElementById('formOrigin').value = target.origin || '';
                 document.getElementById('formCv').value = target.cv || '';
-                document.getElementById('formGender').value = target.gender || '';
-                document.getElementById('formRace').value = target.race || '';
+                document.getElementById('formIllustrator').value = target.illustrator || '';
+                document.getElementById('formServants').value = target.contractedServants || '';
+                document.getElementById('formCommandSpellName').value = target.commandSpellName || '';
                 document.getElementById('formImage').value = target.image || '';
 
                 if (target.sprites && target.sprites.length > 0) {
-                    target.sprites.forEach(s => addMasterSpriteInputRow(s));
+                    target.sprites.forEach(s => addSpriteInputRow(s));
                 } else {
-                    addMasterSpriteInputRow({ name: "Default Outfit", url: target.image || "", series: "Mystic Code" });
+                    addSpriteInputRow({ name: "Default Outfit", url: target.image || "", series: "Mystic Code", element: target.element || "", paintedSkins: [] });
                 }
 
                 if (target.voiceLines && target.voiceLines.length > 0) {
@@ -1105,190 +1448,297 @@
                     addVoiceLineInputRow();
                 }
 
+                if (target.skills && target.skills[0]) {
+                    document.getElementById('formSkill1Name').value = target.skills[0].name || '';
+                    document.getElementById('formSkill1Effect').value = target.skills[0].effect || '';
+                }
+                if (target.skills && target.skills[1]) {
+                    document.getElementById('formSkill2Name').value = target.skills[1].name || '';
+                    document.getElementById('formSkill2Effect').value = target.skills[1].effect || '';
+                }
+                if (target.skills && target.skills[2]) {
+                    document.getElementById('formSkill3Name').value = target.skills[2].name || '';
+                    document.getElementById('formSkill3Effect').value = target.skills[2].effect || '';
+                }
+
                 document.getElementById('formTraits').value = (target.traits || []).join(', ');
-                document.getElementById('formLore').value = (target.lore || [target.bio || '']).join('\n');
+                document.getElementById('formLore').value = (target.lore || []).join('\n');
             } else {
                 document.getElementById('formModalTitle').innerText = "ADD NEW MASTER";
                 document.getElementById('editMasterId').value = '';
-                document.getElementById('formCv').value = '';
+                document.getElementById('formAffiliation').value = 'Chaldea';
+                document.getElementById('formElement').value = 'None';
                 document.getElementById('formImage').value = '';
-
-                addMasterSpriteInputRow({ name: "Default Outfit", url: "", series: "Mystic Code" });
-                addVoiceLineInputRow("Greeting", "", "Trace, On! I'm ready for the Holy Grail War.");
+                addSpriteInputRow({ name: "Chaldea Uniform", url: "", series: "Mystic Code", element: "", paintedSkins: [] });
+                addVoiceLineInputRow("Command Spell", "", "By my Command Spell, I order you!");
             }
 
-            masterModal.classList.remove('hidden');
-            setTimeout(() => masterModal.classList.remove('opacity-0'), 10);
+            formModal.classList.remove('hidden');
+            setTimeout(() => formModal.classList.remove('opacity-0'), 10);
         }
 
-        function closeMasterModal() {
-            if (!masterModal) return;
-            masterModal.classList.add('opacity-0');
-            setTimeout(() => masterModal.classList.add('hidden'), 300);
+        function closeFormModal() {
+            formModal.classList.add('opacity-0');
+            setTimeout(() => formModal.classList.add('hidden'), 300);
         }
 
-        function addMasterSpriteInputRow(spriteData = {}) {
+        function addSpriteInputRow(spriteData = {}) {
             const container = document.getElementById('spritesContainer');
             const row = document.createElement('div');
             row.className = "sprite-line-row flex flex-col gap-2 bg-[#1b2233] p-3 rounded border border-gray-700 my-2";
 
-            const data = (typeof spriteData === 'string') 
-                ? { name: arguments[0] || '', url: arguments[1] || '', series: arguments[2] || '' } 
-                : (spriteData || {});
-
-            const { 
-                name = '', 
-                url = '', 
-                series = '', 
-                circuits = '', 
-                origin = '', 
-                cv = '', 
-                gender = '', 
-                race = '', 
-                voiceLines = [] 
-            } = data;
+            const { name = '', url = '', series = '', element = '', gender = '', origin = '', cv = '', illustrator = '', manaCapacity = '', magicCircuits = '', voiceLines = [], paintedSkins = [] } = spriteData;
+            const rowId = 'master_sprite_url_' + Date.now() + '_' + Math.floor(Math.random()*1000);
 
             row.innerHTML = `
                 <div class="flex flex-col sm:flex-row gap-2 items-center">
-                    <input type="text" placeholder="Outfit Name" value="${name}" class="sprite-name w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="Series / Set (e.g. Academy Series)" value="${series}" class="sprite-series w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="url" placeholder="Image URL (https://...)" value="${url}" class="sprite-url w-full sm:w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Outfit / Mystic Code Name" value="${escapeAttr(name)}" class="sprite-name w-full sm:w-1/4 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Series (e.g. Mystic Code / #1 Genshin)" value="${escapeAttr(series)}" class="sprite-series w-full sm:w-1/4 bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <div class="w-full sm:w-1/2 flex gap-1 items-center">
+                        <input type="text" id="${rowId}" placeholder="assets/images/masters/outfit.png" value="${escapeAttr(url)}" class="sprite-url w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                        <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-1.5 rounded cursor-pointer shrink-0 text-[10px] font-bold border border-gray-700">
+                            📁 File
+                            <input type="file" accept="image/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                        </label>
+                    </div>
                     <button type="button" onclick="this.closest('.sprite-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
                 </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 border-t border-gray-800/80 pt-2">
-                    <input type="text" placeholder="Magic Circuit (Khusus Outfit)" value="${circuits}" class="sprite-circuits bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="Origin (Khusus Outfit)" value="${origin}" class="sprite-origin bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="CV (Khusus Outfit)" value="${cv}" class="sprite-cv bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="Gender" value="${gender}" class="sprite-gender bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
-                    <input type="text" placeholder="Race/Role" value="${race}" class="sprite-race bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                
+                <div class="grid grid-cols-2 sm:grid-cols-7 gap-2 border-t border-gray-800/80 pt-2">
+                    <select class="sprite-element bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                        <option value="" ${!element ? 'selected' : ''}>-- Element Outfit --</option>
+                        <option value="Pyro" ${element === 'Pyro' ? 'selected' : ''}>Pyro</option>
+                        <option value="Hydro" ${element === 'Hydro' ? 'selected' : ''}>Hydro</option>
+                        <option value="Anemo" ${element === 'Anemo' ? 'selected' : ''}>Anemo</option>
+                        <option value="Geo" ${element === 'Geo' ? 'selected' : ''}>Geo</option>
+                        <option value="Cryo" ${element === 'Cryo' ? 'selected' : ''}>Cryo</option>
+                        <option value="Electro" ${element === 'Electro' ? 'selected' : ''}>Electro</option>
+                        <option value="Dendro" ${element === 'Dendro' ? 'selected' : ''}>Dendro</option>
+                        <option value="Average One" ${element === 'Average One' ? 'selected' : ''}>Average One</option>
+                        <option value="Unknown" ${element === 'Unknown' ? 'selected' : ''}>Unknown</option>
+                        <option value="None" ${element === 'None' ? 'selected' : ''}>None</option>
+                    </select>
+                    <input type="text" placeholder="Gender" value="${escapeAttr(gender)}" class="sprite-gender bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Origin" value="${escapeAttr(origin)}" class="sprite-origin bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Voice Actor (CV)" value="${escapeAttr(cv)}" class="sprite-cv bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Illustrator" value="${escapeAttr(illustrator)}" class="sprite-illustrator bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="number" placeholder="Mana (MP)" value="${escapeAttr(manaCapacity)}" class="sprite-mana bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
+                    <input type="text" placeholder="Circuits" value="${escapeAttr(magicCircuits)}" class="sprite-circuits bg-[#121723] text-white border border-gray-700 rounded p-1.5 outline-none text-xs">
                 </div>
 
+                <!-- PAINTED OUTFITS SUB-SECTION -->
+                <div class="border-t border-gray-800/80 pt-2 bg-black/30 p-2 rounded">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-[10px] text-pink-300 font-bold">🎨 PAINTED OUTFITS (CHROMA / VARIAN WARNA)</span>
+                        <button type="button" onclick="addMasterPaintedSkinRow(this)" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-pink-300 px-2 py-0.5 rounded border border-gray-700 cursor-pointer">+ Add Painted Outfit</button>
+                    </div>
+                    <div class="painted-skins-container space-y-1.5"></div>
+                </div>
+
+                <!-- OUTFIT VOICE LINES SUB-SECTION -->
                 <div class="border-t border-gray-800/80 pt-2 bg-black/30 p-2 rounded">
                     <div class="flex items-center justify-between mb-1.5">
                         <span class="text-[10px] text-[#cca566] font-bold">🎙️ VOICE LINES KHUSUS OUTFIT INI</span>
-                        <button type="button" onclick="addOutfitVoiceLineRow(this)" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-0.5 rounded border border-gray-700 cursor-pointer">+ Add Outfit Voice</button>
+                        <button type="button" onclick="addSkinVoiceLineRow(this)" class="text-[10px] bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-0.5 rounded border border-gray-700 cursor-pointer">+ Add Outfit Voice</button>
                     </div>
-                    <div class="outfit-voicelines-container space-y-1.5"></div>
+                    <div class="skin-voicelines-container space-y-1.5"></div>
                 </div>
             `;
 
             container.appendChild(row);
 
-            const voicelinesContainer = row.querySelector('.outfit-voicelines-container');
+            const paintedContainer = row.querySelector('.painted-skins-container');
+            if (paintedSkins && paintedSkins.length > 0) {
+                paintedSkins.forEach(ps => addMasterPaintedSkinRow(paintedContainer, ps.name, ps.url, ps.series));
+            }
+
+            const voicelinesContainer = row.querySelector('.skin-voicelines-container');
             if (voiceLines && voiceLines.length > 0) {
-                voiceLines.forEach(vl => addOutfitVoiceLineRow(voicelinesContainer, vl.title, vl.audioUrl, vl.text));
+                voiceLines.forEach(vl => addSkinVoiceLineRow(voicelinesContainer, vl.title, vl.audioUrl, vl.text));
             }
         }
 
-        function addOutfitVoiceLineRow(targetBtnOrContainer, title = '', audioUrl = '', text = '') {
-            let container = targetBtnOrContainer;
-            if (targetBtnOrContainer.tagName === 'BUTTON') {
-                container = targetBtnOrContainer.closest('.sprite-line-row').querySelector('.outfit-voicelines-container');
+        function addMasterPaintedSkinRow(targetElement, name = '', url = '', series = '') {
+            let container = targetElement;
+            if (targetElement.tagName === 'BUTTON') {
+                container = targetElement.closest('.sprite-line-row').querySelector('.painted-skins-container');
             }
 
-            const row = document.createElement('div');
-            row.className = "outfit-vl-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800 items-center";
-            row.innerHTML = `
-                <input type="text" placeholder="Title (e.g. Skill 1)" value="${title}" class="outfit-vl-title w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 outline-none text-[11px]">
-                <input type="url" placeholder="Audio URL" value="${audioUrl}" class="outfit-vl-url w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded p-1 outline-none text-[11px]">
-                <input type="text" placeholder="Transcript..." value="${text}" class="outfit-vl-text w-full sm:w-1/3 bg-[#1b2233] text-white border border-gray-700 rounded p-1 outline-none text-[11px]">
-                <button type="button" onclick="this.closest('.outfit-vl-row').remove()" class="text-red-400 hover:text-red-300 text-xs px-1.5 cursor-pointer">✕</button>
+            const rowId = 'master_painted_url_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+            const pRow = document.createElement('div');
+            pRow.className = "painted-skin-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800";
+            pRow.innerHTML = `
+                <input type="text" placeholder="Nama Painted (e.g. Dark Uniform)" value="${escapeAttr(name)}" class="painted-name w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <input type="text" placeholder="Tag/Series (kosong = ikut outfit ori)" value="${escapeAttr(series)}" class="painted-series w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <div class="w-full sm:w-5/12 flex gap-1 items-center">
+                    <input type="text" id="${rowId}" placeholder="assets/images/masters/painted.png" value="${escapeAttr(url)}" class="painted-url w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                    <label class="bg-gray-800 hover:bg-gray-700 text-pink-300 px-1.5 py-1 rounded cursor-pointer shrink-0 text-[9px] font-bold border border-gray-700">
+                        📁 File
+                        <input type="file" accept="image/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                    </label>
+                </div>
+                <button type="button" onclick="this.closest('.painted-skin-row').remove()" class="text-red-400 font-bold px-1.5 cursor-pointer">✕</button>
             `;
-            container.appendChild(row);
+            container.appendChild(pRow);
+        }
+
+        function addSkinVoiceLineRow(targetElement, title = '', audioUrl = '', text = '') {
+            let container = targetElement;
+            if (targetElement.tagName === 'BUTTON') {
+                container = targetElement.closest('.sprite-line-row').querySelector('.skin-voicelines-container');
+            }
+
+            const rowId = 'master_skin_audio_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+            const vlRow = document.createElement('div');
+            vlRow.className = "skin-vl-row flex flex-col sm:flex-row gap-1.5 bg-[#121723] p-1.5 rounded border border-gray-800";
+            vlRow.innerHTML = `
+                <input type="text" placeholder="Judul Line" value="${escapeAttr(title)}" class="skin-vl-title w-full sm:w-1/4 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <div class="w-full sm:w-1/3 flex gap-1 items-center">
+                    <input type="text" id="${rowId}" placeholder="assets/audio/masters/voice.mp3" value="${escapeAttr(audioUrl)}" class="skin-vl-url w-full bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                    <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-1.5 py-1 rounded cursor-pointer shrink-0 text-[9px] font-bold border border-gray-700">
+                        📁 Audio
+                        <input type="file" accept="audio/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                    </label>
+                </div>
+                <input type="text" placeholder="Transkrip / Dialog" value="${escapeAttr(text)}" class="skin-vl-text w-full sm:w-5/12 bg-[#1b2233] text-white border border-gray-700 rounded p-1 text-[10px] outline-none">
+                <button type="button" onclick="this.closest('.skin-vl-row').remove()" class="text-red-400 font-bold px-1.5 cursor-pointer">✕</button>
+            `;
+
+            container.appendChild(vlRow);
         }
 
         function addVoiceLineInputRow(title = '', audioUrl = '', text = '') {
             const container = document.getElementById('voiceLinesContainer');
             const row = document.createElement('div');
             row.className = "voice-line-row bg-[#1b2233] p-2.5 rounded border border-gray-700 space-y-2 relative group";
+            const rowId = 'master_audio_url_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+
             row.innerHTML = `
                 <div class="flex gap-2">
-                    <input type="text" placeholder="Line Title" value="${title}" class="vl-title w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
-                    <input type="url" placeholder="Audio URL (MP3/WAV)" value="${audioUrl}" class="vl-url w-2/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                    <input type="text" placeholder="Line Title (e.g. Command Spell)" value="${escapeAttr(title)}" class="vl-title w-1/3 bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                    <div class="w-2/3 flex gap-1 items-center">
+                        <input type="text" id="${rowId}" placeholder="assets/audio/masters/voice.mp3" value="${escapeAttr(audioUrl)}" class="vl-url w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                        <label class="bg-gray-800 hover:bg-gray-700 text-amber-300 px-2 py-1.5 rounded cursor-pointer shrink-0 text-[10px] font-bold border border-gray-700">
+                            📁 Audio File
+                            <input type="file" accept="audio/*" onchange="convertFileToBase64(this, '${rowId}')" class="hidden">
+                        </label>
+                    </div>
                     <button type="button" onclick="this.closest('.voice-line-row').remove()" class="text-red-400 hover:text-red-300 font-bold px-2 cursor-pointer">✕</button>
                 </div>
-                <input type="text" placeholder="Dialogue Transcript..." value="${text}" class="vl-text w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
+                <input type="text" placeholder="Dialogue Transcript / Text..." value="${escapeAttr(text)}" class="vl-text w-full bg-[#121723] text-white border border-gray-700 rounded p-1.5 focus:border-[#cca566] outline-none">
             `;
+
             container.appendChild(row);
         }
 
-        function handleMasterSubmit(e) {
+        function handleFormSubmit(e) {
             e.preventDefault();
+
             const editId = document.getElementById('editMasterId').value;
             const traitsArray = document.getElementById('formTraits').value.split(',').map(t => t.trim()).filter(t => t);
             const loreArray = document.getElementById('formLore').value.split('\n').filter(l => l.trim());
 
-            const vlRows = document.querySelectorAll('#voiceLinesContainer .voice-line-row');
+            const vlRows = document.querySelectorAll('.voice-line-row');
             const voiceLines = [];
             vlRows.forEach(row => {
-                const title = row.querySelector('.vl-title')?.value.trim() || '';
-                const audioUrl = row.querySelector('.vl-url')?.value.trim() || '';
-                const text = row.querySelector('.vl-text')?.value.trim() || '';
+                const title = row.querySelector('.vl-title').value.trim();
+                const audioUrl = row.querySelector('.vl-url').value.trim();
+                const text = row.querySelector('.vl-text').value.trim();
                 if (title || text || audioUrl) {
                     voiceLines.push({ title: title || 'Dialogue', audioUrl, text: text || '...' });
                 }
             });
 
-            const spriteRows = document.querySelectorAll('#spritesContainer .sprite-line-row');
+            const spriteRows = document.querySelectorAll('.sprite-line-row');
             const spritesArray = [];
             spriteRows.forEach(row => {
-                const name = row.querySelector('.sprite-name')?.value.trim() || '';
-                const series = row.querySelector('.sprite-series')?.value.trim() || '';
-                const url = row.querySelector('.sprite-url')?.value.trim() || '';
-                const circuits = row.querySelector('.sprite-circuits')?.value.trim() || '';
-                const origin = row.querySelector('.sprite-origin')?.value.trim() || '';
-                const cv = row.querySelector('.sprite-cv')?.value.trim() || '';
-                const gender = row.querySelector('.sprite-gender')?.value.trim() || '';
-                const race = row.querySelector('.sprite-race')?.value.trim() || '';
+                const name = row.querySelector('.sprite-name').value.trim();
+                const series = row.querySelector('.sprite-series').value.trim() || 'Mystic Code';
+                const url = row.querySelector('.sprite-url').value.trim();
 
-                const outfitVlRows = row.querySelectorAll('.outfit-vl-row');
-                const outfitVoiceLines = [];
-                outfitVlRows.forEach(vlRow => {
-                    const vlTitle = vlRow.querySelector('.outfit-vl-title')?.value.trim() || '';
-                    const vlUrl = vlRow.querySelector('.outfit-vl-url')?.value.trim() || '';
-                    const vlText = vlRow.querySelector('.outfit-vl-text')?.value.trim() || '';
-                    if (vlTitle || vlText || vlUrl) {
-                        outfitVoiceLines.push({ title: vlTitle || 'Outfit Line', audioUrl: vlUrl, text: vlText || '...' });
+                const element = row.querySelector('.sprite-element').value.trim();
+                const gender = row.querySelector('.sprite-gender').value.trim();
+                const origin = row.querySelector('.sprite-origin').value.trim();
+                const cv = row.querySelector('.sprite-cv').value.trim();
+                const illustrator = row.querySelector('.sprite-illustrator').value.trim();
+                const manaCapacity = row.querySelector('.sprite-mana').value.trim();
+                const magicCircuits = row.querySelector('.sprite-circuits').value.trim();
+
+                const paintedRows = row.querySelectorAll('.painted-skin-row');
+                const paintedSkins = [];
+                paintedRows.forEach(pRow => {
+                    const pName = pRow.querySelector('.painted-name').value.trim();
+                    const pSeries = pRow.querySelector('.painted-series').value.trim();
+                    const pUrl = pRow.querySelector('.painted-url').value.trim();
+                    if (pUrl) {
+                        paintedSkins.push({
+                            name: pName || 'Painted Variant',
+                            series: pSeries || series,
+                            url: pUrl
+                        });
                     }
                 });
 
-                if (url || name) {
+                const skinVlRows = row.querySelectorAll('.skin-vl-row');
+                const skinVoiceLines = [];
+                skinVlRows.forEach(vlRow => {
+                    const vlTitle = vlRow.querySelector('.skin-vl-title').value.trim();
+                    const vlUrl = vlRow.querySelector('.skin-vl-url').value.trim();
+                    const vlText = vlRow.querySelector('.skin-vl-text').value.trim();
+                    if (vlTitle || vlText || vlUrl) {
+                        skinVoiceLines.push({ title: vlTitle || 'Outfit Line', audioUrl: vlUrl, text: vlText || '...' });
+                    }
+                });
+
+                if (url) {
                     spritesArray.push({
                         name: name || 'Outfit',
-                        series: series || 'Mystic Code',
+                        series: series,
                         url: url,
-                        circuits: circuits,
+                        element: element || undefined,
+                        gender: gender,
                         origin: origin,
                         cv: cv,
-                        gender: gender,
-                        race: race,
-                        voiceLines: outfitVoiceLines
+                        illustrator: illustrator,
+                        manaCapacity: manaCapacity ? parseInt(manaCapacity) : undefined,
+                        magicCircuits: magicCircuits,
+                        paintedSkins: paintedSkins,
+                        voiceLines: skinVoiceLines
                     });
                 }
             });
 
             const existingMaster = editId ? masterData.find(m => m.id === parseInt(editId)) : null;
-            const defaultImg = document.getElementById('formImage').value.trim() || (spritesArray[0] ? spritesArray[0].url : '') || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500';
+            const defaultImg = document.getElementById('formImage').value.trim() || spritesArray[0]?.url || 'assets/images/favicon.png';
 
-            const newMasterObj = {
+            const newMasterObj = normalizeMasterRecord({
                 id: editId ? parseInt(editId) : Date.now(),
                 name: document.getElementById('formName').value,
                 jpName: document.getElementById('formJpName').value,
                 affiliation: document.getElementById('formAffiliation').value,
-                circuits: document.getElementById('formCircuits').value,
+                element: document.getElementById('formElement').value,
+                rarity: parseInt(document.getElementById('formRarity').value),
+                gender: document.getElementById('formGender').value,
+                manaCapacity: parseInt(document.getElementById('formManaCapacity').value) || 0,
+                magicCircuits: document.getElementById('formMagicCircuits').value,
                 origin: document.getElementById('formOrigin').value,
                 cv: document.getElementById('formCv').value,
-                gender: document.getElementById('formGender').value,
-                race: document.getElementById('formRace').value,
+                illustrator: document.getElementById('formIllustrator').value,
+                contractedServants: document.getElementById('formServants').value,
+                commandSpellName: document.getElementById('formCommandSpellName').value,
                 image: defaultImg,
                 activeSpriteIndex: existingMaster?.activeSpriteIndex ?? 0,
-                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Default Outfit", series: "Mystic Code", url: defaultImg }],
+                activePaintedIndex: existingMaster?.activePaintedIndex ?? -1,
+                sprites: spritesArray.length > 0 ? spritesArray : [{ name: "Default Outfit", series: "Mystic Code", url: defaultImg, paintedSkins: [] }],
                 voiceLines: voiceLines,
+                skills: [
+                    { name: document.getElementById('formSkill1Name').value || 'Skill 1', effect: document.getElementById('formSkill1Effect').value || '-' },
+                    { name: document.getElementById('formSkill2Name').value || 'Skill 2', effect: document.getElementById('formSkill2Effect').value || '-' },
+                    { name: document.getElementById('formSkill3Name').value || 'Skill 3', effect: document.getElementById('formSkill3Effect').value || '-' }
+                ],
                 traits: traitsArray,
-                bio: loreArray[0] || "Master record archived.",
-                lore: loreArray.length > 0 ? loreArray : [document.getElementById('formName').value + " record archived."]
-            };
+                lore: loreArray.length > 0 ? loreArray : [document.getElementById('formName').value + " registered in Chaldea Master Archives."]
+            });
 
             if (editId) {
                 const idx = masterData.findIndex(m => m.id === parseInt(editId));
@@ -1302,11 +1752,11 @@
             saveMasterData();
             applyFilters();
             showDetails(newMasterObj);
-            closeMasterModal();
+            closeFormModal();
         }
 
-        function deleteMaster(id) {
-            showConfirmDialog("DELETE MASTER", "Are you sure you want to delete this Master?", () => {
+        function confirmDeleteMaster(id) {
+            showConfirmDialog("DELETE MASTER", "Are you sure you want to delete this master from the registry?", () => {
                 masterData = masterData.filter(m => m.id !== id);
                 saveMasterData();
                 applyFilters();
@@ -1320,39 +1770,183 @@
             });
         }
 
+        function confirmResetData() {
+            showConfirmDialog("RESET DATABASE", "Reset all master records from data/masters.json? All custom changes in browser will be lost.", async () => {
+                localStorage.removeItem(MASTERS_STORAGE_KEY);
+                masterData = await loadMasterData(true);
+                selectedMaster = null;
+                stopAudio();
+                applyFilters();
+                emptyState.classList.remove('hidden');
+                detailView.classList.add('hidden');
+                showToast("Master database reset from data/masters.json.");
+            });
+        }
+
+        function showConfirmDialog(title, msg, onConfirm) {
+            const modal = document.getElementById('confirmModal');
+            document.getElementById('confirmTitle').innerText = title;
+            document.getElementById('confirmMessage').innerText = msg;
+
+            const okBtn = document.getElementById('confirmOkBtn');
+            const cancelBtn = document.getElementById('confirmCancelBtn');
+
+            const cleanup = () => {
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 200);
+            };
+
+            okBtn.onclick = () => {
+                cleanup();
+                onConfirm();
+            };
+            cancelBtn.onclick = cleanup;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').innerText = msg;
             toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
         }
 
         searchBar.addEventListener('input', applyFilters);
 
-        document.addEventListener('keydown', (e) => {
-            const activeTag = document.activeElement ? document.activeElement.tagName : '';
-            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
+        let currentFilteredMasters = [];
 
-            const isMasterModalOpen = !masterModal.classList.contains('hidden');
-            const isLoreModalOpen = !loreModal.classList.contains('hidden');
-            const isConfirmModalOpen = !confirmModal.classList.contains('hidden');
-            if (isMasterModalOpen || isLoreModalOpen || isConfirmModalOpen) return;
+        const _originalRenderGrid = renderGrid;
+        renderGrid = function(data) {
+            currentFilteredMasters = data;
+            _originalRenderGrid(data);
+        };
 
-            if (!selectedMaster) return;
+        document.addEventListener('keydown', function(e) {
+            const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+            const isTyping = ['input', 'textarea', 'select'].includes(activeTag);
+            const confirmModalEl = document.getElementById('confirmModal');
 
-            const sprites = getMasterSprites(selectedMaster);
-            if (sprites.length <= 1) return;
+            if (e.key === 'Escape') {
+                if (confirmModalEl && !confirmModalEl.classList.contains('hidden')) {
+                    confirmModalEl.classList.add('opacity-0');
+                    setTimeout(() => confirmModalEl.classList.add('hidden'), 200);
+                    return;
+                }
+                if (!formModal.classList.contains('hidden')) {
+                    closeFormModal();
+                    return;
+                }
+                if (!loreModal.classList.contains('hidden')) {
+                    toggleLoreModal();
+                    return;
+                }
+                if (isTyping) {
+                    document.activeElement.blur();
+                }
+                return;
+            }
 
-            if (e.key === 'ArrowLeft') {
+            if (isTyping) return;
+
+            const isModalOpen = !loreModal.classList.contains('hidden') || 
+                                !formModal.classList.contains('hidden') || 
+                                (confirmModalEl && !confirmModalEl.classList.contains('hidden'));
+            if (isModalOpen) return;
+
+            if (e.key === '/') {
                 e.preventDefault();
-                const nextIndex = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
-                changeMasterSprite(nextIndex);
-                scrollActiveSpriteIntoView(nextIndex);
-            } else if (e.key === 'ArrowRight') {
+                searchBar.focus();
+                return;
+            }
+
+            // Panah Atas / Bawah: Pindah Master
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (currentFilteredMasters.length === 0) return;
                 e.preventDefault();
-                const nextIndex = (selectedSpriteIndex + 1) % sprites.length;
-                changeMasterSprite(nextIndex);
-                scrollActiveSpriteIntoView(nextIndex);
+
+                let currentIndex = selectedMaster 
+                    ? currentFilteredMasters.findIndex(m => m.id === selectedMaster.id) 
+                    : -1;
+
+                if (e.key === 'ArrowDown') {
+                    currentIndex = (currentIndex + 1) % currentFilteredMasters.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + currentFilteredMasters.length) % currentFilteredMasters.length;
+                }
+
+                const nextMaster = currentFilteredMasters[currentIndex];
+                showDetails(nextMaster);
+
+                const cards = gridContainer.children;
+                if (cards[currentIndex]) {
+                    cards[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+                return;
+            }
+
+            // Panah Kiri / Kanan: Ganti Outfit (atau Shift + Panah Kiri/Kanan untuk Painted Outfit)
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                if (!selectedMaster) return;
+                const sprites = getMasterSprites(selectedMaster);
+
+                if (e.shiftKey) {
+                    const activeSprite = sprites[selectedSpriteIndex] || {};
+                    const paintedList = activeSprite.paintedSkins || [];
+                    if (paintedList.length === 0) return;
+                    e.preventDefault();
+
+                    const totalOptions = paintedList.length + 1;
+                    const normalized = selectedPaintedIndex + 1;
+                    const nextNormalized = e.key === 'ArrowRight'
+                        ? (normalized + 1) % totalOptions
+                        : (normalized - 1 + totalOptions) % totalOptions;
+                    changeMasterPaintedSkin(nextNormalized - 1);
+                    return;
+                }
+
+                if (sprites.length <= 1) return;
+                e.preventDefault();
+
+                let nextSpriteIdx = selectedSpriteIndex;
+                if (e.key === 'ArrowRight') {
+                    nextSpriteIdx = (selectedSpriteIndex + 1) % sprites.length;
+                } else {
+                    nextSpriteIdx = (selectedSpriteIndex - 1 + sprites.length) % sprites.length;
+                }
+                changeMasterSprite(nextSpriteIdx);
+                scrollActiveSpriteIntoView(nextSpriteIdx);
+                return;
+            }
+
+            if (e.code === 'Space') {
+                if (!selectedMaster) return;
+                e.preventDefault();
+                togglePlayVoice();
+                return;
+            }
+
+            if (e.key === '[' || e.key === ']') {
+                if (!selectedMaster) return;
+                const sprites = getMasterSprites(selectedMaster);
+                const activeSprite = sprites[selectedSpriteIndex] || {};
+                const voiceLines = (activeSprite.voiceLines && activeSprite.voiceLines.length > 0) 
+                    ? activeSprite.voiceLines 
+                    : (selectedMaster.voiceLines || []);
+                
+                if (voiceLines.length <= 1) return;
+                e.preventDefault();
+
+                let nextVoiceIdx = selectedVoiceIndex;
+                if (e.key === ']') {
+                    nextVoiceIdx = (selectedVoiceIndex + 1) % voiceLines.length;
+                } else {
+                    nextVoiceIdx = (selectedVoiceIndex - 1 + voiceLines.length) % voiceLines.length;
+                }
+                switchVoiceLine(nextVoiceIdx);
             }
         });
 
@@ -1365,19 +1959,68 @@
             }
         }
 
-        window.onload = function() {
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "masters.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Data Master berhasil di-export (masters.json)!");
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (Array.isArray(importedData) && importedData.length > 0) {
+                        masterData = importedData.map(normalizeMasterRecord);
+                        saveMasterData();
+                        applyFilters();
+                        showDetails(masterData[0]);
+                        showToast("Data Master berhasil di-import!");
+                    } else {
+                        showToast("Format file JSON tidak valid atau kosong.");
+                    }
+                } catch (err) {
+                    showToast("Gagal membaca file JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === MASTERS_STORAGE_KEY) {
+                masterData = loadMasterDataFromStorageOnly();
+                applyFilters();
+                if (selectedMaster) {
+                    const updated = masterData.find(item => item.id === selectedMaster.id);
+                    if (updated) {
+                        showDetails(updated);
+                    } else if (masterData.length > 0) {
+                        showDetails(masterData[0]);
+                    } else {
+                        selectedMaster = null;
+                        detailView.classList.add('hidden');
+                        emptyState.classList.remove('hidden');
+                    }
+                }
+            }
+        });
+
+        window.onload = async function() {
+            masterData = await loadMasterData(false);
             applyFilters();
-            if (masterData.length > 0) showDetails(masterData[0]);
-        }
-    </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
-                    .catch((err) => console.error('Service Worker Registration Failed:', err));
-            });
-        }
+            if (masterData.length > 0) {
+                showDetails(masterData[0]);
+            }
+        };
     </script>
 </body>
 </html>
