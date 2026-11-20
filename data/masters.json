@@ -1,0 +1,1396 @@
+[
+  {
+    "id": 1790756659932,
+    "name": "Tokisaki Kurumi",
+    "jpName": "時崎狂",
+    "affiliation": "Chaldea",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "Pyro",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Kurumi/Kurumi.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Tokisaki Kurumi",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Kurumi/Kurumi.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Kurumi/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Fischl",
+        "series": "#1",
+        "url": "assets/images/masters/Kurumi/fischl.png",
+        "element": "Electro",
+        "gender": "Female",
+        "origin": "",
+        "cv": "Uchida Maaya",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Phoebe",
+        "series": "#2",
+        "url": "assets/images/masters/Kurumi/phoebe.png",
+        "element": "Geo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      },
+      {
+        "title": "f",
+        "audioUrl": "",
+        "text": "d"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Tokisaki Kurumi record archived."
+    ]
+  },
+  {
+    "id": 1790756579328,
+    "name": "Pantalone",
+    "jpName": "パンタローネ",
+    "affiliation": "Chaldea",
+    "element": "Electro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "Electro",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Pantalone/pantalone.png",
+    "activeSpriteIndex": 2,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Pantalone",
+        "series": "#1",
+        "url": "assets/images/masters/Pantalone/pantalone.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Pantalone/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Jiyan",
+        "series": "#2",
+        "url": "assets/images/masters/Pantalone/jiyan.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Pantalone record archived."
+    ]
+  },
+  {
+    "id": 1790756527035,
+    "name": "Sieg",
+    "jpName": "ジーク",
+    "affiliation": "Chaldea",
+    "element": "Pyro",
+    "rarity": 1,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Sieg/sieg.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Sieg",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Sieg/sieg.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Sieg/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Chongyun",
+        "series": "#1",
+        "url": "assets/images/masters/Sieg/chongyun.png",
+        "element": "Cryo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Xiangli Yao",
+        "series": "#2",
+        "url": "assets/images/masters/Sieg/xiangliyao.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Sieg record archived."
+    ]
+  },
+  {
+    "id": 1790756489907,
+    "name": "Flat Escardos",
+    "jpName": "フラット・エスカルドス",
+    "affiliation": "Chaldea",
+    "element": "Anemo",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "j",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Flat/flat.png",
+    "activeSpriteIndex": 2,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Flat Escardos",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Flat/flat.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Flat/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bennett",
+        "series": "#1",
+        "url": "assets/images/masters/Flat/bennett.png",
+        "element": "Pyro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Brant",
+        "series": "#2",
+        "url": "assets/images/masters/Flat/brant.png",
+        "element": "Pyro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "a",
+        "series": "#16",
+        "url": "w",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Flat Escardos record archived."
+    ]
+  },
+  {
+    "id": 1790756425278,
+    "name": "Ashiya Douman",
+    "jpName": "蘆屋道満",
+    "affiliation": "Chaldea",
+    "element": "Electro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Ashiya/ashiya.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Ashiya Douman",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Ashiya/ashiya.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Ashiya/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Arataki Itto",
+        "series": "#1",
+        "url": "assets/images/masters/Ashiya/itto.png",
+        "element": "Geo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Aalto",
+        "series": "#2",
+        "url": "assets/images/masters/Ashiya/aalto.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Ashiya Douman record archived."
+    ]
+  },
+  {
+    "id": 1790756399461,
+    "name": "Sessyoin Kiara",
+    "jpName": "殺生院 キアラ",
+    "affiliation": "Chaldea",
+    "element": "Hydro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Kiara/kiara.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Sessyoin Kiara",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Kiara/kiara.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Kiara/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Yae Miko",
+        "series": "#1",
+        "url": "assets/images/masters/Kiara/yae.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Cartethyia",
+        "series": "#2",
+        "url": "assets/images/masters/Kiara/cartethyia.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Sessyoin Kiara record archived."
+    ]
+  },
+  {
+    "id": 1790756326087,
+    "name": "Matou Shinji",
+    "jpName": "間桐慎二",
+    "affiliation": "Chaldea",
+    "element": "Dendro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Shinji/shinji.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Matou Shinji",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Shinji/shinji.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Shinji/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Wanderer",
+        "series": "#1",
+        "url": "assets/images/masters/Shinji/wanderer.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Yuanwu",
+        "series": "#2",
+        "url": "assets/images/masters/Shinji/yuanwu.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Matou Shinji record archived."
+    ]
+  },
+  {
+    "id": 1790756271002,
+    "name": "Chloe von Einzbern",
+    "jpName": "クロエフォン・アインツベルン",
+    "affiliation": "Chaldea",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Chloe/chloe.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Chloe von Einzbern",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Chloe/chloe.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Chloe/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Jahoda",
+        "series": "#1",
+        "url": "assets/images/masters/Chloe/jahoda.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Verina",
+        "series": "#2",
+        "url": "assets/images/masters/Chloe/verina.png",
+        "element": "Dendro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Chloe von Einzbern record archived."
+    ]
+  },
+  {
+    "id": 1790756157141,
+    "name": "Shikinami Asuka Langley",
+    "jpName": "式波・アスカ・ラングレー",
+    "affiliation": "Chaldea",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Asuka/asuka.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Shikinami Asuka Langley",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Asuka/asuka.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Asuka/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Keqing",
+        "series": "#1",
+        "url": "assets/images/masters/Asuka/keqing.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Aemeath",
+        "series": "#2",
+        "url": "assets/images/masters/Asuka/aemeath.png",
+        "element": "Pyro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Shikinami Asuka Langley record archived."
+    ]
+  },
+  {
+    "id": 1790755950980,
+    "name": "Diablo",
+    "jpName": "ディアブロ",
+    "affiliation": "Chaldea",
+    "element": "Unknown",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Diablo/diablo.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Diablo",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Diablo/diablo.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Diablo/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Tartaglia",
+        "series": "#1",
+        "url": "assets/images/masters/Diablo/childe1.png",
+        "element": "Hydro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "#1",
+            "url": "assets/images/masters/Diablo/childe.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Luuk Herssen",
+        "series": "#2",
+        "url": "assets/images/masters/Diablo/luuk.png",
+        "element": "Geo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Diablo record archived."
+    ]
+  },
+  {
+    "id": 1790755885367,
+    "name": "Izawa Shizue ",
+    "jpName": "井沢静江",
+    "affiliation": "Chaldea",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Shizue/shizue.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": 0,
+    "sprites": [
+      {
+        "name": "Shizue Izawa",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Shizue/shizue.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Shizue/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Vesna",
+        "series": "#1",
+        "url": "assets/images/masters/Shizue/vesna.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Yangyang",
+        "series": "#2",
+        "url": "assets/images/masters/Shizue/yangyang.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [
+          {
+            "name": "Xuanling",
+            "series": "#2",
+            "url": "assets/images/masters/Shizue/xuanling.png"
+          }
+        ],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Shizue Izawa record archived."
+    ]
+  },
+  {
+    "id": 1790746963653,
+    "name": "Kyoushuku Ren",
+    "jpName": "恐縮斂",
+    "affiliation": "Chaldea",
+    "element": "Unknown",
+    "rarity": 5,
+    "gender": "",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Ren/ren.png",
+    "activeSpriteIndex": 4,
+    "activePaintedIndex": 0,
+    "sprites": [
+      {
+        "name": "Kyoushuku Ren",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Ren/ren.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Ren/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Dainsleif",
+        "series": "#1",
+        "url": "assets/images/masters/Ren/dain.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Qiuyuan",
+        "series": "#2",
+        "url": "assets/images/masters/Ren/qiuyuan.png",
+        "element": "Anemo",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Phainon",
+        "series": "#3",
+        "url": "assets/images/masters/Ren/Kevin/phainon3.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [
+          {
+            "name": "Kevin Kaslana",
+            "series": "#3",
+            "url": "assets/images/masters/Ren/Kevin/kevin.png"
+          }
+        ],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "",
+        "text": "Trace, On! I'm ready for the Holy Grail War."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "teh record archived."
+    ]
+  },
+  {
+    "id": 101,
+    "name": " Emiya Shirou",
+    "jpName": "衛宮士郎",
+    "affiliation": "Tohsaka / Clock Tower",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "Male",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "Sword",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Shirou/shirou.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Shirou Emiya",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Shirou/shirou.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Shirou/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Aether",
+        "series": "#1",
+        "url": "assets/images/masters/Shirou/aether.png",
+        "element": "Pyro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Rover (Male)",
+        "series": "#2",
+        "url": "assets/images/masters/Shirou/mrover.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Greeting",
+        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Tchaikovsky_-_1812_Overture_%28Finale_excerpt%29.ogg",
+        "text": "Trace, On! Are you my Servant? I'm Shirou Emiya, ready to fight alongside you."
+      },
+      {
+        "title": "Command Seal",
+        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Sound_Effect_-_Magic_Spell.ogg",
+        "text": "By the power of my Command Seal... Saber, lend me your sword!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [
+      "Human",
+      "Magus",
+      "Projection",
+      "Emiya"
+    ],
+    "lore": [
+      "Satu-satunya penyintas dari kebakaran besar Fuyuki 10 tahun lalu.",
+      "Memiliki spesialisasi sihir Projection (Trace) dan Reinforcement."
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Tohsaka Rin ",
+    "jpName": "遠坂凛",
+    "affiliation": "Tohsaka / Clock Tower",
+    "element": "Cryo",
+    "rarity": 5,
+    "gender": "Female",
+    "manaCapacity": 0,
+    "magicCircuits": "",
+    "origin": "Five Elements",
+    "cv": "",
+    "illustrator": "",
+    "contractedServants": "",
+    "commandSpellName": "",
+    "image": "assets/images/masters/Rin/rin.png",
+    "activeSpriteIndex": 1,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Rin Tohsaka",
+        "series": "Mystic Code",
+        "url": "assets/images/masters/Rin/rin.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/masters/Rin/uniform.png",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lumine",
+        "series": "#1",
+        "url": "assets/images/masters/Rin/lumine.png",
+        "element": "Pyro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Rover (Female)",
+        "series": "#2",
+        "url": "assets/images/masters/Rin/frover.png",
+        "element": "Electro",
+        "gender": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "magicCircuits": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Ludwig_van_Beethoven_-_Symphony_No._5%2C_Op._67_-_I._Allegro_con_brio.ogg",
+        "text": "I summoned the strongest class, Archer! Wait... why didn't the ritual go as planned?!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [
+      "Human",
+      "Magus",
+      "Jewel Magic",
+      "Tohsaka"
+    ],
+    "lore": [
+      "Magus genius generasi ke-6 dari keluarga Tohsaka.",
+      "Menguasai sihir manipulasi kristal permata dan bertindak sebagai penerus resmi Fuyuki."
+    ]
+  }
+]

@@ -1,0 +1,301 @@
+[
+  {
+    "id": 1790756686552,
+    "masterId": 1790746963653,
+    "servantId": 1790091034178,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790790202846,
+        "time": "Day 2 | Dec 17, 2026, 09:30 PM | Arashiyama Bamboo Grove, Kyoto",
+        "text": "Encountered Saber; battle was inevitable. Fought against her and won. Avenger almost killed Saber, but her Master stopped her, sparing Saber's life."
+      },
+      {
+        "id": 1790787519654,
+        "time": "Day 1 | Dec 17, 2026, 01:15 AM | Shijo Bridge, Kamo River, Kyoto",
+        "text": "Engaged Archer at Shijo Bridge and won, but spared her life."
+      },
+      {
+        "id": 1790762214331,
+        "time": "Day 1 | Dec 16, 2026, 11:39 PM | Honno-ji Temple, Kyoto",
+        "text": "Ren summoned Avenger at Honno-ji Temple. The Sixth Heaven's Demon King returned to the site of her legendary end."
+      }
+    ]
+  },
+  {
+    "id": 1790756766762,
+    "masterId": 1790756271002,
+    "servantId": 1790091711709,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790790426769,
+        "time": "Day 2 | Dec 17, 2026, 10:15 PM | Arashiyama Outskirts, Kyoto",
+        "text": "Received help from Shirou and Rider"
+      },
+      {
+        "id": 1790790244234,
+        "time": "Day 2 | Dec 17, 2026, 09:30 PM | Arashiyama Bamboo Grove, Kyoto",
+        "text": "Encountered Avenger; battle was inevitable. Fought against her and was defeated. Avenger almost killed Saber, but Avenger's Master stopped her, sparing Saber's life."
+      },
+      {
+        "id": 1790787860943,
+        "time": "Day 1 | Dec 17, 2026, 01:45 AM | Arashiyama Bamboo Grove, Kyoto",
+        "text": "Reconnoitered central Kyoto without engaging; gathered local intelligence with Master."
+      },
+      {
+        "id": 1790783969479,
+        "time": "Day 1 | Dec 16, 2026, 11:43 PM | Arashiyama Bamboo Grove, Kyoto",
+        "text": "Chloe summoned Saber at Arashiyama. The wandering dual-blade grandmaster pledged her sword to her Master."
+      }
+    ]
+  },
+  {
+    "id": 1790756717736,
+    "masterId": 102,
+    "servantId": 1790102673362,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790787595072,
+        "time": "Day 1 | Dec 17, 2026, 01:15 AM | Shijo Bridge, Kamo River, Kyoto",
+        "text": "Engaged Avenger at Shijo Bridge; was defeated, but spared by Avenger."
+      },
+      {
+        "id": 1790762367672,
+        "time": "Day 1 | Dec 16, 2026, 11:48 PM | Gion Manor Workshop, Kyoto",
+        "text": "Rin summoned Archer at Gion Manor. The cursed bowwoman sealed her contract under Rin's supervision."
+      }
+    ]
+  },
+  {
+    "id": 1790756897978,
+    "masterId": 101,
+    "servantId": 1790102878835,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790790288761,
+        "time": "Day 2 | Dec 17, 2026, 10:15 PM | Arashiyama Outskirts, Kyoto",
+        "text": "Arrived at Arashiyama post-battle; assisted in securing the injured Saber and Chloe."
+      },
+      {
+        "id": 1790787902802,
+        "time": "Day 1 | Dec 17, 2026, 02:00 AM | Kyoto Station Maintenance Yard, Kyoto",
+        "text": "Established defensive Bounded Fields around Kyoto Station; maintained passive surveillance."
+      },
+      {
+        "id": 1790784045878,
+        "time": "Day 1 | Dec 16, 2026, 11:52 PM | Kyoto Station Maintenance Yard, Kyoto",
+        "text": "Shirou summoned Rider at Kyoto Station. The savior who built the great flood ark established a stable contract."
+      }
+    ]
+  },
+  {
+    "id": 1790756839920,
+    "masterId": 1790755885367,
+    "servantId": 1790102698645,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790787952559,
+        "time": "Day 1 | Dec 17, 2026, 02:30 AM | Kiyomizu-dera Temple Grounds, Kyoto",
+        "text": "Secured the Kiyomizu leyline node; deployed freezing detection familiars over Kyoto."
+      },
+      {
+        "id": 1790784078211,
+        "time": "Day 1 | Dec 16, 2026, 11:56 PM | Kiyomizu-dera Grounds, Kyoto",
+        "text": "Shizue summoned Caster at Kiyomizu-dera. The grand duchess of ice connected to the Kyoto leylines."
+      }
+    ]
+  },
+  {
+    "id": 1790757050818,
+    "masterId": 1790756659932,
+    "servantId": 1790102864059,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790788227002,
+        "time": "Day 1 | Dec 17, 2026, 03:00 AM | Mount Kurama Peak, Kyoto",
+        "text": "Observed the city from Mount Kurama; refrained from early combat per Master's order."
+      },
+      {
+        "id": 1790784113356,
+        "time": "Day 1 | Dec 16, 2026, 11:59 PM | Mount Kurama Peak, Kyoto",
+        "text": "Kurumi summoned Lancer at Mount Kurama. The primordial drought dragon of legend manifested fully armed."
+      }
+    ]
+  },
+  {
+    "id": 1790756810826,
+    "masterId": 1790756157141,
+    "servantId": 1790102816065,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790790487635,
+        "time": "Day 2 | Dec 17, 2026, 11:45 PM | Pontocho Hideout, Kyoto",
+        "text": "Analyzed Ren's tactical restraint; noted his intentional preservation of rival Servants."
+      },
+      {
+        "id": 1790788264525,
+        "time": "Day 1 | Dec 17, 2026, 03:30 AM | Pontocho Alleyway, Kyoto",
+        "text": "Executed covert reconnaissance along Pontocho; witnessed the Avenger-Archer clash undetected."
+      },
+      {
+        "id": 1790784148623,
+        "time": "Day 1 | Dec 17, 2026, 12:04 AM | Pontocho Alleyway, Kyoto",
+        "text": "Asuka summoned Assassin at Pontocho. The obsidian lord of night maintained total concealment."
+      }
+    ]
+  },
+  {
+    "id": 1790756874996,
+    "masterId": 1790756579328,
+    "servantId": 1790184147341,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790788292139,
+        "time": "Day 1 | Dec 17, 2026, 04:00 AM | Kamogawa Riverfront Estate, Kyoto",
+        "text": "Fortified headquarters along Kamogawa; initiated Master profile analysis and strategic planning."
+      },
+      {
+        "id": 1790784183989,
+        "time": "Day 1 | Dec 17, 2026, 12:12 AM | Kamogawa Riverfront Estate, Kyoto",
+        "text": "Pantalone summoned Pretender at Kamogawa. The masked traveler of the underworld sealed the pact in secrecy."
+      }
+    ]
+  },
+  {
+    "id": 1790757224293,
+    "masterId": 1790756489907,
+    "servantId": 1790183944280,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790788320453,
+        "time": "Day 1 | Dec 17, 2026, 04:30 AM | Kamigyo Ward Machiya, Kyoto",
+        "text": "Accidental magical containment failure at Machiya workshop; successfully concealed by Alter Ego."
+      },
+      {
+        "id": 1790784206580,
+        "time": "Day 1 | Dec 17, 2026, 12:20 AM | Kamigyo Ward Machiya, Kyoto",
+        "text": "Flat summoned Alter Ego at the Machiya Workshop. The immortal-seeking alchemist arrived through irregular magic."
+      }
+    ]
+  },
+  {
+    "id": 1790757212282,
+    "masterId": 1790756399461,
+    "servantId": 1790103193704,
+    "summonedDay": "Day 1",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790788349931,
+        "time": "Day 1 | Dec 17, 2026, 05:00 AM | Fushimi Inari Sanctuary, Kyoto",
+        "text": "Anchored planetary spiritual node at Fushimi Inari; remained neutral during initial night."
+      },
+      {
+        "id": 1790784228239,
+        "time": "Day 1 | Dec 17, 2026, 12:30 AM | Fushimi Inari Sanctuary, Kyoto",
+        "text": "Kiara summoned Mooncancer at Fushimi Inari. The planetary archetype distorted reality during manifestation."
+      }
+    ]
+  },
+  {
+    "id": 1790756856262,
+    "masterId": 1790756326087,
+    "servantId": 1790102847818,
+    "summonedDay": "Day 2",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790784262931,
+        "time": "Day 2 | Dec 17, 2026, 2:15 PM | Sagano Estate Basement, Kyoto",
+        "text": "Shinji summoned Berserker at Sagano. The primordial mother of demons manifested with violent mana."
+      }
+    ]
+  },
+  {
+    "id": 1790757084263,
+    "masterId": 1790756527035,
+    "servantId": 1790103169497,
+    "summonedDay": "Day 2",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790784287945,
+        "time": "Day 2 | Dec 17, 2026, 6:40 PM | Cathedral Chapel Altar, Kyoto",
+        "text": "Sieg summoned Ruler at the Cathedral Chapel. The mastermind of criminal mathematics accepted the mediator mandate."
+      }
+    ]
+  },
+  {
+    "id": 1790757239962,
+    "masterId": 1790756425278,
+    "servantId": 1790184070821,
+    "summonedDay": "Day 2",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790787309764,
+        "time": "Day 2 | Dec 17, 2026, 11:11 PM | Mount Hiei Glade, Kyoto",
+        "text": "Ashiya summoned Foreigner at Mount Hiei. The corrupted grand master of the void tore open the atmosphere."
+      }
+    ]
+  },
+  {
+    "id": 1790757252462,
+    "masterId": 1790755950980,
+    "servantId": 1790184238462,
+    "summonedDay": "Day 4",
+    "commandSeals": 3,
+    "status": "Active",
+    "notes": "",
+    "battleLogs": [
+      {
+        "id": 1790784338948,
+        "time": "Day 4 | Dec 19, 2026, 3:33 AM | Mount Hiei Subterranean Cavern, Kyoto",
+        "text": "Diablo summoned Beast beneath Mount Hiei. The capital vice of imperial collapse manifested, shaking the Kyoto leylines."
+      }
+    ]
+  }
+]

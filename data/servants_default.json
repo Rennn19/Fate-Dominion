@@ -1,0 +1,3457 @@
+[
+  {
+    "id": 1790184238462,
+    "name": "Draco",
+    "jpName": "ドラコー",
+    "class": "Beast",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Draco/draco.png",
+    "activeSpriteIndex": 1,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Demon Beast Emperor Draco",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Draco/draco.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Draco/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Queen Draco",
+        "series": "Special Series",
+        "url": "assets/images/servants/Draco/Queen/queen.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/draco/queen/queenSummon.ogg",
+            "text": "My name is Draco. I am Sodom's Beast, Draco. Umu...ah, yes, that's correct. My class is Beast. Fufu...hahahahaha! This is a hoot! You have truly hit the jackpot!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/draco/queen/queenNP.ogg",
+            "text": "The curtain has risen. Tremble, sinners... for you have piled up your wealth on this earth, hoping to reach the heavens! Let me respond to your desire... ...with my Babalon Domus Aurea!"
+          }
+        ]
+      },
+      {
+        "name": "Casual (Queen Draco)",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Draco/Queen/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/draco/queen/queenSummon.ogg",
+            "text": "My name is Draco. I am Sodom's Beast, Draco. Umu...ah, yes, that's correct. My class is Beast. Fufu...hahahahaha! This is a hoot! You have truly hit the jackpot!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/draco/queen/queenNP.ogg",
+            "text": "The curtain has risen. Tremble, sinners... for you have piled up your wealth on this earth, hoping to reach the heavens! Let me respond to your desire... ...with my Babalon Domus Aurea!"
+          }
+        ]
+      },
+      {
+        "name": "Sodom's Beasts",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Draco/Queen/sodom.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/draco/queen/queenSummon.ogg",
+            "text": "My name is Draco. I am Sodom's Beast, Draco. Umu...ah, yes, that's correct. My class is Beast. Fufu...hahahahaha! This is a hoot! You have truly hit the jackpot!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/draco/queen/queenNP.ogg",
+            "text": "The curtain has risen. Tremble, sinners... for you have piled up your wealth on this earth, hoping to reach the heavens! Let me respond to your desire... ...with my Babalon Domus Aurea!"
+          }
+        ]
+      },
+      {
+        "name": "Whore of Babylon",
+        "series": "Legend Series",
+        "url": "assets/images/servants/Draco/legend.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Draco/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Nahida",
+        "series": "#1",
+        "url": "assets/images/servants/Draco/Queen/nahida1.png",
+        "element": "Dendro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "#1",
+            "url": "assets/images/servants/Draco/Queen/nahida.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/draco/nahida/nahidaSummon.ogg",
+            "text": "Nice to meet you! Hehe, I've actually been watching you for a long time already. My name's Nahida. I might look like a child, but don't be fooled: I understand this world much better than any grown-up. So... can we trade knowledge? I want to hear all about your travel stories. So, what would you like to know in return?"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/draco/nahida/nahidaNP.ogg",
+            "text": "The Temple of Wisdom."
+          }
+        ]
+      },
+      {
+        "name": "Cantarella",
+        "series": "#2",
+        "url": "assets/images/servants/Draco/cantarella.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/draco/cantarella/cantarellaSummon.ogg",
+            "text": "The current head of Fisalia, Cantarella, the Bane. Whether I am the Bane of the wicked or the pure is yours to decide. Shh, no need to answer. The moment you arrived, the ripples that surrounded you told me all I needed to know."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/draco/cantarella/cantarellaNP.ogg",
+            "text": "Sleep, in the whispers of sirens."
+          }
+        ]
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/draco/dracoSummon.ogg",
+        "text": "This is me, having overcome my sunset in my lifetime. What is wrong? You need not hold back. Praise me to your heart's content. Hm? You want to know what was with the attitude I had earlier? Oh...I was just a little embarrassed. Read the room."
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/draco/dracoNP.ogg",
+        "text": "Calamity comes from the sea... Behold. This is the answer to your prosperity. It is the twinkling of a meteor that slashes across the sky of desire! Babalon Domus Aurea!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Babalon Domus Aurea!",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "Draco record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790184147341,
+    "name": "Dante Alighieri",
+    "jpName": "ダンテ・アリギエーリ",
+    "class": "Pretender",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Dante/dante.png",
+    "activeSpriteIndex": 2,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Dante Alighieri",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Dante/dante.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Dante/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Flins",
+        "series": "#1",
+        "url": "assets/images/servants/Dante/flins1.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Dante/flins.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/dante/flins/flinsSummon.ogg",
+            "text": "Greetings, I am Kyryll Chudomirovich Flins. It is considered good etiquette to give my full name when greeting important guests, but this no doubt leaves you wondering what to call me on a day-to-day basis... Well, in the past, I was customarily addressed as"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/dante/flins/flinsNP.ogg",
+            "text": "The long sleep beckons."
+          }
+        ]
+      },
+      {
+        "name": "Scar",
+        "series": "#2",
+        "url": "assets/images/servants/Dante/scar.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/dante/danteSummon.ogg",
+        "text": "A summons… a summons? Hehe… well done, summoning me… My name is Dante Alighieri… As you know, I am the author of the Divine Comedy… As a Pretender, I am also the main character of the Divine Comedy… Hehe… in summary… I look forward to your continued support…"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/dante/danteNP.ogg",
+        "text": "Ah, the seat of God has vanished—all that remains is this gate to Hell! Don’t look, don’t look! Worms bore through the brain; Hell begins its march! “Lasciate ogne speranza, voi ch'intrate!”"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "Dante Alighieri record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790184070821,
+    "name": "Jacques de Molay",
+    "jpName": "ジャック・ド・モレー",
+    "class": "Foreigner",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Jacques/jacques.png",
+    "activeSpriteIndex": 2,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Jacques de Molay",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Jacques/jacques.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Jacques/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Arlecchino",
+        "series": "#1",
+        "url": "assets/images/servants/Jacques/arle1.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Jacques/arle.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/jacques/arle/arleSummon.ogg",
+            "text": "I am The Knave, Arlecchino, Fourth of the Fatui Harbingers. The children of the House of the Hearth call me"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/jacques/arle/arleNP.ogg",
+            "text": "Everlasting as the moon."
+          }
+        ]
+      },
+      {
+        "name": "Danjin",
+        "series": "#2",
+        "url": "assets/images/servants/Jacques/danjin.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/jacques/danjin/danjinSummon.ogg",
+            "text": "Greetings, my name is Danjin. I'm currently patrolling the lands as a ranger. Tell me about any injustice you've encountered, and I'll get it dealt with. You can't think of any? That's good."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/jacques/danjin/danjinNP.ogg",
+            "text": "Judgement!"
+          }
+        ]
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/jacques/jacquesSummon.ogg",
+        "text": "Make way, make way...I'm Molay! I'm the final Grand Master of the Knights Templar! Well, that's what I'm known for, but a lot of people forced a bunch of other stuff on me and, long story short, they gave me a bad rep and burned me at the stake. So it's not my fault I ended up being labeled"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/jacques/jacquesNP.ogg",
+        "text": "Ave, ave, Domina... Chant, my eternal brothers. Call Gehenna and the divine punishment of Eden to this land! May anguish echo everywhere, and let it be wholly heartless. Deliver those bastards what they've always desired! Vendredi Treize!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "Jacques de Molay record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790183944280,
+    "name": "Xu Fu",
+    "jpName": "徐福",
+    "class": "AlterEgo",
+    "element": "Hydro",
+    "rarity": 3,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Xufu/xufu.png",
+    "activeSpriteIndex": 3,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Xu Fu",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Xufu/xufu.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Xufu/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Citlali",
+        "series": "#1",
+        "url": "assets/images/servants/Xufu/citlali1.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Xufu/citlali.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/xufu/citlali/citlaliSummon.ogg",
+            "text": "I am Citlali from the Masters of the Night-Wind. I have read the stars and seen the future through the obscuring smoke. You shall be blessed with good fortune and have the aid of powerful allies during your journey. Allow me to join you — Hey, I can be serious! Stop looking at me like that!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/xufu/citlali/citlaliNP.ogg",
+            "text": "Suffer the wrath of Itztli!"
+          }
+        ]
+      },
+      {
+        "name": "Zhezhi",
+        "series": "#2",
+        "url": "assets/images/servants/Xufu/zhezhi.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/xufu/zhezhi/zhezhiSummon.ogg",
+            "text": "I'm Zhezhi… I do commissioned paintings. Um, what else...? Oh, I'm open for commissions! I offer fair prices, can adapt to any style you need, and do revisions too. And I never miss a deadline!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/xufu/zhezhi/zhezhiNP.ogg",
+            "text": "Witness the art's true form!"
+          }
+        ]
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/xufu/xufuSummon.ogg",
+        "text": "Servant, Caster-now-Alter Ego. My True Name is Xu F... GYAAAH! Wha, no way, is this Chaldea!? Oh, come on! You got a grudge against me or something!? Huh? Hold up. ...Lady Yu. Hey, is Lady Yu here!? She is, isn't she!? Hurry, show me where she is! Hurry up!"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/xufu/xufuNP.ogg",
+        "text": "Four Symbols. Infinitude. Yellow Dragon. Tranquility. Yonder. Spiral. After two thousand and two hundred years, I now make my report to His Imperial Majesty. I present to you the elixir of eternal life. It's a lie, though."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "Xu Fu record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790103193704,
+    "name": "Archetype: Earth",
+    "jpName": "アーキタイプ: アース",
+    "class": "MoonCancer",
+    "element": "Cryo",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Archetype/archetype.png",
+    "activeSpriteIndex": 7,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Archetype: Earth",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Archetype/archetype.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Original One",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Archetype/original.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/archetype/original/oriSummon.ogg",
+            "text": "I have reconfigured myself to suit the stage of Chaldea. I am neither the original nor my newest self... No, this is a fleeting dream, a what-if version who was never driven mad by blood— The Princess of the True Ancestors, in the fullest sense."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/original/oriNP.ogg",
+            "text": "Submit. There is no path to my distant home. This castle is my final cage. ...Welcome to my lunar citadel."
+          }
+        ]
+      },
+      {
+        "name": "Celebratory Attire",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Archetype/celebratory.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Arcueid Brunestud",
+        "series": "Special Series",
+        "url": "assets/images/servants/Archetype/Arcueid/arcueid.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "Phantasmoon",
+        "series": "Special Series",
+        "url": "assets/images/servants/Archetype/Arcueid/phantasmoon.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/phantasmoon/phantasmoonSummon.ogg",
+            "text": "Hi～! I'm the White Moon Princess, Phantasmoon～!! Thanks for waiting～! I'm a gorgeous and pure white princess! On top of that, I'm a magical girl that KILLS. EVIL. AT ONCE! Eh? What's with that face? Don't tell me I surprised you."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/phantasmoon/phantasmoonNP.ogg",
+            "text": "Found you! Receive the Moon's strike! I'll crush you all together! “Marble Phantasm – Happy Verse”!!"
+          }
+        ]
+      },
+      {
+        "name": "Space Phantasmoon V",
+        "series": "Special Series",
+        "url": "assets/images/servants/Archetype/Arcueid/space.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/space/spaceSummon.ogg",
+            "text": "Sorry for hiding it until now. This is the real me. Yes, Phantasmoon is my provisional name to hide from society. I'm, the True Ancestor from space that came from the Univer-… se? And my name's Space Phantasmoon! That's right! This is what's trendy now, isn't it? Um, I'll do it too, I'll do it〜! White Moon Princess, Season 2, Phantasmoon V! A dashing debut from the surface of the moon! And also… You're interested in the private life of royalty, aren't you…?"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/space/spaceNP.ogg",
+            "text": "I’ll show you my real, real strength! Everyone from the earth, are you ready to go to Heaven? “Marble Phantasm – Happy Verse”!! The V for Victory is the V for Vamp☆"
+          }
+        ]
+      },
+      {
+        "name": "Santasmoon",
+        "series": "Christmas Series",
+        "url": "assets/images/servants/Archetype/Arcueid/santasmoon.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/archetype/santa/santaSummon.ogg",
+            "text": "Sorry for hiding it until now & thank you for your support! That’s right, this is how I am this time, a genuine Earthling, the embodiment of the holy night, Santasmoon! I’ll hand out presents with unprecedented energy, and make everyone from Earth happy! Prepare yourself!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/santa/santaNP.ogg",
+            "text": "Turning the feelings of gratitude into power ─── I invite you to the Moon’s world. Roar! “Happy Verse - TAKE MOON”! Let’s meet next year."
+          }
+        ]
+      },
+      {
+        "name": "Casual (Arcueid)",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Archetype/Arcueid/casual.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "Berserk (Arcueid)",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Archetype/Arcueid/berserk.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "Date (Arcueid)",
+        "series": "Valentine Series",
+        "url": "assets/images/servants/Archetype/Arcueid/date.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "Dress (Arcueid)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Archetype/Arcueid/dress.png",
+        "element": "Anemo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "Red (Arcueid)",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Archetype/Arcueid/red.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidSummon.ogg",
+            "text": "Just kidding! That's enough of the high-and-mighty me! Hi there, person from Chaldea! I'm a Moon Cancer, Arcueid Brunestud! It's nice to meet you! I'll see you soon, when we hit my second Ascension!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/arcueid/arcueidNP.ogg",
+            "text": "You guys stay put, okay? Gracefully, quietly, like a flower in bloom. Marble Strike!"
+          }
+        ]
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Archetype/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Columbina",
+        "series": "#1",
+        "url": "assets/images/servants/Archetype/columbina1.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Archetype/columbina.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/archetype/columbina/columbinaSummon.ogg",
+            "text": "You can call me Columbina, or Kuutar, or Moon Goddess... Whatever you prefer. I'm used to having many names. The moon's blessing is yours, whenever you might find yourself in need."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/columbina/columbinaNP.ogg",
+            "text": "Three moons converge."
+          }
+        ]
+      },
+      {
+        "name": "Shorekeeper",
+        "series": "#2",
+        "url": "assets/images/servants/Archetype/shorekeeper.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/archetype/shorekeeper/shoreSummon.ogg",
+            "text": "Worry not if you don't remember me... I can always introduce myself again. I am the Shorekeeper, acting executive of the Black Shores, and the core computational unit of Tethys. Now and forever, I will stand by you and our home, through every yesterday and tomorrow."
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/archetype/shorekeeper/shoreNP.ogg",
+            "text": "In war with Time."
+          }
+        ]
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/archetype/archetypeSummon.ogg",
+        "text": "Am I...a Servant? I have no name, but my state of being is... Ah, yes. You may call me the Original One, or the Ultimate One. Some connection between us must have allowed you to summon me. For now, I shall observe whether you all manage to survive or not."
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/archetype/archetypeNP.ogg",
+        "text": "The planet's memories... Wind. Waves. Light. Terminus. Rupture in the palm of my hand...!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "https://res.cloudinary.com/mtns8net/image/upload/v1790102939/archetype_zbqhev.png record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790103169497,
+    "name": "James Moriarty",
+    "jpName": "ジェームズ・モリアーティ",
+    "class": "Ruler",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/James Moriarty/moriarty.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "James Moriarty",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/James Moriarty/moriarty.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/James Moriarty/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Zhongli",
+        "series": "#1",
+        "url": "assets/images/servants/James Moriarty/zhongli1.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/James Moriarty/zhongli.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Mortefi",
+        "series": "#2",
+        "url": "assets/images/servants/James Moriarty/mortefi.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/moriarty/moriartyS.ogg",
+        "text": "I have come in response to your summoning. Ruler class, James Moriarty. Who knew I'd be summoned because my future was just THAT bright...I guess I'm not too shabby at all! Hm? I'm the greatest villain in all of Europe? What are you talking about?"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/moriarty/moriartyNP.ogg",
+        "text": "Malignancy should be removed and eliminated. It must be true, because I say so! Mathemalignancy: Annihilation!!!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "m record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102878835,
+    "name": "Noah",
+    "jpName": "ノア",
+    "class": "Rider",
+    "element": "Hydro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Noah/noah.png",
+    "activeSpriteIndex": 2,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Noah",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Noah/noah.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Noah/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Venti",
+        "series": "#1",
+        "url": "assets/images/servants/Noah/venti1.png",
+        "element": "Anemo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Noah/venti.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/noah/venti/ventiS.ogg",
+            "text": "*Yawn* That was a refreshing sleep. Ah, Traveler, we meet again! What? You don't remember me? Ahaha, well, allow me to join you on your quest once again. I must see to it that the bards of the world tell the Traveler's tales!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/noah/venti/ventiNP.ogg",
+            "text": "Think you can get away?"
+          }
+        ]
+      },
+      {
+        "name": "Lingyang",
+        "series": "#2",
+        "url": "assets/images/servants/Noah/linyang.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": [
+          {
+            "title": "Summoning",
+            "audioUrl": "assets/audio/servants/noah/lingyang/lingyangS.ogg",
+            "text": "Hiya, I'm Lingyang. You're probably more used to seeing me as that liondancer on the high poles, I guess? Let's hang out more! I want you to remember what I look like, without the liondance head!"
+          },
+          {
+            "title": "Noble Phantasm",
+            "audioUrl": "assets/audio/servants/noah/lingyang/lingyangNP.ogg",
+            "text": "Lions rumble, evil crumble!"
+          }
+        ]
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/noah/noahS.ogg",
+        "text": "Even in a world-ending disaster, Captain Nemo won’t be disheartened! I won’t overlook the shine on this heart! Savior Pretty Boy Nemo Zohar, makes his entrance! …Just kidding. How’s that? I’m reliable, am I not, Master? I’m your Rider, borrowing the Heroic Spirit Noah’s power. Nemo Zohar, Nemo/Noah, Big Brother Nemo, call me the way you want!"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/noah/noahNP.ogg",
+        "text": "The promised ship is here! Travel around the wheel of earth, spread your wings under storms and thunder, and show the wrath of heavens!”Great Ram, Noah’s Ark”!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "n record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102864059,
+    "name": "Vritra",
+    "jpName": "ヴリトラ",
+    "class": "Lancer",
+    "element": "Electro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Vritra/vritra.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Vritra",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Vritra/vritra.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Vritra/uniform.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Mavuika",
+        "series": "#1",
+        "url": "assets/images/servants/Vritra/mavuika1.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Vritra/mavuika.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Changli",
+        "series": "#2",
+        "url": "assets/images/servants/Vritra/changli.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/vritra/vritraS.ogg",
+        "text": "I am Vritra. Honestly, what does a mere human like you intend to do with a serpent like me? I am a demon who only acts on my own desires. You better not think you can tame me."
+      },
+      {
+        "title": "Dialogue",
+        "audioUrl": "assets/audio/servants/vritra/vritraNP.ogg",
+        "text": "O heavens...the heavens obstructed by the phantasmagoric scales. O earth...the earth swallowed by the jaws of gluttony. The great serpent shall block even those laments. Asurasreshta."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "v record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102847818,
+    "name": "Lilith",
+    "jpName": "リリス",
+    "class": "Berserker",
+    "element": "Electro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Lilith/lilith.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Lilith",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Lilith/lilith.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Lilith/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Inferno Demon",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/inferno.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Santa",
+        "series": "Christmas Series",
+        "url": "assets/images/servants/Lilith/santa.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Angel",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/angel.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Knightmare",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Lilith/knightmare.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Night Vampire",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Lilith/night.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Mother of Death",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/mother.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Gensho no  Oni",
+        "series": "Legend Series",
+        "url": "assets/images/servants/Lilith/gensho.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Crimson Death",
+        "series": "Kaijuu Series",
+        "url": "assets/images/servants/Lilith/crimson.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Majou Lilith",
+        "series": "Grand Series",
+        "url": "assets/images/servants/Lilith/Majou/majou.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Dress (Majou)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Lilith/Majou/dress.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Aurora",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/aurora.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Lilith/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Pirate",
+        "series": "Special Series",
+        "url": "assets/images/servants/Lilith/pirate.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Kimono",
+        "series": "Japan Series",
+        "url": "assets/images/servants/Lilith/kimono.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Shibuya Diva",
+        "series": "Special Series",
+        "url": "assets/images/servants/Lilith/diva.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Night Bunny",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/bunny.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Sky Demon",
+        "series": "Special Series",
+        "url": "assets/images/servants/Lilith/sky.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Formal",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Lilith/formal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer Street",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Lilith/street.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Night Summer",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Lilith/summer.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bikini",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Lilith/bikini.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Celebratory Attire",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/celebratory.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Street Punk",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Lilith/punk.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Academy",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Lilith/academy.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bride",
+        "series": "Bride Series",
+        "url": "assets/images/servants/Lilith/bride.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Snake Monster",
+        "series": "Kaijuu Series",
+        "url": "assets/images/servants/Lilith/snake.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Over the Same Sky",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Lilith/over.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Sandrone",
+        "series": "#1",
+        "url": "assets/images/servants/Lilith/sandrone1.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Lilith/sandrone.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Phrolova",
+        "series": "#2",
+        "url": "assets/images/servants/Lilith/phrolova.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/lilith/lilithS.ogg",
+        "text": "Yahoo!, it's me! We've not talked since that whole Hell thing! How've you been? Oh, just kidding around. Mm, I guess with how strong of a bond we got going there, I'd be pulled over here whether I wanted to or not. Sure, why not? So... here I am, Lilith, Manifestation of Storm and Night. Though I don't imagine an introduction is necessary. Pleased to meet you. Ah, and I'll make sure to keep my distance from Kyrielight. It's for the better, right? In terms of your mental health, at least."
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/lilith/lilithNP.ogg",
+        "text": "Law becomes null. Moderation becomes conflict. Flatlands become mountainous. All melt and turn to chaos. Isha Ra'a! Now, the nightmare begins.."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "l record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102816065,
+    "name": "Tezcatlipoca",
+    "jpName": "テスカトリポカ",
+    "class": "Assassin",
+    "element": "Anemo",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Tezcat/tezcat.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Tezcatlipoca",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Tezcat/tezcat.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Tezcat/unitezcat.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Neuvillette",
+        "series": "#1",
+        "url": "assets/images/servants/Tezcat/neuvillette1.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Tezcat/neuvillette.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Calcharo",
+        "series": "#2",
+        "url": "assets/images/servants/Tezcat/calcharo.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/tezcat/tezcatS.ogg",
+        "text": "Ho there! Are you the Master? Well met. Servant, Assassin. I'm Tezcatlipoca. As you can see, I'm an intellectual. Talking to people is my favorite pastime... Relax. I actually love war. Don't get all worked up, now. Let's enjoy this, Master."
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/tezcat/tezcatNP.ogg",
+        "text": "Ehēcatl, ehēcatl. Yohualli ehēcatl, titlacahuan. The time of doom is nigh. ...To the next world with you. Tonal tepēyōllōtl!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "t record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102698645,
+    "name": "Anastasia",
+    "jpName": "アナスタシア",
+    "class": "Caster",
+    "element": "Cryo",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Anastasia/anastasia.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Anastasia",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Anastasia/anastasia.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Anastasia/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Tsaritsa Anastasya",
+        "series": "#1",
+        "url": "assets/images/servants/Anastasia/anastasya1.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Anastasia/anastasya.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Jinshi",
+        "series": "#2",
+        "url": "assets/images/servants/Anastasia/jinshi.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Peach Blossom",
+            "series": "",
+            "url": "assets/images/servants/Anastasia/jinshipeach.png"
+          }
+        ],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/anastasia/anastasiaS.ogg",
+        "text": "Servant, Anastasia. I have come in answer to your call. This little one is Viy. Please take good care of us both."
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/anastasia/anastasiaNP.ogg",
+        "text": "Viy, I beg you. Curse them all, freeze them all, kill them all! Activate Mystic Eyes... Go, Viy!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "a record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790102673362,
+    "name": "Baobhan Sith",
+    "jpName": "バーヴァン・シー",
+    "class": "Archer",
+    "element": "Pyro",
+    "rarity": 4,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Baobhan/baobhan.png",
+    "activeSpriteIndex": 5,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Baobhan Sith",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Baobhan/baobhan.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lady Spinel",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Baobhan/lady.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Fairy Knight Tristan",
+        "series": "Halloween Series",
+        "url": "assets/images/servants/Baobhan/fairy.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Academy",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Baobhan/academy.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Baobhan/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Mature Dress",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Baobhan/mature.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Dress",
+        "series": "Special Series",
+        "url": "assets/images/servants/Baobhan/dress.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bloody Bunny",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Baobhan/bunny.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Kimono",
+        "series": "Japan Series",
+        "url": "assets/images/servants/Baobhan/kimono.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Exhibition Attire",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Baobhan/exhibition.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Yukata",
+        "series": "Japan Series",
+        "url": "assets/images/servants/Baobhan/yukata.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Maid",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Baobhan/maid.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Cait Cú Cerpriestess",
+        "series": "Special Series",
+        "url": "assets/images/servants/Baobhan/Cait/cait.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Magic Academy (Cait Cú Cerpriestess)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Baobhan/Cait/academy.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Baa'van see (Cait Cú Cerpriestess)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Baobhan/Cait/baavan.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Baobhan/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Furina (Ousia)",
+        "series": "#1",
+        "url": "assets/images/servants/Baobhan/furinaousia.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Furina (Pneuma)",
+            "series": "",
+            "url": "assets/images/servants/Baobhan/furinapneuma.png"
+          },
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Baobhan/furina.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Lynae",
+        "series": "#2",
+        "url": "assets/images/servants/Baobhan/lynae.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/baobhan/baobhanS.ogg",
+        "text": "Servant, Archer. Tam Lin Tristan has come in response to your summons. I swear never to bring disgrace upon my knightly name. ...As if! Kyahahahahaha! You really don't know a thing about me, do you!? That's hilarious! I might actually like you! Anyway, let's be friends. I, too, champion justice after all."
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/baobhan/baobhanNP.ogg",
+        "text": "It's show time. See? Everything's already finished. This is the end of you. Fetch Failnaught."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "b record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790091711709,
+    "name": "Miyamoto Musashi",
+    "jpName": "宮本武蔵",
+    "class": "Saber",
+    "element": "Hydro",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "illustrator": "",
+    "cv": "",
+    "stats": {
+      "maxAtk": 0,
+      "maxHp": 0
+    },
+    "alignment": "",
+    "attribute": "",
+    "image": "assets/images/servants/Musashi/musashi.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Miyamoto Musashi",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Musashi/musashi.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Musashi/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Grand Saber",
+        "series": "Grand Series",
+        "url": "assets/images/servants/Musashi/Grand/grand.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Grand Saber (Alter)",
+        "series": "Grand Series",
+        "url": "assets/images/servants/Musashi/Grand/alter.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Academy",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Musashi/academy.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Stellar",
+        "series": "Special Series",
+        "url": "assets/images/servants/Musashi/stellar.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Travel Journal",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Musashi/travel.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Shinmen Musashi",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Musashi/shinmen.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Musashi/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Odette",
+        "series": "#1",
+        "url": "assets/images/servants/Musashi/odette1.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Musashi/odette.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Sanhua",
+        "series": "#2",
+        "url": "assets/images/servants/Musashi/sanhua.png",
+        "element": "Cryo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Exorcistic Adjuration",
+            "series": "",
+            "url": "assets/images/servants/Musashi/sanhuaexorcist.png"
+          }
+        ],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/musashi/musashiS.ogg",
+        "text": "Shinmen Musashi-no-Kami Fujiwara-no-Harunob...!? Sorry, let me start over! Servant Saber, Shinmen Musashi at your service! Make my stay a fun one, Master!"
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/musashi/musashiNP.ogg",
+        "text": "Namu, Tenman Daijizai Tenjin! Nioh Kurikara! Shoutenshou! Come hither, my roaring sword, now unsheathed! Ishana, Daitenshou!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "e record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1790091034178,
+    "name": "Oda Nobunaga",
+    "jpName": "織田信長",
+    "class": "Avenger",
+    "element": "Pyro",
+    "rarity": 5,
+    "gender": "Unknown",
+    "race": "Demon King",
+    "illustrator": "pako",
+    "cv": "Kugimiya Rie",
+    "stats": {
+      "maxAtk": 12641,
+      "maxHp": 11561
+    },
+    "alignment": "Chaotic・Balanced ",
+    "attribute": "Earth",
+    "image": "assets/images/servants/Oda Nobunaga/nobunaga.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Oda Nobunaga",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Oda Nobunaga/nobunaga.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Oda Nobunaga/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Oda Kipposhi",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Oda Nobunaga/Kipposhi/kipposhi.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Demon King",
+        "series": "Legend Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/king.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Oda Nobunaga/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Necromancer (Demon King)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/necro.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Angel (Demon King)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/angel.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Monster (Demon King)",
+        "series": "Kaijuu Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/monster.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bride (Demon King)",
+        "series": "Bride Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/bride.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Pumpkin Knight",
+        "series": "Halloween Series",
+        "url": "assets/images/servants/Oda Nobunaga/pumpkin.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bride",
+        "series": "Bride Series",
+        "url": "assets/images/servants/Oda Nobunaga/bride.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Santa (Demon King)",
+        "series": "Christmas Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/santa.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Mesopotamia (Demon King)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/mesopotamia.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer Revenge",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Oda Nobunaga/summer.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lunar (Demon King)",
+        "series": "Lunar Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/lunar.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Demon King (Alter)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/alter.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Winter School (Demon King)",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/winter.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Exhibition Attire",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Oda Nobunaga/exhibition.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Librarian (Demon King)",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/library.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Oda Kipposhi Summer",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Oda Nobunaga/Kipposhi/summer.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bikini (Demon King)",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/bikini.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Formal (Demon King)",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/formal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Red Bunny (Demon King)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/bunny.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Maid",
+        "series": "Maid Series",
+        "url": "assets/images/servants/Oda Nobunaga/maid.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual (Demon King)",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Oda Nobunaga/King/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Raiden Shogun",
+        "series": "#1",
+        "url": "assets/images/servants/Oda Nobunaga/raiden2.png",
+        "element": "Electro",
+        "gender": "Female",
+        "race": "Archon",
+        "cv": "Miyuki Sawashiro",
+        "illustrator": "Hoyoverse",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Oda Nobunaga/raiden.png"
+          }
+        ],
+        "voiceLines": [
+          {
+            "title": "Summon",
+            "audioUrl": "assets/audio/servants/nobunaga/raiden/raidenSummon.ogg",
+            "text": "No salutations needed. My exalted status shall not be disclosed as we travel among the common folk. I acknowledge that you are a person of superior ability. Henceforth, you will be my guard. Worry not. Should any danger arise, I shall dispose of it."
+          },
+          {
+            "title": "Elemental Burst",
+            "audioUrl": "assets/audio/servants/nobunaga/raiden/raidenNP.ogg",
+            "text": "Inazuma shines eternal!"
+          }
+        ]
+      },
+      {
+        "name": "Galbrena",
+        "series": "#2",
+        "url": "assets/images/servants/Oda Nobunaga/galberna.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/nobunaga/odaSummon.ogg",
+        "text": "To think that I'd be an Avenger... Uwahaha! What twisted fate. Very well! Behold the way the Demon king of the Sixth Heaven, Nobunaga lives, and engrave it into your very soul!"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/nobunaga/odaNP.ogg",
+        "text": "The past, present, and future... All of me...assemble and unleash! Pāpīyas Reborn, Demon King of the Myriad Heavens!!!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Skill 1",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 2",
+        "effect": "-"
+      },
+      {
+        "name": "Skill 3",
+        "effect": "-"
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Noble Phantasm",
+      "type": "Buster",
+      "damageStat": "-"
+    },
+    "traits": [],
+    "lore": [
+      "a record archived in Chaldea."
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Artoria Pendragon",
+    "jpName": "アルトリア・ペンドラゴン",
+    "class": "Saber",
+    "element": "Anemo",
+    "rarity": 5,
+    "gender": "Female",
+    "race": "Human / Dragon",
+    "illustrator": "Takashi Takeuchi",
+    "cv": "Ayako Kawasumi",
+    "stats": {
+      "maxAtk": 11221,
+      "maxHp": 15150
+    },
+    "alignment": "Lawful Good",
+    "attribute": "Earth",
+    "image": "assets/images/servants/Artoria/artoria.png",
+    "activeSpriteIndex": 28,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Artoria Pendragon",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Artoria/artoria.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Artoria/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Formal",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Artoria/formal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Gown",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/gown.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Alter",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Alter/alter.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Gown (Alter)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Alter/gown.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Shinjuku Casual (Alter)",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Artoria/Alter/shinjuku.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Santa (Alter)",
+        "series": "Christmas Series",
+        "url": "assets/images/servants/Artoria/Alter/santa.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Travel (Alter)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Artoria/Alter/travel.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Academy (Alter)",
+        "series": "Academy Series",
+        "url": "assets/images/servants/Artoria/Alter/academy.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Nightgown (Alter)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Artoria/Alter/nightgown.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer (Alter)",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Artoria/Alter/summer.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Artoria/summer.png",
+        "element": "Hydro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lily",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Artoria/lily.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lion King",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Lion/lion.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bride (Lion King)",
+        "series": "Bride Series",
+        "url": "assets/images/servants/Artoria/Lion/bride.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Formal (Lion King)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Artoria/Lion/formal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bunny Girl (Lion King)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Lion/bunny.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lion King (Alter)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Lion/Alter/alter.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual Lion King (Alter)",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Artoria/Lion/Alter/casual.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Artoria Avalon",
+        "series": "Legend Series",
+        "url": "assets/images/servants/Artoria/Avalon/avalon.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Aesc (Artoria Avalon)",
+        "series": "Special Series",
+        "url": "assets/images/servants/Artoria/Avalon/aesc.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer (Artoria Avalon)",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Artoria/Avalon/summer.png",
+        "element": "Electro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Lord Logres",
+        "series": "Grand Series",
+        "url": "assets/images/servants/Artoria/Logress/logress.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Bride (Lord Logres)",
+        "series": "Bride Series",
+        "url": "assets/images/servants/Artoria/Logress/bride.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Dress (Lord Logres)",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Artoria/Logress/dress.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Artoria/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Maid",
+        "series": "Maid Series",
+        "url": "assets/images/servants/Artoria/maid.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Jean",
+        "series": "#1",
+        "url": "assets/images/servants/Artoria/jean1.png",
+        "element": "Anemo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Artoria/jean.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Zani",
+        "series": "#2",
+        "url": "assets/images/servants/Artoria/zani.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/artoria/artoriaSummon.ogg",
+        "text": "I ask of you, are you my Master?"
+      },
+      {
+        "title": "Noble Phantasm",
+        "audioUrl": "assets/audio/servants/artoria/artoriaNP.ogg",
+        "text": "This light is the planet's hope...proof of the life that illuminates this world! Behold! Ex... CALIBUR!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Charisma A",
+        "effect": "Increases ATK for all allies (3 turns)."
+      },
+      {
+        "name": "Mana Burst A",
+        "effect": "Increases Buster Performance for yourself (1 turn)."
+      },
+      {
+        "name": "Intuition A",
+        "effect": "Gains a large amount of Critical Stars."
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Excalibur",
+      "type": "Buster",
+      "damageStat": "400% - 600% (Depends on NP Level)"
+    },
+    "traits": [
+      "Dragon",
+      "Female",
+      "Humanoid",
+      "King",
+      "Riding",
+      "Arthur"
+    ],
+    "lore": [
+      "The legendary King of Knights who pulled the sword from the stone and united ancient Britain.",
+      "Holder of the Holy Sword Excalibur, she wields the light of hope to protect mankind."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Gilgamesh",
+    "jpName": "ギルガメッシュ",
+    "class": "Archer",
+    "element": "Geo",
+    "rarity": 5,
+    "gender": "Male",
+    "race": "Demigod",
+    "illustrator": "Takashi Takeuchi",
+    "cv": "Tomokazu Seki",
+    "stats": {
+      "maxAtk": 12280,
+      "maxHp": 13097
+    },
+    "alignment": "Chaotic Good",
+    "attribute": "Sky",
+    "image": "assets/images/servants/Gilgamesh/gil.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Gilgamesh",
+        "series": "Original Ascension",
+        "url": "assets/images/servants/Gilgamesh/gil.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "King of Heroes",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Gilgamesh/king.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Casual",
+        "series": "Casual Series",
+        "url": "assets/images/servants/Gilgamesh/casual.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Carnival",
+        "series": "Special Series",
+        "url": "assets/images/servants/Gilgamesh/carnaval.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Sage King",
+        "series": "Special Series",
+        "url": "assets/images/servants/Gilgamesh/sage.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Uruk King",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Gilgamesh/uruk.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Formal",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Gilgamesh/formal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Kimono",
+        "series": "Japan Series",
+        "url": "assets/images/servants/Gilgamesh/kimono.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Summer",
+        "series": "Summer Series",
+        "url": "assets/images/servants/Gilgamesh/summer.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Royal",
+        "series": "Epic Series",
+        "url": "assets/images/servants/Gilgamesh/royal.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Kid Gil",
+        "series": "Elite Series",
+        "url": "assets/images/servants/Gilgamesh/kid.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "School Uniform",
+        "series": "Uniform Series",
+        "url": "assets/images/servants/Gilgamesh/uniform.png",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      },
+      {
+        "name": "Varka",
+        "series": "#1",
+        "url": "assets/images/servants/Gilgamesh/varka1.png",
+        "element": "Anemo",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [
+          {
+            "name": "Cosplay",
+            "series": "",
+            "url": "assets/images/servants/Gilgamesh/varka.png"
+          }
+        ],
+        "voiceLines": []
+      },
+      {
+        "name": "Jingran",
+        "series": "#2",
+        "url": "assets/images/servants/Gilgamesh/jingran.png",
+        "element": "Pyro",
+        "gender": "",
+        "race": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Summoning",
+        "audioUrl": "assets/audio/servants/gilgamesh/gilS.ogg",
+        "text": "Hahaha! For you to summon me like this, I see your luck has run out, Mongrel!"
+      },
+      {
+        "title": "NP",
+        "audioUrl": "assets/audio/servants/gilgamesh/gilNP.ogg",
+        "text": "The elements coalesce and solidify to bring forth the star where creation interweaves. In death, you will bow before it. Enuma Elish!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Charisma A+",
+        "effect": "Greatly increases ATK for all allies (3 turns)."
+      },
+      {
+        "name": "Golden Rule A",
+        "effect": "Increases own NP Generation Rate (3 turns)."
+      },
+      {
+        "name": "Treasury of Babylon A",
+        "effect": "Increases own Star Absorption Rate and charges NP."
+      }
+    ],
+    "noblePhantasm": {
+      "name": "Enuma Elish",
+      "type": "Buster",
+      "damageStat": "300% - 500% (Deals extra damage to Servants)"
+    },
+    "traits": [
+      "Divine",
+      "Male",
+      "Humanoid",
+      "King"
+    ],
+    "lore": [
+      "The oldest King in human history, who ruled Uruk in ancient Mesopotamia.",
+      "Possesses the originals of all Noble Phantasms stored inside the Gate of Babylon."
+    ]
+  }
+]

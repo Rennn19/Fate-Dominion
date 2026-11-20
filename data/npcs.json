@@ -1,0 +1,261 @@
+[
+  {
+    "id": 1794975106225,
+    "name": "Paimon",
+    "jpName": "パイモン",
+    "affiliation": "#1",
+    "role": "NPC",
+    "status": "Active",
+    "element": "Unknown",
+    "rarity": 5,
+    "gender": "",
+    "race": "",
+    "manaCapacity": 0,
+    "origin": "",
+    "cv": "",
+    "illustrator": "",
+    "relations": "",
+    "image": "assets/images/npcs/paimon/paimon.webp",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Default Outfit",
+        "series": "#1",
+        "url": "assets/images/npcs/paimon/paimon.webp",
+        "gender": "",
+        "race": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Holy Lyre: Paimon",
+        "audioUrl": "assets/audio/npcs/paimon/Holy Lyre/paimon1.wav",
+        "text": "Greetings, Master."
+      },
+      {
+        "title": "Holy Lyre: Venti",
+        "audioUrl": "assets/audio/npcs/paimon/Holy Lyre/venti1.wav",
+        "text": "..."
+      },
+      {
+        "title": "Holy Lyre: Paimon",
+        "audioUrl": "assets/audio/npcs/paimon/Holy Lyre/paimon2.wav",
+        "text": "..."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Ability 1",
+        "effect": "-"
+      },
+      {
+        "name": "Ability 2",
+        "effect": "-"
+      },
+      {
+        "name": "Ability 3",
+        "effect": "-"
+      }
+    ],
+    "traits": [],
+    "lore": [
+      "Paimon registered in NPC Archives."
+    ]
+  },
+  {
+    "id": 501,
+    "name": "Romani Archaman",
+    "jpName": "ロマニ・アーキマン",
+    "affiliation": "Chaldea",
+    "role": "Acting Director & Medical Chief",
+    "status": "Support",
+    "element": "None",
+    "rarity": 5,
+    "gender": "Male",
+    "race": "Human",
+    "origin": "Wisdom / Solomon",
+    "manaCapacity": 1200,
+    "relations": "Ritsuka Fujimaru, Mash Kyrielight, Leonardo da Vinci",
+    "illustrator": "Takashi Takeuchi",
+    "cv": "Kenichi Suzumura",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "skills": [
+      {
+        "name": "Tactical Command",
+        "effect": "Provides real-time Rayshift monitoring and combat analysis from Chaldea."
+      },
+      {
+        "name": "Medical Diagnostics",
+        "effect": "Monitors Master vital signs and Servant spiritual core stability."
+      },
+      {
+        "name": "Tenth Ring's Wisdom",
+        "effect": "Hidden authority linked to the ancient King of Magic."
+      }
+    ],
+    "traits": [
+      "Human",
+      "Chaldea",
+      "Doctor",
+      "Staff",
+      "King"
+    ],
+    "lore": [
+      "Head of the Medical Department at Chaldea Security Organization who assumed leadership as Acting Director after the Lev Lainur incident.",
+      "Despite his laid-back demeanor and love for virtual idols, he tirelessly supports Ritsuka and Mash through every Singularity."
+    ],
+    "image": "assets/images/npcs/romani.png",
+    "sprites": [
+      {
+        "name": "Chaldea Lab Coat",
+        "series": "Default Outfit",
+        "url": "assets/images/npcs/romani.png",
+        "element": "None",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Command Room",
+        "text": "Good work out there! Take a breather, grab some strawberry shortcake, and let's review the data.",
+        "audioUrl": "assets/audio/npcs/romani_greeting.mp3"
+      }
+    ]
+  },
+  {
+    "id": 502,
+    "name": "Kirei Kotomine",
+    "jpName": "言峰綺礼",
+    "affiliation": "Holy Church",
+    "role": "Holy Grail War Overseer",
+    "status": "Neutral",
+    "element": "Geo",
+    "rarity": 5,
+    "gender": "Male",
+    "race": "Human",
+    "origin": "Executor / Overseer",
+    "manaCapacity": 1800,
+    "relations": "Gilgamesh, Kiritsugu Emiya, Rin Tohsaka",
+    "illustrator": "Takashi Takeuchi",
+    "cv": "Jouji Nakata",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "skills": [
+      {
+        "name": "Bajiquan Mastery",
+        "effect": "Devastating close-quarters martial arts capable of shattering spiritual defenses."
+      },
+      {
+        "name": "Black Keys",
+        "effect": "Throws conceptual blades consecrated by the Holy Church to pin shadows."
+      },
+      {
+        "name": "Baptism Rite",
+        "effect": "Spiritual purification capable of exorcising corrupted souls."
+      }
+    ],
+    "traits": [
+      "Human",
+      "Holy Church",
+      "Executor",
+      "Overseer"
+    ],
+    "lore": [
+      "A priest dispatched by the Holy Church to serve as the impartial Overseer of the Holy Grail War.",
+      "Behind his stoic clerical vestments lies a man constantly seeking the meaning of his own distorted nature."
+    ],
+    "image": "assets/images/npcs/kirei.png",
+    "sprites": [
+      {
+        "name": "Priest Cassock",
+        "series": "Default Outfit",
+        "url": "assets/images/npcs/kirei.png",
+        "element": "Geo",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Overseer Greeting",
+        "text": "Rejoice, young Master. Your wish shall surely be granted at the end of this conflict.",
+        "audioUrl": "assets/audio/npcs/kirei_rejoice.mp3"
+      }
+    ]
+  },
+  {
+    "id": 503,
+    "name": "Zhongli",
+    "jpName": "鍾離",
+    "affiliation": "#1",
+    "role": "Wangshen Consultant / Geo Archon",
+    "status": "Active",
+    "element": "Geo",
+    "rarity": 5,
+    "gender": "Male",
+    "race": "Adeptus / God",
+    "manaCapacity": 5000,
+    "origin": "Contracts / Rex Lapis",
+    "cv": "Tomoaki Maeno",
+    "illustrator": "miHoYo / HoYoverse",
+    "relations": "Liyue Qixing, Hu Tao, Traveler",
+    "image": "assets/images/npcs/zhongli.png",
+    "activeSpriteIndex": 0,
+    "activePaintedIndex": -1,
+    "sprites": [
+      {
+        "name": "Liyue Suit",
+        "series": "#1",
+        "url": "assets/images/npcs/zhongli.png",
+        "element": "Geo",
+        "gender": "",
+        "race": "",
+        "origin": "",
+        "cv": "",
+        "illustrator": "",
+        "paintedSkins": [],
+        "voiceLines": []
+      }
+    ],
+    "voiceLines": [
+      {
+        "title": "Planet Befall",
+        "audioUrl": "assets/audio/npcs/zhongli_order.mp3",
+        "text": "I will have order!"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Dominus Lapidis",
+        "effect": "Summons a Stone Stele and generates an impenetrable Jade Shield."
+      },
+      {
+        "name": "Planet Befall",
+        "effect": "Brings down a falling meteor that deals massive Geo damage and Petrifies foes."
+      },
+      {
+        "name": "Arcanum of Crystal",
+        "effect": "Refunds portion of ore and preserves ancient historical contracts."
+      }
+    ],
+    "traits": [
+      "God",
+      "Adeptus",
+      "Collab",
+      "Liyue",
+      "Archon"
+    ],
+    "lore": [
+      "A mysterious consultant invited by the Wangsheng Funeral Parlor, possessing boundless knowledge of Liyue's history and traditions.",
+      "In truth, he is Morax, the Geo Archon who stepped down from his divine throne after fulfilling a final contract."
+    ]
+  }
+]
