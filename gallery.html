@@ -22,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* BACKGROUND GAMBAR TRANSPARAN BODY */
         body::before {
             content: '';
             position: fixed;
@@ -39,7 +38,6 @@
         .font-genshin { font-family: 'Cinzel', serif; }
         .font-japan { font-family: 'Noto Serif JP', serif; }
 
-        /* Genshin Glassmorphism & Gold Borders */
         .genshin-card {
             background: rgba(23, 29, 44, 0.65);
             backdrop-filter: blur(12px);
@@ -54,13 +52,12 @@
             box-shadow: 0 10px 30px rgba(204, 165, 102, 0.25), 0 0 15px rgba(204, 165, 102, 0.1);
         }
 
-        /* Rarities Background Gradient */
         .rarity-5 { background: linear-gradient(180deg, #513e6b 0%, #bfa054 100%); }
         .rarity-4 { background: linear-gradient(180deg, #64553b 0%, #bfa054 50%, #b8ac8c 100%); }
         .rarity-3 { background: linear-gradient(180deg, #b5b5b5 0%, #64696f 100%); }
         .rarity-master { background: linear-gradient(180deg, #1b263b 0%, #415a77 100%); }
+        .rarity-npc { background: linear-gradient(180deg, #1e3a3a 0%, #2d5a4c 100%); }
 
-        /* Scrollbars */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: rgba(14, 18, 30, 0.8); }
         ::-webkit-scrollbar-thumb { background: #cca566; border-radius: 3px; }
@@ -235,17 +232,35 @@
         .skin-badge-collab:not(.absolute) {
             position: relative;
         }
+
+        /* PAINTED SKIN / OUTFIT BADGE */
+        @keyframes paintedShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .skin-badge-painted {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(115deg, #4c1d95 0%, #be185d 35%, #d97706 70%, #4c1d95 100%);
+            background-size: 220% 220%;
+            color: #fdf2f8;
+            border: 1px solid #f472b6;
+            font-weight: 700;
+            animation: paintedShimmer 3s ease infinite;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto relative z-10">
-        <!-- Header Navigasi & Filter Controls -->
+        <!-- Header Navigasi & Utility Controls -->
         <header class="mb-8 border-b border-[#cca566]/30 pb-6 flex flex-col lg:flex-row justify-between items-center gap-6">
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3">
                     <span class="text-3xl text-[#cca566]">👗</span>
-                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md">
+                    <img src="assets/images/logo.png" alt="Fate/Dominion" class="h-10 md:h-16 object-contain drop-shadow-md" onerror="this.onerror=null; this.src='assets/images/favicon.png';">
                     <span class="text-3xl text-[#cca566]">✨</span>
                 </div>
                 <p class="text-gray-400 text-xs md:text-sm mt-1 tracking-wider">Wardrobe & Costume Showcase Gallery</p>
@@ -258,12 +273,24 @@
                 <a href="masters.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
                     🧙‍♂️ MASTERS
                 </a>
+                <a href="npcs.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
+                    🌐 NPC
+                </a>
                 <a href="war.html" class="bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 text-white font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap border border-red-500/40">
                     ⚔️ GRAIL WAR
                 </a>
                 <a href="gacha.html" class="bg-black/40 hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] border border-[#cca566]/40 font-genshin font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap">
                     🎲 GACHA
                 </a>
+
+                <div class="flex items-center gap-1 bg-black/40 px-2 py-1 rounded-full border border-[#cca566]/40 shadow-lg">
+                    <button onclick="exportAllGalleryData()" title="Export Servants, Masters & NPCs JSON" class="hover:bg-[#cca566] hover:text-[#0e121e] text-[#cca566] px-2.5 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
+                        📤 Export DB
+                    </button>
+                    <button onclick="confirmResetAllData()" title="Reset All Local Data" class="hover:bg-red-600 hover:text-white text-red-400 px-2.5 py-1 rounded-full text-xs transition-colors cursor-pointer font-bold">
+                        🔄 Reset DB
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -271,13 +298,19 @@
         <div class="bg-black/30 p-4 rounded-lg border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 mb-6 text-xs">
             <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
                 <button onclick="setCategoryFilter('ALL')" id="catBtnALL" class="cat-filter-btn bg-[#cca566] text-[#0e121e] font-bold px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
-                    Semua Skin
+                    Semua Skin & Outfit
                 </button>
                 <button onclick="setCategoryFilter('SERVANT')" id="catBtnSERVANT" class="cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
-                    🛡️ Servant Skins
+                    🛡️ Servant Ascensions
                 </button>
                 <button onclick="setCategoryFilter('MASTER')" id="catBtnMASTER" class="cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
                     🧙‍♂️ Master Outfits
+                </button>
+                <button onclick="setCategoryFilter('NPC')" id="catBtnNPC" class="cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
+                    🌐 NPC Outfits
+                </button>
+                <button onclick="setCategoryFilter('PAINTED')" id="catBtnPAINTED" class="cat-filter-btn bg-black/40 text-pink-300 hover:text-[#cca566] border border-pink-500/40 px-3.5 py-1.5 rounded-full transition-all cursor-pointer">
+                    🎨 Painted
                 </button>
             </div>
 
@@ -286,7 +319,7 @@
                     <option value="ALL">✨ Semua Set / Series</option>
                 </select>
 
-                <input type="text" id="skinSearch" oninput="renderGallery()" placeholder="Cari nama skin / series / karakter..." class="bg-[#1b2233] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-1.5 text-xs outline-none w-full sm:w-48">
+                <input type="text" id="skinSearch" oninput="renderGallery()" placeholder="Cari nama skin / painted / karakter..." class="bg-[#1b2233] text-white border border-gray-700 focus:border-[#cca566] rounded-full px-4 py-1.5 text-xs outline-none w-full sm:w-48">
                 
                 <select id="equipFilter" onchange="renderGallery()" class="bg-[#1b2233] text-amber-300 border border-gray-700 rounded-full px-3 py-1.5 text-xs outline-none font-bold">
                     <option value="ALL">Semua Status</option>
@@ -311,7 +344,7 @@
             <button onclick="closeSkinModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-black/50 z-20">&times;</button>
             
             <div id="modalImageBg" class="w-full md:w-1/2 h-72 md:h-96 rounded-lg relative overflow-hidden flex items-center justify-center border border-gray-800 shrink-0">
-                <img id="modalSkinImage" src="" class="w-full h-full object-cover object-top drop-shadow-2xl transition-all duration-300">
+                <img id="modalSkinImage" src="" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top drop-shadow-2xl transition-all duration-300">
                 <span id="modalEquippedBadge" class="absolute top-2 left-2 bg-[#cca566] text-[#0e121e] text-[10px] font-bold px-2 py-0.5 rounded shadow hidden">
                     EQUIPPED
                 </span>
@@ -326,6 +359,9 @@
                         <span id="modalSeriesBadge" class="text-[10px] px-2.5 py-0.5 rounded font-bold font-genshin border">
                             Uniform Series
                         </span>
+                        <span id="modalPaintedBadge" class="skin-badge-painted text-[10px] px-2.5 py-0.5 rounded hidden">
+                            🎨 Painted
+                        </span>
                     </div>
 
                     <h3 id="modalSkinName" class="text-2xl font-bold font-genshin text-white mt-2 leading-tight">
@@ -338,6 +374,7 @@
                     <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-300 space-y-2">
                         <p>Kategori: <span id="modalCategory" class="text-white font-medium">-</span></p>
                         <p>Set / Series: <span id="modalSeriesText" class="text-amber-300 font-semibold">-</span></p>
+                        <p id="modalBaseSkinRow" class="hidden">Base Skin: <span id="modalBaseSkinText" class="text-pink-300 font-medium">-</span></p>
                         <p>Index Slot: <span id="modalSlotIndex" class="text-amber-400 font-medium">-</span></p>
                     </div>
                 </div>
@@ -361,55 +398,109 @@
     </div>
 
     <script>
+        // MASTER DEFAULT DATABASE ALIGNED WITH MASTERS_3.HTML
+        const defaultMastersList = [
+            {
+                "id": 101, "name": "Ritsuka Fujimaru", "affiliation": "Chaldea", "gender": "Male / Female", "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/masters/ritsuka.png",
+                "sprites": [
+                    { "name": "Chaldea Uniform", "series": "Mystic Code", "url": "assets/images/masters/ritsuka.png", "paintedSkins": [] },
+                    { "name": "Arctic Region", "series": "Mystic Code", "url": "assets/images/masters/ritsuka_arctic.png", "paintedSkins": [] }
+                ]
+            },
+            {
+                "id": 102, "name": "Rin Tohsaka", "affiliation": "Clock Tower", "gender": "Female", "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/masters/rin.png",
+                "sprites": [
+                    { "name": "Red Sweater", "series": "Default Outfit", "url": "assets/images/masters/rin.png", "paintedSkins": [] }
+                ]
+            }
+        ];
+
+        // SERVANT DEFAULT DATABASE ALIGNED WITH INDEX_3.HTML
+        const defaultServantsList = [
+            {
+                "id": 1, "name": "Artoria Pendragon", "class": "Saber", "rarity": 5, "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/servants/artoria.png",
+                "sprites": [
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "assets/images/servants/artoria.png", "paintedSkins": [] },
+                    { "name": "School Uniform", "series": "Uniform Series", "url": "assets/images/servants/artoria_uniform.png", "paintedSkins": [] }
+                ]
+            },
+            {
+                "id": 2, "name": "Gilgamesh", "class": "Archer", "rarity": 5, "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/servants/gilgamesh.png",
+                "sprites": [
+                    { "name": "Stage 1", "series": "Original Ascension", "url": "assets/images/servants/gilgamesh.png", "paintedSkins": [] }
+                ]
+            }
+        ];
+
+        // NPC DEFAULT DATABASE ALIGNED WITH NPCS.HTML
+        const defaultNpcsList = [
+            {
+                "id": 501, "name": "Romani Archaman", "affiliation": "Chaldea", "role": "Acting Director & Medical Chief", "rarity": 5, "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/npcs/romani.png",
+                "sprites": [
+                    { "name": "Chaldea Lab Coat", "series": "Default Outfit", "url": "assets/images/npcs/romani.png", "paintedSkins": [] }
+                ]
+            },
+            {
+                "id": 502, "name": "Kirei Kotomine", "affiliation": "Holy Church", "role": "Holy Grail War Overseer", "rarity": 5, "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/npcs/kirei.png",
+                "sprites": [
+                    { "name": "Priest Cassock", "series": "Default Outfit", "url": "assets/images/npcs/kirei.png", "paintedSkins": [] }
+                ]
+            },
+            {
+                "id": 503, "name": "Zhongli", "affiliation": "#1 Genshin Impact", "role": "Wangshen Consultant / Geo Archon", "rarity": 5, "activeSpriteIndex": 0, "activePaintedIndex": -1, "image": "assets/images/npcs/zhongli.png",
+                "sprites": [
+                    { "name": "Liyue Suit", "series": "#1 Genshin Collab", "url": "assets/images/npcs/zhongli.png", "paintedSkins": [] }
+                ]
+            }
+        ];
+
         function getSeriesColorClass(series) {
             if (!series) return 'bg-sky-950/80 text-sky-300 border-sky-500/40';
             const s = series.trim().toLowerCase();
 
-            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar')) {
-                return 'skin-badge-epic';
-            }
-            if (s.includes('legend')) {
-                return 'skin-badge-legend';
-            }
-            if (s.includes('grand')) {
-                return 'skin-badge-grand';
-            }
-            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) {
-                return 'skin-badge-collab';
-            }
-            if (s.includes('elite')) {
-                return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
-            }
-            if (s.includes('original ascension') || s.includes('mystic code')) {
-                return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
-            }
-            if (s.includes('special') || s.includes('casual') || s.includes('summer') || 
-                s.includes('japan') || s.includes('uniform') || s.includes('christmas') || 
-                s.includes('halloween') || s.includes('valentine') || s.includes('academy')) {
-                return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
-            }
+            if (s.includes('painted')) return 'skin-badge-painted';
+            if (s.includes('epic') || s.includes('kaijuu') || s.includes('bride') || s.includes('lunar') || s.includes('formal')) return 'skin-badge-epic';
+            if (s.includes('legend')) return 'skin-badge-legend';
+            if (s.includes('grand')) return 'skin-badge-grand';
+            if (s.includes('collab') || s.includes('crossover') || s.includes('#')) return 'skin-badge-collab';
+            if (s.includes('elite')) return 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50';
+            if (s.includes('original ascension') || s.includes('mystic code') || s.includes('default')) return 'bg-slate-200/20 text-slate-100 border-slate-300/50';
 
             return 'bg-sky-950/80 text-sky-300 border-sky-500/50';
         }
 
         const COLLAB_LOGOS = {
-            '#1': { name: 'Genshin Impact', icon: 'assets/icons/genshin.svg' },
-            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/wuwa.svg' },
-            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/hsr.svg' },
-            '#4': { name: 'Mobile Legends', icon: 'assets/icons/mlbb.svg' },
-            '#5': { name: 'Fate/Grand Order', icon: 'assets/icons/fgo.svg' }
+            '#1': { name: 'Genshin Impact', icon: 'assets/icons/collab/genshin.svg' },
+            '#2': { name: 'Wuthering Waves', icon: 'assets/icons/collab/wuwa.svg' },
+            '#3': { name: 'Honkai: Star Rail', icon: 'assets/icons/collab/hsr.svg' },
+            '#4': { name: 'Mobile Legends', icon: 'assets/icons/collab/mlbb.svg' },
+            '#5': { name: 'Naruto', icon: 'assets/icons/collab/naruto.svg' },
+            '#6': { name: 'Bleach', icon: 'assets/icons/collab/bleach.svg' },
+            '#7': { name: 'Zenless Zone Zero', icon: 'assets/icons/collab/zzz.svg' },
+            '#8': { name: 'Honkai Impact 3rd', icon: 'assets/icons/collab/hi3.svg' },
+            '#9': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr1.png' },
+            '#9a': { name: 'Punishing Gray Raven', icon: 'assets/icons/collab/pgr.png' },
+            '#10': { name: 'Re:Zero Kara Hajimeru Seikatsu', icon: 'assets/icons/collab/rezero.svg' },
+            '#11': { name: 'Overlord', icon: 'assets/icons/collab/overlord.svg' },
+            '#11a': { name: 'Overlord', icon: 'assets/icons/collab/overlord1.svg' },
+            '#12': { name: 'Sword Art Online', icon: 'assets/icons/collab/sao.svg' },
+            '#13': { name: 'King of Fighters', icon: 'assets/icons/collab/kof.svg' },
+            '#14': { name: 'Kimetsu no Yaiba', icon: 'assets/icons/collab/kny.svg' },
+            '#15': { name: 'Jujutsu Kaisen', icon: 'assets/icons/collab/jjk.svg' },
+            '#16': { name: 'Attack on Titan', icon: 'assets/icons/collab/aot.svg' },
         };
 
         function formatSeriesName(seriesText) {
             if (!seriesText) return '';
             let text = seriesText;
-            
-            Object.keys(COLLAB_LOGOS).forEach(code => {
+
+            const sortedCodes = Object.keys(COLLAB_LOGOS).sort((a, b) => b.length - a.length);
+            sortedCodes.forEach(code => {
                 if (text.includes(code)) {
                     text = text.replace(code, COLLAB_LOGOS[code].name).trim();
                 }
             });
-            
+
             return text;
         }
 
@@ -420,14 +511,15 @@
             let displayText = seriesText;
             let iconHtml = '';
 
-            Object.keys(COLLAB_LOGOS).forEach(code => {
-                if (seriesText.includes(code)) {
-                    const logo = COLLAB_LOGOS[code];
-                    displayText = displayText.replace(code, '').trim();
-                    const marginClass = displayText ? 'mr-1' : '';
-                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
-                }
-            });
+            const sortedCodes = Object.keys(COLLAB_LOGOS).sort((a, b) => b.length - a.length);
+            const matchedCode = sortedCodes.find(code => seriesText.includes(code));
+
+            if (matchedCode) {
+                const logo = COLLAB_LOGOS[matchedCode];
+                displayText = displayText.replace(matchedCode, '').trim();
+                const marginClass = displayText ? 'mr-1' : '';
+                iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+            }
 
             return `
                 <span class="${colorClass} ${extraClasses} text-[8px] px-1.5 py-0.5 rounded font-semibold backdrop-blur-sm truncate inline-flex items-center justify-center">
@@ -439,25 +531,29 @@
 
         function getBadgeInnerContent(seriesText) {
             if (!seriesText) return '';
-            
+
             let displayText = seriesText;
             let iconHtml = '';
 
-            Object.keys(COLLAB_LOGOS).forEach(code => {
-                if (seriesText.includes(code)) {
-                    const logo = COLLAB_LOGOS[code];
-                    displayText = displayText.replace(code, '').trim();
-                    const marginClass = displayText ? 'mr-1' : '';
-                    iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
-                }
-            });
+            const sortedCodes = Object.keys(COLLAB_LOGOS).sort((a, b) => b.length - a.length);
+            const matchedCode = sortedCodes.find(code => seriesText.includes(code));
+
+            if (matchedCode) {
+                const logo = COLLAB_LOGOS[matchedCode];
+                displayText = displayText.replace(matchedCode, '').trim();
+                const marginClass = displayText ? 'mr-1' : '';
+                iconHtml = `<img src="${logo.icon}" alt="${logo.name}" title="${logo.name}" class="w-8 h-8 inline-block object-contain shrink-0 align-middle ${marginClass}">`;
+            }
 
             return `${iconHtml}${displayText ? `<span>${displayText}</span>` : ''}`;
         }
 
         function getServants() {
             const stored = localStorage.getItem('fgo_genshin_servants_db_v4') || localStorage.getItem('fgo_genshin_servants_db_v2');
-            return stored ? JSON.parse(stored) : [];
+            if (stored) {
+                try { return JSON.parse(stored); } catch(e) {}
+            }
+            return defaultServantsList;
         }
 
         function saveServants(data) {
@@ -465,12 +561,27 @@
         }
 
         function getMasters() {
-            const stored = localStorage.getItem('fgo_masters_db_v2') || localStorage.getItem('fgo_masters_db_v1');
-            return stored ? JSON.parse(stored) : [];
+            const stored = localStorage.getItem('fgo_genshin_masters_db_v1') || localStorage.getItem('fgo_masters_db_v2') || localStorage.getItem('fgo_masters_db_v1');
+            if (stored) {
+                try { return JSON.parse(stored); } catch(e) {}
+            }
+            return defaultMastersList;
         }
 
         function saveMasters(data) {
-            localStorage.setItem('fgo_masters_db_v2', JSON.stringify(data));
+            localStorage.setItem('fgo_genshin_masters_db_v1', JSON.stringify(data));
+        }
+
+        function getNpcs() {
+            const stored = localStorage.getItem('fgo_genshin_npcs_db_v1');
+            if (stored) {
+                try { return JSON.parse(stored); } catch(e) {}
+            }
+            return defaultNpcsList;
+        }
+
+        function saveNpcs(data) {
+            localStorage.setItem('fgo_genshin_npcs_db_v1', JSON.stringify(data));
         }
 
         let currentCategoryFilter = 'ALL';
@@ -484,7 +595,10 @@
         function setCategoryFilter(cat) {
             currentCategoryFilter = cat;
             document.querySelectorAll('.cat-filter-btn').forEach(btn => {
-                btn.className = "cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer";
+                const isPaintedBtn = btn.id === 'catBtnPAINTED';
+                btn.className = isPaintedBtn
+                    ? "cat-filter-btn bg-black/40 text-pink-300 hover:text-[#cca566] border border-pink-500/40 px-3.5 py-1.5 rounded-full transition-all cursor-pointer"
+                    : "cat-filter-btn bg-black/40 text-gray-300 hover:text-[#cca566] border border-gray-700 px-3.5 py-1.5 rounded-full transition-all cursor-pointer";
             });
             const activeBtn = document.getElementById(`catBtn${cat}`);
             if (activeBtn) {
@@ -493,81 +607,204 @@
             renderGallery();
         }
 
+        function resolveSeriesName(sprite, spriteIdx, defaultFirstLabel) {
+            if (sprite.series) return sprite.series;
+            const sNameLower = (sprite.name || '').toLowerCase();
+            if (sNameLower.includes('uniform') || sNameLower.includes('school') || sNameLower.includes('seifuku') || sNameLower.includes('seragam')) {
+                return 'Uniform Series';
+            } else if (sNameLower.includes('summer') || sNameLower.includes('swimsuit') || sNameLower.includes('pantai')) {
+                return 'Summer Series';
+            } else if (sNameLower.includes('dress') || sNameLower.includes('formal') || sNameLower.includes('suit')) {
+                return 'Special Series';
+            }
+            return spriteIdx === 0 ? defaultFirstLabel : 'Special Series';
+        }
+
         function getAllSkinsList() {
             const servants = getServants();
             const masters = getMasters();
+            const npcs = getNpcs();
             const skinList = [];
 
+            // 1. SERVANTS (Original Skins + Painted Variants)
             servants.forEach(servant => {
                 const sprites = (servant.sprites && servant.sprites.length > 0) 
                     ? servant.sprites 
-                    : [{ name: "Default Stage", url: servant.image || "" }];
+                    : [{ name: "Default Stage", url: servant.image || "assets/images/favicon.png", paintedSkins: [] }];
+
+                const activeSpriteIdx = servant.activeSpriteIndex || 0;
+                const activePaintedIdx = servant.activePaintedIndex !== undefined ? servant.activePaintedIndex : -1;
 
                 sprites.forEach((sprite, spriteIdx) => {
-                    const isEquipped = (servant.activeSpriteIndex || 0) === spriteIdx;
-                    
-                    let seriesName = sprite.series;
-                    if (!seriesName) {
-                        const sNameLower = (sprite.name || '').toLowerCase();
-                        if (sNameLower.includes('uniform') || sNameLower.includes('school') || sNameLower.includes('seifuku') || sNameLower.includes('seragam')) {
-                            seriesName = 'Uniform Series';
-                        } else if (sNameLower.includes('summer') || sNameLower.includes('swimsuit') || sNameLower.includes('pantai')) {
-                            seriesName = 'Summer Series';
-                        } else if (sNameLower.includes('dress') || sNameLower.includes('formal') || sNameLower.includes('suit')) {
-                            seriesName = 'Special Series';
-                        } else {
-                            seriesName = spriteIdx === 0 ? 'Original Ascension' : 'Special Series';
-                        }
-                    }
+                    const baseSeriesName = resolveSeriesName(sprite, spriteIdx, 'Original Ascension');
+                    const baseSkinName = sprite.name || `Stage ${spriteIdx + 1}`;
+                    const finalImgUrl = sprite.url || sprite.imageUrl || servant.image || 'assets/images/favicon.png';
+                    const isBaseEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === -1);
 
                     skinList.push({
-                        id: `servant_${servant.id}_${spriteIdx}`,
+                        id: `servant_${servant.id}_${spriteIdx}_base`,
                         ownerId: servant.id,
                         ownerType: 'SERVANT',
                         ownerName: servant.name,
                         ownerClass: servant.class || 'Servant',
                         rarity: servant.rarity || 5,
-                        skinName: sprite.name || `Stage ${spriteIdx + 1}`,
-                        imageUrl: sprite.url || servant.image,
+                        skinName: baseSkinName,
+                        baseSkinName: null,
+                        paintedName: null,
+                        isPainted: false,
+                        imageUrl: finalImgUrl,
                         spriteIndex: spriteIdx,
-                        isEquipped: isEquipped,
-                        series: seriesName
+                        paintedIndex: -1,
+                        isEquipped: isBaseEquipped,
+                        series: baseSeriesName
+                    });
+
+                    // Tambahkan Painted Variants (mewarisi tag series skin original jika ps.series kosong)
+                    const paintedList = sprite.paintedSkins || [];
+                    paintedList.forEach((ps, pIdx) => {
+                        const inheritedSeries = (ps.series && ps.series.trim()) ? ps.series.trim() : baseSeriesName;
+                        const pName = ps.name || `Painted #${pIdx + 1}`;
+                        const isPaintedEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === pIdx);
+
+                        skinList.push({
+                            id: `servant_${servant.id}_${spriteIdx}_painted_${pIdx}`,
+                            ownerId: servant.id,
+                            ownerType: 'SERVANT',
+                            ownerName: servant.name,
+                            ownerClass: servant.class || 'Servant',
+                            rarity: servant.rarity || 5,
+                            skinName: `${baseSkinName} (${pName})`,
+                            baseSkinName: baseSkinName,
+                            paintedName: pName,
+                            isPainted: true,
+                            imageUrl: ps.url || finalImgUrl,
+                            spriteIndex: spriteIdx,
+                            paintedIndex: pIdx,
+                            isEquipped: isPaintedEquipped,
+                            series: inheritedSeries
+                        });
                     });
                 });
             });
 
+            // 2. MASTERS (Original Outfits + Painted Variants)
             masters.forEach(master => {
                 const sprites = (master.sprites && master.sprites.length > 0) 
                     ? master.sprites 
-                    : [{ name: "Default Outfit", url: master.image || "" }];
+                    : [{ name: "Default Outfit", url: master.image || "assets/images/favicon.png", paintedSkins: [] }];
+
+                const activeSpriteIdx = master.activeSpriteIndex || 0;
+                const activePaintedIdx = master.activePaintedIndex !== undefined ? master.activePaintedIndex : -1;
 
                 sprites.forEach((sprite, spriteIdx) => {
-                    const isEquipped = (master.activeSpriteIndex || 0) === spriteIdx;
-
-                    let seriesName = sprite.series;
-                    if (!seriesName) {
-                        const sNameLower = (sprite.name || '').toLowerCase();
-                        if (sNameLower.includes('uniform') || sNameLower.includes('school') || sNameLower.includes('seifuku') || sNameLower.includes('seragam')) {
-                            seriesName = 'Uniform Series';
-                        } else if (sNameLower.includes('summer') || sNameLower.includes('swimsuit')) {
-                            seriesName = 'Summer Series';
-                        } else {
-                            seriesName = spriteIdx === 0 ? 'Mystic Code' : 'Special Series';
-                        }
-                    }
+                    const baseSeriesName = resolveSeriesName(sprite, spriteIdx, 'Mystic Code');
+                    const baseOutfitName = sprite.name || `Outfit ${spriteIdx + 1}`;
+                    const finalImgUrl = sprite.url || sprite.imageUrl || master.image || 'assets/images/favicon.png';
+                    const isBaseEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === -1);
 
                     skinList.push({
-                        id: `master_${master.id}_${spriteIdx}`,
+                        id: `master_${master.id}_${spriteIdx}_base`,
                         ownerId: master.id,
                         ownerType: 'MASTER',
                         ownerName: master.name,
                         ownerClass: master.affiliation || 'Master',
                         rarity: 'MASTER',
-                        skinName: sprite.name || `Outfit ${spriteIdx + 1}`,
-                        imageUrl: sprite.url || master.image,
+                        skinName: baseOutfitName,
+                        baseSkinName: null,
+                        paintedName: null,
+                        isPainted: false,
+                        imageUrl: finalImgUrl,
                         spriteIndex: spriteIdx,
-                        isEquipped: isEquipped,
-                        series: seriesName
+                        paintedIndex: -1,
+                        isEquipped: isBaseEquipped,
+                        series: baseSeriesName
+                    });
+
+                    // Tambahkan Painted Outfits (mewarisi tag series outfit original jika ps.series kosong)
+                    const paintedList = sprite.paintedSkins || [];
+                    paintedList.forEach((ps, pIdx) => {
+                        const inheritedSeries = (ps.series && ps.series.trim()) ? ps.series.trim() : baseSeriesName;
+                        const pName = ps.name || `Painted #${pIdx + 1}`;
+                        const isPaintedEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === pIdx);
+
+                        skinList.push({
+                            id: `master_${master.id}_${spriteIdx}_painted_${pIdx}`,
+                            ownerId: master.id,
+                            ownerType: 'MASTER',
+                            ownerName: master.name,
+                            ownerClass: master.affiliation || 'Master',
+                            rarity: 'MASTER',
+                            skinName: `${baseOutfitName} (${pName})`,
+                            baseSkinName: baseOutfitName,
+                            paintedName: pName,
+                            isPainted: true,
+                            imageUrl: ps.url || finalImgUrl,
+                            spriteIndex: spriteIdx,
+                            paintedIndex: pIdx,
+                            isEquipped: isPaintedEquipped,
+                            series: inheritedSeries
+                        });
+                    });
+                });
+            });
+
+            // 3. NPCS (Original Outfits + Painted Variants)
+            npcs.forEach(npc => {
+                const sprites = (npc.sprites && npc.sprites.length > 0) 
+                    ? npc.sprites 
+                    : [{ name: "Default Outfit", url: npc.image || "assets/images/favicon.png", paintedSkins: [] }];
+
+                const activeSpriteIdx = npc.activeSpriteIndex || 0;
+                const activePaintedIdx = npc.activePaintedIndex !== undefined ? npc.activePaintedIndex : -1;
+                const cleanAffiliation = formatSeriesName(npc.affiliation || 'NPC');
+
+                sprites.forEach((sprite, spriteIdx) => {
+                    const baseSeriesName = resolveSeriesName(sprite, spriteIdx, 'Default Outfit');
+                    const baseOutfitName = sprite.name || `Outfit ${spriteIdx + 1}`;
+                    const finalImgUrl = sprite.url || sprite.imageUrl || npc.image || 'assets/images/favicon.png';
+                    const isBaseEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === -1);
+
+                    skinList.push({
+                        id: `npc_${npc.id}_${spriteIdx}_base`,
+                        ownerId: npc.id,
+                        ownerType: 'NPC',
+                        ownerName: npc.name,
+                        ownerClass: cleanAffiliation,
+                        rarity: 'NPC',
+                        skinName: baseOutfitName,
+                        baseSkinName: null,
+                        paintedName: null,
+                        isPainted: false,
+                        imageUrl: finalImgUrl,
+                        spriteIndex: spriteIdx,
+                        paintedIndex: -1,
+                        isEquipped: isBaseEquipped,
+                        series: baseSeriesName
+                    });
+
+                    const paintedList = sprite.paintedSkins || [];
+                    paintedList.forEach((ps, pIdx) => {
+                        const inheritedSeries = (ps.series && ps.series.trim()) ? ps.series.trim() : baseSeriesName;
+                        const pName = ps.name || `Painted #${pIdx + 1}`;
+                        const isPaintedEquipped = (activeSpriteIdx === spriteIdx) && (activePaintedIdx === pIdx);
+
+                        skinList.push({
+                            id: `npc_${npc.id}_${spriteIdx}_painted_${pIdx}`,
+                            ownerId: npc.id,
+                            ownerType: 'NPC',
+                            ownerName: npc.name,
+                            ownerClass: cleanAffiliation,
+                            rarity: 'NPC',
+                            skinName: `${baseOutfitName} (${pName})`,
+                            baseSkinName: baseOutfitName,
+                            paintedName: pName,
+                            isPainted: true,
+                            imageUrl: ps.url || finalImgUrl,
+                            spriteIndex: spriteIdx,
+                            paintedIndex: pIdx,
+                            isEquipped: isPaintedEquipped,
+                            series: inheritedSeries
+                        });
                     });
                 });
             });
@@ -587,7 +824,9 @@
                 seriesFilterSelect.appendChild(option);
             });
 
-            seriesFilterSelect.value = currentSelected;
+            if (uniqueSeries.includes(currentSelected) || currentSelected === 'ALL') {
+                seriesFilterSelect.value = currentSelected;
+            }
         }
 
         function renderGallery() {
@@ -599,12 +838,15 @@
             updateSeriesDropdownOptions(allSkins);
 
             const filteredSkins = allSkins.filter(skin => {
-                const matchCategory = currentCategoryFilter === 'ALL' || skin.ownerType === currentCategoryFilter;
+                const matchCategory = currentCategoryFilter === 'ALL' || 
+                                      (currentCategoryFilter === 'PAINTED' ? skin.isPainted : skin.ownerType === currentCategoryFilter);
                 const matchSearch = skin.skinName.toLowerCase().includes(search) || 
                                     skin.ownerName.toLowerCase().includes(search) ||
                                     skin.ownerClass.toLowerCase().includes(search) ||
-                                    skin.series.toLowerCase().includes(search);
-                const matchEquip = equipFilter === 'ALL' || (equipFilter === 'EQUIPPED' && skin.isEquipped);
+                                    skin.series.toLowerCase().includes(search) ||
+                                    (skin.paintedName && skin.paintedName.toLowerCase().includes(search));
+                const matchEquip = equipFilter === 'ALL' || 
+                                   (equipFilter === 'EQUIPPED' && skin.isEquipped);
                 const matchSeries = selectedSeries === 'ALL' || skin.series === selectedSeries;
 
                 return matchCategory && matchSearch && matchEquip && matchSeries;
@@ -626,6 +868,8 @@
                 let bgClass = 'rarity-master';
                 if (skin.ownerType === 'SERVANT') {
                     bgClass = skin.rarity >= 5 ? 'rarity-5' : (skin.rarity === 4 ? 'rarity-4' : 'rarity-3');
+                } else if (skin.ownerType === 'NPC') {
+                    bgClass = 'rarity-npc';
                 }
 
                 const card = document.createElement('div');
@@ -637,11 +881,16 @@
                         <img src="${skin.imageUrl}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/favicon.png';" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#161c28] via-transparent to-black/30"></div>
                         
-                        <div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
-                            <span class="bg-black/60 text-[#cca566] text-[9px] px-2 py-0.5 rounded border border-[#cca566]/40 font-bold uppercase backdrop-blur-sm">
+                        <div class="absolute top-2 left-2 flex flex-col gap-1 items-start max-w-[75%]">
+                            <span class="bg-black/60 text-[#cca566] text-[9px] px-2 py-0.5 rounded border border-[#cca566]/40 font-bold uppercase backdrop-blur-sm truncate max-w-full">
                                 ${skin.ownerClass}
                             </span>
-                            ${renderSeriesBadge(skin.series, 'max-w-[110px]')}
+                            ${renderSeriesBadge(skin.series, 'max-w-[125px]')}
+                            ${skin.isPainted ? `
+                                <span class="skin-badge-painted max-w-[115px] text-[8px] px-1.5 py-0.5 rounded truncate">
+                                    🎨 ${skin.paintedName}
+                                </span>
+                            ` : ''}
                         </div>
 
                         ${skin.isEquipped ? `
@@ -657,8 +906,10 @@
                     </div>
 
                     <div class="p-2.5 bg-[#161c28]/95 border-t border-gray-800 flex items-center justify-between gap-2">
-                        <span class="text-[10px] text-gray-400 truncate">Slot #${skin.spriteIndex + 1}</span>
-                        <button onclick="event.stopPropagation(); equipSkinDirect('${skin.ownerType}', ${skin.ownerId}, ${skin.spriteIndex})" 
+                        <span class="text-[10px] text-gray-400 truncate">
+                            ${skin.isPainted ? `Slot #${skin.spriteIndex + 1} · 🎨 #${skin.paintedIndex + 1}` : `Slot #${skin.spriteIndex + 1}`}
+                        </span>
+                        <button onclick="event.stopPropagation(); equipSkinDirect('${skin.ownerType}', ${skin.ownerId}, ${skin.spriteIndex}, ${skin.paintedIndex})" 
                                 class="text-[10px] font-bold px-3 py-1 rounded transition-colors cursor-pointer ${skin.isEquipped ? 'bg-green-800 text-green-200 cursor-default' : 'bg-[#cca566] hover:bg-[#e2be7d] text-[#0e121e]'}">
                             ${skin.isEquipped ? '✓ Dipakai' : 'Equip Skin'}
                         </button>
@@ -668,27 +919,50 @@
             });
         }
 
-        function equipSkinDirect(ownerType, ownerId, spriteIndex) {
+        function equipSkinDirect(ownerType, ownerId, spriteIndex, paintedIndex = -1) {
             if (ownerType === 'SERVANT') {
                 const servants = getServants();
                 const target = servants.find(s => s.id === ownerId);
                 if (target) {
                     target.activeSpriteIndex = spriteIndex;
+                    target.activePaintedIndex = paintedIndex;
                     saveServants(servants);
-                    showToast(`Skin "${target.sprites[spriteIndex]?.name || 'Stage ' + (spriteIndex+1)}" dipakai untuk ${target.name}!`);
+
+                    const baseName = target.sprites[spriteIndex]?.name || `Stage ${spriteIndex + 1}`;
+                    const paintedName = paintedIndex >= 0 ? target.sprites[spriteIndex]?.paintedSkins?.[paintedIndex]?.name : null;
+                    const label = paintedName ? `${baseName} (${paintedName})` : baseName;
+                    showToast(`Skin "${label}" dipakai untuk ${target.name}!`);
                 }
             } else if (ownerType === 'MASTER') {
                 const masters = getMasters();
                 const target = masters.find(m => m.id === ownerId);
                 if (target) {
                     target.activeSpriteIndex = spriteIndex;
+                    target.activePaintedIndex = paintedIndex;
                     saveMasters(masters);
-                    showToast(`Outfit "${target.sprites[spriteIndex]?.name || 'Outfit ' + (spriteIndex+1)}" dipakai untuk ${target.name}!`);
+
+                    const baseName = target.sprites[spriteIndex]?.name || `Outfit ${spriteIndex + 1}`;
+                    const paintedName = paintedIndex >= 0 ? target.sprites[spriteIndex]?.paintedSkins?.[paintedIndex]?.name : null;
+                    const label = paintedName ? `${baseName} (${paintedName})` : baseName;
+                    showToast(`Outfit "${label}" dipakai untuk ${target.name}!`);
+                }
+            } else if (ownerType === 'NPC') {
+                const npcs = getNpcs();
+                const target = npcs.find(n => n.id === ownerId);
+                if (target) {
+                    target.activeSpriteIndex = spriteIndex;
+                    target.activePaintedIndex = paintedIndex;
+                    saveNpcs(npcs);
+
+                    const baseName = target.sprites[spriteIndex]?.name || `Outfit ${spriteIndex + 1}`;
+                    const paintedName = paintedIndex >= 0 ? target.sprites[spriteIndex]?.paintedSkins?.[paintedIndex]?.name : null;
+                    const label = paintedName ? `${baseName} (${paintedName})` : baseName;
+                    showToast(`Outfit "${label}" dipakai untuk NPC ${target.name}!`);
                 }
             }
             renderGallery();
             if (activeModalSkin && activeModalSkin.ownerId === ownerId && activeModalSkin.ownerType === ownerType) {
-                activeModalSkin.isEquipped = (activeModalSkin.spriteIndex === spriteIndex);
+                activeModalSkin.isEquipped = (activeModalSkin.spriteIndex === spriteIndex && activeModalSkin.paintedIndex === paintedIndex);
                 updateModalEquipButton();
             }
         }
@@ -706,12 +980,43 @@
                 modalSeriesBadge.innerHTML = getBadgeInnerContent(skin.series);
             }
 
+            const modalPaintedBadge = document.getElementById('modalPaintedBadge');
+            const modalBaseSkinRow = document.getElementById('modalBaseSkinRow');
+            const modalBaseSkinText = document.getElementById('modalBaseSkinText');
+            if (skin.isPainted) {
+                modalPaintedBadge.innerText = `🎨 ${skin.paintedName}`;
+                modalPaintedBadge.classList.remove('hidden');
+                modalBaseSkinText.innerText = skin.baseSkinName;
+                modalBaseSkinRow.classList.remove('hidden');
+            } else {
+                modalPaintedBadge.classList.add('hidden');
+                modalBaseSkinRow.classList.add('hidden');
+            }
+
             document.getElementById('modalSeriesText').innerText = formatSeriesName(skin.series);
-            document.getElementById('modalCategory').innerText = skin.ownerType === 'SERVANT' ? 'Servant Ascension / Skin' : 'Master Outfit';
-            document.getElementById('modalSlotIndex').innerText = `Slot Sprite #${skin.spriteIndex + 1}`;
+
+            let categoryLabel = '';
+            if (skin.ownerType === 'SERVANT') {
+                categoryLabel = skin.isPainted ? 'Servant Painted Skin (Chroma)' : 'Servant Ascension / Skin';
+            } else if (skin.ownerType === 'MASTER') {
+                categoryLabel = skin.isPainted ? 'Master Painted Outfit (Chroma)' : 'Master Outfit';
+            } else {
+                categoryLabel = skin.isPainted ? 'NPC Painted Outfit (Chroma)' : 'NPC Outfit / Expression';
+            }
+            document.getElementById('modalCategory').innerText = categoryLabel;
+
+            document.getElementById('modalSlotIndex').innerText = skin.isPainted
+                ? `Slot Sprite #${skin.spriteIndex + 1} · Painted Variant #${skin.paintedIndex + 1}`
+                : `Slot Sprite #${skin.spriteIndex + 1}`;
 
             const imgBg = document.getElementById('modalImageBg');
-            imgBg.className = `w-full md:w-1/2 h-72 md:h-96 rounded-lg relative overflow-hidden flex items-center justify-center border border-gray-800 shrink-0 ${skin.ownerType === 'SERVANT' ? (skin.rarity >= 5 ? 'rarity-5' : 'rarity-4') : 'rarity-master'}`;
+            let bgRarity = 'rarity-master';
+            if (skin.ownerType === 'SERVANT') {
+                bgRarity = skin.rarity >= 5 ? 'rarity-5' : 'rarity-4';
+            } else if (skin.ownerType === 'NPC') {
+                bgRarity = 'rarity-npc';
+            }
+            imgBg.className = `w-full md:w-1/2 h-72 md:h-96 rounded-lg relative overflow-hidden flex items-center justify-center border border-gray-800 shrink-0 ${bgRarity}`;
 
             updateModalEquipButton();
 
@@ -739,13 +1044,42 @@
 
         function equipCurrentModalSkin() {
             if (!activeModalSkin) return;
-            equipSkinDirect(activeModalSkin.ownerType, activeModalSkin.ownerId, activeModalSkin.spriteIndex);
+            equipSkinDirect(activeModalSkin.ownerType, activeModalSkin.ownerId, activeModalSkin.spriteIndex, activeModalSkin.paintedIndex);
             closeSkinModal();
         }
 
         function closeSkinModal() {
             skinModal.classList.add('opacity-0');
             setTimeout(() => skinModal.classList.add('hidden'), 300);
+        }
+
+        function exportAllGalleryData() {
+            const combinedData = {
+                masters: getMasters(),
+                servants: getServants(),
+                npcs: getNpcs()
+            };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `fate_dominion_full_db_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Full Database (Servants, Masters & NPCs) Exported!");
+        }
+
+        function confirmResetAllData() {
+            if (confirm("Reset ALL local Servants, Masters & NPCs databases to defaults?")) {
+                localStorage.removeItem('fgo_genshin_servants_db_v4');
+                localStorage.removeItem('fgo_genshin_servants_db_v2');
+                localStorage.removeItem('fgo_genshin_masters_db_v1');
+                localStorage.removeItem('fgo_masters_db_v2');
+                localStorage.removeItem('fgo_masters_db_v1');
+                localStorage.removeItem('fgo_genshin_npcs_db_v1');
+                renderGallery();
+                showToast("Databases Reset to Standard Defaults!");
+            }
         }
 
         function showToast(msg) {
@@ -758,15 +1092,6 @@
         window.onload = function() {
             renderGallery();
         };
-    </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((reg) => console.log('Service Worker Registered:', reg.scope))
-                    .catch((err) => console.error('Service Worker Registration Failed:', err));
-            });
-        }
     </script>
 </body>
 </html>
